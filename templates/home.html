@@ -35,7 +35,7 @@
         <br/>
         <br/>
         <div class="sliding-index">
-            {% for blog in site.categories['blog'] | sort(attribute='datetime', reverse=True) if not blog.featured %}
+            {% for blog in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
                 <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
                     {% if not loop.first%}
                         <hr style="margin-top:2em;"/>
