@@ -10,13 +10,13 @@ datetime: 2011-11-06 15:30:00
 ---
 
 In reference to the recent [ycombinator
-post][http://news.ycombinator.com/item?id=3202081] on why one shouldn't use
+post](http://news.ycombinator.com/item?id=3202081) on why one shouldn't use
 MongoDB, I thought I'd give a chime-in why I went with MongoDB for one of my
-work projects, [netshed][http://github.com/ngokevin/netshed], from a devops
+work projects, [netshed](http://github.com/ngokevin/netshed), from a devops
 standpoint.
 
 
-Why I Went With MongoDB:
+**Why I Went With MongoDB**:
 
 - **flat schema**: the purpose of my project was to dump syslog-ng logs, such
   as DHCP, NAPT, or VPN logs, into a database for some wicked querying speeds
@@ -37,7 +37,7 @@ query especially with the lovely PyMongo
   old SQL, but I love playing with it and it's initially it was extremely easy
 to set up
 
-Now...I encountered several problems while working with this project, but
+Now...I encountered **several problems** while working with this project, but
 managed to overcome them with some sysadmin-flavored hot sauce.
 
 - **wtf, global write lock**: yes, whenever there is a write operation sent to

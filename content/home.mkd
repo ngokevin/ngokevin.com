@@ -3,6 +3,6 @@ type: home
 url: /index.html
 
 pagination:
-    limit: 3
+    limit: 4
 
 ---
