@@ -2,4 +2,7 @@ title: Home
 type: home
 url: /index.html
 
+pagination:
+    limit: 3
+
 ---

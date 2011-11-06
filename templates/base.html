@@ -20,15 +20,15 @@
         <div class="container"> 
 
             <div class="row">
-                <div class="span3">
+                <div class="span7">
                     <span id="logo">
                         <a href='/'>kevin ngo</a><br/>
-                    <span id="sublogo"><br/></span>
+                    <span id="sublogo">programmatically overcoming obstacles<br/></span>
                 </div>
      
-                <div class="span13">
+                <div class="span9">
                     {% block navigation %}
-                        <div id="navigation" style="float: left;">
+                        <div id="navigation" style="float: right;">
                             <a href='/about'><span>About<span></a>
                             <a href='/blog'><span>Blog<span></a>
                             <a href='/contact'><span>Contact<span></a>
@@ -37,19 +37,13 @@
                         </div>
                     {% endblock %}
                 </div>
-
-                <div class="row">
-                    <div class="span16">
-                        <hr style="left:20px; top:20px; position:relative;"/>
-                    </div>
-                </div>
-
             </div>
 
         </div>
       </div>
 
       <div id="main" class="container">
+              <hr/>
               {% block content %}
               {% endblock %}
       </div>
