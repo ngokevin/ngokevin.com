@@ -37,6 +37,9 @@
 <div class="big-index">
     {% for subpage in collection %}
         <div class="big-index-item">
+            {% if not loop.first %}
+                <hr style="margin-top:2em;"/>
+            {% endif %}
             <div class="big-index-heading">
                 <h3><a href="{{subpage.url}}">{{subpage.title}}</a></h3>
                 <span class="metadata">
@@ -59,10 +62,9 @@
             <div>
                 <span class="big-index-post">
                     {{subpage.content|truncate(length=char_limit, end="<a href="+subpage.url+">...more</a>")}}
+                    </code>
+                    </pre>
                 </span>
-                {% if not loop.last %}
-                    <hr/>
-                {% endif %}
             </div>
         </div>
     {% endfor %}
