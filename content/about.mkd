@@ -29,7 +29,7 @@ with **Git**. Along with that I have worked with C/C++, Java, PHP, Bash,
 HTML, CSS, SQL, MongoDB, and SVN. 
 
 Some Projects
-#############
+###
 
 - [reggit][reggit], a home-grown Python API to the OSU class registration
   website (via HTTP requests) along with a full-featured Django frontend 
@@ -46,4 +46,6 @@ for everyone to listen to
 [freegeek]:http://freegeek.com
 [piano]:http://www.youtube.com/watch?v=bocsXSPMYbU
 [tennis]:http://www.facebook.com/video/video.php?v=1065800744763
+[reggit]:http://reggit.us
 [prestobot]:http://www.reddit.com/r/listentothis/comments/kxtx2/prestobot_20111001_download_link_for_todays/
+[lug]:http://lug.oregonstate.edu

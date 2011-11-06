@@ -4,6 +4,20 @@ body{
     padding:0;
     height:100%
 }
+.main h1 { font-size: 2.0em; margin-bottom:5px;}
+.main h2 { font-size: 1.6em; margin-bottom:5px;}
+.main h3 { font-size: 1.3em; }
+.main h4 { font-size: 1.0em; }
+.main h5 {
+    font-size: 1.0em;
+    font-weight: normal;
+    color: #AAA;
+}
+.main h6 {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #AAA;
+}
 
 .container{
     min-height:100%
@@ -31,12 +45,12 @@ body{
 }
 
 #header{
-    padding:5px;
+    margin-top: 1.2em;
 }
 
 #logo{
     font-weight:bold;
-    font-size:28px;
+    font-size:2.3em;
 }
 #logo a{
     text-decoration:none;
@@ -46,13 +60,24 @@ body{
     color: #2AAAAA;
 }
 #sublogo {
-    font-size: .5em;
+    line-height: 2.5em;
     color: grey;
 }
 
 #main {
     padding-top:10px;
     padding-bottom:150px;
+}
+#main a {
+    color: #005454;
+    text-decoration:none;
+}
+#main a:hover {
+    color: #2AAAAA;
+}
+#main hr {
+    margin-top: 0em;
+    margin-bottom: 1em;
 }
 #main p:nth-child(odd) img {
     margin-left: 15px;
@@ -63,9 +88,6 @@ body{
     float: left;
 }
 
-#navigation {
-    padding-left:7px;
-}
 #navigation a {
     text-decoration: none;
     vertical-align:middle;
@@ -82,6 +104,9 @@ body{
     background:#DDDDD3;
 }
 
+.page {
+    margin-top: 10px;
+}
 .page_pic {
     margin-bottom: 20px;
 }
@@ -117,4 +142,8 @@ body{
 .sliding-index {
     min-height: 400px;
     max-height: 400px;
+}
+#sliding-all a {
+    color: black;
+    font-weight: normal;
 }

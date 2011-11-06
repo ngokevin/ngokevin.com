@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}
-    <h2>{{ page.title }}</h2><br/>
+{% block content %}
+    <h2>{{ page.title }}</h2>
     <span class="metadata">
         {% if page.authors %}
             by {% for author in page.authors %}
@@ -13,8 +13,6 @@
             on {{ page.date.strftime("%x") }}
         {% endif %}
     </span>
-{% endblock %}
-{% block content %}
     <div class="page">
         {{ page.content }}
     </div>
