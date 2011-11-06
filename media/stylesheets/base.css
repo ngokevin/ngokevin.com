@@ -147,8 +147,8 @@ body{
 }
 
 .sliding-index {
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 700px;
+    max-height: 700px;
 }
 #sliding-all a {
     color: black;
