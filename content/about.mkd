@@ -8,44 +8,53 @@ image:
     caption: Looking towards the stars
 --- 
 
-My name is Kevin Ngo, an undergraduate **computer science** student at
-Oregon State University, born and raised in Portland. I currently work at the
-OSU Network Engineering Team [NET][net] in Network Services Systems as a
-programmer / web developer. In the past, I have volunteered at [Free
-Geek][freegeek], helping build Linux boxes out of recycled and donated
-computers to give to non-profit organizations.
+My name is Kevin Ngo, an undergraduate **computer science** student at Oregon
+State University, born and raised in Portland. I currently work at the OSU
+Network Engineering Team [NET][net] in Network Services Systems as a programmer
+/ web developer / security-analyst / box-breaker. In the past, I have
+volunteered at [Free Geek][freegeek], helping build Linux boxes out of recycled
+and donated computers to give to non-profit organizations. You can find more
+about me at [linkedin][linkedin]
 
 I love **learning** as well as having the ability to build practical
 applications that could potentially help others. For these reasons, I enjoy
 computer science and **programming**. Because there are so many aspects to both
 and because the world of technology is moving extremely fast (careful not to
 blink), the learning never ends. I also enjoy learning [piano][piano], playing
-[tennis][tennis] and basketball, and zipping around campus on my
-longboard.
+[tennis][tennis] and basketball, and zipping around campus on my longboard.
 
-I prefer working with **Linux** (and it's not even close,
-Windows), programming in **Python/Django**, and keeping it all under wraps
-with **Git**. Along with that I have worked with C/C++, Java, PHP, Bash,
-HTML, CSS, SQL, MongoDB, and SVN. 
+I prefer working in **Linux** (preferably Bebian or Hannah Montana Linux) ,
+developing with **Python/Django**, and keeping it all under wraps with **Git**.
+Along with that I have worked with Bash, DHTML, PHP, SQL, MongoDB, C/C++, Java,
+and SVN. 
 
 Some Projects
 ###
 
-- [reggit][reggit]: a home-grown Python API to the OSU class registration
-  website (via HTTP requests) along with a full-featured Django frontend 
-
-- [prestobot][prestobot]: a bot that scrapes the front page of various music
-  community pages on Reddit for user-posted YouTube links, downloads the links,
-zips and uploads it to Rapidshare, and posts a download link back to the page
-for everyone to listen to
-
 - [lug.oregonstate.edu][lug]: the Oregon State University Linux Users Group
-  website in Wok
+  website in Wok, check out my blog posts!
+
+- [reggit][reggit]: a home-grown Python API to the OSU class registration
+  website (via HTTP requests) along with a full-featured Django frontend. Too
+bad it broke when OSU changed their website, they knew they had competition
+
+- [prestobot][prestobot]: a conglomeration of Python and Bash that scrapes the
+  front page of various music community pages on Reddit for user-posted YouTube
+links, downloads the links, zips and uploads it to Rapidshare, and posts a
+download link back to the page for everyone to listen to
+
+- [netshed][netshed]: library of syslog-ng network log parsers to MongoDB with
+  Django frontend (written at OSU NET), horray for open-sourcing projects!
+
+- [soundcloud-dl][soundcloud]: a Python soundcloud API, the baby of a small
+  hackathon with [uberj][uberj] and [thedjpetersen][thedjpetersen]
 
 [net]:http://oregonstate.edu/net
 [freegeek]:http://freegeek.com
+[linkedin]:http://www.linkedin.com/pub/kevin-ngo/42/576/b5a
 [piano]:http://www.youtube.com/watch?v=bocsXSPMYbU
 [tennis]:http://www.facebook.com/video/video.php?v=1065800744763
 [reggit]:http://reggit.us
 [prestobot]:http://www.reddit.com/r/listentothis/comments/kxtx2/prestobot_20111001_download_link_for_todays/
 [lug]:http://lug.oregonstate.edu
+[soundcloud]:http://github.com/ngokevin/soundcloud-dl

@@ -8,11 +8,11 @@ datetime: 2011-11-05 23:40:00
 
 Give a nice welcome back to my web server. It has been a month since I found my
 web server at my apartment to be receiving anomalous traffic on port 80. I had
-noticed the network being extremely slow, like slower-than-56k-slow. I had to
-idea to shut off my webserver and all of a sudden, my network speed jumped back
-up to normal (well, as normal as crappy Comcast is). To find out what was going
-on, I did a bunch of TCP dumps and opened it up in Wireshark to see what was
-going on.
+noticed my network being slow, much in the way that cheetahs aren't. I had an
+to idea to shut off my webserver and all of a sudden, my network speed jumped
+back up to normal (well, as normal as crappy Comcast is). To find out what was
+going on, I did a bunch of TCP dumps and opened it up in Wireshark to see what
+was going on.
 
 Holy crap, thousands of packets in a span of a few seconds, coming from around
 the world in places like Singapore, Michigan, and the UK. I let it tcpdump,
@@ -37,9 +37,9 @@ was somehow rooted), revamped the website from Django to Wok (borrowing
 elements from when I had worked on the LUG website), and put it back up. 
 
 I will probably begin hosting my webserver at my home in Portland since the
-internet here is quite a bit faster, and the internet in my apartment is slow
-much in the way that cheetahs aren't. I'll start to write more blog posts and 
-transfer the blog posts I currently write for the LUG here.
+internet here is quite a bit faster, and the internet in my apartment is slow,
+like slow-like-56k slow. I'll start to write more blog posts and transfer the
+blog posts I currently write for the LUG here.
 
 ngokevin.com is back!
 

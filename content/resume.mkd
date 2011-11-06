@@ -1,0 +1,72 @@
+title: Kevin Ngo
+slug: resume
+
+--- 
+
+- 3748 SE 119th Ave Portland, OR 97266
+
+- 503-432-9128 | ngoke@onid.oregonstate.edu | ngoke on irc.freenode.net |
+ngokevin.com
+
+Experience
+==========
+
+OSU Network Engineering Team - Programmer / Web Developer / Network Security      March 2011 - Current
+------------------------------------------------------------------------------------------------------
+- Developed a Python log management application that parses and dumps network
+  logs into MongoDB along n with a Django web application for network
+administrators to perform searches on logs
+
+- Wrote and maintained a library of Python scripts that track and notify
+  malware-infected hosts on the network
+
+- Maintain and fix bugs for the open source PHP DNS/DHCP management web
+  application currently being used by over 40,000 hosts on the OSU network
+
+- Refactored the program that handles the automated OSU DMCA file-sharing
+  process and developed the Django web frontend for administrators to manage
+DMCA file-sharing notifications
+
+<a href="http://github.com/ngokevin">github</a> - Open Source Programmer / Web Developer     2011 - Current
+-----------------------------------------------------------------------------------------------------------
+- Developed a Python API via screen-scraping for the OSU class registration
+  system along with a Django web frontend and hosted it on a personal Apache
+web server
+
+- Wrote a music bot that scrapes user-posted YouTube links from Reddit then
+  downloads and encodes the YouTube audio, uploads the music to Rapidshare via
+their API, and posts download links back to the community via the Reddit API
+
+- Designed, currently maintain, and write blog posts and guides for the OSU
+  [Linux Users Group website][http://lug.oregonstate.edu] as officer /
+webmaster of the OSU Linux Users Group
+
+Free Geek - Build Intern     March 2009 - April 2009
+----------------------------------------------------
+- Built Linux boxes from donated recycled parts to give to non-profit organizations
+
+- Tested Ubuntu installs to ensure that the drivers were working properly
+
+Education
+=========
+
+Oregon State University     2009-Current
+----------------------------------------
+- Computer Science | Junior Standing | 3.59 GPA
+
+- Expected Graduation: Spring 2013
+
+David Douglas High School     2005-2009
+---------------------------------------
+- Graduated with 3.97 GPA
+
+- Recipient of Ford Family Foundation's Ford Scholars Program Four-Year Scholarship
+
+Skills
+======
+<table>
+    <tr><td>Languages</td><td>Python | Bash | C | HTML/CSS | PHP | Java | JavaScript</td></tr>
+    <tr><td>Frameworks</td><td>Django | Wok | jQuery</td></tr>
+    <tr><td>Databases</td><td>MongoDB | MySQL</td></tr>
+    <tr><td>Tools</td><td>Vim | Git | SVN | Firebug</td></tr>
+</table>

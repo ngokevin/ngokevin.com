@@ -2,11 +2,28 @@ title: Contact
 tags: navigation
 navrank: 4
 
+image:
+    url: /images/bros.png
+    where: right
+
 ---
 
-**IRC**: ngoke on IRC
+###irc
+*ngoke* on irc.freenode.net
 
-**email**: ngoke@onid.oregonstate.edu
+###email 
+ngoke@onid.oregonstate.edu
 
-**work email**: kevin.ngo@oregonstate.edu
+###work email
+kevin.ngo@oregonstate.edu
+
+###github
+[ngokevin][github]
+
+###gpg key
+
+[pubkey][gpg]
+
+[gpg]:http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527
+[github]:http://github.com/ngokevin
 
