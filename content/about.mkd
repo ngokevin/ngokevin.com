@@ -5,7 +5,7 @@ navrank: 1
 image:
     url: /images/star.jpg
     where: left
-    caption: Looking towards the stars.
+    caption: Looking towards the stars
 --- 
 
 My name is Kevin Ngo, an undergraduate **computer science** student at
@@ -31,15 +31,15 @@ HTML, CSS, SQL, MongoDB, and SVN.
 Some Projects
 ###
 
-- [reggit][reggit], a home-grown Python API to the OSU class registration
+- [reggit][reggit]: a home-grown Python API to the OSU class registration
   website (via HTTP requests) along with a full-featured Django frontend 
 
-- [prestobot][prestobot], a bot that scrapes the front page of various music
+- [prestobot][prestobot]: a bot that scrapes the front page of various music
   community pages on Reddit for user-posted YouTube links, downloads the links,
 zips and uploads it to Rapidshare, and posts a download link back to the page
 for everyone to listen to
 
-- [lug.oregonstate.edu][lug], the Oregon State University Linux Users Group
+- [lug.oregonstate.edu][lug]: the Oregon State University Linux Users Group
   website in Wok
 
 [net]:http://oregonstate.edu/net

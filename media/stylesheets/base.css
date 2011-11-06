@@ -4,21 +4,24 @@ body{
     padding:0;
     height:100%
 }
-.main h1 { font-size: 2.0em; margin-bottom:5px;}
-.main h2 { font-size: 1.6em; margin-bottom:5px;}
-.main h3 { font-size: 1.3em; }
-.main h4 { font-size: 1.0em; }
-.main h5 {
+#main h1 { font-size: 2.0em; line-height:2.2em; }
+#main h2 { font-size: 1.6em; line-height:1.8em;}
+#main h3 { font-size: 1.3em; line-height:1.5em; }
+#main h4 { font-size: 1.0em; line-height:1.2em }
+#main h5 {
     font-size: 1.0em;
     font-weight: normal;
     color: #AAA;
 }
-.main h6 {
+#main h6 {
     font-size: 0.8em;
     font-weight: normal;
     color: #AAA;
 }
-
+#main li, #main ol {
+    list-style: none;
+}
+ 
 .container{
     min-height:100%
     position:relative;
@@ -107,6 +110,14 @@ body{
 .page {
     margin-top: 10px;
 }
+.base-image img {
+    margin-bottom: 5px;
+    max-height: 480px;
+}
+.base-image span {
+    font-size: .9em;
+    font-style: italic;
+}
 .page_pic {
     margin-bottom: 20px;
 }
@@ -133,10 +144,6 @@ body{
 .page_pic img {
     margin-top: 5px;
     display: block;
-}
-.base-image img {
-    margin-bottom: 5px;
-    max-height: 480px;
 }
 
 .sliding-index {

@@ -4,5 +4,9 @@ navrank: 4
 
 ---
 
-ngoke on IRC
-ngoke@onid.oregonstate.edu
+**IRC**: ngoke on IRC
+
+**email**: ngoke@onid.oregonstate.edu
+
+**work email**: kevin.ngo@oregonstate.edu
+
