@@ -41,5 +41,12 @@ internet here is quite a bit faster, and the internet in my apartment is slow,
 like slow-like-56k slow. I'll start to write more blog posts and transfer the
 blog posts I currently write for the LUG here.
 
+To mitigate future compromises, I have put my webserver behind two firewalls 
+(although it probably won't help since port 80 is open), closed off 
+services such as gnump3d and mediatomb, removed the ability to download 
+documents over HTTP, and made access to the webserver via public key only
+(don't allow password authentication). It helps that this site is static
+and therefore can't be injected with anything.
+
 ngokevin.com is back!
 

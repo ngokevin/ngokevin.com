@@ -14,8 +14,10 @@ ngokevin.com
 Experience
 ==========
 
-OSU Network Engineering Team - Programmer / Web Developer / Network Security      March 2011 - Current
-------------------------------------------------------------------------------------------------------
+OSU Network Engineering Team - Programmer / Web-Dev / Net-Sec
+----------------------------------------------------------------------------
+March 2011 - Current
+
 - Developed a Python log management application that parses and dumps network
   logs into MongoDB along n with a Django web application for network
 administrators to perform searches on logs
@@ -30,8 +32,10 @@ administrators to perform searches on logs
   process and developed the Django web frontend for administrators to manage
 DMCA file-sharing notifications
 
-<a href="http://github.com/ngokevin">github</a> - Open Source Programmer / Web Developer     2011 - Current
------------------------------------------------------------------------------------------------------------
+<a href="http://github.com/ngokevin">github</a> - Programmer / Web-Dev
+----------------------------------------------------------------------
+2011 - Current
+
 - Developed a Python API via screen-scraping for the OSU class registration
   system along with a Django web frontend and hosted it on a personal Apache
 web server
@@ -44,8 +48,10 @@ their API, and posts download links back to the community via the Reddit API
   [Linux Users Group website][http://lug.oregonstate.edu] as officer /
 webmaster of the OSU Linux Users Group
 
-Free Geek - Build Intern     March 2009 - April 2009
-----------------------------------------------------
+Free Geek - Build Intern    
+------------------------
+March 2009 - April 2009
+
 - Built Linux boxes from donated recycled parts to give to non-profit organizations
 
 - Tested Ubuntu installs to ensure that the drivers were working properly
@@ -53,14 +59,18 @@ Free Geek - Build Intern     March 2009 - April 2009
 Education
 =========
 
-Oregon State University     2009-Current
-----------------------------------------
+Oregon State University     
+-----------------------
+2009-Current
+
 - Computer Science | Junior Standing | 3.59 GPA
 
 - Expected Graduation: Spring 2013
 
-David Douglas High School     2005-2009
----------------------------------------
+David Douglas High School     
+-------------------------
+2005-2009
+
 - Graduated with 3.97 GPA
 
 - Recipient of Ford Family Foundation's Ford Scholars Program Four-Year Scholarship
