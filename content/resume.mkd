@@ -1,7 +1,10 @@
-title: Kevin Ngo
+title: Resume
 slug: resume
 
 --- 
+
+Kevin Ngo
+=========
 
 - 3748 SE 119th Ave Portland, OR 97266
 

@@ -1,2 +1,2 @@
-site_title: Home | Kevin Ngo
+site_title: Kevin Ngo
 url_pattern: "/{category}/{slug}/index{page}.html"
