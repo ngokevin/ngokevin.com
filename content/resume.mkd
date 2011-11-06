@@ -9,16 +9,16 @@ Kevin Ngo
 - 3748 SE 119th Ave Portland, OR 97266
 
 - 503-432-9128 | ngoke@onid.oregonstate.edu | ngoke on irc.freenode.net |
-ngokevin.com
+[ngokevin.com](http://ngokevin.com) | [linkedin](http://www.linkedin.com/pub/kevin-ngo/42/576/b5a)
 
 Experience
 ==========
 
-OSU Network Engineering Team - Programmer / Web-Dev / Net-Sec
-----------------------------------------------------------------------------
+<a href="http://oregonstate.edu/net">OSU Network Engineering Team</a> - Programmer / Web-Dev / Net-Sec
+------------------------------------------------------------------------------------------------------
 March 2011 - Current
 
-- Developed a Python log management application that parses and dumps network
+- Developed a [Python log management application][netshed] that parses and dumps network
   logs into MongoDB along n with a Django web application for network
 administrators to perform searches on logs
 
@@ -32,24 +32,32 @@ administrators to perform searches on logs
   process and developed the Django web frontend for administrators to manage
 DMCA file-sharing notifications
 
+[netshed]:http://github.com/ngokevin/netshed
+
 <a href="http://github.com/ngokevin">github</a> - Programmer / Web-Dev
 ----------------------------------------------------------------------
 2011 - Current
 
-- Developed a Python API via screen-scraping for the OSU class registration
-  system along with a Django web frontend and hosted it on a personal Apache
-web server
+- Developed a [OSU class registration system Python API][reglib] via
+  screen-scraping along with a Django web frontend and hosted it on a personal
+Apache web server
 
-- Wrote a music bot that scrapes user-posted YouTube links from Reddit then
+- Developed a [Soundcloud Python API][soundcloud] that can grab or batch grab music files
+
+- Wrote a [music bot][prestobot] that scrapes user-posted YouTube links from Reddit then
   downloads and encodes the YouTube audio, uploads the music to Rapidshare via
 their API, and posts download links back to the community via the Reddit API
 
 - Designed, currently maintain, and write blog posts and guides for the OSU
-  [Linux Users Group website][http://lug.oregonstate.edu] as officer /
+  [Linux Users Group website](http://lug.oregonstate.edu) as officer /
 webmaster of the OSU Linux Users Group
 
-Free Geek - Build Intern    
-------------------------
+[reglib]:http://github.com/ngokevin/reglib
+[soundcloud]:http://github.com/ngokevin/soundcloud-dl
+[prestobot]:http://www.reddit.com/r/listentothis/comments/l3j5w/prestobot_20111006_download_link_for_todays/
+
+<a href="http://freegeek.org">Free Geek</a> - Build Intern    
+----------------------------------------------------------
 March 2009 - April 2009
 
 - Built Linux boxes from donated recycled parts to give to non-profit organizations
@@ -59,8 +67,8 @@ March 2009 - April 2009
 Education
 =========
 
-Oregon State University     
------------------------
+<a href="http://eecs.oregonstate.edu/">Oregon State University</a>
+------------------------------------------------------------------
 2009-Current
 
 - Computer Science | Junior Standing | 3.59 GPA
@@ -73,13 +81,24 @@ David Douglas High School
 
 - Graduated with 3.97 GPA
 
-- Recipient of Ford Family Foundation's Ford Scholars Program Four-Year Scholarship
+- Recipient of Ford Family Foundation's [Ford Scholars Program][ford] Four-Year Scholarship
 
 Skills
 ======
 <table>
-    <tr><td>Languages</td><td>Python | Bash | C | HTML/CSS | PHP | Java | JavaScript</td></tr>
-    <tr><td>Frameworks</td><td>Django | Wok | jQuery</td></tr>
-    <tr><td>Databases</td><td>MongoDB | MySQL</td></tr>
-    <tr><td>Tools</td><td>Vim | Git | SVN | Firebug</td></tr>
+    <tr><td>Languages</td><td>[Python][python] | [Bash][bash] | [C][c] | HTML/CSS | PHP | Java | JavaScript</td></tr>
+    <tr><td>Frameworks</td><td>[Django][django] | [Wok][wok] | [jQuery][jquery]</td></tr>
+    <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
+    <tr><td>Tools</td><td>Vim | [Git][git] | SVN | [Firebug][firebug]</td></tr>
 </table>
+
+[ford]:http://www.tfff.org/ScholarshipPrograms/FordScholarsProgram/OregonFordScholars/tabid/65/Default.aspx
+[python]:http://python.org
+[bash]:http://gnu.org/s/bash/
+[c]:http://en.wikipedia.org/wiki/Dennis_Ritchie
+[django]:http://djangoproject.com
+[mongodb]:http://mongodb.org
+[wok]:http://github.com/mythmon/wok
+[jquery]:http://jquery.com
+[git]:http://git-scm.com
+[firebug]:http://getfirebug.com

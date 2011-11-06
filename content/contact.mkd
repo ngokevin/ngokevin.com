@@ -18,12 +18,13 @@ ngoke@onid.oregonstate.edu
 kevin.ngo@oregonstate.edu
 
 ###github
-[ngokevin][github]
+[ngokevin](http://github.com/ngokevin)
 
 ###gpg key
 
-[pubkey][gpg]
+[pubkey](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527)
 
-[gpg]:http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527
-[github]:http://github.com/ngokevin
+###linkedin
+
+[linkedin](http://www.linkedin.com/pub/kevin-ngo/42/576/b5a)
 
