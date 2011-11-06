@@ -1,0 +1,16 @@
+title: Blog
+type: index-big
+slug: blog
+url: /blog/index{page}.html
+
+index:
+    height: 200
+    char_limit: 940
+
+pagination:
+    list: page.subpages
+    limit: 3
+    sort_key: date
+    sort_reverse: True
+
+---

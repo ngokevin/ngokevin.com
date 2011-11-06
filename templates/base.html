@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhml" xml:lang="en" lang="en">
+
+    <style type="text/css" media="all">
+        h1{display: inline;}
+    </style>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/base.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scrapbook.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sticky_footer.css" />
+    <script type="text/javascript" src="/javascripts/jquery-min.js" ></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div class="container"> 
+
+            <div class="row">
+                <div class="span3">
+                    <span id="logo">
+                        <a href='/'>kevin ngo</a><br/>
+                    <span id="sublogo"><br/></span>
+                </div>
+     
+                <div class="span13">
+                    {% block navigation %}
+                        <div id="navigation" style="float: left;">
+                            <a href='/about'><span>About<span></a>
+                            <a href='/blog'><span>Blog<span></a>
+                            <a href='/contact'><span>Contact<span></a>
+                            <a href='/stream'><span>Stream<span></a>
+                          <a href='/site_media'><span>Media<span></a>
+                        </div>
+                    {% endblock %}
+                </div>
+
+                <div class="row">
+                    <div class="span16">
+                        <hr style="left:20px; top:20px; position:relative;"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+      </div>
+
+      <div id="main" class="container">
+              {% block content %}
+              {% endblock %}
+      </div>
+    </div>
+
+    <div id="footer">
+        <span>                                                    
+              Copyright <a>Kevin Ngo</a><br/>
+              Github: <a href="http://github.com/ngokevin">github.com/ngokevin</a><br/>
+              Powered by 
+              <a href="http://djangoproject.com">Django</a> | 
+              <a href="http://apache.org">Apache</a> | 
+              <a href="http://debian.org">Debian</a><br/>
+        </span>
+    </div>
+  </body>
+</html>
+
+

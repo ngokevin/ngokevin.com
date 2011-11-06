@@ -1,0 +1,52 @@
+.resize img {
+    width: 320px;
+    height : auto;
+}
+.resize img {
+    width: auto;
+    height : 240px;
+}
+#scrapbook {
+    background: #007500;
+}
+#scrapbook a {
+   display:block;
+   float:left;
+   width:188px;
+   height:290px;
+   overflow:hidden;
+   position:relative;
+   z-index:1;      
+}
+#scrapbook a img {
+   float:left;
+   position:absolute;
+}
+#scrapbook a:hover {
+   overflow:visible;
+   z-index:100;
+   border:none;        
+}
+
+#scrapbook #img1{
+    top:-10px;
+    left:-20px;
+}
+#scrapbook #img2{
+    top:-10px;
+    left:-80px;
+}
+#scrapbook #img3{
+    top:-10px;
+    left:-50px;
+}
+#scrapbook #img4{
+    top:-10px;
+    left:-60px;
+}
+#scrapbook #img5{
+    top:-10px;
+    left:-20px;
+}
+
+

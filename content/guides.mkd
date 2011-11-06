@@ -1,0 +1,10 @@
+title: Guides
+slug: guide
+type: index-tag
+tags: navigation
+navrank: 2
+image:
+    url: /images/penguin_how.jpg
+    where: left
+---
+"Linux Survival Guide" or "How Not to Suck at Linux" by fellow OSULUG members.

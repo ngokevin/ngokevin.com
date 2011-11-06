@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <h2>{{ page.title }}</h2><br/>
+    <span class="metadata">
+        {% if page.authors %}
+            by {% for author in page.authors %}
+                {% if loop.last and not loop.first %}and {% endif %}
+                {{ author.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if page.date %}
+            on {{ page.date.strftime("%x") }}
+        {% endif %}
+    </span>
+{% endblock %}
+{% block content %}
+    <div class="page">
+        {{ page.content }}
+    </div>
+{% endblock %}

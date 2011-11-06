@@ -1,0 +1,102 @@
+html,
+body{
+    margin:0;
+    padding:0;
+    height:100%
+}
+
+#about {
+    color:grey;
+}
+#about a {
+    color: #005454;
+    text-decoration:none;
+}
+#about a:hover {
+    color: #2AAAAA;
+}
+.about_resize {
+width: 400px;
+height : auto;
+}
+.about_resize {
+width: auto;
+height : 600px;
+}
+
+#container{
+    min-height:100%
+    position:relative;
+}
+
+#footer
+{
+    /* Overrides sticky-footer */
+    min-width:960px;
+    background: #DDDDD3; 
+    padding-top: 10px;
+    height: 80px;
+    margin-top: -80px;
+}
+#footer{
+    text-align:center;
+}
+#footer a {
+    color: #005454;
+    text-decoration:none;
+}
+#footer a:hover {
+    color: #2AAAAA;
+}
+
+#header{
+    padding:5px;
+}
+
+#login{
+    padding-top:3px;
+}
+#login input {
+    color:grey;
+}
+
+#logo{
+    font-weight:bold;
+    font-size:28px;
+}
+#logo a{
+    text-decoration:none;
+    color: #005454;
+}
+#logo a:hover {
+    color: #2AAAAA;
+}
+#sublogo{
+    color: grey;
+}
+
+#main {
+    padding-top:10px;
+    padding-bottom:150px;
+
+}
+
+#navigation{
+    padding-left:7px;
+}
+#navigation a{
+    text-decoration: none;
+    vertical-align:middle;
+}
+#navigation a:hover {
+    color:#2AAAAA;
+}
+#navigation span{
+    padding:14px;
+    border-radius:8px;
+    color:black;
+}
+#navigation span:hover {
+    background:#DDDDD3;
+}
+

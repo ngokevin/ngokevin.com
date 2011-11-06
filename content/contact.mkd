@@ -1,0 +1,8 @@
+title: Contact
+type: contact
+tags: navigation
+navrank: 4
+---
+
+ngoke on IRC
+ngoke@onid.oregonstate.edu
