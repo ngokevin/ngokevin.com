@@ -58,3 +58,6 @@ download link back to the page for everyone to listen to
 [prestobot]:http://www.reddit.com/r/listentothis/comments/kxtx2/prestobot_20111001_download_link_for_todays/
 [lug]:http://lug.oregonstate.edu
 [soundcloud]:http://github.com/ngokevin/soundcloud-dl
+[netshed]:http://github.com/ngokevin/netshed
+[uberj]:http://uberj.com
+[thedjpetersen]:http://thedjpetersen.github.com
