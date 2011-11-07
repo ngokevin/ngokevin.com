@@ -22,12 +22,6 @@
    float:left;
    position:absolute;
 }
-#scrapbook a:hover {
-   overflow:visible;
-   z-index:100;
-   border:none;        
-}
-
 #scrapbook #img1{
     top:-10px;
     left:-20px;
