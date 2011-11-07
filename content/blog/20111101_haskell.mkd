@@ -9,12 +9,12 @@ datetime: 2011-11-01 18:00:00
 
 ---
 
-Ian Milligan, a math graduate student, gave the LUG an introduction to Haskell.
-Haskell is a functional programming language that is quite different from the
-usual imperative programming languages. We did calculated Fib numbers and
-generators (infinite lists on the fly) Haskell-style. It was an intense
-experience that left several of us dazed, but it was interesting to see
-something different. At the end, here was our demo code.
+Ian Milligan, a math graduate student, gave the LUG an introduction to
+**Haskell**.  Haskell is a functional programming language that is quite
+different from the usual imperative programming languages. We did calculated
+Fib numbers and **generators** (infinite lists on the fly) Haskell-style. It
+was an intense experience that left several of us dazed, but it was interesting
+to see something different. At the end, here was our demo code.
 
 
     module Demo where 

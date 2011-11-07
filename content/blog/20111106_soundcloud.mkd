@@ -17,11 +17,11 @@ when the idea of an impromptu **hackthon** came into our minds. At the strike of
 we powered ourselves up into coding mode and set off to hack away at a Python
 Soundcloud API that would allow us to download music from the streams.
 
-We first attempted to use [Mechanize][mechanize] to scrape the pages. uberj had previously
-used Burp to monitor what requests the browser was sending to Soundcloud and
-found that it was passing a "stream token", which was needed to request the
-stream, and the song's "uid". And we figured we needed to have a valid cookie
-as well. Security by obsurity much?
+We first attempted to use [Mechanize][mechanize] to scrape the pages. uberj had
+previously used [Burp](http://portswigger.net/proxy) to monitor what requests
+the browser was sending to Soundcloud and found that it was passing a "stream
+token", which was needed to request the stream, and the song's "uid". And we
+figured we needed to have a valid cookie as well. Security by obsurity much?
 
 We ran into a slight hitch. We were able to compose a valid URL with the stream
 token and the uid, but we weren't able to print out the cookies. We had to
