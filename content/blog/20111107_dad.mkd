@@ -1,0 +1,53 @@
+title: "My Dad, the Ultimate Shell"
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+datetime: 2011-11-07 2:30:00
+
+---
+
+It was a frantic day that included rushing to get wireless drivers working on
+my [reinstalled](http://ngokevin.com/blog/web-server-back-up/index.html)
+wireless headless server (which you are reading from now the story ends well).
+Time was running short as I had tickets to LaMarcus Aldridge's charity
+[basketball game][bb] at University of Portland.  It was the second time I
+struggled to do so though you'd think it'd be easier now that I'm familiar with
+wpa-supplicant, but alas I am no elephant. After about an hour attempting to
+grab drivers from the Debian sources, the manufacturer's website (which had a
+broken Makefile I tried to fix), my dad reminded me that I had previously used
+the driver CD it came with for Windows which I had used to install via
+[ndiswrapper][ndiswrapper].
+
+Thus, with a jolt to the memory, I got wireless up and running and rushed off
+to see some **Brandon Roy and Kevin Durant**...except Roy didn't even make an
+appearance. The game was largely disappointing and awkward as the crowd got
+bored and silent from the players chucking up 3s and missing layups...although
+there were some occassional highlights, but more potential highlights that
+failed. Halftime featured awful University of Portland dancers that seemed to
+be three dimensions removed from post-modern. With University of Portland a
+Catholic institution, my friend and I joked to them as **"Hell's Angels"**,
+sent from the pits of hell itself to bore us to death. However, it was redeemed
+by a 4'5 kid deftly impersonating Michael Jackson and doing the **Dougie** with
+Nate Robinson.
+
+I drove back to Corvallis (and upon arrival discovered my roommates had thrown
+away my **bananas** on suspicion of riling up fruit flies), and tried to get
+onto [ngokevin.com](http://ngokevin.com)...it wouldn't connect! 100 miles away
+from my webserver and I couldn't do anything. I figured that my router's DHCP
+must have *leased my server a new IP*, and I needed to open up ports to the
+newly leased IP. Stupid me for not having enough time to give it a static IP
+address.
+
+However, I did not fear as I knew **my dad** was on-site. I called him up and
+used him as a proxy Bash shell. My voice was the keyboard, and he was my
+display. It took us about 2 minutes to communicate that I wanted him to run
+*sudo ifconfig* and what my root password was ("x?" "no, f", "x?" "F!", "b?" "f
+as in fox!"), and we noted what my local IP was. Then I had him go into the
+router settings and check what IP port 80 was forwarding too...it was **my old
+leased IP**. I enthusiastically asked him to flip it to the new one and
+**boom**, ngokevin.com was back in action!
+
+Welcome back again, ngokevin.com! May you live as long as Jack Harkness.
+
+[bb]:http://www.blazersedge.com/2011/11/7/2543758/media-row-report-rip-city-basketball-classic-home-164-away-157
+[ndiswrapper]:https://help.ubuntu.com/community/WifiDocs/Driver/Ndiswrapper

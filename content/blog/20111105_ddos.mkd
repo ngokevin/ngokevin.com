@@ -14,7 +14,7 @@ jumped back up to normal (well, as normal as crappy Comcast is). To find out
 what was going on, I did a bunch of **TCP dumps** and opened it up in
 [Wireshark][wireshark] to see what was going on.
 
-Holy crap, thousands of packets in a span of a few seconds, coming from around
+Holy crap, **thousands of packets** in a span of a few seconds, coming from around
 the world in places like Singapore, Michigan, and the UK. I let it tcpdump,
 again and again. Once, I let it run for an hour and my webserver had used .5gB
 of bandwidth just getting pounded by empty packets. Can you say *half a million
