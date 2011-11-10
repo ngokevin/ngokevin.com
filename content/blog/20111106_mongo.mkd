@@ -11,9 +11,9 @@ datetime: 2011-11-06 15:30:00
 
 In reference to the recent [ycombinator
 post](http://news.ycombinator.com/item?id=3202081) on why one shouldn't use
-MongoDB, I thought I'd give a chime-in why I went with MongoDB for one of my
-work projects, [netshed](http://github.com/ngokevin/netshed), from a devops
-standpoint.
+MongoDB (**EDIT**: the HN post was a hoax), I thought I'd give a chime-in why I went
+with MongoDB for one of my work projects,
+[netshed](http://github.com/ngokevin/netshed), from a devops standpoint.
 
 
 **Why I Went With MongoDB**:
@@ -34,7 +34,7 @@ fields are in, in Mongo, the fields have a name. The JSON allows for very rich
 query especially with the lovely PyMongo
 
 - **it's hip**: I'll be honest, it's a shiny new toy that deviates from boring,
-  old SQL, but I love playing with it and it's initially it was extremely easy
+  old SQL, but I love playing with it, and initially it was extremely easy
 to set up
 
 Now...I encountered **several problems** while working with this project, but
