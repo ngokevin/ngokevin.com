@@ -4,7 +4,7 @@ tags: navigation
 navrank: 1
 image:
     url: /images/star.jpg
-    where: left
+    where: right
     caption: Looking towards the stars
 --- 
 
@@ -20,15 +20,16 @@ I love **learning** as well as having the ability to build practical
 applications that could potentially help others. For these reasons, I enjoy
 computer science and **programming**. Because there are so many aspects to both
 and because the world of technology is moving extremely fast (careful not to
-blink), the learning never ends. I also enjoy learning [piano][piano], playing
-[tennis][tennis] and basketball, and zipping around campus on my longboard.
+blink), the learning never ends. Besides programming, I enjoy playing
+basketball and [tennis][tennis], longboarding, and memorizing [piano][piano]
+sheets (though my fingers dance a lot better on a computer keyboard).
 
 I prefer working in **Linux** (preferably Bebian or Hannah Montana Linux) ,
 developing with **Python/Django**, and keeping it all under wraps with **Git**.
-Along with that I have worked with Bash, DHTML, PHP, SQL, MongoDB, C/C++, Java,
-and SVN. 
+Along with that, I have worked with Bash, HTML and CSS, Javascript, PHP, SQL,
+MongoDB, C, Java, and SVN.
 
-Some Projects
+**Some Projects**
 ###
 
 - [lug.oregonstate.edu][lug]: the Oregon State University Linux Users Group
@@ -47,7 +48,10 @@ download link back to the page for everyone to listen to
   Django frontend (written at OSU NET), horray for open-sourcing projects!
 
 - [soundcloud-dl][soundcloud]: a Python soundcloud API, the baby of a small
-  hackathon with [uberj][uberj] and [thedjpetersen][thedjpetersen]
+  hackathon with [uberj][uberj] and [thedjpetersen][thedjpetersen]. Later
+merged into [youtube-dl][youtube-dl]
+
+Check my [**resume**](/resume) for the full breakdown. 
 
 [net]:http://oregonstate.edu/net
 [freegeek]:http://freegeek.com
@@ -61,3 +65,4 @@ download link back to the page for everyone to listen to
 [netshed]:http://github.com/ngokevin/netshed
 [uberj]:http://uberj.com
 [thedjpetersen]:http://thedjpetersen.github.com
+[youtube-dl]:http://github.com/rg3/youtube-dl
