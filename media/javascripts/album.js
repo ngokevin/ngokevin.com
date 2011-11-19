@@ -1,5 +1,5 @@
 // retrieve slug to determine what directory album is in
-var slug = $('#album-slug').text();
+var slug = document.getElementById('album-slug').innerHTML;
 var album_url = "/images/gallery/" + slug + "/";
 
 // make request to index of album directory
