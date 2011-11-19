@@ -1,11 +1,13 @@
 {% extends "default.html" %}
 
 {% block content %}
+
+     <script type="text/javascript" src="/javascripts/gallery.js" ></script>
+
     <h2>{{ page.title }}</h2>
     {% for album in site.categories['gallery'] %}
         <a href="/gallery/{{ album.slug }}">{{album.title}}</a>
     {% endfor %}
 
-    {{page.content}}
 {% endblock %}
 
