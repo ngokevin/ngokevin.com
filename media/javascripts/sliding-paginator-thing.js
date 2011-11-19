@@ -21,7 +21,7 @@ $(document).ready(function(){
             if (current_page == 0){
                 document.getElementById("sliding-prev-page").disabled = true;
             }
-            $('div.sliding-index-page' + current_page).show('slide', {direction:'left'}, 800);                
+            $('div.sliding-index-page' + current_page).show('slide', {direction:'left'}, 800);
         }
     });
 
