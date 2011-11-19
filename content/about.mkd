@@ -6,7 +6,7 @@ image:
     url: /images/star.jpg
     where: right
     caption: Looking towards the stars
---- 
+---
 
 My name is Kevin Ngo, an undergraduate **computer science** student at Oregon
 State University, born and raised in Portland. I currently work at the OSU

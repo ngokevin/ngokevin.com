@@ -1,0 +1,11 @@
+{% extends "default.html" %}
+
+{% block content %}
+    <h2>{{ page.title }}</h2>
+    {% for album in site.categories['gallery'] %}
+        <a href="/gallery/{{ album.slug }}">{{album.title}}</a>
+    {% endfor %}
+
+    {{page.content}}
+{% endblock %}
+
