@@ -2,15 +2,19 @@
 
 {% block content %}
 
-     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
-
+    <link rel="stylesheet" type="text/css" href="/stylesheets/gallery.css" />
+    <script type="text/javascript" src="/javascripts/utilities.js" ></script>
     <h2>{{ page.title }}</h2>
+
     {% for album in site.categories['gallery'] %}
+        <!--Allow JavaScript to access the slugs-->
         <span class="album-slug" style="display:none;">{{ album.slug }}</span>
         <a href="/gallery/{{ album.slug }}">{{album.title}}</a>
     {% endfor %}
 
-     <script type="text/javascript" src="/javascripts/gallery.js" ></script>
+    <div id="gallery">
+        <script type="text/javascript" src="/javascripts/gallery.js" ></script>
+    </div>
 
 {% endblock %}
 

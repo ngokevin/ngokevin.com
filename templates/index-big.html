@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {# Set defaults #}
-
 {% set min_height = 150 %}
 {% set char_limit = 500 %}
 {% set collection = page.subpages %}
@@ -31,6 +30,8 @@
 {# Render list #}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
+
 <h2>{{ page.title }}</h2>
 {{ page.content }}
 

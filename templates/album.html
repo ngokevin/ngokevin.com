@@ -2,6 +2,7 @@
 
 {% block content %}
 
+    <link rel="stylesheet" type="text/css" href="/stylesheets/album.css" />
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
 
     <!--Allows Javascript to access the slug-->
@@ -10,7 +11,9 @@
     <h2>{{ page.title }}</h2>
     {{page.content}}
 
-    <script type="text/javascript" src="/javascripts/album.js" ></script>
+    <div id="album">
+        <script type="text/javascript" src="/javascripts/album.js" ></script>
+    </div>
 
 {% endblock %}
 
