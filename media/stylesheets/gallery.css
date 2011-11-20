@@ -1,3 +1,6 @@
+#gallery {
+    margin-top: 1.1em;
+}
 #gallery img {
     width: 300px;
     height : auto;
@@ -26,9 +29,22 @@
     top:-10px;
     left:-5px;
 }
-
 #gallery a:hover {
     -moz-opacity:.75;
     filter:alpha(opacity=75);
     opacity:.75;
+}
+#gallery h3 span {
+    position: relative;
+    z-index: 1001;
+    bottom: 60px;
+    color: white;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font: bold 16px/37px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+
 }

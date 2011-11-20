@@ -38,6 +38,7 @@ for (var index in album_htmls) {
     image_preview_arrays.push(images);
 }
 
+// write images to dom
 var gallery = document.getElementById("gallery");
 for (var index in image_preview_arrays) {
 
@@ -53,6 +54,15 @@ for (var index in image_preview_arrays) {
     div.id = "album-preview";
     div.className = "span4";
     div.appendChild(image_preview_arrays[index][0]);
+
+    // create overlay text
+    h3 = document.createElement("h3");
+    span = document.createElement("span");
+    span.appendChild(document.createTextNode(album_titles[index].innerHTML));
+    h3.appendChild(span);
+    div.appendChild(h3);
+
+    // append to row
     row.appendChild(div);
 }
 
