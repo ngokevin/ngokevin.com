@@ -10,18 +10,18 @@
     height : 300px;
 }
 #gallery a {
-   overflow:hidden;
-   position:relative;
-   float:left;
-   width:210px;
-   height:210px;
-   z-index:1;
+    overflow:hidden;
+    position:relative;
+    float:left;
+    width:210px;
+    height:210px;
+    z-index:1;
 
-   border-style: solid;
-   border-width: thin;
-   border-radius: 4px;
-   margin-right: 10px;
-   padding: 3px;
+    box-shadow: 4px 4px 1px #888888;
+    border-style: double;
+    border-color: #DDDDD3;
+    border-width: 7px;
+    margin-right: 10px;
 }
 #gallery a img{
     float:left;
@@ -29,7 +29,7 @@
     top:-10px;
     left:-5px;
 }
-#gallery a:hover {
+#gallery img:hover {
     -moz-opacity:.75;
     filter:alpha(opacity=75);
     opacity:.75;
@@ -38,6 +38,7 @@
     position: relative;
     z-index: 1001;
     bottom: 60px;
+    left: 7px;
     color: white;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
