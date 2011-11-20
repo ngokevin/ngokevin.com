@@ -8,13 +8,21 @@ request.open("GET", album_url , false);
 request.send(null);
 var html = request.responseText;
 
-// parse out image names and push complete url to array
+// for each album, create an array of images within them to use as previews
 var image_regex = /href="(.*.(jpg|png))"/gi;
 var images = new Array();
 while (match = image_regex.exec(html)) {
-    images.push("<img src=" + album_url + match[1] + "/>");
+    var a = document.createElement("a");
+    var img = document.createElement("img");
+    img.src = album_url + match[1];
+
+    a.appendChild(img)
+
+    images.push(a);
 }
 
-for (image in images) {
-    document.write(images[image]);
+var album = document.getElementById("album");
+for (var index in images) {
+    album.appendChild(images[index]);
 }
+

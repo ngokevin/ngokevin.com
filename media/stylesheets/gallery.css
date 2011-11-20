@@ -10,8 +10,8 @@
    overflow:hidden;
    position:relative;
    float:left;
-   width:188px;
-   height:188px;
+   width:210px;
+   height:210px;
    z-index:1;
 
    border-style: solid;
@@ -27,9 +27,6 @@
     left:-5px;
 }
 
-#gallery img {
-    margin-top: -20px;
-}
 #gallery a:hover {
     -moz-opacity:.75;
     filter:alpha(opacity=75);
