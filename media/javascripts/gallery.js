@@ -1,7 +1,19 @@
 // gallery.js - creates links to albums based on the album slugs defined in
 // wok's markdown files, grabs album previews
 
-var THUMBNAIL_SIZE = 210;
+// intelligently shifts image viewport towards center
+var imageShift = function(image) {
+    var THUMBNAIL_SIZE = 210;
+    var img_box = image.getBoundingClientRect();
+    var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
+    if (shift_left > 0) {
+        image.style.left = "-" + shift_left + "px";
+    }
+    var shift_top = (img_box.height - THUMBNAIL_SIZE) / 2;
+    if (shift_top > 0) {
+        image.style.top = "-" + shift_top + "px";
+    }
+}
 
 // retrieve slugs to determine what directory albums are in
 var album_slugs = document.getElementsByClass("album-slug");
@@ -22,12 +34,14 @@ for (var index in album_dirs) {
     album_htmls.push(request.responseText);
 }
 
-// for each album, create an array of images within them to use as previews
+// create an array of array of images within them to use as previews for
+// albums, using apache index to parse out image src
 var image_preview_arrays = new Array();
 var image_regex = /href="(.*.(jpg|png))"/gi;
 for (var index in album_htmls) {
     var images = new Array();
     while (match = image_regex.exec(album_htmls[index])) {
+
         var a = document.createElement("a");
         a.href = album_slugs[index].innerHTML;
 
@@ -58,7 +72,7 @@ for (var index in image_preview_arrays) {
     div.className = "span4";
     div.appendChild(image_preview_arrays[index][0]);
 
-    // create overlay text
+    // create overlay text with album title
     h3 = document.createElement("h3");
     span = document.createElement("span");
     span.appendChild(document.createTextNode(album_titles[index].innerHTML));
@@ -72,13 +86,5 @@ for (var index in image_preview_arrays) {
 // intelligent zooming, shifts image right and down within viewport
 var thumbnails = gallery.getElementsByTagName("img");
 for (var index in thumbnails) {
-    var img_box = thumbnails[index].getBoundingClientRect();
-    var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
-    if (shift_left > 0) {
-        thumbnails[index].style.left = "-" + shift_left + "px";
-    }
-    var shift_top = (img_box.height - THUMBNAIL_SIZE) / 2;
-    if (shift_top > 0) {
-        thumbnails[index].style.top = "-" + shift_top + "px";
-    }
+    imageShift(thumbnails[index]);
 }
