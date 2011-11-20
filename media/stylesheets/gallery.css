@@ -17,7 +17,7 @@
     height:210px;
     z-index:1;
 
-    box-shadow: 4px 4px 1px #888888;
+    box-shadow: 3px 3px 5px #888888;
     border-style: double;
     border-color: #DDDDD3;
     border-width: 7px;
@@ -40,8 +40,6 @@
     bottom: 60px;
     left: 7px;
     color: white;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
     font: bold 16px/37px Helvetica, Sans-Serif;
     letter-spacing: -1px;
     background: rgb(0, 0, 0); /* fallback color */

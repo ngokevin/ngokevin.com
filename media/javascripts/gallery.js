@@ -1,6 +1,8 @@
 // gallery.js - creates links to albums based on the album slugs defined in
 // wok's markdown files, grabs album previews
 
+var THUMBNAIL_SIZE = 210;
+
 // retrieve slugs to determine what directory albums are in
 var album_slugs = document.getElementsByClass("album-slug");
 var album_titles = document.getElementsByClass("album-title");
@@ -32,6 +34,7 @@ for (var index in album_htmls) {
         var img = document.createElement("img");
         img.src = album_dirs[index] + match[1];
 
+        // wrap the image in an a
         a.appendChild(img);
         images.push(a);
     }
@@ -66,3 +69,16 @@ for (var index in image_preview_arrays) {
     row.appendChild(div);
 }
 
+// intelligent zooming, shifts image right and down within viewport
+var thumbnails = gallery.getElementsByTagName("img");
+for (var index in thumbnails) {
+    var img_box = thumbnails[index].getBoundingClientRect();
+    var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
+    if (shift_left > 0) {
+        thumbnails[index].style.left = "-" + shift_left + "px";
+    }
+    var shift_top = (img_box.height - THUMBNAIL_SIZE) / 2;
+    if (shift_top > 0) {
+        thumbnails[index].style.top = "-" + shift_top + "px";
+    }
+}
