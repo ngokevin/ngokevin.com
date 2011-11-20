@@ -1,18 +1,37 @@
-#album-preview {
-    width: 200px;
-}
 #gallery img {
-    width: 188px;
+    width: 300px;
     height : auto;
 }
 #gallery img {
     width: auto;
-    height : 188px;
+    height : 300px;
 }
-#gallery a img {
-    border-style: solid;
-    border-width: thin;
-    border-radius: 4px;
-    margin-right: 10px;
-    padding: 3px;
+#gallery a {
+   overflow:hidden;
+   position:relative;
+   float:left;
+   width:188px;
+   height:188px;
+   z-index:1;
+
+   border-style: solid;
+   border-width: thin;
+   border-radius: 4px;
+   margin-right: 10px;
+   padding: 3px;
+}
+#gallery a img{
+    float:left;
+    position:absolute;
+    top:-10px;
+    left:-5px;
+}
+
+#gallery img {
+    margin-top: -20px;
+}
+#gallery a:hover {
+    -moz-opacity:.75;
+    filter:alpha(opacity=75);
+    opacity:.75;
 }

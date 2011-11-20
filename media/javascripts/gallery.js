@@ -27,7 +27,7 @@ for (var index in album_htmls) {
     var images = new Array();
     while (match = image_regex.exec(album_htmls[index])) {
         var a = document.createElement("a");
-        a.href = album_slugs[index];
+        a.href = album_slugs[index].innerHTML;
 
         var img = document.createElement("img");
         img.src = album_dirs[index] + match[1];
@@ -38,16 +38,21 @@ for (var index in album_htmls) {
     image_preview_arrays.push(images);
 }
 
-document.appendChild(image_preview_arrays[0]);
-var gallery = document.getElementsById("gallery");
+var gallery = document.getElementById("gallery");
 for (var index in image_preview_arrays) {
+
+    // make a new row every four albums
+    if (index % 4 == 0) {
+        var row = document.createElement("div");
+        row.className = "row";
+        gallery.appendChild(row);
+    }
 
     // create a div for the album to separate it
     var div = document.createElement("div");
     div.id = "album-preview";
     div.className = "span4";
-    gallery.appendChild(div);
-
-    document.write(album_titles[index].innerHTML);
+    div.appendChild(image_preview_arrays[index][0]);
+    row.appendChild(div);
 }
 
