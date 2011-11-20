@@ -9,7 +9,7 @@
     {% for album in site.categories['gallery'] %}
         <!--Allow JavaScript to access the slugs-->
         <span class="album-slug" style="display:none;">{{ album.slug }}</span>
-        <a href="/gallery/{{ album.slug }}">{{album.title}}</a>
+        <span class="album-title" style="display:none;">{{ album.title}}</span>
     {% endfor %}
 
     <div id="gallery">

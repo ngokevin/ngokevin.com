@@ -1,0 +1,18 @@
+#album-preview {
+    width: 200px;
+}
+#gallery img {
+    width: 188px;
+    height : auto;
+}
+#gallery img {
+    width: auto;
+    height : 188px;
+}
+#gallery a img {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 4px;
+    margin-right: 10px;
+    padding: 3px;
+}
