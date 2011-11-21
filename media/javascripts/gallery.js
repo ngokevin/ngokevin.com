@@ -48,7 +48,8 @@ var imageChange = function() {
             }
             else {
                 // get next image in thumbnail array
-                that.src = that.next_src;
+                that.src = that.next_image.src;
+                that.next_image = that.next_image.next_image;
                 // fade in new image
                 var fadeIn = function () {
                     that.style.opacity = opacity;
@@ -113,24 +114,41 @@ for (var index in album_htmls) {
 }
 
 // add mouseover event handlers to change thumbnails on sustained hover
-// done after the loop so that all the arrays are initialized
+// for every image in every album
 for (var album_index in image_preview_arrays) {
     for (var image_index in image_preview_arrays[album_index]){
-        var img = image_preview_arrays[album_index][image_index].getElementsByTagName("img")[0];
-        if(image_index < NUM_PREVIEW_IMGS) {
+
+        var thumbnails = image_preview_arrays[album_index];
+        var img = thumbnails[image_index].getElementsByTagName("img")[0];
+
+        // point to self if only one image in album
+        if (thumbnails.length == 1){
+            img.next_image = img;
+        }
+
+        // need to save state of first image to loop since it has next_image
+        else if (image_index == 0){
+            var next_image_index = parseInt(image_index) + 1;
+            img.next_image = thumbnails[next_image_index].getElementsByTagName("img")[0];
+            var first_image = img;
+        }
+
+        // create circularly linked lists of thumbnails for rotation
+        else if (image_index < thumbnails.length - 1) {
             try{
                 var next_image_index = parseInt(image_index) + 1;
-                img.next_src = image_preview_arrays[album_index][next_image_index].getElementsByTagName("img")[0].src;
+                img.next_image = thumbnails[next_image_index].getElementsByTagName("img")[0];
             }
             catch(err){
                 // for some reason, it throws an undefined error
                 // trying to do the next_image_index part for one of album
             }
         }
-        else {
-            // loop back to original if no more next thumbnails
-            img.next_src = image_preview_arrays[album_index][0].getElementsByTagName("img")[0].src;
+        else if (image_index == thumbnails.length - 1){
+            // the circular part
+            img.next_image = first_image;
         }
+
         // assign handler
         img.onmouseover = imageChange;
     }
