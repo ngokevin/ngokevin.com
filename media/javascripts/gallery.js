@@ -11,8 +11,11 @@ var imageShift = function() {
 
     // blow it up if too small, then shift it
     if(THUMBNAIL_SIZE > img_box.width || THUMBNAIL_SIZE > img_box.height) {
-        this.style.width = img_box.width * 1.5;
-        this.style.height = img_box.height * 1.5;
+        width_diff = THUMBNAIL_SIZE - img_box.width;
+        height_diff = THUMBNAIL_SIZE - img_box.height;
+        diff_ratio = width_diff > height_diff ? width_diff / img_box.width : height_diff / img_box.height;
+        this.style.width = img_box.width / (1- diff_ratio);
+        this.style.height = img_box.height / (1 - diff_ratio);
         var img_box = this.getBoundingClientRect();
     }
 
