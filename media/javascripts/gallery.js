@@ -7,8 +7,15 @@ var NUM_PREVIEW_IMGS = 3;
 var imageShift = function() {
 
     var THUMBNAIL_SIZE = 210;
-
     var img_box = this.getBoundingClientRect();
+
+    // blow it up if too small, then shift it
+    if(THUMBNAIL_SIZE > img_box.width || THUMBNAIL_SIZE > img_box.height) {
+        this.style.width = img_box.width * 1.5;
+        this.style.height = img_box.height * 1.5;
+        var img_box = this.getBoundingClientRect();
+    }
+
     var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
     if (shift_left > 0) {
         this.style.left = "-" + shift_left + "px";
@@ -116,37 +123,31 @@ for (var index in album_htmls) {
 // add mouseover event handlers to change thumbnails on sustained hover
 // for every image in every album
 for (var album_index in image_preview_arrays) {
-    for (var image_index in image_preview_arrays[album_index]){
 
-        var thumbnails = image_preview_arrays[album_index];
-        var img = thumbnails[image_index].getElementsByTagName("img")[0];
+    var thumbnails = image_preview_arrays[album_index];
+    for (var image_index in thumbnails){
+
+        var img = thumbnails[image_index].firstChild;
 
         // point to self if only one image in album
         if (thumbnails.length == 1){
             img.next_image = img;
         }
 
-        // need to save state of first image to loop since it has next_image
-        else if (image_index == 0){
-            var next_image_index = parseInt(image_index) + 1;
-            img.next_image = thumbnails[next_image_index].getElementsByTagName("img")[0];
-            var first_image = img;
-        }
-
         // create circularly linked lists of thumbnails for rotation
         else if (image_index < thumbnails.length - 1) {
             try{
                 var next_image_index = parseInt(image_index) + 1;
-                img.next_image = thumbnails[next_image_index].getElementsByTagName("img")[0];
+                img.next_image = thumbnails[next_image_index].firstChild;
             }
             catch(err){
                 // for some reason, it throws an undefined error
                 // trying to do the next_image_index part for one of album
             }
         }
-        else if (image_index == thumbnails.length - 1){
+        else if (image_index == thumbnails.length - 1) {
             // the circular part
-            img.next_image = first_image;
+            img.next_image = thumbnails[0].firstChild;
         }
 
         // assign handler

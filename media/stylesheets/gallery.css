@@ -26,8 +26,6 @@
 #gallery a img{
     float:left;
     position:absolute;
-    top:-10px;
-    left:-5px;
 }
 #gallery img:hover {
     -moz-opacity:.75;
