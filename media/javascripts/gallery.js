@@ -2,16 +2,16 @@
 // wok's markdown files, grabs album previews
 
 // intelligently shifts image viewport towards center
-var imageShift = function(image) {
+var imageShift = function() {
     var THUMBNAIL_SIZE = 210;
-    var img_box = image.getBoundingClientRect();
+    var img_box = this.getBoundingClientRect();
     var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
     if (shift_left > 0) {
-        image.style.left = "-" + shift_left + "px";
+        this.style.left = "-" + shift_left + "px";
     }
     var shift_top = (img_box.height - THUMBNAIL_SIZE) / 2;
     if (shift_top > 0) {
-        image.style.top = "-" + shift_top + "px";
+        this.style.top = "-" + shift_top + "px";
     }
 }
 
@@ -45,7 +45,8 @@ for (var index in album_htmls) {
         var a = document.createElement("a");
         a.href = album_slugs[index].innerHTML;
 
-        var img = document.createElement("img");
+        var img = new Image();
+        img.onload = imageShift;
         img.src = album_dirs[index] + match[1];
 
         // wrap the image in an a
@@ -81,10 +82,4 @@ for (var index in image_preview_arrays) {
 
     // append to row
     row.appendChild(div);
-}
-
-// intelligent zooming, shifts image right and down within viewport
-var thumbnails = gallery.getElementsByTagName("img");
-for (var index in thumbnails) {
-    imageShift(thumbnails[index]);
 }
