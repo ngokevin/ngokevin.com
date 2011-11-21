@@ -52,8 +52,8 @@ var imageChange = function() {
                 // fade in new image
                 var fadeIn = function () {
                     that.style.opacity = opacity;
-                    if (opacity < .75) {
-                        setTimeout(fadeIn, 30);
+                    if (opacity < 1) {
+                        setTimeout(fadeIn, 10);
                     }
                     opacity = opacity + .01;
                 }
