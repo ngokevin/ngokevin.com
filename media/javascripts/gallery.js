@@ -25,6 +25,7 @@ var imageChange = function() {
     var opacity = .75;
     var mouseout_flag = 0;
     var current_index = 0;
+    var image_array = image_preview_arrays[index_pass];
     that = this;
 
     this.onmouseout = function() {
@@ -43,9 +44,17 @@ var imageChange = function() {
             if (opacity > .2) {
                 setTimeout(step, 30);
             }
-            //else {
-            //    that.src = NEED TO INCREMENT INDEX HERE
-            //}
+            else {
+                // get next image in thumbnail array
+                that.src = image_array[current_index + 1].getElementsByTagName("img")[0].src;
+                // increment or loop back cursor
+                if (current_index != 2) {
+                    current_index++;
+                }
+                else {
+                    current_index = 0;
+                }
+            }
             opacity = opacity - .02;
         };
         setTimeout(step, 0);
@@ -93,14 +102,21 @@ for (var index in album_htmls) {
         img.onload = imageShift; // shift viewport on load
         img.src = album_dirs[index] + match[1];
 
-        // add mouseover event handler to change image on sustained hover
-        img.onmouseover = imageChange;
-
         // wrap the image in an a
         a.appendChild(img);
         images.push(a);
     }
     image_preview_arrays.push(images);
+}
+
+// add mouseover event handlers to change thumbnails on sustained hover
+// done after the loop so that all the arrays are initialized
+var index_pass;
+for (var album_index in image_preview_arrays) {
+    for (var image_index in image_preview_arrays[album_index]){
+        index_pass = album_index;
+        image_preview_arrays[album_index][image_index].getElementsByTagName("img")[0].onmouseover = imageChange;
+    }
 }
 
 // write images to dom
