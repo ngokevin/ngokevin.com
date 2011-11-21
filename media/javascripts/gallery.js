@@ -26,28 +26,40 @@ var imageChange = function() {
     var mouseout_flag = 0;
     that = this;
 
+    this.style.opacity = opacity;
+
+    // stop timer and reset opacity on mouseout
     this.onmouseout = function() {
         mouseout_flag = 1;
-        that.style.opacity = 1;
+        this.style.opacity = 1;
     };
 
     var timeout = setTimeout(function() {
         if (mouseout_flag == 0) {
             fade();
-        }} , 800);
+        }
+    }, 600);
 
     var fade = function() {
         var step = function() {
             that.style.opacity = opacity;
-            if (opacity > .2) {
-                setTimeout(step, 30);
+            if (opacity > .1) {
+                setTimeout(step, 10);
             }
             else {
                 // get next image in thumbnail array
                 that.src = that.next_src;
-                that.style.opacity = .75;
+                // fade in new image
+                var fadeIn = function () {
+                    that.style.opacity = opacity;
+                    if (opacity < .75) {
+                        setTimeout(fadeIn, 30);
+                    }
+                    opacity = opacity + .01;
+                }
+                setTimeout(fadeIn, 0);
             }
-            opacity = opacity - .02;
+            opacity = opacity - .01;
         };
         setTimeout(step, 0);
     };
