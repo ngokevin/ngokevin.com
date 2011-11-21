@@ -1,9 +1,13 @@
 // gallery.js - creates links to albums based on the album slugs defined in
 // wok's markdown files, grabs album previews
 
-// intelligently shifts image viewport towards center
+var NUM_PREVIEW_IMGS = 3;
+
+// shifts image viewport, based on image size, towards center
 var imageShift = function() {
+
     var THUMBNAIL_SIZE = 210;
+
     var img_box = this.getBoundingClientRect();
     var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
     if (shift_left > 0) {
@@ -13,6 +17,35 @@ var imageShift = function() {
     if (shift_top > 0) {
         this.style.top = "-" + shift_top + "px";
     }
+}
+
+// event handler for mouseover, changes thumbnail preview image
+var imageChange = function() {
+
+    var opacity = 1.00;
+    var mouseout_flag = 0;
+    var current_index = 0;
+    that = this;
+
+    this.onmouseout = function() {
+        mouseout_flag = 1;
+    };
+
+    var timeout = setTimeout(function() {
+        if (mouseout_flag == 0) {
+            fade();
+        }} , 2500);
+
+    var fade = function() {
+        var step = function() {
+            that.style.opacity -= .01;
+            if (opacity > .2) {
+                setTimeout(step, 1000);
+            }
+        };
+        setTimeout(step, 1000);
+    };
+
 }
 
 // retrieve slugs to determine what directory albums are in
@@ -42,12 +75,21 @@ for (var index in album_htmls) {
     var images = new Array();
     while (match = image_regex.exec(album_htmls[index])) {
 
+        // only load a certain amount of images
+        if (images.length > NUM_PREVIEW_IMGS) {
+            break;
+        }
+
+        // link to actual album
         var a = document.createElement("a");
         a.href = album_slugs[index].innerHTML;
 
         var img = new Image();
-        img.onload = imageShift;
+        img.onload = imageShift; // shift viewport on load
         img.src = album_dirs[index] + match[1];
+
+        // add mouseover event handler to change image on sustained hover
+        img.onmouseover = imageChange;
 
         // wrap the image in an a
         a.appendChild(img);
@@ -69,7 +111,7 @@ for (var index in image_preview_arrays) {
 
     // create a div for the album to separate it
     var div = document.createElement("div");
-    div.id = "album-preview";
+    div.id = "album-preview" + index;
     div.className = "span4";
     div.appendChild(image_preview_arrays[index][0]);
 
