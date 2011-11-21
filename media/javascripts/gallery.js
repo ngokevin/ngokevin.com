@@ -24,8 +24,6 @@ var imageChange = function() {
 
     var opacity = .75;
     var mouseout_flag = 0;
-    var current_index = 0;
-    var image_array = image_preview_arrays[index_pass];
     that = this;
 
     this.onmouseout = function() {
@@ -46,20 +44,13 @@ var imageChange = function() {
             }
             else {
                 // get next image in thumbnail array
-                that.src = image_array[current_index + 1].getElementsByTagName("img")[0].src;
-                // increment or loop back cursor
-                if (current_index != 2) {
-                    current_index++;
-                }
-                else {
-                    current_index = 0;
-                }
+                that.src = that.next_src;
+                that.style.opacity = .75;
             }
             opacity = opacity - .02;
         };
         setTimeout(step, 0);
     };
-
 }
 
 // retrieve slugs to determine what directory albums are in
@@ -111,11 +102,25 @@ for (var index in album_htmls) {
 
 // add mouseover event handlers to change thumbnails on sustained hover
 // done after the loop so that all the arrays are initialized
-var index_pass;
 for (var album_index in image_preview_arrays) {
     for (var image_index in image_preview_arrays[album_index]){
-        index_pass = album_index;
-        image_preview_arrays[album_index][image_index].getElementsByTagName("img")[0].onmouseover = imageChange;
+        var img = image_preview_arrays[album_index][image_index].getElementsByTagName("img")[0];
+        if(image_index < NUM_PREVIEW_IMGS) {
+            try{
+                var next_image_index = parseInt(image_index) + 1;
+                img.next_src = image_preview_arrays[album_index][next_image_index].getElementsByTagName("img")[0].src;
+            }
+            catch(err){
+                // for some reason, it throws an undefined error
+                // trying to do the next_image_index part for one of album
+            }
+        }
+        else {
+            // loop back to original if no more next thumbnails
+            img.next_src = image_preview_arrays[album_index][0].getElementsByTagName("img")[0].src;
+        }
+        // assign handler
+        img.onmouseover = imageChange;
     }
 }
 
