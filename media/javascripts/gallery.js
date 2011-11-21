@@ -22,28 +22,33 @@ var imageShift = function() {
 // event handler for mouseover, changes thumbnail preview image
 var imageChange = function() {
 
-    var opacity = 1.00;
+    var opacity = .75;
     var mouseout_flag = 0;
     var current_index = 0;
     that = this;
 
     this.onmouseout = function() {
         mouseout_flag = 1;
+        that.style.opacity = 1;
     };
 
     var timeout = setTimeout(function() {
         if (mouseout_flag == 0) {
             fade();
-        }} , 2500);
+        }} , 800);
 
     var fade = function() {
         var step = function() {
-            that.style.opacity -= .01;
+            that.style.opacity = opacity;
             if (opacity > .2) {
-                setTimeout(step, 1000);
+                setTimeout(step, 30);
             }
+            //else {
+            //    that.src = NEED TO INCREMENT INDEX HERE
+            //}
+            opacity = opacity - .02;
         };
-        setTimeout(step, 1000);
+        setTimeout(step, 0);
     };
 
 }
