@@ -37,12 +37,13 @@ var imageChange = function(img_index, thumbnail_array, img) {
     var mouseout_flag = 0;
     var thumbnail = img;
 
-    // stop timer and reset opacity on mouseout
+    // closure, holds the thumbnail array, current image, and current index
     return fade = function() {
 
         var mouseout_flag = 0;
         thumbnail.style.opacity = opacity;
 
+        // if the mouse moves out, don't fade
         thumbnail.onmouseout = function() {
             mouseout_flag = 1;
             thumbnail.style.opacity = 1;
@@ -58,17 +59,25 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 // get next image in thumbnail array
                 if (parseInt(index) != thumbnail_array.length - 1) {
                     thumbnail.src = thumbnail_array[++index].firstChild.orig_src;
-                    thumbnail.onmouseover = imageChange(index, thumbnail_array, thumbnail);
                 }
                 else {
                     thumbnail.src = thumbnail_array[0].firstChild.orig_src;
-                    thumbnail.onmouseover = imageChange(0, thumbnail_array, thumbnail);
                 }
                 // fade in new image
                 var fadeIn = function () {
                     thumbnail.style.opacity = opacity;
                     if (opacity < 1) {
                         setTimeout(fadeIn, 10);
+                    }
+                    else {
+                        // if the mouse is still over the image, switch again
+                        if (mouseout_flag != 1) {
+                            setTimeout(function() {
+                                if(mouseout_flag == 0) {
+                                    step();
+                                }
+                            }, 600);
+                        }
                     }
                     opacity = opacity + .01;
                 }
