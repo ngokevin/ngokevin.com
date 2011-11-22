@@ -70,7 +70,7 @@ var imageChange = function(img_index, thumbnail_array, img) {
             thumbnail.style.opacity = opacity;
 
             // if not faded out, keep fading
-            if (opacity > .1) {
+            if (opacity > 0) {
                 setTimeout(step, 10);
             }
             else {
@@ -90,6 +90,7 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 }
 
                 try{
+                    thumbnail.style.opacity = 0;
                     thumbnail.style.width = original_widths[index];
                     thumbnail.style.height = original_heights[index];
                 }catch(err){}
