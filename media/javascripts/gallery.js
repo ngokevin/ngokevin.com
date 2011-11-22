@@ -50,7 +50,7 @@ var imageChange = function(img_index, thumbnail_array, img) {
     return fade = function() {
 
         var mouseout_flag = 0;
-        thumbnail.style.opacity = opacity;
+        thumbnail.style.opacity = .75;
 
         // if the mouse moves out, don't fade
         thumbnail.onmouseout = function() {
