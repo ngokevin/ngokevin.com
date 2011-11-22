@@ -30,39 +30,44 @@ var imageShift = function() {
 }
 
 // event handler for mouseover, changes thumbnail preview image
-var imageChange = function() {
+var imageChange = function(img_index, thumbnail_array, img) {
 
+    var index = img_index;
     var opacity = .75;
     var mouseout_flag = 0;
-    that = this;
-
-    this.style.opacity = opacity;
+    var thumbnail = img;
 
     // stop timer and reset opacity on mouseout
-    this.onmouseout = function() {
-        mouseout_flag = 1;
-        this.style.opacity = 1;
-    };
+    return fade = function() {
 
-    var timeout = setTimeout(function() {
-        if (mouseout_flag == 0) {
-            fade();
-        }
-    }, 600);
+        var mouseout_flag = 0;
+        thumbnail.style.opacity = opacity;
 
-    var fade = function() {
+        thumbnail.onmouseout = function() {
+            mouseout_flag = 1;
+            thumbnail.style.opacity = 1;
+        };
+
         var step = function() {
-            that.style.opacity = opacity;
+
+            thumbnail.style.opacity = opacity;
             if (opacity > .1) {
                 setTimeout(step, 10);
             }
             else {
+                console.log([thumbnail_array[thumbnail].firstChild for (thumbnail in thumbnail_array)]);
                 // get next image in thumbnail array
-                that.src = that.next_image.src;
-                that.next_image = that.next_image.next_image;
+                if (parseInt(index) != thumbnail_array.length - 1) {
+                    thumbnail.src = thumbnail_array[++index].firstChild.src;
+                    thumbnail.onmouseover = imageChange(index, thumbnail_array, thumbnail);
+                }
+                else {
+                    thumbnail.src = thumbnail_array[0].firstChild.src;
+                    thumbnail.onmouseover = imageChange(0, thumbnail_array, thumbnail);
+                }
                 // fade in new image
                 var fadeIn = function () {
-                    that.style.opacity = opacity;
+                    thumbnail.style.opacity = opacity;
                     if (opacity < 1) {
                         setTimeout(fadeIn, 10);
                     }
@@ -72,7 +77,11 @@ var imageChange = function() {
             }
             opacity = opacity - .01;
         };
-        setTimeout(step, 0);
+        setTimeout(function() {
+            if(mouseout_flag == 0) {
+                step();
+            }
+        }, 600);
     };
 }
 
@@ -132,29 +141,8 @@ for (var album_index in image_preview_arrays) {
 
         var img = thumbnails[image_index].firstChild;
 
-        // point to self if only one image in album
-        if (thumbnails.length == 1){
-            img.next_image = img;
-        }
-
-        // create circularly linked lists of thumbnails for rotation
-        else if (image_index < thumbnails.length - 1) {
-            try{
-                var next_image_index = parseInt(image_index) + 1;
-                img.next_image = thumbnails[next_image_index].firstChild;
-            }
-            catch(err){
-                // for some reason, it throws an undefined error
-                // trying to do the next_image_index part for one of album
-            }
-        }
-        else if (image_index == thumbnails.length - 1) {
-            // the circular part
-            img.next_image = thumbnails[0].firstChild;
-        }
-
         // assign handler
-        img.onmouseover = imageChange;
+        img.onmouseover = imageChange(image_index, thumbnails, img);
     }
 }
 
