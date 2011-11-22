@@ -41,6 +41,11 @@ var imageChange = function(img_index, thumbnail_array, img) {
     var mouseout_flag = 0;
     var thumbnail = img;
 
+    // hack: since we're changing the image in-place, need to save the dimenions
+    // in case one of the images blows up the size
+    var original_widths = new Array();
+    var original_heights = new Array();
+
     // closure, holds the thumbnail array, current image, and current index
     return fade = function() {
 
@@ -69,6 +74,13 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 setTimeout(step, 10);
             }
             else {
+
+                // HACK: since we're swapping img in-place, need to keep track of dims
+                if(original_widths.length < thumbnail_array.length){
+                    original_heights.push(thumbnail.height);
+                    original_widths.push(thumbnail.width);
+                }
+
                 // swap to next image once opacity is low
                 if (parseInt(index) != thumbnail_array.length - 1) {
                     index++;
@@ -76,6 +88,12 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 else {
                     index = 0;
                 }
+
+                try{
+                    thumbnail.style.width = original_widths[index];
+                    thumbnail.style.height = original_heights[index];
+                }catch(err){}
+
                 thumbnail.src = thumbnail_array[index].firstChild.orig_src;
 
                 // bring the opacity back up now with the new image
