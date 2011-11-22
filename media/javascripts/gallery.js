@@ -55,14 +55,13 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 setTimeout(step, 10);
             }
             else {
-                console.log([thumbnail_array[thumbnail].firstChild for (thumbnail in thumbnail_array)]);
                 // get next image in thumbnail array
                 if (parseInt(index) != thumbnail_array.length - 1) {
-                    thumbnail.src = thumbnail_array[++index].firstChild.src;
+                    thumbnail.src = thumbnail_array[++index].firstChild.orig_src;
                     thumbnail.onmouseover = imageChange(index, thumbnail_array, thumbnail);
                 }
                 else {
-                    thumbnail.src = thumbnail_array[0].firstChild.src;
+                    thumbnail.src = thumbnail_array[0].firstChild.orig_src;
                     thumbnail.onmouseover = imageChange(0, thumbnail_array, thumbnail);
                 }
                 // fade in new image
@@ -142,6 +141,7 @@ for (var album_index in image_preview_arrays) {
         var img = thumbnails[image_index].firstChild;
 
         // assign handler
+        img.orig_src = img.src;
         img.onmouseover = imageChange(image_index, thumbnails, img);
     }
 }
