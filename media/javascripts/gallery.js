@@ -27,6 +27,9 @@ var imageShift = function() {
     if (shift_top > 0) {
         this.style.top = "-" + shift_top + "px";
     }
+
+    this.style.visibility= "visible"; // show image after shifting
+
 }
 
 // event handler for mouseover, changes thumbnail preview image
@@ -62,6 +65,7 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 }
                 else {
                     thumbnail.src = thumbnail_array[0].firstChild.orig_src;
+                    index = 0;
                 }
                 // fade in new image
                 var fadeIn = function () {
@@ -130,6 +134,7 @@ for (var index in album_htmls) {
         a.href = album_slugs[index].innerHTML;
 
         var img = new Image();
+        img.style.visibility= "hidden"; // don't display until shifted
         img.onload = imageShift; // shift viewport on load
         img.src = album_dirs[index] + match[1];
 
