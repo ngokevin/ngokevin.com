@@ -7,28 +7,29 @@ var NUM_PREVIEW_IMGS = 3;
 var imageShift = function() {
 
     var THUMBNAIL_SIZE = 210;
-    var img_box = this.getBoundingClientRect();
 
-    // blow it up if too small, then shift it
-    if(THUMBNAIL_SIZE > img_box.width || THUMBNAIL_SIZE > img_box.height) {
-        width_diff = THUMBNAIL_SIZE - img_box.width;
-        height_diff = THUMBNAIL_SIZE - img_box.height;
-        diff_ratio = width_diff > height_diff ? width_diff / img_box.width : height_diff / img_box.height;
-        this.style.width = img_box.width / (1- diff_ratio);
-        this.style.height = img_box.height / (1 - diff_ratio);
-        var img_box = this.getBoundingClientRect();
+    // blow it up if too small
+    if(THUMBNAIL_SIZE > this.width || THUMBNAIL_SIZE > this.height) {
+        width_diff = THUMBNAIL_SIZE - this.width;
+        height_diff = THUMBNAIL_SIZE - this.height;
+        diff_ratio = width_diff > height_diff ? width_diff / this.width : height_diff / this.height;
+
+        this.style.width = this.width / (1- diff_ratio);
+        this.style.height = this.height / (1 - diff_ratio);
     }
 
-    var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
+    // shift by closing in image towards center
+    var shift_left = (this.width - THUMBNAIL_SIZE) / 2;
     if (shift_left > 0) {
         this.style.left = "-" + shift_left + "px";
     }
-    var shift_top = (img_box.height - THUMBNAIL_SIZE) / 2;
+    var shift_top = (this.height - THUMBNAIL_SIZE) / 2;
     if (shift_top > 0) {
         this.style.top = "-" + shift_top + "px";
     }
 
-    this.style.visibility= "visible"; // show image after shifting
+    // show image after shifting
+    this.style.visibility= "visible";
 
 }
 
@@ -52,22 +53,32 @@ var imageChange = function(img_index, thumbnail_array, img) {
             thumbnail.style.opacity = 1;
         };
 
+        // calls a recursive function that slowly fades out image
+        setTimeout(function() {
+            if(mouseout_flag == 0) {
+                step();
+            }
+        }, 600);
+
         var step = function() {
 
             thumbnail.style.opacity = opacity;
+
+            // if not faded out, keep fading
             if (opacity > .1) {
                 setTimeout(step, 10);
             }
             else {
-                // get next image in thumbnail array
+                // swap to next image once opacity is low
                 if (parseInt(index) != thumbnail_array.length - 1) {
-                    thumbnail.src = thumbnail_array[++index].firstChild.orig_src;
+                    index++;
                 }
                 else {
-                    thumbnail.src = thumbnail_array[0].firstChild.orig_src;
                     index = 0;
                 }
-                // fade in new image
+                thumbnail.src = thumbnail_array[index].firstChild.orig_src;
+
+                // bring the opacity back up now with the new image
                 var fadeIn = function () {
                     thumbnail.style.opacity = opacity;
                     if (opacity < 1) {
@@ -80,20 +91,16 @@ var imageChange = function(img_index, thumbnail_array, img) {
                                 if(mouseout_flag == 0) {
                                     step();
                                 }
-                            }, 600);
+                            }, 300);
                         }
                     }
                     opacity = opacity + .01;
                 }
                 setTimeout(fadeIn, 0);
+
             }
             opacity = opacity - .01;
         };
-        setTimeout(function() {
-            if(mouseout_flag == 0) {
-                step();
-            }
-        }, 600);
     };
 }
 
