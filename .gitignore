@@ -1,3 +1,5 @@
 push
+*.png
+*.jpg
 *.swp
 output

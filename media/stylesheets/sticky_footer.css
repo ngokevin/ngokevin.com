@@ -17,11 +17,19 @@ html, body, #wrap {height: 100%;}
 
 body > #wrap {height: auto; min-height: 100%;}
 
+<<<<<<< Updated upstream
 #main {padding-bottom: 200px;}  /* must be same height as the footer */
 
 #footer {position: relative;
     margin-top: -200px; /* negative value of footer height */
     height: 200px;
+=======
+.main {padding-bottom: 150px;}  /* must be same height as the footer */
+
+.footer {position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    height: 150px;
+>>>>>>> Stashed changes
     clear:both;} 
 
 /* CLEAR FIX*/

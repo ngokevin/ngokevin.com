@@ -1,33 +1,74 @@
 html,
-body{
+body {
     margin:0;
     padding:0;
     height:100%
 }
+<<<<<<< Updated upstream
 #main h1 { font-size: 2.0em; line-height:2.2em; }
 #main h2 { font-size: 1.6em; line-height:1.8em;}
 #main h3 { font-size: 1.3em; line-height:1.5em; }
 #main h4 { font-size: 1.0em; line-height:1.2em }
 #main h5 {
+=======
+hr {
+    padding-top: 20px;
+    margin-bottom: 15px;
+    clear: both;
+}
+h1 { font-size: 2.0em; margin-bottom:5px;}
+h2 { font-size: 1.6em; margin-bottom:5px;}
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.0em; }
+h5 {
+>>>>>>> Stashed changes
     font-size: 1.0em;
     font-weight: normal;
     color: #AAA;
 }
+<<<<<<< Updated upstream
 #main h6 {
+=======
+h6 {
+>>>>>>> Stashed changes
     font-size: 0.8em;
     font-weight: normal;
     color: #AAA;
 }
+<<<<<<< Updated upstream
 #main li, #main ol {
     list-style: none;
 }
  
 .container{
+=======
+
+.about {
+    color:grey;
+}
+.about a {
+    color: #005454;
+    text-decoration:none;
+}
+.about a:hover {
+    color: #2AAAAA;
+}
+.about_resize {
+width: 400px;
+height : auto;
+}
+.about_resize {
+width: auto;
+height : 600px;
+}
+
+.container {
+>>>>>>> Stashed changes
     min-height:100%
     position:relative;
 }
 
-#footer
+.footer
 {
     /* Overrides sticky-footer */
     min-width:960px;
@@ -36,26 +77,31 @@ body{
     height: 115px;
     margin-top: -100px;
 }
-#footer{
+.footer {
     text-align:center;
 }
-#footer a {
+.footer a {
     color: #005454;
     text-decoration:none;
 }
-#footer a:hover {
+.footer a:hover {
     color: #2AAAAA;
 }
 
+<<<<<<< Updated upstream
 #header{
     margin-top: 1.2em;
+=======
+.header {
+    margin-top:10px;
+>>>>>>> Stashed changes
 }
 
-#logo{
+#logo {
     font-weight:bold;
     font-size:2.3em;
 }
-#logo a{
+#logo a {
     text-decoration:none;
     color: #005454;
 }
@@ -63,6 +109,7 @@ body{
     color: #2AAAAA;
 }
 #sublogo {
+<<<<<<< Updated upstream
     line-height: 2.5em;
     color: grey;
 }
@@ -92,28 +139,52 @@ body{
 }
 
 #navigation a {
+=======
+    color: grey;
+}
+
+.main {
+    margin-top:10px;
+    margin-bottom:150px;
+
+}
+
+.navigation {
+    float:right;
+}
+.navigation a {
+>>>>>>> Stashed changes
     text-decoration: none;
     vertical-align:middle;
 }
-#navigation a:hover {
+.navigation a:hover {
+    text-decoration: none;
     color:#2AAAAA;
 }
+<<<<<<< Updated upstream
 #navigation span {
+=======
+.navigation span {
+>>>>>>> Stashed changes
     padding:14px;
     border-radius:8px;
     color:black;
 }
-#navigation span:hover {
+.navigation span:hover {
     background:#DDDDD3;
 }
 
+<<<<<<< Updated upstream
 .page {
     margin-top: 10px;
 }
+=======
+>>>>>>> Stashed changes
 .base-image img {
     margin-bottom: 5px;
     max-height: 480px;
 }
+<<<<<<< Updated upstream
 .base-image span {
     font-size: .9em;
     font-style: italic;
@@ -121,6 +192,8 @@ body{
 .page_pic {
     margin-bottom: 20px;
 }
+=======
+>>>>>>> Stashed changes
 .page_pic img {
     display: block;
     max-width: 100%;
@@ -147,10 +220,15 @@ body{
 }
 
 .sliding-index {
+<<<<<<< Updated upstream
     min-height: 1050px;
     max-height: 1050px;
 }
 #sliding-all a {
     color: black;
     font-weight: normal;
+=======
+    min-height: 500px;
+    max-height: 500px;
+>>>>>>> Stashed changes
 }

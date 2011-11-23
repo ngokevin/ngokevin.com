@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhml" xml:lang="en" lang="en">
 
   <head>
+<<<<<<< Updated upstream
     <title>{{ site.title}} | {{page.title}}</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/sticky_footer.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
@@ -8,24 +9,47 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/base.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+=======
+    <link rel="stylesheet" type="text/css" href="/stylesheets/base.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scrapbook.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sticky_footer.css" />
+    <script type="text/javascript" src="/javascripts/jquery-min.js" ></script>
+>>>>>>> Stashed changes
   </head>
 
   <body>
     <div id="wrap">
+<<<<<<< Updated upstream
       <div id="header">
         <div class="container">
 
             <div class="row">
                 <div class="span7">
+=======
+      <div class="header">
+        <div class="container"> 
+
+            <div class="row">
+                <div class="span3 columns">
+>>>>>>> Stashed changes
                     <span id="logo">
                         <a href='/'>kevin ngo</a><br/>
                     </span>
                     <span id="sublogo">programmatically overcoming obstacles<br/></span>
                 </div>
+<<<<<<< Updated upstream
 
                 <div class="span9">
                     {% block navigation %}
                         <div id="navigation" style="float: right;">
+=======
+     
+                <div class="span13 columns">
+                    {% block navigation %}
+                        <div class="navigation">
+>>>>>>> Stashed changes
                             <a href='/about'><span>About<span></a>
                             <a href='/blog'><span>Blog<span></a>
                             <a href='/gallery'><span>Gallery<span></a>
@@ -39,6 +63,7 @@
         </div>
       </div>
 
+<<<<<<< Updated upstream
       <div id="main" class="container">
             <hr style=""/>
             <div class="base-image">
@@ -61,6 +86,16 @@
 
     <div id="footer">
         <span>
+=======
+      <div class="main" class="container">
+              {% block content %}
+              {% endblock %}
+      </div>
+    </div>
+
+    <div class="footer">
+        <span>                                                    
+>>>>>>> Stashed changes
               Copyright <a>Kevin Ngo</a><br/>
               Github: <a href="http://github.com/ngokevin">github.com/ngokevin</a><br/>
               Powered by

@@ -1,4 +1,5 @@
 title: Contact
+<<<<<<< Updated upstream
 tags: navigation
 navrank: 4
 
@@ -6,6 +7,12 @@ image:
     url: /images/bros.png
     where: right
 
+=======
+
+tags: navigation
+navrank: 4
+
+>>>>>>> Stashed changes
 ---
 
 ###irc
