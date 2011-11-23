@@ -3,10 +3,6 @@ type: home
 url: /index.html
 
 pagination:
-<<<<<<< Updated upstream
     limit: 4
-=======
-    limit: 3
->>>>>>> Stashed changes
 
 ---
