@@ -8,13 +8,13 @@ datetime: 2011-11-09 14:30:00
 
 ---
 
-It's hard to believe that less than two weeks ago, I was at [Beaver
+It's difficult to believe that less than two weeks ago, I was at [Beaver
 Barcamp](http://ngokevin.com/blog/recap:-beaver-bar-camp-8/index.html) talking
 to [Julie Deroche](http://jgoulie.blogspot.com/) about applying for an
-internship at open-source giant, [Mozilla](http://mozilla.org). I figured I had
-a bit of a chance of getting accepted so what the hell, I went for it. I gave
-them a resume, said I was interested in web development and security, and
-waited.
+internship at open source giant, [Mozilla](http://mozilla.org). I figured I had
+a bit of a chance of getting accepted so what the hell, I went for it. I handed
+Julie my resume, said I was interested in **web development** and security, had a
+chat, and then I went on my merry way.
 
 If I were to go into web development, I had to learn some Javascript so I spent
 that whole weekend working on the [OSULUG website](http://lug.oregonstate.edu),
@@ -22,17 +22,18 @@ revamping it yet again with some jQuery magic. I then sent in my resume again
 via email and got was shortly scheduled an interview the following day. The
 interview was in a few days so I decided to crack out on some web development
 material, namely Javascript and web security and scalability. I went into what
-I called "Mozilla Mode" and diverted a good portion of my attention away from
+I called *Mozilla Mode* and diverted a good portion of my attention away from
 school.
 
-I had my first phone screen with [Ricky Rosario](http://rickyrosario.com). The
-interview itself went largely well, except I was at work at Kerr at the time
-and couldn't really find a quiet spot. I initially sat in front of an elevator
-on a high floor, but got kicked out by a receptionist. I talked about my
-projects and asked about their workflow which was somewhat familiar (branch,
-review, stage, deploy). He was really nice and thankfully asked questions that
-I could answer. Soon after the interview, I found out I got made it through and
-had two more scheduled for the next week...on the same day.
+I had my first phone screen with [Ricky Rosario](http://rickyrosario.com), a
+web-dev at Mozilla. The interview itself went largely well, except I was at
+work at Kerr at the time and couldn't really find a quiet spot. I initially sat
+in front of an elevator on a high floor, but got **kicked out by a
+receptionist**.  I talked about my projects and asked about their workflow
+which was somewhat familiar (branch, review, stage, deploy). He was really nice
+and thankfully asked questions that I could answer. Soon after the interview, I
+found out I got made it through and had two more scheduled for the next
+week...on the same day.
 
 This gave me time to tend to my [DDoSed
 Webserver](http://ngokevin.com/blog/web-server-back-up/index.html) and get my
@@ -61,37 +62,38 @@ my chances were looking good as they received a lot of applications and only
 talked to a few and that they would take several.
 
 The following day while checking my email as I normally do every few seconds, I
-*received an offer* from Mozilla! I gave fridgei a high-five and obviously
-accepted. I would then start the process of dropping out of MECOP. What a
+**received an offer** from Mozilla! I gave fridgei a high-five and obviously
+accepted. I would then start the process of **dropping out of MECOP**. What a
 relief, I would not want to work in Windows, .NET frameworks, quality
 assurance, or any of that stuffy stuff.
 
 Today, I received a call from Julie and [Kimber
 Schlegelmilch](www.linkedin.com/in/kimberschlegelmilch), who had been helping
-getting my availability and scheduling my interviews, about the internship ... 
+getting my availability and scheduling my interviews, about the internship...
 
-- Three months in Mountain View, California
+- Three months in **Mountain View, California** (edit: I actually chose to skip
+  spring term and work *five* months)
 
 - Free transportation, housing, and laptop to keep (Macbook or Thinkpad)
 
 - Choice of housing between sharing a condo with other interns or being
   allotted money to find own housing
 
-- Double the pay of what I would get in MECOP (too much)
+- *Double* the pay of what I would get in MECOP (too much)
 
-- Fun events (e.g. barbeques, picnics, baseball games, trips)
+- Fun events (e.g. barbeques, picnics, baseball games, field trips)
 
 - Talks from prominent people from around the area (e.g. CEO of
   [mint.com](http://mint.com))
 
-- A long-term relationship with Mozilla
+- Long-term commitment to Mozilla
 
 What a dream job, and I'm pretty excited. I'll be surrounded by extremely
 intelligent people, the work I will do there would make my current work look
 trivial, I get to work on a large-scale open source project, and of course the
-place is a stone's throw from the bay. Until then, I'm going to try to get a
-lot better at web development, specifically Javascript so I make as much of an
-impact as possible. Can't wait, and throughout the whole interview process
-everyone was really nice. Thanks Mozilla!
+place is a stone's throw from the bay. Until then, I'm going to try to get **a
+lot** better at web development, specifically Javascript so I adapt in smoothly
+. Can't wait, and throughout the whole interview process everyone was really
+nice. Thanks to everyone I talked to and Mozilla!
 
 
