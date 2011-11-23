@@ -1,0 +1,8 @@
+title: "Demo"
+slug: demo
+category: gallery
+type: album
+
+datetime: 2011-11-23 2:15:00
+
+---
