@@ -1,30 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhml" xml:lang="en" lang="en">
 
-    <style type="text/css" media="all">
-        h1{display: inline;}
-    </style>
-
   <head>
-
     <title>{{ site.title}} | {{page.title}}</title>
-
-    <link rel="stylesheet" type="text/css" href="/stylesheets/scrapbook.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/sticky_footer.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/ie.css" />
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/base.css" />
-    <script type="text/javascript" src="/javascripts/jquery-1.6.4.min.js" ></script>
-    <script type="text/javascript" src="/javascripts/jquery-ui-1.8.16.custom.min.js" ></script>
-    <script type="text/javascript" src="/javascripts/sliding-paginator-thing.js" ></script>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
   </head>
 
   <body>
     <div id="wrap">
       <div id="header">
-        <div class="container"> 
+        <div class="container">
 
             <div class="row">
                 <div class="span7">
@@ -33,14 +22,15 @@
                     </span>
                     <span id="sublogo">programmatically overcoming obstacles<br/></span>
                 </div>
-     
+
                 <div class="span9">
                     {% block navigation %}
                         <div id="navigation" style="float: right;">
                             <a href='/about'><span>About<span></a>
                             <a href='/blog'><span>Blog<span></a>
-                            <a href='/contact'><span>Contact<span></a>
+                            <a href='/gallery'><span>Gallery<span></a>
                             <a href='/resume'><span>Resume<span></a>
+                            <a href='/contact'><span>Contact<span></a>
                         </div>
                     {% endblock %}
                 </div>
@@ -63,19 +53,19 @@
                     </div>
                 {% endif %}
             </div>
-                              
+
             {% block content %}
             {% endblock %}
       </div>
     </div>
 
     <div id="footer">
-        <span>                                                    
+        <span>
               Copyright <a>Kevin Ngo</a><br/>
               Github: <a href="http://github.com/ngokevin">github.com/ngokevin</a><br/>
-              Powered by 
-              <a href="http://github.com/mythmon/wok">Wok</a> | 
-              <a href="http://apache.org">Apache</a> | 
+              Powered by
+              <a href="http://github.com/mythmon/wok">Wok</a> |
+              <a href="http://apache.org">Apache</a> |
               <a href="http://debian.org">Debian</a><br/>
         </span>
     </div>

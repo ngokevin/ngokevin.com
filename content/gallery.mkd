@@ -1,0 +1,7 @@
+title: Gallery
+slug: gallery
+url: /gallery/index{page}.html
+type: gallery
+
+---
+

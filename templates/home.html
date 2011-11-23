@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="/stylesheets/scrapbook.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
 
 <div id="scrapbook">
     <div class="container">
@@ -40,7 +42,7 @@
                     {% if not loop.first%}
                         <hr style="margin-top:2em;"/>
                     {% endif %}
-                    <!--Header Group--> 
+                    <!--Header Group-->
                     <h3 class="big-index-title"><a href="{{blog.url}}">{{ blog.title }}</a></h3>
                     <span class="metadata">
                         {% if blog.authors %}
@@ -53,8 +55,8 @@
                             on {{ blog.datetime.strftime("%A %B %d, %Y at %I:%M %p ") }}
                         {% endif %}
                     </span>
-                    <!--End Header Group--> 
-                    <!--Blog Image--> 
+                    <!--End Header Group-->
+                    <!--Blog Image-->
                     {% if blog.image %}
                         <div class="big-index">
                             <img src="{{blog.image.url}}"/>
@@ -62,8 +64,8 @@
                     {% else %}
                         <br/>
                     {% endif %}
-                    <!--End Blog Image--> 
-                    <!--Blog Preview Post--> 
+                    <!--End Blog Image-->
+                    <!--Blog Preview Post-->
                     <div>
                         <span class="big-index-post">
                             {{blog.content|truncate(length=750)}}
@@ -79,6 +81,10 @@
         </div>
     </div>
 </div>
-<!--End Blog Posts-->                           
+<!--End Blog Posts-->
+
+<script type="text/javascript" src="/javascripts/jquery-1.6.4.min.js" ></script>
+<script type="text/javascript" src="/javascripts/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/javascripts/sliding-paginator-thing.js" ></script>
 
 {% endblock %}

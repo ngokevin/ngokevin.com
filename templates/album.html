@@ -1,0 +1,19 @@
+{% extends "default.html" %}
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/album.css" />
+    <script type="text/javascript" src="/javascripts/utilities.js" ></script>
+
+    <!--Allows Javascript to access the slug-->
+    <span id="album-slug" style="display:none;">{{ page.slug }}</span>
+
+    <h2>{{ page.title }}</h2>
+    {{page.content}}
+
+    <div id="album">
+        <script type="text/javascript" src="/javascripts/album.js" ></script>
+    </div>
+
+{% endblock %}
+

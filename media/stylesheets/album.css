@@ -1,0 +1,19 @@
+#album {
+    margin-top: 1.1em;
+}
+#album img {
+    width: 300px;
+    height : auto;
+}
+#album img {
+    width: auto;
+    height : 300px;
+}
+#album img {
+    margin: 3px;
+}
+#album a:hover {
+    -moz-opacity:.75;
+    filter:alpha(opacity=75);
+    opacity:.75;
+}

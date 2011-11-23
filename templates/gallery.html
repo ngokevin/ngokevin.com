@@ -1,0 +1,20 @@
+{% extends "default.html" %}
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/gallery.css" />
+    <script type="text/javascript" src="/javascripts/utilities.js" ></script>
+    <h2>{{ page.title }}</h2>
+
+    {% for album in site.categories['gallery'] %}
+        <!--Allow JavaScript to access the slugs-->
+        <span class="album-slug" style="display:none;">{{ album.slug }}</span>
+        <span class="album-title" style="display:none;">{{ album.title}}</span>
+    {% endfor %}
+
+    <div id="gallery">
+        <script type="text/javascript" src="/javascripts/gallery.js" ></script>
+    </div>
+
+{% endblock %}
+
