@@ -1,8 +1,0 @@
-title: "Test Album"
-slug: test-album
-category: gallery
-type: album
-
-datetime: 2011-11-19 1:15:00
-
----
