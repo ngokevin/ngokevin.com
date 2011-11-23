@@ -99,6 +99,7 @@ body{
     color:#2AAAAA;
 }
 #navigation span {
+    font-weight: bold;
     padding:14px;
     border-radius:8px;
     color:black;
