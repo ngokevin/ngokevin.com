@@ -70,10 +70,6 @@ while (match = image_regex.exec(html)) {
     images.push(a);
 }
 
-images.sort(function(a, b) {
-    return (b.firstChild.width - a.firstChild.width);
-});
-
 // add images to dom
 var album = document.getElementById("album");
 for (var index in images) {
