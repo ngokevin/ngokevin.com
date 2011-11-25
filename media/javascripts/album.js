@@ -9,7 +9,7 @@ request.send(null);
 var html = request.responseText;
 
 // query apache index to get image srcs and push to array
-var image_regex = /href="(.*.(jpg|png))"/gi;
+var image_regex = /href="((?!THUMB_).*.(jpg|png))"/gi;
 var images = new Array();
 while (match = image_regex.exec(html)) {
 

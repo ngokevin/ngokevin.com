@@ -3,7 +3,7 @@ import glob
 import Image
 import os
 
-THUMBNAIL_SIZE = [300, 300]
+ORIG_THUMBNAIL_SIZE = [210, 210]
 THUMBNAIL_PREFIX = 'THUMB_'
 GALLERY_DIR = os.path.abspath("../media/images/gallery/") + '/'
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
@@ -18,30 +18,33 @@ for folder in os.listdir(GALLERY_DIR):
         else:
             for infile in image_list:
                 image = Image.open(infile)
+                thumbnail_size = [0, 0]
 
                 # don't save if thumbnail already exists
                 if infile[0:2] != "THUMB_":
+
+                    thumbnail_size[0] = ORIG_THUMBNAIL_SIZE[0]
+                    thumbnail_size[1] = ORIG_THUMBNAIL_SIZE[1]
 
                     width = image.size[0]
                     height = image.size[1]
 
                     # blow up the image if either dim is smaller than minimum thumbnail size
-                    while width < THUMBNAIL_SIZE[0] or height < THUMBNAIL_SIZE[1]:
+                    while width < thumbnail_size[0] or height < thumbnail_size[1]:
                         width = int(width * 1.5)
                         height = int(height* 1.5)
                         image.resize((width, height), Image.ANTIALIAS)
 
                     # rather than have thumbnail_size be a maximum, make it a minimum
                     if width > height:
-                        THUMBNAIL_SIZE[0] = width
+                        thumbnail_size[0] = width
                     else:
-                        THUMBNAIL_SIZE[1] = height
+                        thumbnail_size[1] = height
 
                     # convert to thumbnail image
-                    image.thumbnail(THUMBNAIL_SIZE, Image.ANTIALIAS)
+                    image.thumbnail(thumbnail_size, Image.ANTIALIAS)
 
                     # prefix thumbnail file with T_
                     image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
                     image.save(GALLERY_DIR + folder + image_name)
 
-                    THUMBNAIL_SIZE = [300, 300]
