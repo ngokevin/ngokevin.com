@@ -134,12 +134,27 @@ for (var index in album_slugs) {
 }
 
 // make request to index of album directories and add html to array
+var removed_indexes = new Array();
 var album_htmls = new Array();
 for (var index in album_dirs) {
     var request = makeHttpObject();
     request.open("GET", album_dirs[index], false);
     request.send(null);
-    album_htmls.push(request.responseText);
+
+    // if file was found
+    var file_not_found_regex = /Error response/gi;
+    if(!file_not_found_regex.exec(request.responseText)) {
+        album_htmls.push(request.responseText);
+    }
+    else {
+        removed_indexes.push(index);
+    }
+}
+// remove albums where they weren't found
+for (var index in removed_indexes) {
+    album_dirs.splice(removed_indexes[index], 1);
+    album_slugs.splice(removed_indexes[index], 1);
+    album_titles.splice(removed_indexes[index], 1);
 }
 
 // create an array of array of images within them to use as previews for

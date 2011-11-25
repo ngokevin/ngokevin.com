@@ -24,6 +24,14 @@ for folder in os.listdir(GALLERY_DIR):
 
                     width = image.size[0]
                     height = image.size[1]
+
+                    # blow up the image if either dim is smaller than minimum thumbnail size
+                    while width < THUMBNAIL_SIZE[0] or height < THUMBNAIL_SIZE[1]:
+                        width = int(width * 1.5)
+                        height = int(height* 1.5)
+                        image.resize((width, height), Image.ANTIALIAS)
+
+                    # rather than have thumbnail_size be a maximum, make it a minimum
                     if width > height:
                         THUMBNAIL_SIZE[0] = width
                     else:
