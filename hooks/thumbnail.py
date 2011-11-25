@@ -20,10 +20,19 @@ for folder in os.listdir(GALLERY_DIR):
                 image = Image.open(infile)
 
                 # don't save if thumbnail already exists
-                if infile[0:2] != "T_":
+                if infile[0:2] != "THUMB_":
+
+                    width = image.size[0]
+                    height = image.size[1]
+
                     # convert to thumbnail image
                     image.thumbnail(THUMBNAIL_SIZE, Image.ANTIALIAS)
-                    # prefix thumbnail file with T_
 
+                    while width < THUMBNAIL_SIZE[0] or height < THUMBNAIL_SIZE[1]:
+                        width = int(width*1.5)
+                        height = int(height*1.5)
+                        image.resize((width, height), Image.ANTIALIAS)
+
+                    # prefix thumbnail file with T_
                     image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
                     image.save(GALLERY_DIR + folder + image_name, "JPEG")
