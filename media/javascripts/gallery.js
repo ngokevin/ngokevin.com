@@ -5,7 +5,6 @@ var NUM_PREVIEW_IMGS = 3;
 var THUMBNAIL_SIZE = 210;
 var THUMBNAIL_PREFIX = 'THUMB_'
 
-
 // function: getAlbum
 // get title, slug, directory, and apache index html of each album
 var getAlbums = function() {
@@ -133,8 +132,8 @@ var insertAlbums = function() {
 }
 
 
-// function: imageShift
-// onload event handler that shifts image viewport towards center
+// event handler: imageShift
+// ONLOAD that shifts image viewport towards center
 var imageShift = function() {
 
     // closure holds thumbnail_size constant
@@ -162,8 +161,8 @@ var imageShift = function() {
 }
 
 
-// function: imageChange
-// onmouseover even handler that fades and swaps thumbnail image on hovers
+// event handler: imageChange
+// ONMOUSEOVER that fades and swaps thumbnail image on hovers
 var imageChange = function(img_index, thumbnail_array, img) {
 
     var index = img_index;
