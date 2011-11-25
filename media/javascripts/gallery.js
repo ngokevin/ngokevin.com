@@ -145,7 +145,7 @@ for (var index in album_dirs) {
 // create an array of array of images within them to use as previews for
 // albums, using apache index to parse out image src
 var image_preview_arrays = new Array();
-var image_regex = /href="(.*.(jpg|png))"/gi;
+var image_regex = /href="(THUMB_.*.(jpg|png))"/gi;
 for (var index in album_htmls) {
     var images = new Array();
     while (match = image_regex.exec(album_htmls[index])) {
