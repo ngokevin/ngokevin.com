@@ -3,7 +3,54 @@
 
 var NUM_PREVIEW_IMGS = 3;
 
-// SHIFT IMAGE VIEWPORT TOWARDS CENTER
+
+// function: getAlbum
+// get title, slug, directory, and apache index html of each album
+var getAlbums = function() {
+
+    var album_slugs = document.getElementsByClass("album-slug");
+    var album_titles = document.getElementsByClass("album-title");
+
+    // create array of relative paths to albums
+    var album_dirs = new Array();
+    for (var index in album_slugs) {
+        album_dirs.push("/images/gallery/" + album_slugs[index].innerHTML + "/");
+    }
+
+    var removed_indexes = new Array();
+    var album_htmls = new Array();
+    for (var index in album_dirs) {
+        var request = makeHttpObject();
+        request.open("GET", album_dirs[index], false);
+        request.send(null);
+
+        // if file was found
+        var file_not_found_regex = /Error response/gi;
+        if(!file_not_found_regex.exec(request.responseText)) {
+            album_htmls.push(request.responseText);
+        }
+        else {
+            removed_indexes.push(index);
+        }
+    }
+    // remove albums where they weren't found
+    for (var index in removed_indexes) {
+        album_dirs.splice(removed_indexes[index], 1);
+        album_slugs.splice(removed_indexes[index], 1);
+        album_titles.splice(removed_indexes[index], 1);
+    }
+
+    return {
+        'htmls': album_htmls,
+        'dirs': album_dirs,
+        'slugs': album_slugs,
+        'titles': album_titles
+    };
+};
+
+
+// function: imageShift
+// onload event handler that shifts image viewport towards center
 var imageShift = function() {
 
     var THUMBNAIL_SIZE = 210;
@@ -28,7 +75,9 @@ var imageShift = function() {
 
 }
 
-// FADES AND SWAPS THUMBNAIL IMAGE ON SUSTAINED HOVER
+
+// function: imageChange
+// onmouseover even handler that fades and swaps thumbnail image on hovers
 var imageChange = function(img_index, thumbnail_array, img) {
 
     var index = img_index;
@@ -36,34 +85,34 @@ var imageChange = function(img_index, thumbnail_array, img) {
     var mouseout_flag = 0;
     var thumbnail = img;
 
-    // closure, holds the thumbnail array, current image, and current index
+    // function: fade
+    // closure that holds the curren index, thumbnail array, and img object
     return fade = function() {
         var mouseout_flag = 0;
         thumbnail.style.opacity = .75;
 
-        // if the mouse moves out, don't fade
+        // if the mouse moves out before timer calls step, don't fade
         thumbnail.onmouseout = function() {
             mouseout_flag = 1;
             thumbnail.style.opacity = 1;
         };
 
-        // calls a recursive function that slowly fades out image
         setTimeout(function() {
             if(mouseout_flag == 0) {
                 step();
             }
         }, 600);
 
-        // DECREASES OPACITY
+
+        // function: step
+        // decreases opacity of img by a bit up until clear
         var step = function() {
             thumbnail.style.opacity = opacity;
 
-            // if not faded out, keep fading
             if (opacity > 0) {
                 setTimeout(step, 10);
             }
-            else {
-                // swap to next image once opacity is low
+            else { // swap to next image once opacity is low enough
                 if (parseInt(index) != thumbnail_array.length - 1) {
                     index++;
                 }
@@ -72,14 +121,15 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 }
                 thumbnail.src = thumbnail_array[index].firstChild.orig_src;
 
-                // FADE IN NEW IMAGE
+
+                // function: fadeIn
+                // increases the opacity of img by a bit until opaque
                 var fadeIn = function () {
                     thumbnail.style.opacity = opacity;
                     if (opacity < 1) {
                         setTimeout(fadeIn, 10);
                     }
-                    else {
-                        // if the mouse is still over the image, switch again
+                    else { // swap img again if still hovering
                         if (mouseout_flag != 1) {
                             setTimeout(function() {
                                 if(mouseout_flag == 0) {
@@ -91,52 +141,22 @@ var imageChange = function(img_index, thumbnail_array, img) {
                     opacity = opacity + .01;
                 }
                 setTimeout(fadeIn, 0);
+
             }
             opacity = opacity - .01;
         };
+
     };
 }
 
-// GET ALBUM SLUGS FROM TEMPLATE TO BUILD ALBUM DIRECTORIES
-var album_slugs = document.getElementsByClass("album-slug");
-var album_titles = document.getElementsByClass("album-title");
-
-// create array of relative paths to albums
-var album_dirs = new Array();
-for (var index in album_slugs) {
-    album_dirs.push("/images/gallery/" + album_slugs[index].innerHTML + "/");
-}
-
-// HTTP REQUEST TO APACHE FOR IMAGE SRCS
-var removed_indexes = new Array();
-var album_htmls = new Array();
-for (var index in album_dirs) {
-    var request = makeHttpObject();
-    request.open("GET", album_dirs[index], false);
-    request.send(null);
-
-    // if file was found
-    var file_not_found_regex = /Error response/gi;
-    if(!file_not_found_regex.exec(request.responseText)) {
-        album_htmls.push(request.responseText);
-    }
-    else {
-        removed_indexes.push(index);
-    }
-}
-// remove albums where they weren't found
-for (var index in removed_indexes) {
-    album_dirs.splice(removed_indexes[index], 1);
-    album_slugs.splice(removed_indexes[index], 1);
-    album_titles.splice(removed_indexes[index], 1);
-}
+var albums = getAlbums();
 
 // CREATE ARRAY OF ARRAY IMAGE OBJECTS
 var image_preview_arrays = new Array();
 var image_regex = /href="(THUMB_.*.(jpg|png|JPG))"/gi;
-for (var index in album_htmls) {
+for (var index in albums['htmls']) {
     var images = new Array();
-    while (match = image_regex.exec(album_htmls[index])) {
+    while (match = image_regex.exec(albums['htmls'][index])) {
 
         // only load a certain amount of images
         if (images.length > NUM_PREVIEW_IMGS) {
@@ -145,19 +165,16 @@ for (var index in album_htmls) {
 
         // link to actual album
         var a = document.createElement("a");
-        a.href = album_slugs[index].innerHTML;
+        a.href = albums['slugs'][index].innerHTML;
 
         var img = new Image();
         img.style.visibility= "hidden"; // don't display until shifted
-        img.onload = imageShift; // shift viewport on load
-        img.src = album_dirs[index] + match[1];
+        img.onload = imageShift;
+        img.src = albums['dirs'][index] + match[1];
 
         // wrap the image in an a
         a.appendChild(img);
         images.push(a);
-    }
-    if(images.length==0){
-        console.log(album_htmls[index]);
     }
     image_preview_arrays.push(images);
 }
@@ -196,7 +213,7 @@ for (var index in image_preview_arrays) {
     // create overlay text with album title
     h3 = document.createElement("h3");
     span = document.createElement("span");
-    span.appendChild(document.createTextNode(album_titles[index].innerHTML));
+    span.appendChild(document.createTextNode(albums['titles'][index].innerHTML));
     h3.appendChild(span);
     div.appendChild(h3);
 
