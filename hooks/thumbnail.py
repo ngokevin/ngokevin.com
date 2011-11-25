@@ -3,7 +3,7 @@ import glob
 import Image
 import os
 
-THUMBNAIL_SIZE = (300, 300)
+THUMBNAIL_SIZE = [300, 300]
 THUMBNAIL_PREFIX = 'THUMB_'
 GALLERY_DIR = os.path.abspath("../media/images/gallery/") + '/'
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
@@ -24,15 +24,16 @@ for folder in os.listdir(GALLERY_DIR):
 
                     width = image.size[0]
                     height = image.size[1]
+                    if width > height:
+                        THUMBNAIL_SIZE[0] = width
+                    else:
+                        THUMBNAIL_SIZE[1] = height
 
                     # convert to thumbnail image
                     image.thumbnail(THUMBNAIL_SIZE, Image.ANTIALIAS)
 
-                    while width < THUMBNAIL_SIZE[0] or height < THUMBNAIL_SIZE[1]:
-                        width = int(width*1.5)
-                        height = int(height*1.5)
-                        image.resize((width, height), Image.ANTIALIAS)
-
                     # prefix thumbnail file with T_
                     image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
                     image.save(GALLERY_DIR + folder + image_name, "JPEG")
+
+                    THUMBNAIL_SIZE = [300, 300]
