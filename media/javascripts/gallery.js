@@ -8,16 +8,6 @@ var imageShift = function() {
 
     var THUMBNAIL_SIZE = 210;
 
-    // blow it up if too small
-    if(THUMBNAIL_SIZE > this.width || THUMBNAIL_SIZE > this.height) {
-        width_diff = THUMBNAIL_SIZE - this.width;
-        height_diff = THUMBNAIL_SIZE - this.height;
-        diff_ratio = width_diff > height_diff ? width_diff / this.width : height_diff / this.height;
-
-        this.style.width = this.width / (1- diff_ratio);
-        this.style.height = this.height / (1 - diff_ratio);
-    }
-
     // shift by closing in image towards center
     var shift_left = (this.width - THUMBNAIL_SIZE) / 2;
     if (shift_left > 0) {
@@ -160,7 +150,7 @@ for (var index in removed_indexes) {
 // create an array of array of images within them to use as previews for
 // albums, using apache index to parse out image src
 var image_preview_arrays = new Array();
-var image_regex = /href="(THUMB_.*.(jpg|png))"/gi;
+var image_regex = /href="(THUMB_.*.(jpg|png|JPG))"/gi;
 for (var index in album_htmls) {
     var images = new Array();
     while (match = image_regex.exec(album_htmls[index])) {
@@ -183,6 +173,9 @@ for (var index in album_htmls) {
         a.appendChild(img);
         images.push(a);
     }
+    if(images.length==0){
+        console.log(album_htmls[index]);
+    }
     image_preview_arrays.push(images);
 }
 
@@ -204,7 +197,6 @@ for (var album_index in image_preview_arrays) {
 // write images to dom
 var gallery = document.getElementById("gallery");
 for (var index in image_preview_arrays) {
-
     // make a new row every four albums
     if (index % 4 == 0) {
         var row = document.createElement("div");

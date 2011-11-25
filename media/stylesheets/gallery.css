@@ -1,14 +1,6 @@
 #gallery {
     margin-top: 1.1em;
 }
-#gallery img {
-    width: 300px;
-    height : auto;
-}
-#gallery img {
-    width: auto;
-    height : 300px;
-}
 #gallery a {
     overflow:hidden;
     position:relative;

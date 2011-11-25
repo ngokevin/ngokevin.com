@@ -42,6 +42,6 @@ for folder in os.listdir(GALLERY_DIR):
 
                     # prefix thumbnail file with T_
                     image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
-                    image.save(GALLERY_DIR + folder + image_name, "JPEG")
+                    image.save(GALLERY_DIR + folder + image_name)
 
                     THUMBNAIL_SIZE = [300, 300]
