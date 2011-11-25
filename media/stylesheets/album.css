@@ -17,3 +17,28 @@
     filter:alpha(opacity=75);
     opacity:.75;
 }
+.overlay {
+    background-color: #000;
+    opacity: .7;
+    filter: alpha(opacity=70);
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.overlay-img {
+    position: absolute;
+    z-index: 11;
+    left: 15%;
+    top: 10%;
+}
+.overlay-img {
+    width: 960px;
+    height: auto;
+}
+.overlay-img {
+    width: auto;
+    height: 80%;
+}
+
+
