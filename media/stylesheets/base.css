@@ -4,6 +4,8 @@ body{
     padding:0;
     height:100%
 }
+a {font-weight: bold;}
+#main a:hover {font-weight: bold;}
 #main h1 { font-size: 2.0em; line-height:2.2em; }
 #main h2 { font-size: 1.6em; line-height:1.8em;}
 #main h3 { font-size: 1.3em; line-height:1.5em; }
@@ -38,12 +40,10 @@ body{
     text-align:center;
 }
 #footer a {
-    font-weight:bold;
     color: #005454;
     text-decoration:none;
 }
 #footer a:hover {
-    font-weight:bold;
     color: #2AAAAA;
 }
 
@@ -99,7 +99,6 @@ body{
     color:#2AAAAA;
 }
 #navigation span {
-    font-weight: bold;
     padding:14px;
     border-radius:8px;
     color:black;
