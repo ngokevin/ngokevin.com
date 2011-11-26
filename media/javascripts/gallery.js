@@ -3,7 +3,8 @@
 
 var NUM_PREVIEW_IMGS = 3;
 var THUMBNAIL_SIZE = 210;
-var THUMBNAIL_PREFIX = 'THUMB_'
+var THUMBNAIL_PREFIX = 'THUMB_';
+var EXPAND_SIZE = 1.1;
 
 // function: getAlbum
 // get title, slug, directory, and apache index html of each album
@@ -92,10 +93,10 @@ var loadAlbums = function(albums) {
 
             // assign handler
             img.orig_src = img.src;
-            img.onmouseover = imageChange(image_index, images, img);
+            img.onmouseover = imageSwapFade(image_index, images, img);
         }
     }
-}
+};
 
 
 // function: insertAlbums
@@ -129,7 +130,7 @@ var insertAlbums = function() {
         // append to row
         row.appendChild(div);
     }
-}
+};
 
 
 // event handler: imageShift
@@ -157,21 +158,19 @@ var imageShift = function() {
         // show image after shifting
         this.style.visibility= "visible";
     }
+};
 
-}
 
-
-// event handler: imageChange
+// event handler: imageSwapFade
 // ONMOUSEOVER that fades and swaps thumbnail image on hovers
-var imageChange = function(img_index, thumbnail_array, img) {
+var imageSwapFade = function(img_index, thumbnail_array, img) {
 
     var index = img_index;
     var opacity = .75;
     var mouseout_flag = 0;
     var thumbnail = img;
 
-    // function: fade
-    // closure that holds the curren index, thumbnail array, and img object
+    // closure that holds the current index, thumbnail array, and img object
     return fade = function() {
         var mouseout_flag = 0;
         thumbnail.style.opacity = .75;
@@ -188,7 +187,6 @@ var imageChange = function(img_index, thumbnail_array, img) {
             }
         }, 800);
 
-        // function: step
         // decreases opacity of img by a bit up until clear
         var step = function() {
             thumbnail.style.opacity = opacity;
@@ -205,8 +203,6 @@ var imageChange = function(img_index, thumbnail_array, img) {
                 }
                 thumbnail.src = thumbnail_array[index].firstChild.orig_src;
 
-
-                // function: fadeIn
                 // increases the opacity of img by a bit until opaque
                 var fadeIn = function () {
                     thumbnail.style.opacity = opacity;
@@ -231,7 +227,8 @@ var imageChange = function(img_index, thumbnail_array, img) {
         };
 
     };
-}
+};
+
 
 var albums = getAlbums();
 loadAlbums(albums);
