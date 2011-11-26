@@ -18,9 +18,8 @@
 }
 .expand img {
     border-style: solid;
-    border-color: #DDDDD3;
+    border-color: #EEEEE6;
     border-width: 7px;
-    background-color: #EEEEE6;
     -moz-box-shadow: 0 0 5px 2px #888;
     -webkit-box-shadow: 0 0 5px 2px #888;
     box-shadow: 0 0 5px 2px #888;
