@@ -32,11 +32,23 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
 
-<h2>{{ page.title }}</h2>
-{{ page.content }}
+<h2 style="display:inline;">{{ page.title }}</h2><br/>
+
+<div class="paging">
+    {% if pagination %}
+        {% if pagination.prev_page %}
+            <a href="{{ pagination.prev_page.url }}">Previous Page</a> |
+        {% endif %}
+        Page {{ pagination.cur_page }} of {{ pagination.num_pages }}
+        {% if pagination.next_page %}
+            | <a href="{{ pagination.next_page.url }}">Next Page</a>
+        {% endif %}
+    {% endif %}
+    {{ page.content }}
+</div>
 
 <div class="big-index">
-    {% for subpage in collection %}
+    {% for subpage in pagination.page_items %}
         <div class="big-index-item">
             {% if not loop.first %}
                 <hr style="margin-top:2em;"/>

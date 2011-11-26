@@ -9,7 +9,7 @@ index:
 
 pagination:
     list: page.subpages
-    limit: 3
+    limit: 5
     sort_key: date
     sort_reverse: True
 
