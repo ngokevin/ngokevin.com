@@ -2,6 +2,7 @@
     margin-top: 1.1em;
 }
 #gallery a {
+    cursor: pointer;
     overflow:hidden;
     position:relative;
     float:left;

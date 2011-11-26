@@ -106,8 +106,8 @@ var expandImage = function() {
             // create img for full-res image
             img = new Image();
             img.style.position = 'absolute';
-            img.style.left = position['x'] + 'px';
-            img.style.top = position['y'] + 'px';
+            img.style.left = parseInt(position['x'] - (thumb_img.width * .4)/2) + 'px';
+            img.style.top = parseInt(position['y'] - (thumb_img.height * .4)/2) + 'px';
 
             // start as same size as thumb img
             img.style.width = width;
