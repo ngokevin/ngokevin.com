@@ -83,42 +83,52 @@ var restoreImage = function() {
 var expandImage = function() {
 
     var thumb_img = this;
+    var width = thumb_img.width;
+    var height = thumb_img.height;
 
     return expand = function() {
 
-        var expand = document.createElement("div");
-        expand.setAttribute("id","expand");
-        expand.setAttribute("class", "expand");
-        document.body.appendChild(expand);
-
-        // add full img OVER thumb image
-        position = getXYpos(thumb_img);
-
-        // create img for full-res image
-        img = new Image();
-        img.style.position = 'absolute';
-        img.style.left = position['x'] + 'px';
-        img.style.top = position['y'] + 'px';
-
         // restore back on mouseout of full image
-        img.onmouseout = function() {
-            document.body.removeChild(document.getElementById("expand"));
+        var mouseout_flag = 0;
+        thumb_img.onmouseout = function() {
+            mouseout_flag = 1;
         }
 
-        // start as same size as thumb img
-        var width = thumb_img.width;
-        var height = thumb_img.height;
-        img.style.width = width;
-        img.style.height = height;
+        var addFullImage = function() {
+            var expand = document.createElement("div");
+            expand.setAttribute("id","expand");
+            expand.setAttribute("class", "expand");
+            document.body.appendChild(expand);
 
-        // load new src after expand
-        img.src = thumb_img.src;
+            // add full img OVER thumb image
+            position = getXYpos(thumb_img);
 
-        expand.appendChild(img);
+            // create img for full-res image
+            img = new Image();
+            img.style.position = 'absolute';
+            img.style.left = position['x'] + 'px';
+            img.style.top = position['y'] + 'px';
+
+            // start as same size as thumb img
+            img.style.width = width;
+            img.style.height = height;
+
+            img.onmouseout = function() {
+                document.body.removeChild(document.getElementById("expand"));
+            };
+
+            // load new src after expand
+            img.src = thumb_img.src;
+
+            expand.appendChild(img);
+        };
 
         setTimeout(function() {
-            step();
-        }, 1500);
+            if(mouseout_flag == 0){
+                addFullImage();
+                step();
+            }
+        }, 700);
 
         var step = function() {
             img.style.width = width + 'px';

@@ -186,7 +186,7 @@ var imageChange = function(img_index, thumbnail_array, img) {
             if(mouseout_flag == 0) {
                 step();
             }
-        }, 600);
+        }, 800);
 
         // function: step
         // decreases opacity of img by a bit up until clear
@@ -219,7 +219,7 @@ var imageChange = function(img_index, thumbnail_array, img) {
                                 if(mouseout_flag == 0) {
                                     step();
                                 }
-                            }, 300);
+                            }, 600);
                         }
                     }
                     opacity = opacity + .01;

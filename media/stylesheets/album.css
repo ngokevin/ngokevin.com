@@ -8,13 +8,22 @@
     margin: 3px;
 }
 #album img:hover {
-    -moz-box-shadow: 0 0 5px 1px #888;
-    -webkit-box-shadow: 0 0 5px 1px #888;
-    box-shadow: 0 0 5px 1px #888;
+    -moz-box-shadow: 0 0 5px 2px #888;
+    -webkit-box-shadow: 0 0 5px 2px #888;
+    box-shadow: 0 0 5px 2px #888;
 }
 
 .expand {
     z-index: 9;
+}
+.expand img {
+    border-style: solid;
+    border-color: #DDDDD3;
+    border-width: 7px;
+    background-color: #EEEEE6;
+    -moz-box-shadow: 0 0 5px 2px #888;
+    -webkit-box-shadow: 0 0 5px 2px #888;
+    box-shadow: 0 0 5px 2px #888;
 }
 
 .overlay {
