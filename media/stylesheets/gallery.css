@@ -9,6 +9,8 @@
     height:210px;
     z-index:1;
 
+    -webkit-box-shadow: 3px 3px 5px #888888;
+    -moz-box-shadow: 3px 3px 5px #888888;
     box-shadow: 3px 3px 5px #888888;
     border-style: double;
     border-color: #DDDDD3;

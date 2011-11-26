@@ -7,11 +7,16 @@
     margin-top: 0px;
     margin: 3px;
 }
-#album a:hover {
-    -moz-opacity:.75;
-    filter:alpha(opacity=75);
-    opacity:.75;
+#album img:hover {
+    -moz-box-shadow: 0 0 5px 1px #888;
+    -webkit-box-shadow: 0 0 5px 1px #888;
+    box-shadow: 0 0 5px 1px #888;
 }
+
+.expand {
+    z-index: 9;
+}
+
 .overlay {
     background-color: #000;
     opacity: .7;
