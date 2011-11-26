@@ -94,6 +94,7 @@ var expandImage = function() {
             mouseout_flag = 1;
         }
 
+        // putting in function allows easier mouseover delay
         var addFullImage = function() {
             var expand = document.createElement("div");
             expand.setAttribute("id","expand");
@@ -106,8 +107,8 @@ var expandImage = function() {
             // create img for full-res image
             img = new Image();
             img.style.position = 'absolute';
-            img.style.left = parseInt(position['x'] - (thumb_img.width * .4)/2) + 'px';
-            img.style.top = parseInt(position['y'] - (thumb_img.height * .4)/2) + 'px';
+            img.style.left = position['x'] + 'px';
+            img.style.top = position['y'] + 'px';
 
             // start as same size as thumb img
             img.style.width = width;
@@ -131,6 +132,10 @@ var expandImage = function() {
         }, 700);
 
         var step = function() {
+
+            // simulate expanding image from center by shifting every step
+            img.style.left = (parseInt(img.style.left) - parseInt((width - parseInt(img.style.width))/2)) + 'px';
+            img.style.top = (parseInt(img.style.top) - parseInt((height - parseInt(img.style.height))/2)) + 'px';
             img.style.width = width + 'px';
             img.style.height = height + 'px';
 
