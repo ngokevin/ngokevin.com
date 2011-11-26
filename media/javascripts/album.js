@@ -114,6 +114,7 @@ var expandImage = function() {
             img.style.width = width;
             img.style.height = height;
 
+            img.onclick = showImage;
             img.onmouseout = function() {
                 document.body.removeChild(document.getElementById("expand"));
             };
