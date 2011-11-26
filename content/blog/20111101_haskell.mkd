@@ -15,6 +15,11 @@ different from the usual imperative programming languages. We did calculated
 Fib numbers and **generators** (infinite lists on the fly) Haskell-style. It
 was an intense experience that left several of us dazed, but it was interesting
 to see something different. At the end, here was our demo code.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 
     module Demo where 
