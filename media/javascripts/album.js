@@ -96,20 +96,46 @@ var expandImage = function() {
 
         // create img for full-res image
         img = new Image();
-        img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
         img.style.position = 'absolute';
         img.style.left = position['x'] + 'px';
         img.style.top = position['y'] + 'px';
-        img.style.width = thumb_img.width * 1.4;
-        img.style.height = thumb_img.height * 1.4;
 
         // restore back on mouseout of full image
         img.onmouseout = function() {
             document.body.removeChild(document.getElementById("expand"));
         }
 
+        // start as same size as thumb img
+        var width = thumb_img.width;
+        var height = thumb_img.height;
+        img.style.width = width;
+        img.style.height = height;
+
+        // load new src after expand
+        img.src = thumb_img.src;
+
         expand.appendChild(img);
 
+        setTimeout(function() {
+            step();
+        }, 1500);
+
+        var step = function() {
+            img.style.width = width + 'px';
+            img.style.height = height + 'px';
+
+            if(parseInt(img.style.width) < parseInt(thumb_img.width * 1.4)
+            || parseInt(img.style.height) < parseInt(thumb_img.height * 1.4)) {
+                setTimeout(step, 1);
+            }
+            else {
+                // load full image
+                img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
+            }
+
+            width = parseInt(width * 1.1);
+            height = parseInt(height * 1.1);
+        };
     }();
 }
 
