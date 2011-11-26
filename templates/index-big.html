@@ -2,7 +2,7 @@
 
 {# Set defaults #}
 {% set min_height = 150 %}
-{% set char_limit = 500 %}
+{% set char_limit = 300 %}
 {% set collection = page.subpages %}
 
 {% if page.index %}
@@ -63,8 +63,6 @@
             <div>
                 <span class="big-index-post">
                     {{subpage.content|truncate(length=char_limit, end="<a href="+subpage.url+">...more</a>")}}
-                    </code>
-                    </pre>
                 </span>
             </div>
         </div>
