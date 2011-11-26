@@ -21,7 +21,7 @@ for folder in os.listdir(GALLERY_DIR):
                 thumbnail_size = [0, 0]
 
                 # don't save if thumbnail already exists
-                if infile[0:2] != "THUMB_":
+                if infile[0:len(THUMBNAIL_PREFIX)] != THUMBNAIL_PREFIX:
 
                     thumbnail_size[0] = ORIG_THUMBNAIL_SIZE[0]
                     thumbnail_size[1] = ORIG_THUMBNAIL_SIZE[1]
