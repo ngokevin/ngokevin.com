@@ -6,7 +6,7 @@
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
     <h2>{{ page.title }}</h2>
 
-    {% for album in site.categories['gallery'] %}
+    {% for album in site.categories['gallery'] | sort(attribute='datetime', reverse=True) %}
         <!--Allow JavaScript to access the slugs-->
         <span class="album-slug" style="display:none;">{{ album.slug }}</span>
         <span class="album-title" style="display:none;">{{ album.title}}</span>
