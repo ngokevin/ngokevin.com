@@ -62,12 +62,8 @@ var loadAlbums = function(albums) {
     for (var index in albums['htmls']) {
         var images = new Array();
 
-        while (match = image_regex.exec(albums['htmls'][index])) {
-
-            // only load a certain amount of images
-            if (images.length > NUM_PREVIEW_IMGS) {
-                break;
-            }
+        image_regex.exec(albums['htmls'][index][1]); // somehow this fixes...
+        while ((match = image_regex.exec(albums['htmls'][index])) && images.length < NUM_PREVIEW_IMGS) {
 
             var a = document.createElement("a");
             a.href = albums['slugs'][index].innerHTML;
