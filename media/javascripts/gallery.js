@@ -103,6 +103,11 @@ var insertAlbums = function() {
 
     for (var index in albums['images']) {
 
+        // covering my bases
+        if(albums['images'][index].length == 0){
+            continue;
+        }
+
         // make a new row every four albums
         if (index % 4 == 0) {
             var row = document.createElement("div");

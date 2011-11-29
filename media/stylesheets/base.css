@@ -23,6 +23,11 @@ a {font-weight: bold;}
 #main li, #main ol {
     list-style: none;
 }
+#main p, #main span {
+    font-size: 1.03em;
+    line-height: 1.60em;
+    color: #636363;
+}
 
 .container{
     min-height:100%
@@ -69,7 +74,7 @@ a {font-weight: bold;}
 
 #main {
     padding-top:10px;
-    padding-bottom:210px;
+    padding-bottom:300px;
 }
 #main a {
     color: #005454;
@@ -109,6 +114,10 @@ a {font-weight: bold;}
 
 .page {
     margin-top: 10px;
+}
+.page p {
+    font-size: 1.20em !important;
+    line-height: 1.80em !important;
 }
 .base-image img {
     margin-bottom: 5px;
