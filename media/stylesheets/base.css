@@ -24,7 +24,6 @@ a {font-weight: bold;}
     list-style: none;
 }
 #main p, #main span {
-    font-size: 1.03em;
     line-height: 1.60em;
     color: #636363;
 }
@@ -116,7 +115,6 @@ a {font-weight: bold;}
     margin-top: 10px;
 }
 .page p {
-    font-size: 1.20em !important;
     line-height: 1.80em !important;
 }
 .base-image img {
