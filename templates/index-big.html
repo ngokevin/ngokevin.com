@@ -68,9 +68,6 @@
                 </span>
             </div>
 
-            {% if subpage.image %}
-                <img src="{{subpage.image.url}}"/>
-            {% endif %}
 
             <div>
                 <span class="big-index-post">
@@ -79,6 +76,10 @@
                     </pre>
                 </span>
             </div>
+
+            {% if subpage.image %}
+                <img style="float:left;" src="{{subpage.image.url}}"/>
+            {% endif %}
         </div>
     {% endfor %}
 </div>
