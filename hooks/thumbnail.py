@@ -5,46 +5,60 @@ import os
 
 ORIG_THUMBNAIL_SIZE = [210, 210]
 THUMBNAIL_PREFIX = 'THUMB_'
-GALLERY_DIR = os.path.abspath("../media/images/gallery/") + '/'
+GALLERY_DIR = os.path.abspath("./media/images/gallery/") + '/'
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
 
-# get all the jpg files from the current folder
-for folder in os.listdir(GALLERY_DIR):
+def create_thumbnails():
+    """
+    Wok site.start hook
+    Walks through gallery folder in media directory
+    and creates thumbnails for images that do not yet have thumbnails
+    """
 
-    for image_list in [glob.glob(GALLERY_DIR + folder + '/*.' + file_type) for file_type in FILE_TYPES]:
+    # get all the jpg files from the current folder
+    for folder in os.listdir(GALLERY_DIR):
 
-        if not image_list:
-            continue
-        else:
-            for infile in image_list:
-                image = Image.open(infile)
-                thumbnail_size = [0, 0]
+        for image_list in [glob.glob(GALLERY_DIR + folder + '/*.' + file_type) for file_type in FILE_TYPES]:
 
-                # don't save if thumbnail already exists
-                if not infile.split('/')[-1].startswith(THUMBNAIL_PREFIX):
+            if not image_list:
+                continue
+            else:
+                for infile in image_list:
 
-                    thumbnail_size[0] = ORIG_THUMBNAIL_SIZE[0]
-                    thumbnail_size[1] = ORIG_THUMBNAIL_SIZE[1]
+                    # don't do anything if thumbnail already exists
+                    split = infile.split('/')
+                    if not split[-1].startswith(THUMBNAIL_PREFIX) and '/'.join(split[:-1]) + '/' + THUMBNAIL_PREFIX + split[-1] not in image_list :
 
-                    width = image.size[0]
-                    height = image.size[1]
+                        image = Image.open(infile)
+                        thumbnail_size = [0, 0]
 
-                    # blow up the image if either dim is smaller than minimum thumbnail size
-                    while width < thumbnail_size[0] or height < thumbnail_size[1]:
-                        width = int(width * 1.5)
-                        height = int(height* 1.5)
-                        image.resize((width, height), Image.ANTIALIAS)
+                        thumbnail_size[0] = ORIG_THUMBNAIL_SIZE[0]
+                        thumbnail_size[1] = ORIG_THUMBNAIL_SIZE[1]
 
-                    # rather than have thumbnail_size be a maximum, make it a minimum
-                    if width > height:
-                        thumbnail_size[0] = width
-                    else:
-                        thumbnail_size[1] = height
+                        width = image.size[0]
+                        height = image.size[1]
 
-                    # convert to thumbnail image
-                    image.thumbnail(thumbnail_size, Image.ANTIALIAS)
+                        # blow up the image if either dim is smaller than minimum thumbnail size
+                        while width < thumbnail_size[0] or height < thumbnail_size[1]:
+                            width = int(width * 1.5)
+                            height = int(height* 1.5)
+                            image.resize((width, height), Image.ANTIALIAS)
 
-                    # prefix thumbnail file with T_
-                    image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
-                    image.save(GALLERY_DIR + folder + image_name)
+                        # rather than have thumbnail_size be a maximum, make it a minimum
+                        if width > height:
+                            thumbnail_size[0] = width
+                        else:
+                            thumbnail_size[1] = height
 
+                        # convert to thumbnail image
+                        image.thumbnail(thumbnail_size, Image.ANTIALIAS)
+
+                        # prefix thumbnail file with T_
+                        image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
+                        image.save(GALLERY_DIR + folder + image_name)
+
+
+if __name__ == '__main__':
+
+    GALLERY_DIR = os.path.abspath("../media/images/gallery/") + '/'
+    create_thumbnails()
