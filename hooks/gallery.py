@@ -6,7 +6,7 @@ REL_GALLERY_DIR = "/images/gallery/"
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
 THUMB_PREFIX = "THUMB_"
 
-def load_albums(page, templ_vars):
+def get_albums(page, templ_vars):
     """
     Wok page.template.pre hook
     Get album information and grab several images to load into each album
