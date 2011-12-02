@@ -1,77 +1,63 @@
-// gallery.js - creates links to albums based on the album slugs defined in
-// wok's markdown files, grabs album previews
+// gallery.js
+// fading album previews using info dumped into template from gallery hook
 
 var NUM_PREVIEW_IMGS = 3;
 var THUMBNAIL_SIZE = 210;
-var THUMBNAIL_PREFIX = 'THUMB_';
 var EXPAND_SIZE = 1.1;
 
 // function: getAlbum
-// get title, slug, directory, and apache index html of each album
+// grab album metadata (slugs, titles, dirs, srcs)
 var getAlbums = function() {
 
-    var album_slugs = document.getElementsByClass("album-slug");
-    var album_titles = document.getElementsByClass("album-title");
+    slugs = document.getElementsByClass("album-slug");
+    slugs = [slugs[index].innerHTML for (index in document.getElementsByClass("album-slug"))];
 
-    // create array of relative paths to albums
-    var album_dirs = new Array();
-    for (var index in album_slugs) {
-        album_dirs.push("/images/gallery/" + album_slugs[index].innerHTML + "/");
-    }
+    titles = document.getElementsByClass("album-title");
+    titles = [titles[index].innerHTML for (index in document.getElementsByClass("album-title"))];
 
-    var removed_indexes = new Array();
-    var album_htmls = new Array();
-    for (var index in album_dirs) {
-        var request = makeHttpObject();
-        request.open("GET", album_dirs[index], false);
-        request.send(null);
+    dirs = ["/images/gallery/" + slugs[index] + "/" for (index in slugs)];
 
-        // if file was found
-        var file_not_found_regex = /Error response/gi;
-        if(!file_not_found_regex.exec(request.responseText)) {
-            album_htmls.push(request.responseText);
+    srcs = new Array();
+    var grab_srcs = function(album_srcs) {
+        actual_srcs = new Array();
+        for(index in album_srcs) {
+            if(album_srcs[index].innerHTML != undefined) {
+                actual_srcs.push(album_srcs[index].innerHTML);
+            }
         }
-        else {
-            removed_indexes.push(index);
-        }
-    }
-    // remove albums where they weren't found
-    for (var index in removed_indexes) {
-        album_dirs.splice(removed_indexes[index], 1);
-        album_slugs.splice(removed_indexes[index], 1);
-        album_titles.splice(removed_indexes[index], 1);
-    }
+        srcs.push(actual_srcs);
+    };
+    album_srcs = document.getElementsByClass("album-images");
+    album_srcs = [grab_srcs(album_srcs[index].childNodes) for (index in album_srcs)];
 
     return {
-        'htmls': album_htmls,
-        'dirs': album_dirs,
-        'slugs': album_slugs,
-        'titles': album_titles
+        'slugs': slugs,
+        'titles': titles,
+        'dirs': dirs,
+        'srcs': srcs,
     };
 };
 
 
 // function: loadAlbums
-// given albums (contain lists of album info), add list containing img objects
+// use src metadata to load albums with a/img html objects
 var loadAlbums = function(albums) {
 
     albums['images'] = new Array();
-    var image_regex = new RegExp('href="(' + THUMBNAIL_PREFIX + '.*.(jpg|png|JPG))"', 'gi');
 
     // create list of a/img objects for each album and push to albums
-    for (var index in albums['htmls']) {
+    for (var index in albums['slugs']) {
         var images = new Array();
 
-        image_regex.exec(albums['htmls'][index][1]); // somehow this fixes...
-        while ((match = image_regex.exec(albums['htmls'][index])) && images.length < NUM_PREVIEW_IMGS) {
+        for(var index_src in albums['srcs'][index]){
 
             var a = document.createElement("a");
-            a.href = albums['slugs'][index].innerHTML;
+            a.href = albums['slugs'][index];
 
             var img = new Image();
             img.style.visibility= "hidden"; // don't display until shifted
             img.onload = imageShift();
-            img.src = albums['dirs'][index] + match[1];
+            img.src = albums['srcs'][index][index_src]
 
             a.appendChild(img);
             images.push(a);
@@ -124,7 +110,7 @@ var insertAlbums = function() {
         // create overlay text with album title
         h3 = document.createElement("h3");
         span = document.createElement("span");
-        span.appendChild(document.createTextNode(albums['titles'][index].innerHTML));
+        span.appendChild(document.createTextNode(albums['titles'][index]));
         h3.appendChild(span);
         div.appendChild(h3);
 

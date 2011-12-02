@@ -2,8 +2,9 @@ import glob
 import os
 
 GALLERY_DIR = os.path.abspath("./media/images/gallery/") + '/'
-REL_GALLERY_DIR = "/media/images/gallery/"
+REL_GALLERY_DIR = "/images/gallery/"
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
+THUMB_PREFIX = "THUMB_"
 
 def load_albums(page, templ_vars):
     """
@@ -20,7 +21,7 @@ def load_albums(page, templ_vars):
             for image_list in [glob.glob(GALLERY_DIR + album['slug'] + '/*.' + file_type) for file_type in FILE_TYPES]:
                 if len(images) > 3:
                     break
-                images += image_list
+                images += [REL_GALLERY_DIR + album['slug'] + '/' + image.split('/')[-1] for image in image_list if image.split('/')[-1].startswith(THUMB_PREFIX)]
 
             albums[album['slug']] = images[0:3]
 
