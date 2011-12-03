@@ -8,20 +8,20 @@ FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
 def get_images(page, templ_vars):
     """
     Wok page.template.pre hook
-    Get all images in the album
+    Get all images in the album as relative paths
     """
+    if 'type' in page.meta and page.meta['type'] == 'album':
+        album = page.meta
 
-    # how do i know if page is in gallery category?
-    if 'gallery' in templ_vars['site']['categories']:
+        # get paths of all of the images in the album
+        album_images = []
 
-        # get paths of albums
+        # get absolute paths of images in album
         for image_list in [glob.glob(GALLERY_DIR + album['slug'] + '/*.' + file_type) for file_type in FILE_TYPES]:
-            if len(images) > 3:
-                break
-            images += [REL_GALLERY_DIR + album['slug'] + '/' + image.split('/')[-1] for image in image_list]
 
-        albums[album['slug']] = images[0:3]
+            # convert paths from absolute to relative
+            album_images += [REL_GALLERY_DIR + album['slug'] + '/' + image.split('/')[-1] for image in image_list]
 
-        templ_vars['site']['albums'] = albums
+        templ_vars['site']['album-images'] = album_images
 
 

@@ -15,13 +15,15 @@ def create_thumbnails():
     and creates thumbnails for images that do not yet have thumbnails
     """
 
-    # get all the jpg files from the current folder
+    # look into each album in the gallery
     for folder in os.listdir(GALLERY_DIR):
 
+        # grab absolute paths of images in the album
         for image_list in [glob.glob(GALLERY_DIR + folder + '/*.' + file_type) for file_type in FILE_TYPES]:
 
             if not image_list:
                 continue
+
             else:
                 for infile in image_list:
 
@@ -38,13 +40,13 @@ def create_thumbnails():
                         width = image.size[0]
                         height = image.size[1]
 
-                        # blow up the image if either dim is smaller than minimum thumbnail size
+                        # blow up the thumbnail if it doesn't meet aspect ratio
                         while width < thumbnail_size[0] or height < thumbnail_size[1]:
                             width = int(width * 1.5)
                             height = int(height* 1.5)
                             image.resize((width, height), Image.ANTIALIAS)
 
-                        # rather than have thumbnail_size be a maximum, make it a minimum
+                        # make thumbnail size be a minimum, not maximum
                         if width > height:
                             thumbnail_size[0] = width
                         else:
@@ -53,7 +55,7 @@ def create_thumbnails():
                         # convert to thumbnail image
                         image.thumbnail(thumbnail_size, Image.ANTIALIAS)
 
-                        # prefix thumbnail file with T_
+                        # prefix thumbnail file with prefix
                         image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
                         image.save(GALLERY_DIR + folder + image_name)
 
