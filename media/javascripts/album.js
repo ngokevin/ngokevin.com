@@ -6,25 +6,15 @@ var THUMBNAIL_PREFIX = 'THUMB_';
 // function: getImages
 // grab image objects from template and return array
 var getImages = function() {
+    images = new Array();
 
-    // retrieve slug to determine what directory album is in
-    var slug = document.getElementById('album-slug').innerHTML;
-    var album_url = "/images/gallery/" + slug + "/";
-
-    // make request to index of album directory
-    var request = makeHttpObject();
-    request.open("GET", album_url , false);
-    request.send(null);
-    var html = request.responseText;
-
-    // query apache index to get image srcs and push to array
-    var image_regex = new RegExp('href="(' + THUMBNAIL_PREFIX + '.*.(jpg|png|JPG))"', 'gi');
-    var images = new Array();
-    while (match = image_regex.exec(html)) {
+    srcs = document.getElementsByClass('album-image');
+    srcs = [srcs[index].innerHTML for (index in srcs)];
+    for(var index in srcs) {
 
         var a = document.createElement("a");
         var img = document.createElement("img");
-        img.src = album_url + match[1];
+        img.src = srcs[index]
 
         img.onclick = showImage;
         img.onmouseover = expandImage;

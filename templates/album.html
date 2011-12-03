@@ -5,8 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/album.css" />
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
 
-    <!--Allows Javascript to access the slug-->
-    <span id="album-slug" style="display:none;">{{ page.slug }}</span>
+    <!--Allows Javascript to access the image paths-->
+    {% for image in site.album_images %}
+        <span class="album-image" style="display:none">{{ image }}</span>
+    {% endfor %}
 
     <h2>{{ page.title }}</h2>
     {{page.content}}
