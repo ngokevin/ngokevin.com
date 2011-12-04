@@ -9,15 +9,20 @@ var EXPAND_SIZE = 1.1;
 // grab album metadata (slugs, titles, dirs, srcs)
 var getAlbums = function() {
 
+    dirs = new Array();
     slugs = document.getElementsByClass("album-slug");
-    slugs = [slugs[index].innerHTML for (index in document.getElementsByClass("album-slug"))];
+    for(var index in slugs) {
+        slugs[index] = slugs[index].innerHTML;
+        dirs[index] = "/images/gallery/" + slugs[index] + "/";
+    }
 
     titles = document.getElementsByClass("album-title");
-    titles = [titles[index].innerHTML for (index in document.getElementsByClass("album-title"))];
-
-    dirs = ["/images/gallery/" + slugs[index] + "/" for (index in slugs)];
+    for(var index in titles) {
+        titles[index] = titles[index].innerHTML;
+    }
 
     srcs = new Array();
+    // skip empty text nodes
     var grab_srcs = function(album_srcs) {
         actual_srcs = new Array();
         for(index in album_srcs) {
@@ -28,7 +33,9 @@ var getAlbums = function() {
         srcs.push(actual_srcs);
     };
     album_srcs = document.getElementsByClass("album-images");
-    album_srcs = [grab_srcs(album_srcs[index].childNodes) for (index in album_srcs)];
+    for(var index in album_srcs) {
+        album_srcs[index] = grab_srcs(album_srcs[index].childNodes);
+    }
 
     return {
         'slugs': slugs,
