@@ -12,6 +12,12 @@ var getImages = function() {
     srcs = [srcs[index].innerHTML for (index in srcs)];
     for(var index in srcs) {
 
+        // grab only thumbnails
+        var image_name = srcs[index].split('/');
+        if(image_name[image_name.length -1].indexOf(THUMBNAIL_PREFIX) !== 0) {
+            continue;
+        }
+
         var a = document.createElement("a");
         var img = document.createElement("img");
         img.src = srcs[index]
