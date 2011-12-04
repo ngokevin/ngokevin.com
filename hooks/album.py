@@ -22,6 +22,6 @@ def get_images(page, templ_vars):
             # convert paths from absolute to relative
             album_images += [REL_GALLERY_DIR + album['slug'] + '/' + image.split('/')[-1] for image in image_list]
 
-        templ_vars['site']['album_images'] = album_images
+        templ_vars['site']['album_images'] = sorted(album_images)
 
 
