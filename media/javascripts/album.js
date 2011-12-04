@@ -9,8 +9,8 @@ var getImages = function() {
     images = new Array();
 
     srcs = document.getElementsByClass('album-image');
-    srcs = [srcs[index].innerHTML for (index in srcs)];
     for(var index in srcs) {
+        srcs[index] = srcs[index].innerHTML;
 
         // grab only thumbnails
         var image_name = srcs[index].split('/');
