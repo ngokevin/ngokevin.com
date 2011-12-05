@@ -42,7 +42,7 @@ DMCA file-sharing notifications
   screen-scraping along with a Django web frontend and hosted it on a personal
 Apache web server
 
-- Developed a [Soundcloud Python API][soundcloud] that can grab or batch grab music files
+- Developed a [Soundcloud Python CLI][soundcloud] and integrated into [youtube-dl][youtube-dl]
 
 - Wrote a [music bot][prestobot] that scrapes user-posted YouTube links from Reddit then
   downloads and encodes the YouTube audio, uploads the music to Rapidshare via
@@ -55,8 +55,9 @@ webmaster of the OSU Linux Users Group
 [reglib]:http://github.com/ngokevin/reglib
 [soundcloud]:http://github.com/ngokevin/soundcloud-dl
 [prestobot]:http://www.reddit.com/r/listentothis/comments/l3j5w/prestobot_20111006_download_link_for_todays/
+[youtube-dl]:http://github.com/rg3/youtube-dl
 
-<a href="http://freegeek.org">Free Geek</a> - Build Intern    
+<a href="http://freegeek.org">Free Geek</a> - Build Intern
 ----------------------------------------------------------
 March 2009 - April 2009
 
@@ -75,7 +76,7 @@ Education
 
 - Expected Graduation: Spring 2013
 
-David Douglas High School     
+David Douglas High School
 -------------------------
 2005-2009
 
@@ -86,7 +87,7 @@ David Douglas High School
 Skills
 ======
 <table>
-    <tr><td>Languages</td><td>[Python][python] | [Bash][bash] | [C][c] | HTML/CSS | PHP | Java | JavaScript</td></tr>
+    <tr><td>Languages</td><td>[Python][python] | [Bash][bash] | HTML/CSS | Javascript | PHP | [C][c] | Java</td></tr>
     <tr><td>Frameworks</td><td>[Django][django] | [Wok][wok] | [jQuery][jquery]</td></tr>
     <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
     <tr><td>Tools</td><td>Vim | [Git][git] | SVN | [Firebug][firebug]</td></tr>
