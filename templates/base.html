@@ -24,11 +24,14 @@
                 <div class="span9">
                     {% block navigation %}
                         <div id="navigation" style="float: right;">
-                            <a href='/about'><span>About</span></a>
-                            <a href='/blog'><span>Blog</span></a>
-                            <a href='/gallery'><span>Gallery</span></a>
-                            <a href='/resume'><span>Resume</span></a>
-                            <a href='/contact'><span>Contact</span></a>
+                            {% for link in site.tags['navigation'] | sort(attribute='navrank') %}
+                                {% if page.url == link.url %}
+                                    <a id="current_nav" href="{{link.url}}">
+                                {% else %}
+                                    <a href="{{ link.url }}">
+                                {% endif %}
+                                    <span>{{ link.title }}</span></a>
+                            {% endfor %}
                         </div>
                     {% endblock %}
                 </div>

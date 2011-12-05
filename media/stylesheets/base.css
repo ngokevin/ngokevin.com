@@ -96,6 +96,7 @@ a {font-weight: bold;}
 }
 
 #navigation a {
+    margin-left: .5em;
     text-decoration: none;
     vertical-align:middle;
 }
@@ -103,7 +104,6 @@ a {font-weight: bold;}
     color:#2AAAAA;
 }
 #navigation span {
-    margin-left: .3em;
     padding:1.1em;
     padding-left: 1.6em;
     padding-right: 1.6em;
@@ -111,6 +111,13 @@ a {font-weight: bold;}
     color:black;
 }
 #navigation span:hover {
+    background:#DDDDD3;
+}
+#current_nav {
+    padding:1.1em;
+    padding-left: 0em;
+    padding-right: 0em;
+    border-radius:8px;
     background:#DDDDD3;
 }
 

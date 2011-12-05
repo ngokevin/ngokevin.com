@@ -1,6 +1,7 @@
 title: Contact
+
 tags: navigation
-navrank: 4
+navrank: 5
 
 image:
     url: /images/bros.png
@@ -11,7 +12,7 @@ image:
 ###irc
 *ngoke* on irc.freenode.net
 
-###email 
+###email
 ngoke@onid.oregonstate.edu
 
 ###work email

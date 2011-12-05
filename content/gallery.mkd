@@ -3,5 +3,8 @@ slug: gallery
 url: /gallery/index{page}.html
 type: gallery
 
+tags: navigation
+navrank: 3
+
 ---
 

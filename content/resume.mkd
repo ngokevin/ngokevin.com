@@ -1,6 +1,9 @@
 title: Resume
 slug: resume
 
+tags: navigation
+navrank: 4
+
 ---
 
 Kevin Ngo

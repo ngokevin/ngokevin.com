@@ -1,7 +1,9 @@
 title: About
 slug: about
+
 tags: navigation
 navrank: 1
+
 image:
     url: /images/star.jpg
     where: right
