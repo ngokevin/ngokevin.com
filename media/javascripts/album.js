@@ -158,15 +158,26 @@ var expandImage = function() {
 var insertImages = function(images) {
 
     var insertedImages = 0;
+    var album = document.getElementById("album");
 
     // TIL: invoking here would simply return different instance every call
     return insert = function() {
 
-        var album = document.getElementById("album");
-        for(var index = 0; index < insertedImages + PER_LOAD; index++) {
+        // do nothing if all images inserted
+        if(insertedImages == images.length)
+            return;
+
+        for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
+            // do nothing if all images inserted
+            if(index >= images.length) {
+                insertedImages = images.length;
+                return;
+            }
+
             album.appendChild(images[index]);
         }
         insertedImages += PER_LOAD;
+
     };
 
 };
@@ -178,20 +189,21 @@ var endlessScroller = function(imageInserter) {
 
     // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
+
         var pageHeight = document.documentElement.scrollHeight;
         var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
 
         if (scrollHeight / pageHeight >= .85) {
             imageInserter();
         }
+
     };
 };
 
 images = getImages();
 
-// insert initial images
 var imageInserter = insertImages(images);
-imageInserter();
+imageInserter(); // insert initial images
 
 window.onscroll = endlessScroller(imageInserter);
 
