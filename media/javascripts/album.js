@@ -165,15 +165,14 @@ var insertImages = function(images) {
     // keep track of images and how large row is
     var currentRowPixels = 0;
     var currentRowImgs = new Array();
-
-    // insert images in rows with some resizing logic to fit edge
     var currentRowDiv = document.createElement("div");
     currentRowDiv.className = "album-row";
     album.appendChild(currentRowDiv);
 
-    // takes a row of images and scales it to fit the page width defiend at top
-    var squish = function(rowImgs) {
+    // scale row to fit page
+    var scale = function(rowImgs) {
 
+        // get the width of the entire row
         rowPixels = 0;
         imgDims = new Array();
         for(var index in rowImgs) {
@@ -185,6 +184,7 @@ var insertImages = function(images) {
         var marginSpace = rowImgs.length * IMG_MARGIN * 2;
         var scale = (PAGE_WIDTH - marginSpace) / rowPixels;
 
+        // scale rwo to fit page
         for(var index in rowImgs) {
             rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
             rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
@@ -193,10 +193,6 @@ var insertImages = function(images) {
 
     // TIL: invoking here would simply return different instance every call
     return insert = function() {
-
-        // do nothing if all images inserted
-        if(insertedImages == images.length)
-            return;
 
         // insert PER_LOAD images at a time
         for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
@@ -212,9 +208,8 @@ var insertImages = function(images) {
             currentRowPixels += images[index].firstChild.getBoundingClientRect().width;
 
             // create new row if row is filled
-            // til reinitializing currentRow with var will cause it to lose scope
             if(currentRowPixels > PAGE_WIDTH) {
-                squish(currentRowImgs);
+                scale(currentRowImgs);
                 currentRowPixels = 0;
                 currentRowImgs = []
                 currentRowDiv = document.createElement("div");
