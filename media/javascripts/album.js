@@ -3,6 +3,8 @@
 
 var THUMBNAIL_PREFIX = 'THUMB_';
 var PER_LOAD = 12;
+var PAGE_WIDTH = 940;
+var IMG_MARGIN = 3;
 
 // function: getImages
 // grab image objects from template and return array
@@ -159,27 +161,80 @@ var insertImages = function(images) {
 
     var insertedImages = 0;
     var album = document.getElementById("album");
+    var currentRowPixels;
+    var currentRowImgs;
+    var currentRowDiv;
 
-    // TIL: invoking here would simply return different instance every call
+    // init row metadata
+    var initializeRow = function() {
+        currentRowPixels = 0;
+        currentRowImgs = new Array();
+        currentRowDiv = document.createElement("div");
+        currentRowDiv.className = "album-row";
+        album.appendChild(currentRowDiv);
+    };
+    initializeRow();
+
+    // takes in a row of images that exceed page width and scale to fit
+    var scale = function(rowImgs) {
+
+        // get the width of the entire row to calc scale ratio
+        rowPixels = 0;
+        imgDims = new Array();
+        for(var index in rowImgs) {
+            imgDims.push(rowImgs[index].getBoundingClientRect());
+            rowPixels += imgDims[index].width;
+        }
+
+        // factor in margins
+        var marginSpace = rowImgs.length * IMG_MARGIN * 2;
+        var scale = (PAGE_WIDTH - marginSpace) / rowPixels;
+
+        // round down scale ratio so it doesn't auto-round up and overflow
+        for(var index in rowImgs) {
+            rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
+            rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
+        }
+    }
+
     return insert = function() {
 
-        // do nothing if all images inserted
-        if(insertedImages == images.length)
-            return;
+        // adds image to row and update row metadata
+        var addImageToRow = function() {
+            currentRowDiv.appendChild(images[index]);
+            currentRowImgs.push(images[index].firstChild);
+            currentRowPixels += images[index].firstChild.getBoundingClientRect().width;
+        };
 
+        // insert PER_LOAD images at a time
         for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
-            // do nothing if all images inserted
+            // do nothing if all images already inserted
             if(index >= images.length) {
                 insertedImages = images.length;
                 return;
             }
 
-            album.appendChild(images[index]);
+            addImageToRow();
+
+            if(currentRowPixels > PAGE_WIDTH) {
+                scale(currentRowImgs);
+                initializeRow();
+            }
         }
         insertedImages += PER_LOAD;
 
-    };
+        // fill in rest of row if there is leftover space after prev loop
+        while(currentRowPixels < PAGE_WIDTH && currentRowPixels != 0) {
+            var index = insertedImages;
+            addImageToRow();
+            insertedImages++;
+        }
+        if(currentRowPixels > PAGE_WIDTH) {
+            scale(currentRowImgs);
+            initializeRow();
+        }
 
+    };
 };
 
 
@@ -203,7 +258,7 @@ var endlessScroller = function(imageInserter) {
 images = getImages();
 
 var imageInserter = insertImages(images);
-imageInserter(); // insert initial images
 
+window.onload = imageInserter;
 window.onscroll = endlessScroller(imageInserter);
 
