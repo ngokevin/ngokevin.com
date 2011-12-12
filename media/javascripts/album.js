@@ -258,7 +258,7 @@ var endlessScroller = function(imageInserter) {
 images = getImages();
 
 var imageInserter = insertImages(images);
-imageInserter(); // insert initial images
 
+window.onload = imageInserter;
 window.onscroll = endlessScroller(imageInserter);
 
