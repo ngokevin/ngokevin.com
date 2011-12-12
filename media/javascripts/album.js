@@ -4,6 +4,7 @@
 var THUMBNAIL_PREFIX = 'THUMB_';
 var PER_LOAD = 12;
 var PAGE_WIDTH = 940;
+var IMG_MARGIN = 3;
 
 // function: getImages
 // grab image objects from template and return array
@@ -170,12 +171,24 @@ var insertImages = function(images) {
     currentRowDiv.className = "album-row";
     album.appendChild(currentRowDiv);
 
-    var squish = function(currentRowImgs) {
+    // takes a row of images and scales it to fit the page width defiend at top
+    var squish = function(rowImgs) {
+
         rowPixels = 0;
-        for(var index in currentRowImgs) {
-            rowPixels += currentRowImgs[index].getBoundingClientRect().width;
+        imgDims = new Array();
+        for(var index in rowImgs) {
+            imgDims.push(rowImgs[index].getBoundingClientRect());
+            rowPixels += imgDims[index].width;
         }
-        scale
+
+        // factor in margins
+        var marginSpace = rowImgs.length * IMG_MARGIN * 2;
+        var scale = (PAGE_WIDTH - marginSpace) / rowPixels;
+
+        for(var index in rowImgs) {
+            rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
+            rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
+        }
     }
 
     // TIL: invoking here would simply return different instance every call
@@ -195,8 +208,8 @@ var insertImages = function(images) {
 
             // add image to row
             currentRowDiv.appendChild(images[index]);
-            currentRowImgs.push(images[index]);
-            currentRowPixels += images[index].getBoundingClientRect().width;
+            currentRowImgs.push(images[index].firstChild);
+            currentRowPixels += images[index].firstChild.getBoundingClientRect().width;
 
             // create new row if row is filled
             // til reinitializing currentRow with var will cause it to lose scope
