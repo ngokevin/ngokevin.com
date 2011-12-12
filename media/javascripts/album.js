@@ -161,18 +161,24 @@ var insertImages = function(images) {
 
     var insertedImages = 0;
     var album = document.getElementById("album");
+    var currentRowPixels;
+    var currentRowImgs;
+    var currentRowDiv;
 
-    // keep track of images and how large row is
-    var currentRowPixels = 0;
-    var currentRowImgs = new Array();
-    var currentRowDiv = document.createElement("div");
-    currentRowDiv.className = "album-row";
-    album.appendChild(currentRowDiv);
+    // init row metadata
+    var initializeRow = function() {
+        currentRowPixels = 0;
+        currentRowImgs = new Array();
+        currentRowDiv = document.createElement("div");
+        currentRowDiv.className = "album-row";
+        album.appendChild(currentRowDiv);
+    };
+    initializeRow();
 
-    // scale row to fit page
+    // takes in a row of images that exceed page width and scale to fit
     var scale = function(rowImgs) {
 
-        // get the width of the entire row
+        // get the width of the entire row to calc scale ratio
         rowPixels = 0;
         imgDims = new Array();
         for(var index in rowImgs) {
@@ -184,44 +190,51 @@ var insertImages = function(images) {
         var marginSpace = rowImgs.length * IMG_MARGIN * 2;
         var scale = (PAGE_WIDTH - marginSpace) / rowPixels;
 
-        // scale rwo to fit page
+        // round down scale ratio so it doesn't auto-round up and overflow
         for(var index in rowImgs) {
             rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
             rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
         }
     }
 
-    // TIL: invoking here would simply return different instance every call
     return insert = function() {
+
+        // adds image to row and update row metadata
+        var addImageToRow = function() {
+            currentRowDiv.appendChild(images[index]);
+            currentRowImgs.push(images[index].firstChild);
+            currentRowPixels += images[index].firstChild.getBoundingClientRect().width;
+        };
 
         // insert PER_LOAD images at a time
         for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
-            // do nothing if all images inserted
+            // do nothing if all images already inserted
             if(index >= images.length) {
                 insertedImages = images.length;
                 return;
             }
 
-            // add image to row
-            currentRowDiv.appendChild(images[index]);
-            currentRowImgs.push(images[index].firstChild);
-            currentRowPixels += images[index].firstChild.getBoundingClientRect().width;
+            addImageToRow();
 
-            // create new row if row is filled
             if(currentRowPixels > PAGE_WIDTH) {
                 scale(currentRowImgs);
-                currentRowPixels = 0;
-                currentRowImgs = []
-                currentRowDiv = document.createElement("div");
-                currentRowDiv.className = "album-row";
-                album.appendChild(currentRowDiv);
+                initializeRow();
             }
-
         }
         insertedImages += PER_LOAD;
 
-    };
+        // fill in rest of row if there is leftover space after prev loop
+        while(currentRowPixels < PAGE_WIDTH && currentRowPixels != 0) {
+            var index = insertedImages;
+            addImageToRow();
+            insertedImages++;
+        }
+        if(currentRowPixels > PAGE_WIDTH) {
+            scale(currentRowImgs);
+            initializeRow();
+        }
 
+    };
 };
 
 
