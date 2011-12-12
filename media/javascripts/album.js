@@ -2,6 +2,7 @@
 // displays thumbnails of images and full-size image onclick of thumbnails
 
 var THUMBNAIL_PREFIX = 'THUMB_';
+var PER_LOAD = 12;
 
 // function: getImages
 // grab image objects from template and return array
@@ -29,7 +30,7 @@ var getImages = function() {
         images.push(a);
     }
     return images;
-}
+};
 
 
 // event handler: showImage
@@ -62,7 +63,7 @@ var showImage = function() {
 
         document.body.appendChild(img);
     }();
-}
+};
 
 
 // event handler: restoreImage
@@ -71,7 +72,7 @@ var restoreImage = function() {
    document.body.removeChild(document.getElementById("overlay"));
    document.body.removeChild(document.getElementById("overlay-img"));
    document.body.style.overflow = "visible";
-}
+};
 
 
 // event handler: expandImage
@@ -149,19 +150,60 @@ var expandImage = function() {
             height = parseInt(height * 1.1);
         };
     }();
-}
+};
 
 
 // function: insertImages
 // add images to DOM
 var insertImages = function(images) {
-    var album = document.getElementById("album");
-    for (var index in images) {
-        album.appendChild(images[index]);
-    }
-}
 
+    var insertedImages = 0;
+    var album = document.getElementById("album");
+
+    // TIL: invoking here would simply return different instance every call
+    return insert = function() {
+
+        // do nothing if all images inserted
+        if(insertedImages == images.length)
+            return;
+
+        for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
+            // do nothing if all images inserted
+            if(index >= images.length) {
+                insertedImages = images.length;
+                return;
+            }
+
+            album.appendChild(images[index]);
+        }
+        insertedImages += PER_LOAD;
+
+    };
+
+};
+
+
+// event handler: endlessScroller
+// ONSCROLL check if scrollbar is need bottom. if so, insert more images
+var endlessScroller = function(imageInserter) {
+
+    // insert images if scrollbar is around 75% down the page
+    return checkScrollPos = function() {
+
+        var pageHeight = document.documentElement.scrollHeight;
+        var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
+
+        if (scrollHeight / pageHeight >= .85) {
+            imageInserter();
+        }
+
+    };
+};
 
 images = getImages();
-insertImages(images);
+
+var imageInserter = insertImages(images);
+imageInserter(); // insert initial images
+
+window.onscroll = endlessScroller(imageInserter);
 
