@@ -3,6 +3,7 @@
 
 var THUMBNAIL_PREFIX = 'THUMB_';
 var PER_LOAD = 12;
+var PAGE_WIDTH = 940;
 
 // function: getImages
 // grab image objects from template and return array
@@ -160,6 +161,23 @@ var insertImages = function(images) {
     var insertedImages = 0;
     var album = document.getElementById("album");
 
+    // keep track of images and how large row is
+    var currentRowPixels = 0;
+    var currentRowImgs = new Array();
+
+    // insert images in rows with some resizing logic to fit edge
+    var currentRowDiv = document.createElement("div");
+    currentRowDiv.className = "album-row";
+    album.appendChild(currentRowDiv);
+
+    var squish = function(currentRowImgs) {
+        rowPixels = 0;
+        for(var index in currentRowImgs) {
+            rowPixels += currentRowImgs[index].getBoundingClientRect().width;
+        }
+        scale
+    }
+
     // TIL: invoking here would simply return different instance every call
     return insert = function() {
 
@@ -167,6 +185,7 @@ var insertImages = function(images) {
         if(insertedImages == images.length)
             return;
 
+        // insert PER_LOAD images at a time
         for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
             // do nothing if all images inserted
             if(index >= images.length) {
@@ -174,7 +193,22 @@ var insertImages = function(images) {
                 return;
             }
 
-            album.appendChild(images[index]);
+            // add image to row
+            currentRowDiv.appendChild(images[index]);
+            currentRowImgs.push(images[index]);
+            currentRowPixels += images[index].getBoundingClientRect().width;
+
+            // create new row if row is filled
+            // til reinitializing currentRow with var will cause it to lose scope
+            if(currentRowPixels > PAGE_WIDTH) {
+                squish(currentRowImgs);
+                currentRowPixels = 0;
+                currentRowImgs = []
+                currentRowDiv = document.createElement("div");
+                currentRowDiv.className = "album-row";
+                album.appendChild(currentRowDiv);
+            }
+
         }
         insertedImages += PER_LOAD;
 
