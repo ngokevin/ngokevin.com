@@ -167,6 +167,10 @@ var insertImages = function(images, srcs) {
     var insertedImages = 0;
     var album = document.getElementById("album");
 
+    var currentRowPixels;
+    var currentRowImgs;
+    var currentRowDiv;
+
     // init row metadata
     var initializeRow = function() {
        currentRowPixels = 0;
@@ -201,23 +205,26 @@ var insertImages = function(images, srcs) {
 
     return insert = function() {
 
-        var row = function(image) {
+        // adds image to row and update row metadata
+        var addImageToRow = function() {
+
+            currentRowImgs.push(this);
+            currentRowPixels += this.getBoundingClientRect().width;
+
             if(currentRowPixels > PAGE_WIDTH) {
                 scale(currentRowImgs);
                 initializeRow();
             }
-            currentRowImgs.push(image);
-            currentRowPixels += image.getBoundingClientRect().width;
         };
 
-        // adds image to row and update row metadata
-        var addImageToRow = function(image) {
+        // load image in background
+        var loadImage = function(image) {
 
-            image.firstChild.onload = function() {
-                row(this);
-            }
+            image.firstChild.onload = addImageToRow;
             image.firstChild.src = srcs[index];
+
             currentRowDiv.appendChild(image);
+
         };
 
         // insert PER_LOAD images at a time
@@ -227,15 +234,10 @@ var insertImages = function(images, srcs) {
                 insertedImages = images.length;
                 return;
             }
-            addImageToRow(images[index]);
+            loadImage(images[index]);
+
         }
         insertedImages += PER_LOAD;
-
-        // fill in rest of row if there is leftover space after prev loop
-        var index = insertedImages;
-        addImageToRow(images[index]);
-        insertedImages++;
-
     };
 };
 
