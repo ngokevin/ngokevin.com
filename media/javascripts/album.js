@@ -202,12 +202,12 @@ var insertImages = function(images, srcs) {
     return insert = function() {
 
         var row = function(image) {
-            currentRowImgs.push(image);
-            currentRowPixels += image.getBoundingClientRect().width;
-            if(currentRowPixels >= PAGE_WIDTH) {
+            if(currentRowPixels > PAGE_WIDTH) {
                 scale(currentRowImgs);
                 initializeRow();
             }
+            currentRowImgs.push(image);
+            currentRowPixels += image.getBoundingClientRect().width;
         };
 
         // adds image to row and update row metadata
@@ -230,6 +230,11 @@ var insertImages = function(images, srcs) {
             addImageToRow(images[index]);
         }
         insertedImages += PER_LOAD;
+
+        // fill in rest of row if there is leftover space after prev loop
+        var index = insertedImages;
+        addImageToRow(images[index]);
+        insertedImages++;
 
     };
 };
