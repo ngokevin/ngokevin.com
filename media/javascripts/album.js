@@ -209,9 +209,15 @@ var insertImages = function(images, srcs) {
         var addImageToRow = function() {
 
             currentRowImgs.push(this);
-            currentRowPixels += this.getBoundingClientRect().width;
+            currentRowPixels += this.width;
 
             if(currentRowPixels > PAGE_WIDTH) {
+
+                for(var index in currentRowImgs) {
+                    currentRowImgs[index].style.margin = '3px';
+                    currentRowDiv.appendChild(currentRowImgs[index]);
+                }
+
                 scale(currentRowImgs);
                 initializeRow();
             }
@@ -222,8 +228,6 @@ var insertImages = function(images, srcs) {
 
             image.firstChild.onload = addImageToRow;
             image.firstChild.src = srcs[index];
-
-            currentRowDiv.appendChild(image);
 
         };
 
