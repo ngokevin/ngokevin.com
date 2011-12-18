@@ -7,9 +7,11 @@ var PAGE_WIDTH = 940;
 var IMG_MARGIN = 3;
 
 // function: getImages
-// grab image objects from template and return array
+// return array of a-img objects and corresponding array of srcs
+// don't set src yet for lazy load
 var getImages = function() {
     images = new Array();
+    thumb_srcs = new Array();
 
     srcs = document.getElementsByClass('album-image');
     for(var index in srcs) {
@@ -23,15 +25,19 @@ var getImages = function() {
 
         var a = document.createElement("a");
         var img = document.createElement("img");
-        img.src = srcs[index]
+        // img.src = srcs[index]
 
         img.onclick = showImage;
         img.onmouseover = expandImage;
 
         a.appendChild(img)
         images.push(a);
+        thumb_srcs.push(srcs[index]);
     }
-    return images;
+    return {
+        'imgs': images,
+        'srcs': srcs
+    };
 };
 
 
@@ -157,7 +163,7 @@ var expandImage = function() {
 
 // function: insertImages
 // add images to DOM
-var insertImages = function(images) {
+var insertImages = function(images, srcs) {
 
     var insertedImages = 0;
     var album = document.getElementById("album");
@@ -200,13 +206,9 @@ var insertImages = function(images) {
 
     return insert = function() {
 
-        var spinner = new Spinner().spin();
-        spinner.el.style.top = '50px';
-        spinner.el.style.left = PAGE_WIDTH / 2 + 'px';
-        album.appendChild(spinner.el);
-
         // adds image to row and update row metadata
         var addImageToRow = function() {
+            images[index].firstChild.src = srcs[index]
             currentRowDiv.appendChild(images[index]);
             currentRowImgs.push(images[index].firstChild);
             currentRowPixels += images[index].firstChild.getBoundingClientRect().width;
@@ -240,7 +242,6 @@ var insertImages = function(images) {
             initializeRow();
         }
 
-        spinner.stop();
     };
 };
 
@@ -264,7 +265,7 @@ var endlessScroller = function(imageInserter) {
 
 images = getImages();
 
-var imageInserter = insertImages(images);
+var imageInserter = insertImages(images['imgs'], images['srcs']);
 
 window.onload = imageInserter;
 window.onscroll = endlessScroller(imageInserter);
