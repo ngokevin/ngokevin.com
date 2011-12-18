@@ -175,6 +175,7 @@ var insertImages = function(images) {
     };
     initializeRow();
 
+
     // takes in a row of images that exceed page width and scale to fit
     var scale = function(rowImgs) {
 
@@ -198,6 +199,11 @@ var insertImages = function(images) {
     }
 
     return insert = function() {
+
+        var spinner = new Spinner().spin();
+        spinner.el.style.top = '50px';
+        spinner.el.style.left = PAGE_WIDTH / 2 + 'px';
+        album.appendChild(spinner.el);
 
         // adds image to row and update row metadata
         var addImageToRow = function() {
@@ -234,6 +240,7 @@ var insertImages = function(images) {
             initializeRow();
         }
 
+        spinner.stop();
     };
 };
 
