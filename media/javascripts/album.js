@@ -201,6 +201,34 @@ var insertImages = function(images, srcs) {
             rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
             rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
         }
+
+        // get smallest height from row
+        var smallestHeight;
+        for(var index in rowImgs) {
+            if(!smallestHeight || parseInt(rowImgs[index].style.height) < smallestHeight)
+                smallestHeight = parseInt(rowImgs[index].style.height);
+        }
+
+        // scale to smallest height
+        var row_pixels = 0;
+        for(var index in rowImgs) {
+            var height = parseInt(rowImgs[index].style.height);
+            var width = parseInt(rowImgs[index].style.width);
+
+            var scale = smallestHeight / height;
+            rowImgs[index].style.height = height * scale + 'px';
+            rowImgs[index].style.width = width * scale + 'px';
+            row_pixels += parseInt(rowImgs[index].style.width);
+        }
+
+        // stretch to end
+        var scale = (PAGE_WIDTH - marginSpace) / row_pixels;
+        for(var index in rowImgs) {
+            var height = parseInt(rowImgs[index].style.height);
+            var width = parseInt(rowImgs[index].style.width);
+            rowImgs[index].style.height = height * scale + 'px';
+            rowImgs[index].style.width = Math.floor(width * scale) + 'px';
+        }
     }
 
     return insert = function() {
