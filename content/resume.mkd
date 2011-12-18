@@ -22,7 +22,7 @@ Experience
 March 2011 - Current
 
 - Developed a [Python log management application][netshed] that parses and dumps network
-  logs into MongoDB along n with a Django web application for network
+  logs into MongoDB along with a Django web application for network
 administrators to perform searches on logs
 
 - Wrote and maintained a library of Python scripts that track and notify
@@ -33,7 +33,7 @@ administrators to perform searches on logs
 
 - Refactored the program that handles the automated OSU DMCA file-sharing
   process and developed the Django web frontend for administrators to manage
-DMCA file-sharing notifications
+DMCA file-sharing notifications and malware security reports
 
 [netshed]:http://github.com/ngokevin/netshed
 
@@ -75,7 +75,7 @@ Education
 ------------------------------------------------------------------
 2009-Current
 
-- Computer Science | Junior Standing | 3.59 GPA
+- Computer Science | Senior Standing | 3.60 GPA
 
 - Expected Graduation: Spring 2013
 
