@@ -9,23 +9,23 @@ image:
 
 ---
 
-###irc
+###message on irc
 *ngoke* on irc.freenode.net
 
-###email
+###shoot an email
 ngoke@onid.oregonstate.edu
 
-###work email
+###shoot a super email
 kevin.ngo@oregonstate.edu
 
-###github
-[ngokevin](http://github.com/ngokevin)
+###check out my code
+[github](http://github.com/ngokevin)
 
-###gpg key
+###send an encrypted message
 
-[pubkey](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527)
+[pgp key](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527)
 
-###linkedin
+###catch on linkedin
 
 [linkedin](http://www.linkedin.com/pub/kevin-ngo/42/576/b5a)
 

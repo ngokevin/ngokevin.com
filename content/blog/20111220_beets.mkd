@@ -2,12 +2,14 @@ title: "Beets - CLI Media Library Management for OCD Geeks"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
+image:
+    url: http://beets.radbox.org/beets.png
+
 datetime: 2011-12-20 02:00:00
 
 ---
-
-My Tale
--------
+<br/>
+**My Tale**
 
 Ever since my very first iPod back in high school, I had been glued to heavy
 media library manangement systems such as iTunes or Banshee. They let me import
@@ -39,10 +41,10 @@ music collection right once and for all. It catalogs your collection,
 automatically improving its metadata as it goes using the MusicBrainz database.
 (It also downloads cover art for albums it imports.) Then it provides a bouquet
 of tools for manipulating and accessing your music."*
+<br/>
+<br/>
 
-
-SETUP
------
+**Setup**
 
 You can install beets through pip
 
@@ -88,10 +90,10 @@ directory (it is enabled by default). The BPD plugin allows playing the media
 and the *lastid* allows tagging via acoustic fingerprinting which means it
 actually analyzes songs themeselves to try to determine correct metadata (more
 on the autotagger later).
+<br/>
+<br/>
 
-
-IMPORTING YOUR LIBRARY
-----------------------
+**Importing Library**
 
 You can import your library with your library's existing metadata, or try out
 the autotagger.  The autotagger pits the current metadata (or even uses
@@ -113,10 +115,10 @@ To import using the autotagger, simply use import.
 You can interrupt an import process and resume it later. If you want to cancel
 a session, just throw the -P option. If you get a weird database lock, just try again.
 It was most likely due to threads colliding.
+<br/>
+<br/>
 
-
-IMPORTING SONGS
----------------
+**Importing Songs**
 
 If you grab more songs, the process is similar. You can run import and it will copy
 it into your music directory if import-write is enabled. What's nice is it will try
@@ -128,10 +130,9 @@ If you want to copy from a folder that contains already-imported music, you can
 import incrementally with the -i option to only import new songs.
 
     beet import -i
+<br/>
 
-
-LISTING MUSIC
--------------
+**Querying Music**
 
 You can run [queries](http://readthedocs.org/docs/beets/en/1.0b11/reference/query.html)
 on your database. You can run flat queries or field-specific queries. Beets has special syntax
@@ -143,10 +144,8 @@ for queries (field:value for querying, field=value for setting).
 You can also get overall library statistics.
 
     $ beet stats
-
-
-MODIFYING TAGS
----------------
+<br/>
+**Modifying Tags**
 
 You can again use queries to modify metadata.
 
@@ -157,10 +156,10 @@ This will change the field to value for every song that matches the query.
 -a lot more where that came from-
 Official Documentation:
 http://readthedocs.org/docs/beets/en/1.0b11/index.html
+<br/>
+<br/>
 
-
-SUBSONIC
---------
+**Subsonic**
 
 A very nice complement to a library management system is a streaming player via
 web frontend. I used to use [GNUmp3d](http://www.gnu.org/software/gnump3d/)

@@ -1,0 +1,8 @@
+title: "Childhood"
+slug: childhood
+category: gallery
+type: album
+
+datetime: 01-16-91 17:00:00
+
+---

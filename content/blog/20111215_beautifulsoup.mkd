@@ -2,6 +2,9 @@ title: "Beautiful Soup is Beautiful"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
+image:
+    url: http://www.crummy.com/software/BeautifulSoup/10.1.jpg
+
 datetime: 2011-12-15 15:35:00
 
 ---
