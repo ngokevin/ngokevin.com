@@ -4,6 +4,8 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 image:
     url: /images/blog/20111024_firefox/firefox_crop_circle.jpg
+    where: right
+
 datetime: 2011-10-24 21:00:00
 
 ---

@@ -4,6 +4,7 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 image:
     url: http://www.newsbackbone.com/wp-content/plugins/powerautoblog/images/69429102a7fb2a068bb00f2542081448-250x250.jpg
+    where: right
 
 datetime: 2011-11-06 13:00:00
 

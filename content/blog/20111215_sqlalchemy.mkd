@@ -4,6 +4,7 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 image:
     url: http://www.sqlalchemy.org/img/sqla-logo6.gif
+    where: right
 
 datetime: 2011-12-15 15:00:00
 

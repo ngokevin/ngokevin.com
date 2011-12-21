@@ -4,6 +4,7 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 image:
     url: http://beets.radbox.org/beets.png
+    where: right
 
 datetime: 2011-12-20 02:00:00
 

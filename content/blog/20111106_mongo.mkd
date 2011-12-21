@@ -4,6 +4,7 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 image:
     url: http://www.whatcodecraves.com/images/mongodb.png
+    where: right
 
 datetime: 2011-11-06 15:30:00
 

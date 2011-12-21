@@ -4,6 +4,7 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 image:
     url: http://www.crummy.com/software/BeautifulSoup/10.1.jpg
+    where: right
 
 datetime: 2011-12-15 15:35:00
 
