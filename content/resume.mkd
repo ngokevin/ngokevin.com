@@ -28,12 +28,13 @@ administrators to perform searches on logs
 - Wrote and maintained a library of Python scripts that track and notify
   malware-infected hosts on the network
 
-- Maintain and fix bugs for the open source PHP DNS/DHCP management web
-  application currently being used by over 40,000 hosts on the OSU network
+- Completely redesigned, maintain, and fix bugs for the open source PHP
+  DNS/DHCP network management web application currently being used by over
+40,000 hosts on the OSU network.
 
-- Refactored the program that handles the automated OSU DMCA file-sharing
-  process and developed the Django web frontend for administrators to manage
-DMCA file-sharing notifications and malware security reports
+- Refactored and maintain the program that handles the automated OSU DMCA
+  file-sharing process and developed the Django web frontend for administrators
+to manage DMCA file-sharing notifications and malware security reports
 
 [netshed]:http://github.com/ngokevin/netshed
 
@@ -45,7 +46,8 @@ DMCA file-sharing notifications and malware security reports
   screen-scraping along with a Django web frontend and hosted it on a personal
 Apache web server
 
-- Developed a [Soundcloud Python CLI][soundcloud] and integrated into [youtube-dl][youtube-dl]
+- Developed a [Soundcloud Python CLI][soundcloud] and integrated into active
+  open source project, [youtube-dl][youtube-dl]
 
 - Wrote a [music bot][prestobot] that scrapes user-posted YouTube links from Reddit then
   downloads and encodes the YouTube audio, uploads the music to Rapidshare via
@@ -90,19 +92,12 @@ David Douglas High School
 Skills
 ======
 <table>
-    <tr><td>Languages</td><td>[Python][python] | [Bash][bash] | HTML/CSS | Javascript | PHP | [C][c] | Java</td></tr>
-    <tr><td>Frameworks</td><td>[Django][django] | [Wok][wok] | [jQuery][jquery]</td></tr>
+    <tr><td>Languages</td><td>Python | Bash | HTML/CSS | Javascript | PHP | C | Java</td></tr>
+    <tr><td>Frameworks</td><td>Django | [Wok][wok] | jQuery</td></tr>
     <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
-    <tr><td>Tools</td><td>Vim | [Git][git] | SVN | [Firebug][firebug]</td></tr>
+    <tr><td>Tools</td><td>Vim | Git | SVN | Firebug</td></tr>
 </table>
 
 [ford]:http://www.tfff.org/ScholarshipPrograms/FordScholarsProgram/OregonFordScholars/tabid/65/Default.aspx
-[python]:http://python.org
-[bash]:http://gnu.org/s/bash/
-[c]:http://en.wikipedia.org/wiki/Dennis_Ritchie
-[django]:http://djangoproject.com
 [mongodb]:http://mongodb.org
 [wok]:http://github.com/mythmon/wok
-[jquery]:http://jquery.com
-[git]:http://git-scm.com
-[firebug]:http://getfirebug.com

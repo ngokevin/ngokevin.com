@@ -12,49 +12,27 @@ image:
 ---
 
 My name is Kevin Ngo, an undergraduate **computer science** student at Oregon
-State University, born and raised in Portland. I currently work at the OSU
-Network Engineering Team [NET][net] in Network Services Systems as a programmer
-/ web developer / security-analyst / box-breaker. In the past, I have
-volunteered at [Free Geek][freegeek], helping build Linux boxes out of recycled
-and donated computers to give to non-profit organizations. You can find more
-about me at [linkedin][linkedin]
+State University. I currently work at the OSU Network Engineering Team
+[NET][net] in Network Services Systems as a programmer and web developer. In
+the past, I have volunteered at [Free Geek][freegeek], helping build Linux
+boxes out of recycled and donated computers to give to non-profit
+organizations. You can find out a bit more about me at [linkedin][linkedin].
 
 I love **learning** as well as having the ability to build practical
-applications that could potentially help others. For these reasons, I enjoy
-computer science and **programming**. Because there are so many aspects to both
-and because the world of technology is moving extremely fast (careful not to
-blink), the learning never ends. Besides programming, I enjoy playing
-basketball and [tennis][tennis], longboarding, and memorizing [piano][piano]
-sheets (though my fingers dance a lot better on a computer keyboard).
+applications. For these reasons, I love **programming**.  There exists an
+abundance of technologies out there for me to conquer, and that excites me. I
+consider myself a **full-stack** do-it-all programmer, being able to to do
+backend coding, system design, frontend work, design, and some systems
+administration.  Besides programming, I also enjoy being on the basketball
+courts and cruising the streets on my longboard.
 
-I prefer working in **Linux** (preferably Bebian or Hannah Montana Linux) ,
-developing with **Python/Django**, and keeping it all under wraps with **Git**.
-Along with that, I have worked with Bash, HTML and CSS, Javascript, PHP, SQL,
-MongoDB, C, Java, and SVN.
+I prefer working in **Linux**, developing with **Python/Django**, and keeping
+it all under wraps with **Git**. My experience spans HTML and CSS, Javascript,
+PHP, SQL, MongoDB, C, Java, and SVN, but I can handle anything anyone throws at
+me.
 
-**Some Projects**
-###
-
-- [lug.oregonstate.edu][lug]: the Oregon State University Linux Users Group
-  website in Wok, check out my blog posts!
-
-- [reggit][reggit]: a home-grown Python API to the OSU class registration
-  website (via HTTP requests) along with a full-featured Django frontend. Too
-bad it broke when OSU changed their website, they knew they had competition
-
-- [prestobot][prestobot]: a conglomeration of Python and Bash that scrapes the
-  front page of various music community pages on Reddit for user-posted YouTube
-links, downloads the links, zips and uploads it to Rapidshare, and posts a
-download link back to the page for everyone to listen to
-
-- [netshed][netshed]: library of syslog-ng network log parsers to MongoDB with
-  Django frontend (written at OSU NET), horray for open-sourcing projects!
-
-- [soundcloud-dl][soundcloud]: a Python soundcloud API, the baby of a small
-  hackathon with [uberj][uberj] and [thedjpetersen][thedjpetersen]. Later
-merged into [youtube-dl][youtube-dl]
-
-Check my [**resume**](/resume) for the full breakdown. 
+Check out my [**resume**](/resume) for the rundown on some of my previous
+projects.
 
 [net]:http://oregonstate.edu/net
 [freegeek]:http://freegeek.com
