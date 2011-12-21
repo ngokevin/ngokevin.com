@@ -3,6 +3,6 @@ slug: childhood
 category: gallery
 type: album
 
-datetime: 01-16-91 17:00:00
+datetime: 1991-01-16 17:00:00
 
 ---
