@@ -46,6 +46,9 @@ to manage DMCA file-sharing notifications and malware security reports
   screen-scraping along with a Django web frontend and hosted it on a personal
 Apache web server
 
+- Wrote a pure Javascript [gallery][/gallery] and image viewer from scratch for
+  personal website, powered in the backend by Python and Jinja2 templates
+
 - Developed a [Soundcloud Python CLI][soundcloud] and integrated into active
   open source project, [youtube-dl][youtube-dl]
 
