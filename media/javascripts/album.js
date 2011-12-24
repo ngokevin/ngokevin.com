@@ -239,6 +239,7 @@ var insertImages = function(images, srcs) {
             currentRowImgs.push(this);
             currentRowPixels += this.width;
 
+            // if we have enough images collected to fill a row, add images
             if(currentRowPixels > PAGE_WIDTH) {
 
                 for(var index in currentRowImgs) {
@@ -246,6 +247,16 @@ var insertImages = function(images, srcs) {
                     currentRowDiv.appendChild(currentRowImgs[index]);
                 }
 
+                scale(currentRowImgs);
+                initializeRow();
+            }
+            // if all the images were collected, but not enough to fill
+            // a row, append all images now
+            else if(!(currentRowPixels > PAGE_WIDTH) && currentRowImgs.length == srcs.length){
+                for(var index in currentRowImgs) {
+                    currentRowImgs[index].style.margin = '3px';
+                    currentRowDiv.appendChild(currentRowImgs[index]);
+                }
                 scale(currentRowImgs);
                 initializeRow();
             }
@@ -278,7 +289,7 @@ var insertImages = function(images, srcs) {
 // ONSCROLL check if scrollbar is need bottom. if so, insert more images
 var endlessScroller = function(imageInserter) {
 
-    var target = document.getElementById('album');
+    var album = document.getElementById('album');
 
     // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
@@ -287,12 +298,39 @@ var endlessScroller = function(imageInserter) {
         var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
 
         if (scrollHeight / pageHeight >= .85) {
-            var spinner = new Spinner().spin();
-            spinner.el.style.left = PAGE_WIDTH / 2 + 'px';
-            spinner.el.style.top = '50px';
-            target.appendChild(spinner.el);
             imageInserter();
-            setTimeout(function(){spinner.stop();}, 100);
+        }
+    };
+};
+
+
+var loadSpinner = function() {
+
+    var album = document.getElementById('album');
+    var opts = {
+      lines: 12, // The number of lines to draw
+      length: 7, // The length of each line
+      width: 4, // The line thickness
+      radius: 10, // The radius of the inner circle
+      color: '#000', // #rgb or #rrggbb
+      speed: 1, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false // Whether to render a shadow
+    };
+
+    return {
+
+        spinner: new Spinner().spin(),
+
+        addSpinner: function() {
+            this.spinner.spin();
+            this.spinner.el.style.left = PAGE_WIDTH / 2 + 'px';
+            this.spinner.el.style.top = '50px';
+            album.appendChild(this.spinner.el);
+        },
+
+        stopSpinner: function() {
+            this.spinner.stop();
         }
 
     };
