@@ -278,6 +278,8 @@ var insertImages = function(images, srcs) {
 // ONSCROLL check if scrollbar is need bottom. if so, insert more images
 var endlessScroller = function(imageInserter) {
 
+    var target = document.getElementById('album');
+
     // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
 
@@ -285,7 +287,12 @@ var endlessScroller = function(imageInserter) {
         var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
 
         if (scrollHeight / pageHeight >= .85) {
+            var spinner = new Spinner().spin();
+            spinner.el.style.left = PAGE_WIDTH / 2 + 'px';
+            spinner.el.style.top = '50px';
+            target.appendChild(spinner.el);
             imageInserter();
+            setTimeout(function(){spinner.stop();}, 100);
         }
 
     };
