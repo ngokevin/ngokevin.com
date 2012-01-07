@@ -257,7 +257,7 @@ var insertImages = function(images, srcs) {
                     currentRowImgs[index].style.margin = '3px';
                     currentRowDiv.appendChild(currentRowImgs[index]);
                 }
-                scale(currentRowImgs);
+                // scale(currentRowImgs);
                 initializeRow();
             }
         };
@@ -290,6 +290,7 @@ var insertImages = function(images, srcs) {
 var endlessScroller = function(imageInserter) {
 
     var album = document.getElementById('album');
+    var spinner = loadSpinner();
 
     // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
@@ -298,7 +299,9 @@ var endlessScroller = function(imageInserter) {
         var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
 
         if (scrollHeight / pageHeight >= .85) {
+            spinner.addSpinner();
             imageInserter();
+            spinner.stopSpinner();
         }
     };
 };
