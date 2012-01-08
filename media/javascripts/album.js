@@ -341,8 +341,9 @@ var loadSpinner = function() {
         spinner: 0,
 
         addSpinner: function() {
-            var rows = document.getElementsByClass('album-row');
-            var target = rows[rows.length-1];
+            //var rows = document.getElementsByClass('album-row');
+            //var target = rows[rows.length-1];
+            var target = document.getElementById('album_bottom');
             this.spinner = new Spinner(opts).spin(target);
             this.spinner.el.style.top = '50px';
         },
