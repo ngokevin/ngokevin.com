@@ -307,6 +307,9 @@ var endlessScroller = function(imageInserter) {
 };
 
 
+// object: loadSpinner
+// returns an object with function to add a spinner below
+// the current album row and a function to stop it
 var loadSpinner = function() {
 
     var album = document.getElementById('album');
@@ -323,21 +326,21 @@ var loadSpinner = function() {
 
     return {
 
-        spinner: new Spinner().spin(),
+        spinner: 0,
 
         addSpinner: function() {
-            this.spinner.spin();
-            this.spinner.el.style.left = PAGE_WIDTH / 2 + 'px';
+            var rows = document.getElementsByClass('album-row');
+            var target = rows[rows.length-1];
+            this.spinner = new Spinner(opts).spin(target);
             this.spinner.el.style.top = '50px';
-            album.appendChild(this.spinner.el);
         },
 
         stopSpinner: function() {
             this.spinner.stop();
         }
-
     };
 };
+
 
 images = getImages();
 
