@@ -19,6 +19,7 @@
     text-align: center;
 }
 .arrow-down {
+        opacity: .6;
         display: inline;
         width: 0;
         height: 0;
@@ -26,7 +27,6 @@
         border-right: 20px solid transparent;
         border-top: 20px solid #005454;
 }
-
 
 .expand {
     cursor: pointer;
