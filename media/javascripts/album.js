@@ -263,7 +263,9 @@ var insertImages = function(images, srcs) {
                     currentRowImgs[index].style.margin = '3px';
                     currentRowDiv.appendChild(currentRowImgs[index]);
                 }
-                // scale(currentRowImgs);
+                if(currentRowPixels > PAGE_WIDTH/1.5) {
+                    scale(currentRowImgs);
+                }
                 initializeRow();
             }
 
