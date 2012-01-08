@@ -14,6 +14,20 @@
     box-shadow: 0 0 5px 2px #888;
 }
 
+#load_msg {
+    margin-top: 30px;
+    text-align: center;
+}
+.arrow-down {
+        display: inline;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #005454;
+}
+
+
 .expand {
     cursor: pointer;
     z-index: 9;

@@ -289,7 +289,7 @@ var insertImages = function(images, srcs) {
             // do nothing if all images already inserted
             if(index >= images.length) {
                 insertedImages = images.length;
-                spinner.stopSpinner();
+                spinner.stopSpinner(last=true);
                 return;
             }
             loadImage(images[index], last);
@@ -324,7 +324,9 @@ var endlessScroller = function(imageInserter) {
 // the current album row and a function to stop it
 var loadSpinner = function() {
 
-    var album = document.getElementById('album');
+    var target = document.getElementById('spin');
+    var load_msg = document.getElementById('load_msg');
+
     var opts = {
       lines: 12, // The number of lines to draw
       length: 7, // The length of each line
@@ -341,15 +343,21 @@ var loadSpinner = function() {
         spinner: 0,
 
         addSpinner: function() {
-            //var rows = document.getElementsByClass('album-row');
-            //var target = rows[rows.length-1];
-            var target = document.getElementById('album_bottom');
+
+            load_msg.style.display = "none";
+            target.style.display = "block";
+
             this.spinner = new Spinner(opts).spin(target);
             this.spinner.el.style.top = '50px';
         },
 
-        stopSpinner: function() {
+        stopSpinner: function(last) {
             this.spinner.stop();
+
+            target.style.display = "none";
+            if(!last) {
+                load_msg.style.display = "block";
+            }
         }
     };
 };
