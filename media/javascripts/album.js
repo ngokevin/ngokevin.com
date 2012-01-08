@@ -233,11 +233,17 @@ var insertImages = function(images, srcs) {
 
     return insert = function() {
 
+        var spinner = loadSpinner();
+
         // adds image to row and update row metadata
         var addImageToRow = function() {
 
             currentRowImgs.push(this);
             currentRowPixels += this.width;
+
+            if(last) {
+                spinner.stopSpinner();
+            }
 
             // if we have enough images collected to fill a row, add images
             if(currentRowPixels > PAGE_WIDTH) {
@@ -260,24 +266,33 @@ var insertImages = function(images, srcs) {
                 // scale(currentRowImgs);
                 initializeRow();
             }
+
         };
 
         // load image in background
-        var loadImage = function(image) {
-
+        var loadImage = function(image, last) {
             image.firstChild.onload = addImageToRow;
             image.firstChild.src = srcs[index];
 
         };
 
         // insert PER_LOAD images at a time
+        spinner.addSpinner();
+        var last = false;
         for(var index = insertedImages; index < insertedImages + PER_LOAD; index++) {
+
+            // stop spinner if last image loaded in current round
+            if(index >= images.length - 1 || index >= insertedImages + PER_LOAD - 1) {
+                last = true;
+            }
+
             // do nothing if all images already inserted
             if(index >= images.length) {
                 insertedImages = images.length;
+                spinner.stopSpinner();
                 return;
             }
-            loadImage(images[index]);
+            loadImage(images[index], last);
 
         }
         insertedImages += PER_LOAD;
@@ -290,7 +305,6 @@ var insertImages = function(images, srcs) {
 var endlessScroller = function(imageInserter) {
 
     var album = document.getElementById('album');
-    var spinner = loadSpinner();
 
     // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
@@ -299,9 +313,7 @@ var endlessScroller = function(imageInserter) {
         var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
 
         if (scrollHeight / pageHeight >= .85) {
-            spinner.addSpinner();
             imageInserter();
-            spinner.stopSpinner();
         }
     };
 };
