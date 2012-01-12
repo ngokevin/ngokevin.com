@@ -1,0 +1,60 @@
+title: "Why SOPA Sucks: The People, The Problem, The Solution"
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+image:
+    url: http://censorshipinamerica.files.wordpress.com/2011/12/lamar-smith.jpg
+    where: right
+
+datetime: 2012-01-12 14:00:00
+
+---
+
+The Wild West of the Cloud, the group of rampant pirates known as the Internet,
+has thrown their gloves on the ground against bills in the House and the Senate
+in an effort to preserve its very own existence. The land where people are free
+to share pictures of their cats and seed virtual farms is being overrun by
+dinosaurs sent from the Big Man. The dinosaur in question is the stegosaur
+representing Texas that some know as *Lamar Smith*.
+
+In Late October, Smith proposed a bill named the **Stop Online Piracy Act
+(SOPA)** that would:
+
+- allow government and the entertainment industry to seek court orders against
+  websites merely accused of "enabling" or "facilitating" copyright
+  infringement"
+- bar advertising networks and payment facilitators (Paypal) from doing business
+  with alledgely infringing sites
+- criminalize unauthorized streaming of copyrighted content with max penalty of
+  five years in the cell
+- gives immunity to those who support these actions and make liable for damages
+  the infringer
+
+Proponents say it would:
+
+- protect intellectual property along with the corresponding industry's jobs and revenue
+- bolster enforcement of copyright laws against "rogue" foreign websites
+
+Opponents say it would:
+
+- violate the First Amendment
+- fall under Internet censorship
+- cripple the Internet
+- threaten whistleblowing and free speech
+
+There are three problems with SOPA:
+
+ - the people behind it
+ - the overstated problem of piracy it claims
+ - the solution it proposes
+
+The People Behind SOPA
+======================
+
+
+The Overstated Problem of Piracy
+================================
+
+
+The Wrong Solution
+==================
