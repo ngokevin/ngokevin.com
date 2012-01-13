@@ -50,9 +50,52 @@ Piracy is an issue that needs attention, but there are three problems with SOPA:
 
 The People Behind SOPA
 ----------------------
-http://politics.slashdot.org/story/11/12/18/1836249/sopa-creator-in-tvfilmmusic-industrys-pocket
-http://www.opencongress.org/bill/112-h3261/money
 
+The supporters behind SOPA are generally aware (and have even jokingly admitted
+this) of the technological implications on DNS. A paper written by the Internet
+Systems Consortium stated that "these actions would threaten the Domain Name
+System’s ability to provide universal naming, a primary source of the
+internet’s value as a single, unified, global communications network".
+
+When Smith, the creator of the bill, was [urged][wired] to postpone House meeting sessions
+in order to bring in technical experts on the Internet, Smith thought it was not
+necessary despite a signed letter by many of the Internet's core engineers stating
+that the bill was tehnically flawed.
+
+It seems very unreasonable, but it makes sense when we factor in the fact that
+Smith has been [consistently receiving $50,000][slashdot] from the TV, film,
+and music industries for each of his re-election campaigns for the last decade,
+totalling about $500,000 lobbying overall. Though Smith hasn't been the only
+one getting his pockets filled:
+
+- Rep. Eric Cantor [R, VA-7]  $668,192
+- Rep. Howard Berman [D, CA-28]   $590,398
+- Rep. Steny Hoyer [D, MD-5]  $557,107
+- Rep. James Clyburn [D, SC-6]    $486,927
+- Rep. Michael Capuano [D, MA-8]  $465,500
+- Rep. Bruce Braley [D, IA-1]     $438,839
+- Rep. Nancy Pelosi [D, CA-8]     $416,100
+- Rep. Allyson Schwartz [D, PA-13]    $409,019
+- Rep. John Boehner [R, OH-8]     $403,800
+- Rep. Gary Peters [D, MI-9]  $395,798
+- Sen. Harry Reid [D, NV]     $3,502,624
+- Sen. Charles Schumer [D, NY]    $2,648,770
+- Sen. Kirsten Gillibrand [D, NY]     $2,080,651
+- Sen. Barbara Boxer [D, CA]  $1,431,843
+- Sen. Scott Brown [R, MA]    $1,364,872
+- Sen. Robert Portman [R, OH]     $1,363,009
+- Sen. Patrick Toomey [R, PA]     $1,291,744
+- Sen. Michael Bennet [D, CO]     $1,019,172
+- Sen. Mark Kirk [R, IL]  $911,296
+- Sen. Patrick Leahy [D, VT]  $905,310
+[source](opencongress)
+
+Supporters of SOPA do not have the best interests of the Internet in hand but
+rather a lot of green.
+
+[slashdot]:http://politics.slashdot.org/story/11/12/18/1836249/sopa-creator-in-tvfilmmusic-industrys-pocket
+[opencongress]:http://www.opencongress.org/bill/112-h3261/
+[wired]:http://www.wired.com/threatlevel/2011/12/sopa-vote-delayed/
 
 The Overstated Problem of Piracy
 --------------------------------
