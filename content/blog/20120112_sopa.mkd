@@ -10,14 +10,14 @@ datetime: 2012-01-12 14:00:00
 
 ---
 
-The Wild West of the Cloud, the group of rampant pirates known as the Internet,
-has thrown their gloves on the ground against bills in the House and the Senate
-in an effort to preserve its very own existence. The land where people are free
-to share pictures of their cats and seed virtual farms is being overrun by
-dinosaurs sent from the Big Man. The dinosaur in question is the stegosaur
+The Wild West of the clouds, the group of rampant pirates known as the Internet,
+has thrown their gloves to the ground against bills proposed in the House and
+the Senate in an effort to preserve its very own existence. The land where
+people are free to share pictures of their cats and seed virtual farms is being
+overrun by dinosaurs. The dinosaur leading the charge is a stegosaur
 representing Texas that some know as *Lamar Smith*.
 
-In Late October, Smith proposed a bill named the **Stop Online Piracy Act
+In late October, Smith proposed a bill named the **Stop Online Piracy Act
 (SOPA)** that would:
 
 - allow government and the entertainment industry to seek court orders against
@@ -42,19 +42,33 @@ Opponents say it would:
 - cripple the Internet
 - threaten whistleblowing and free speech
 
-There are three problems with SOPA:
+Piracy is an issue that needs attention, but there are three problems with SOPA:
 
  - the people behind it
  - the overstated problem of piracy it claims
  - the solution it proposes
 
 The People Behind SOPA
-======================
+----------------------
+http://politics.slashdot.org/story/11/12/18/1836249/sopa-creator-in-tvfilmmusic-industrys-pocket
+http://www.opencongress.org/bill/112-h3261/money
 
 
 The Overstated Problem of Piracy
-================================
+--------------------------------
+http://i.imgur.com/RvXCO.png
+(http://www.techdirt.com/articles/20110727/16233815292/another-day-another-study-that-says-pirates-are-best-customers-this-time-hadopi.shtml)
+http://mmofallout.com/2011/11/24/ubisoft-95-of-our-consumers-are-pirates/
+http://www.geek.com/articles/geek-cetera/movie-industry-bins-report-proving-pirates-are-great-consumers-20110720/
 
 
 The Wrong Solution
-==================
+------------------
+http://news.ycombinator.com/item?id=3457786
+http://steveblank.com/2012/01/04/why-the-movie-industry-cant-innovate-and-the-result-is-sopa/
+http://blog.mozilla.com/blog/2011/12/14/mozilla-leaders-to-dc-there-are-alternatives-to-sopa/
+
+
+Timeline
+--------
+hackerne.ws
