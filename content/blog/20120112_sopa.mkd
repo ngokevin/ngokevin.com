@@ -29,11 +29,14 @@ In late October, Smith proposed a bill named the **Stop Online Piracy Act
   five years in the cell
 - gives immunity to those who support these actions and make liable for damages
   the infringer
+- require network providers to implement IP blocking and deep packet inspection
 
 Proponents say it would:
 
-- protect intellectual property along with the corresponding industry's jobs and revenue
-- bolster enforcement of copyright laws against "rogue" foreign websites
+- protect intellectual property along with the corresponding industry's jobs
+  and revenue
+- bolster enforcement of copyright laws against "rogue" foreign websites (such
+  as those selling dangerous counterfeit drugs)
 
 Opponents say it would:
 
@@ -99,19 +102,76 @@ rather a lot of green.
 
 The Overstated Problem of Piracy
 --------------------------------
-http://i.imgur.com/RvXCO.png
-(http://www.techdirt.com/articles/20110727/16233815292/another-day-another-study-that-says-pirates-are-best-customers-this-time-hadopi.shtml)
-http://mmofallout.com/2011/11/24/ubisoft-95-of-our-consumers-are-pirates/
-http://www.geek.com/articles/geek-cetera/movie-industry-bins-report-proving-pirates-are-great-consumers-20110720/
 
+A [study][techdirt] from HADOPI indicates that that greatest infringers of
+online content also tend to be the greatest consumers. It is somewhat
+unintuitive, but pirates put in the most money towards content. They tend to
+prefer to pirate their content to judge their quality before purchasing and are
+found to purchase more DVDs and visit the movie theater more. Thus, the
+entertainment industry are potentially hurting themselves through SOPA.
+
+<img src="http://i.imgur.com/RvXCO.png"/>
+
+Though, the movie industry is [fully aware][geek] of this report. However, the
+client that funded for the report was somewhat unhappy with its "unpleasant"
+results and buried it.
+
+Another research report showed that anime piracy and streaming in Japan
+actually [increased DVD sales][geek2]. Even Ubisoft, a game company known for
+implementing draconian DRM systems for some of their titles, stated that [95%
+of our consumers are pirates][ubisoft].
+
+It is a bit strange and unintuitive, but piracy may have actually helped
+increase sales overall.
+
+[techdirt]:http://www.techdirt.com/articles/20110727/16233815292/another-day-another-study-that-says-pirates-are-best-customers-this-time-hadopi.shtml
+[geek]:http://www.geek.com/articles/geek-cetera/movie-industry-bins-report-proving-pirates-are-great-consumers-20110720/
+[geek2]:http://www.geek.com/articles/news/anime-piracy-and-streaming-found-to-increase-dvd-sales-in-japan-2011027/
+[ubisoft]:http://mmofallout.com/2011/11/24/ubisoft-95-of-our-consumers-are-pirates/
 
 The Wrong Solution
 ------------------
-http://news.ycombinator.com/item?id=3457786
-http://steveblank.com/2012/01/04/why-the-movie-industry-cant-innovate-and-the-result-is-sopa/
-http://blog.mozilla.com/blog/2011/12/14/mozilla-leaders-to-dc-there-are-alternatives-to-sopa/
 
+SOPA may address some legitimate issues with foreign rogue websites, but the
+solutions it proposes are anything but adequate. The provisions involving DNS
+threaten the integrity of a free and open Internet, and the concept of 'guilty
+until proven innocent' speaks for itself.
 
-Timeline
---------
-hackerne.ws
+Why is it that online digital distribution services such as iTunes or Steam
+seem to be thriving despite their content being easily able to pirate? It is
+because of convenience and pricing. Rather than charge $20 for a physical DVD,
+the entertainment industry might find more success charging, say, $4 for a
+digital access to a movie. It would certainly increase their market and dangle
+convenience like a carrot.
+
+Another solution the movie and music industry could look to is to start
+innovating their products rather than manufacture everything for the masses.
+Roger Ebert, a famed and respectable movie critic, [stated that piracy is not
+the woes of the industry][ebert], but pointed towards high ticket and
+refreshment prices, bad theater experience, lack of other forms of
+distribution, and lack of choice in movie theaters.
+
+An alternative act, the [Online Protection and Enforcement of Digital Trade
+(OPEN) Act], proposed by Oregon Sen. Ron Wyden [D] and Rep. Darrell Issa takes a
+less censorial approach and discourages web blocking. It:
+
+    - seeks only to stop transfers of money to foreign websites whose primary
+      purpose is piracy or counterfeiting (rather than also forcing ISPs to
+      redirect)
+    - puts enforcement responsibility on the US International Trade Commission
+      (ITC) rather than the US Justice Department
+    - give the ITC power to collect fees from complaintains and to hire personnel
+      for investigations
+
+The draft of OPEN is backed by web companies such as Google and Facebook
+whereas SOPA is backed by the movie and music industries. It is much less harsh
+and doesn't seek to mess with network providers and DNS.
+
+The point is, SOPA sucks.
+
+More about SOPA can be read at [Keep the Web Open][ktwo].
+
+[ebert]:http://www.rogerebert.com/apps/pbcs.dll/article?AID=/20111228/COMMENTARY/111229973/
+[open]:http://en.wikipedia.org/wiki/Online_Protection_and_Enforcement_of_Digital_Trade_Act
+[ktwo]:http://keepthewebopen.com/
+
