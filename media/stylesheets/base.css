@@ -25,7 +25,7 @@ a {font-weight: bold;}
 }
 #main p, #main span {
     line-height: 1.60em;
-    color: #636363;
+    color: #4A4A4A;
 }
 
 .container{
@@ -125,7 +125,7 @@ a {font-weight: bold;}
     margin-top: 10px;
 }
 .page p {
-    line-height: 1.80em !important;
+    line-height: 1.95em !important;
 }
 .base-image img {
     margin-bottom: 5px;

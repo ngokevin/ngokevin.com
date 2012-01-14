@@ -154,6 +154,10 @@ You can again use queries to modify metadata.
 
 This will change the field to value for every song that matches the query.
 
+If you change metadata of songs using another method or delete songs without deleting it from the database, you can update the database to reflect these changes with update.
+
+    beet update
+
 -a lot more where that came from-
 Official Documentation:
 http://readthedocs.org/docs/beets/en/1.0b11/index.html

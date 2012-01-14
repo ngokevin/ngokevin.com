@@ -96,7 +96,7 @@ Skills
 ======
 <table>
     <tr><td>Languages</td><td>Python | Bash | HTML/CSS | Javascript | PHP | C | Java</td></tr>
-    <tr><td>Frameworks</td><td>Django | [Wok][wok] | jQuery</td></tr>
+    <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery</td></tr>
     <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
     <tr><td>Tools</td><td>Vim | Git | SVN | Firebug</td></tr>
 </table>
@@ -104,3 +104,4 @@ Skills
 [ford]:http://www.tfff.org/ScholarshipPrograms/FordScholarsProgram/OregonFordScholars/tabid/65/Default.aspx
 [mongodb]:http://mongodb.org
 [wok]:http://github.com/mythmon/wok
+[bootstrap]:http://twitter.github.com/bootstrap
