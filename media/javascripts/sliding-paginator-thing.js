@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    num_pages = 3;
+    num_pages = 2;
 
     // show the first page, hide the rest
     var i = 0;
