@@ -21,7 +21,7 @@ a {font-weight: bold;}
     color: #AAA;
 }
 #main li, #main ol {
-    list-style: none;
+    list-style: square;
 }
 #main p, #main span {
     line-height: 1.60em;
@@ -170,4 +170,8 @@ a {font-weight: bold;}
 #sliding-all a {
     color: black;
     font-weight: normal;
+}
+
+#resume li {
+    list-style: none;
 }
