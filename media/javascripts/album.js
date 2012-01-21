@@ -330,6 +330,11 @@ var endlessScroller = function(imageInserter) {
         var offset = getScrollOffsets()['y'];
         var scrollHeight = offset + getViewportSize()['h'];
 
+        // insert images if scrollbar is around 85% down the page
+        if (scrollHeight / pageHeight >= .85) {
+            imageInserter();
+        }
+
         // scroll the overlay with the page if it exists
         try {
             if(scrollHeight <= pageHeight) {
@@ -339,11 +344,6 @@ var endlessScroller = function(imageInserter) {
             }
         }
         catch(err) {
-        }
-
-        // insert images if scrollbar is around 85% down the page
-        if (scrollHeight / pageHeight >= .85) {
-            imageInserter();
         }
     };
 };
