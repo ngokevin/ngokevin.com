@@ -49,17 +49,18 @@ var showImage = function() {
     // closure holds thumbnail_prefix
     return show = function() {
 
+        var offset = getScrollOffsets()['y'] + 'px';
+
         // create overlay and append to page
         var overlay = document.createElement("div");
+        overlay.style.top = offset;
         overlay.setAttribute("id","overlay");
         overlay.setAttribute("class", "overlay");
         document.body.appendChild(overlay);
 
-        // disable scrolling with overlay
-        document.body.style.overflow = "hidden";
-
         // create image and append to page
         var img = document.createElement("img");
+        img.style.top = offset;
         img.setAttribute("id","overlay-img");
         img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
         img.setAttribute("class","overlay-img");
@@ -166,8 +167,7 @@ var insertImages = function(images, srcs) {
 
     var insertedImages = 0;
     var album = document.getElementById("album");
-
-    var currentRowPixels;
+var currentRowPixels;
     var currentRowImgs;
     var currentRowDiv;
 
@@ -256,6 +256,7 @@ var insertImages = function(images, srcs) {
                 scale(currentRowImgs);
                 initializeRow();
             }
+
             // if all the images were collected, but not enough to fill
             // a row, append all images now
             else if(!(currentRowPixels > PAGE_WIDTH) && currentRowImgs.length == srcs.length){
