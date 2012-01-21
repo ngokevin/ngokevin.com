@@ -40,11 +40,22 @@ var getImages = function() {
 };
 
 
+// event handler: centerImage
+// ONLOAD to center an image vertically within viewport on overlay
+var centerImage = function(image) {
+    var height = this.getBoundingClientRect()['height'];
+    var viewportHeight = getViewportSize()['h'];
+    var offset = parseInt(this.style.top);
+    this.style.top = offset + (parseInt(viewportHeight) - parseInt(height)) / 2 + 'px';
+}
+
+
 // event handler: showImage
 // ONCLICK for a thumbnail that displays full size image over an overlay
 var showImage = function() {
 
     var thumb_img = this;
+
 
     // closure holds thumbnail_prefix
     return show = function() {
@@ -64,6 +75,7 @@ var showImage = function() {
         img.setAttribute("id","overlay-img");
         img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
         img.setAttribute("class","overlay-img");
+        img.onload = centerImage;
 
         // click to restore page
         img.onclick = restoreImage;
@@ -307,30 +319,29 @@ var insertImages = function(images, srcs) {
 // ONSCROLL check if scrollbar is need bottom. if so, insert more images
 var endlessScroller = function(imageInserter) {
 
-
     var album = document.getElementById('album');
 
-    // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
-
-        var offset = getScrollOffsets()['y'] + 'px';
 
         var htmlElement = document.documentElement;
         var bodyElement = document.body;
         var pageHeight = Math.max( htmlElement.clientHeight, htmlElement.scrollHeight, htmlElement.offsetHeight, bodyElement.scrollHeight, bodyElement.offsetHeight);
 
-        var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
+        var offset = getScrollOffsets()['y'];
+        var scrollHeight = offset + getViewportSize()['h'];
 
+        // scroll the overlay with the page if it exists
         try {
             if(scrollHeight <= pageHeight) {
-                document.getElementById('overlay').style.top = offset;
-                document.getElementById('overlay-img').style.top = offset;
+                document.getElementById('overlay').style.top = offset + 'px';
+                document.getElementById('overlay-img').style.top = offset + 'px';
+                centerImage.call(document.getElementById('overlay-img'));
             }
         }
         catch(err) {
         }
 
-
+        // insert images if scrollbar is around 85% down the page
         if (scrollHeight / pageHeight >= .85) {
             imageInserter();
         }
