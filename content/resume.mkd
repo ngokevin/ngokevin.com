@@ -6,6 +6,8 @@ navrank: 4
 
 ---
 
+<div id="resume">
+
 Kevin Ngo
 =========
 
@@ -105,3 +107,5 @@ Skills
 [mongodb]:http://mongodb.org
 [wok]:http://github.com/mythmon/wok
 [bootstrap]:http://twitter.github.com/bootstrap
+
+</div>

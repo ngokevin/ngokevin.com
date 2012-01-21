@@ -40,29 +40,42 @@ var getImages = function() {
 };
 
 
+// event handler: centerImage
+// ONLOAD to center an image vertically within viewport on overlay
+var centerImage = function(image) {
+    var height = this.getBoundingClientRect()['height'];
+    var viewportHeight = getViewportSize()['h'];
+    var offset = parseInt(this.style.top);
+    this.style.top = offset + (parseInt(viewportHeight) - parseInt(height)) / 2 + 'px';
+}
+
+
 // event handler: showImage
 // ONCLICK for a thumbnail that displays full size image over an overlay
 var showImage = function() {
 
     var thumb_img = this;
 
+
     // closure holds thumbnail_prefix
     return show = function() {
 
+        var offset = getScrollOffsets()['y'] + 'px';
+
         // create overlay and append to page
         var overlay = document.createElement("div");
+        overlay.style.top = offset;
         overlay.setAttribute("id","overlay");
         overlay.setAttribute("class", "overlay");
         document.body.appendChild(overlay);
 
-        // disable scrolling with overlay
-        document.body.style.overflow = "hidden";
-
         // create image and append to page
         var img = document.createElement("img");
+        img.style.top = offset;
         img.setAttribute("id","overlay-img");
         img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
         img.setAttribute("class","overlay-img");
+        img.onload = centerImage;
 
         // click to restore page
         img.onclick = restoreImage;
@@ -166,7 +179,6 @@ var insertImages = function(images, srcs) {
 
     var insertedImages = 0;
     var album = document.getElementById("album");
-
     var currentRowPixels;
     var currentRowImgs;
     var currentRowDiv;
@@ -256,6 +268,7 @@ var insertImages = function(images, srcs) {
                 scale(currentRowImgs);
                 initializeRow();
             }
+
             // if all the images were collected, but not enough to fill
             // a row, append all images now
             else if(!(currentRowPixels > PAGE_WIDTH) && currentRowImgs.length == srcs.length){
@@ -308,12 +321,27 @@ var endlessScroller = function(imageInserter) {
 
     var album = document.getElementById('album');
 
-    // insert images if scrollbar is around 75% down the page
     return checkScrollPos = function() {
 
-        var pageHeight = document.documentElement.scrollHeight;
-        var scrollHeight = getScrollOffsets()['y'] + getViewportSize()['h'];
+        var htmlElement = document.documentElement;
+        var bodyElement = document.body;
+        var pageHeight = Math.max( htmlElement.clientHeight, htmlElement.scrollHeight, htmlElement.offsetHeight, bodyElement.scrollHeight, bodyElement.offsetHeight);
 
+        var offset = getScrollOffsets()['y'];
+        var scrollHeight = offset + getViewportSize()['h'];
+
+        // scroll the overlay with the page if it exists
+        try {
+            if(scrollHeight <= pageHeight) {
+                document.getElementById('overlay').style.top = offset + 'px';
+                document.getElementById('overlay-img').style.top = offset + 'px';
+                centerImage.call(document.getElementById('overlay-img'));
+            }
+        }
+        catch(err) {
+        }
+
+        // insert images if scrollbar is around 85% down the page
         if (scrollHeight / pageHeight >= .85) {
             imageInserter();
         }
