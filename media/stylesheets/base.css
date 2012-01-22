@@ -107,16 +107,18 @@ a {font-weight: bold;}
     padding:1.1em;
     padding-left: 1.6em;
     padding-right: 1.6em;
+    padding-top: 1.6em;
     border-radius:8px;
     color:black;
 }
 #navigation span:hover {
     background:#DDDDD3;
 }
-#current_nav {
+#current_nav span {
     padding:1.1em;
-    padding-left: 0em;
-    padding-right: 0em;
+    padding-left: 1.6em;
+    padding-right: 1.6em;
+    padding-top:1.6em;
     border-radius:8px;
     background:#DDDDD3;
 }

@@ -4,12 +4,12 @@ tags: navigation
 navrank: 5
 
 image:
-    url: /images/bros.png
+    url: /images/working.jpg
     where: right
 
 ---
 
-###message on irc
+###ping on irc
 *ngoke* on irc.freenode.net
 
 ###shoot an email
@@ -21,7 +21,7 @@ kevin.ngo@oregonstate.edu
 ###check out my code
 [github](http://github.com/ngokevin)
 
-###send an encrypted message
+###send a secret encrypted message
 
 [pgp key](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527)
 
