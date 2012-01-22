@@ -48,7 +48,7 @@ to manage DMCA file-sharing notifications and malware security reports
   screen-scraping along with a Django web frontend and hosted it on a personal
 Apache web server
 
-- Wrote a pure Javascript [gallery][/gallery] and image viewer from scratch for
+- Wrote a pure Javascript [gallery](/gallery) and image viewer from scratch for
   personal website, powered in the backend by Python and Jinja2 templates
 
 - Developed a [Soundcloud Python CLI][soundcloud] and integrated into active
@@ -97,10 +97,10 @@ David Douglas High School
 Skills
 ======
 <table>
-    <tr><td>Languages</td><td>Python | Bash | HTML/CSS | Javascript | PHP | C | Java</td></tr>
+    <tr><td>Languages</td><td>Python | Bash | HTML/CSS | Javascript | C | PHP | Java </td></tr>
     <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery</td></tr>
     <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
-    <tr><td>Tools</td><td>Vim | Git | SVN | Firebug</td></tr>
+    <tr><td>Tools</td><td>Vim | Git | SVN | Firebug | LaTeX</td></tr>
 </table>
 
 [ford]:http://www.tfff.org/ScholarshipPrograms/FordScholarsProgram/OregonFordScholars/tabid/65/Default.aspx
