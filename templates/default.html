@@ -9,7 +9,7 @@
                 {{ author.name }}{% if not loop.last %}, {% endif %}
             {% endfor %}
         {% endif %}
-        {% if page.date %}
+        {% if page.date and page.datetime %}
             on {{ page.date.strftime("%x") }}
         {% endif %}
     </span>
