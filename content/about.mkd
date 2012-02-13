@@ -19,17 +19,18 @@ boxes out of recycled and donated computers to give to non-profit
 organizations. You can find out a bit more about me at [linkedin][linkedin].
 
 I love **learning** as well as having the ability to build practical
-applications. For these reasons, I love **programming**.  There exists an
-abundance of technologies out there for me to conquer, and that excites me. I
-consider myself a **full-stack** do-it-all programmer, being able to to do
-backend coding, system design, frontend work, design, and some systems
-administration.  Besides programming, I also enjoy being on the basketball
-courts and cruising the streets on my longboard.
+applications which leads me to loving **programming**. I sort of see
+programming as a video game where I can gain new skills and technologies and
+level up. I'm more of a general programmer, working with backend coding, system
+design, frontend work, design, web development, and some systems
+administration. Besides programming, Away from the computer, I enjoy being on
+the basketball courts and cruising the streets on longboards. Also, I am a
+retired tennis player, violin prodigy, and piano enthusiast.
 
 I prefer working in **Linux**, developing with **Python/Django**, and keeping
-it all under wraps with **Git**. My experience spans HTML and CSS, Javascript,
-PHP, SQL, MongoDB, C, Java, and SVN, but I can handle anything anyone throws at
-me.
+it all under wraps with **Git**. My experience spans HTML/CSS, Javascript,
+Puppet, PHP, SQL, MongoDB, C, Java, and SVN. Though I can handle whatever
+anyone throws at me.
 
 Check out my [**resume**](/resume) for the rundown on some of my previous
 projects.
