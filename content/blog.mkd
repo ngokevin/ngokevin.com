@@ -1,7 +1,7 @@
 title: Blog
 type: index-big
 slug: blog
-url: /blog/index{page}.html
+url: /blog/{page}/index.html
 
 tags: navigation
 navrank: 2

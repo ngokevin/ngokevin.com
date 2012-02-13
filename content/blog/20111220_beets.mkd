@@ -9,7 +9,6 @@ image:
 datetime: 2011-12-20 02:00:00
 
 ---
-<br/>
 **My Tale**
 
 Ever since my very first iPod back in high school, I had been glued to heavy
