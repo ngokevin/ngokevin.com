@@ -91,7 +91,6 @@ David Douglas High School
 2005-2009
 
 - Graduated with 3.97 GPA
-
 - Recipient of Ford Family Foundation's [Ford Scholars Program][ford] Four-Year Scholarship
 
 Skills
@@ -100,7 +99,7 @@ Skills
     <tr><td>Languages</td><td>Python | Bash | HTML/CSS | Javascript | C | PHP | Java </td></tr>
     <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery</td></tr>
     <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
-    <tr><td>Tools</td><td>Vim | Git | SVN | Firebug | LaTeX</td></tr>
+    <tr><td>Tools</td><td>Vim | Git | SVN | Puppet | Vagrant | Firebug | LaTeX</td></tr>
 </table>
 
 [ford]:http://www.tfff.org/ScholarshipPrograms/FordScholarsProgram/OregonFordScholars/tabid/65/Default.aspx
