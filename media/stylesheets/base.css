@@ -9,14 +9,14 @@ a {font-weight: bold;}
 #main a:hover {font-weight: bold;}
 
 #main p, #main span {
-    font-size: 1.1em;
+    font-size: 1.05em;
     line-height: 1.85em;
     margin-top: 1.1em;
     color: #4A4A4A;
 }
 
 #main li, #main ol {
-    font-size: 1.1em;
+    font-size: 1.05em;
     line-height: 1.85em;
     list-style: square;
 }
@@ -47,6 +47,10 @@ a {font-weight: bold;}
 #header{
     margin-top: 1.2em;
 }
+#header hr {
+    margin-top: 0em;
+    margin-bottom: .5em;
+}
 
 #logo{
     font-weight:bold;
@@ -76,7 +80,6 @@ a {font-weight: bold;}
     color: #2AAAAA;
 }
 #main hr {
-    margin-top: 0em;
     margin-bottom: 1em;
 }
 #main p:nth-child(odd) img {
@@ -92,6 +95,7 @@ a {font-weight: bold;}
 }
 
 span#metadata {
+    line-height: 1em;
     font-size: 1em;
     color: #808080;
 }
@@ -131,6 +135,10 @@ span#metadata {
 .base-image span {
     font-size: .9em;
     font-style: italic;
+}
+
+.page {
+    margin-top: 2em;
 }
 .page_pic {
     margin-bottom: 20px;

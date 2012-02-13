@@ -24,25 +24,28 @@
 
 <!--Blog Posts-->
 <div class="span16 columns" style="margin-left:0px">
+
     <div class="big-index">
+
         <h3 style="display:inline; font-size:1.3em;">Recent Blogs</h3>&nbsp;&nbsp;
         <form method="link" action="/blog/index.html" style="display:inline;">
             <button class="btn success" id="sliding-all"><a href="/blog/index.html">All</a></button>
         </form>
+
         <!--Graceful degradation for non-js enabled browsers-->
         <noscript><div style="display:none;"</noscript>
             <button href="#" class="btn small" id="sliding-prev-page">Prev</button>
             <button href="#" class="btn small" id="sliding-next-page">Next</button>
         <noscript></div></noscript>
+
         <br/>
         <br/>
         <div class="sliding-index">
             {% for blog in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
                 {% if loop.index <= pagination.post_limit %}
+
                     <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
-                        {% if not loop.first%}
-                            <hr style="margin-top:2em;"/>
-                        {% endif %}
+
                         <!--Header Group-->
                         <h3 class="big-index-title"><a href="{{blog.url}}">{{ blog.title }}</a></h3>
                         <span id="metadata">
@@ -57,6 +60,7 @@
                             {% endif %}
                         </span>
                         <!--End Header Group-->
+
                         <!--Blog Image-->
                         {% if blog.image %}
                             <div class="big-index">
@@ -66,9 +70,10 @@
                             <br/>
                         {% endif %}
                         <!--End Blog Image-->
+
                         <!--Blog Preview Post-->
-                        <div>
-                            <span class="big-index-post">
+                        <div class="big-index-post">
+                            <span>
                                 {{blog.content|truncate(length=1200)}}
                                 </pre>
                                 </code>
@@ -76,6 +81,11 @@
                             <a href="{{blog.url}}">more</a>
                         </div>
                         <!--End Blog Preview Post-->
+
+                        {% if not loop.last%}
+                            <hr style="margin-top:2em;"/>
+                        {% endif %}
+
                         <div style="clear:both;"></div>
                     </div>
                 {% endif %}

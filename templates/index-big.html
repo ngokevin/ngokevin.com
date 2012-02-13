@@ -38,10 +38,13 @@
 
 <div class="big-index">
     {% for subpage in pagination.page_items %}
+
         <div class="big-index-item">
+
             {% if not loop.first %}
-                <hr style="margin-top:2em;"/>
+                <hr/>
             {% endif %}
+
             <div class="big-index-heading">
                 <h3 class="big-index-title"><a href="{{subpage.url}}">{{subpage.title}}</a></h3>
                 <span id="metadata">
@@ -57,8 +60,8 @@
                 </span>
             </div>
 
-            <div>
-                <span class="big-index-post">
+            <div class="big-index-post">
+                <span>
                     {% if subpage.image %}
                         <img style="float:left; display:inline" src="{{subpage.image.url}}"/>
                     {% endif %}
@@ -67,7 +70,6 @@
                     </pre>
                 </span>
             </div>
-
 
         </div>
     {% endfor %}
