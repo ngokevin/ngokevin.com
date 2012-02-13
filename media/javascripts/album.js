@@ -47,6 +47,10 @@ var centerImage = function(image) {
     var viewportHeight = getViewportSize()['h'];
     var offset = parseInt(this.style.top);
     this.style.top = offset + (parseInt(viewportHeight) - parseInt(height)) / 2 + 'px';
+
+    var width = this.getBoundingClientRect()['width'];
+    var viewportWidth = getViewportSize()['w'];
+    this.style.left = parseInt(viewportWidth / 2) - parseInt(width / 2) + 'px';
 }
 
 
@@ -55,7 +59,6 @@ var centerImage = function(image) {
 var showImage = function() {
 
     var thumb_img = this;
-
 
     // closure holds thumbnail_prefix
     return show = function() {
@@ -75,6 +78,13 @@ var showImage = function() {
         img.setAttribute("id","overlay-img");
         img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
         img.setAttribute("class","overlay-img");
+
+        // scale image down to viewport size
+        var viewportWidth = getViewportSize()['w'];
+        var viewportHeight = getViewportSize()['h'];
+        img.style.maxWidth = viewportWidth
+        img.style.maxHeight = viewportHeight
+
         img.onload = centerImage;
 
         // click to restore page
