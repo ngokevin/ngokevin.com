@@ -45,7 +45,7 @@
                         {% endif %}
                         <!--Header Group-->
                         <h3 class="big-index-title"><a href="{{blog.url}}">{{ blog.title }}</a></h3>
-                        <span class="metadata">
+                        <span id="metadata">
                             {% if blog.authors %}
                                 by {% for author in blog.authors %}
                                     {% if loop.last and not loop.first %}and {% endif %}

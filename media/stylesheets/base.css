@@ -4,28 +4,21 @@ body{
     padding:0;
     height:100%
 }
+
 a {font-weight: bold;}
 #main a:hover {font-weight: bold;}
-#main h1 { font-size: 2.0em; line-height:2.2em; }
-#main h2 { font-size: 1.6em; line-height:1.8em;}
-#main h3 { font-size: 1.3em; line-height:1.5em; }
-#main h4 { font-size: 1.0em; line-height:1.2em }
-#main h5 {
-    font-size: 1.0em;
-    font-weight: normal;
-    color: #AAA;
-}
-#main h6 {
-    font-size: 0.8em;
-    font-weight: normal;
-    color: #AAA;
-}
-#main li, #main ol {
-    list-style: square;
-}
+
 #main p, #main span {
-    line-height: 1.60em;
+    font-size: 1.1em;
+    line-height: 1.85em;
+    margin-top: 1.1em;
     color: #4A4A4A;
+}
+
+#main li, #main ol {
+    font-size: 1.1em;
+    line-height: 1.85em;
+    list-style: square;
 }
 
 .container{
@@ -94,6 +87,14 @@ a {font-weight: bold;}
     margin-right: 15px;
     float: left;
 }
+#main h2 {
+    line-height: 1.2em;
+}
+
+span#metadata {
+    font-size: 1em;
+    color: #808080;
+}
 
 #navigation a {
     margin-left: .5em;
@@ -123,12 +124,6 @@ a {font-weight: bold;}
     background:#DDDDD3;
 }
 
-.page {
-    margin-top: 10px;
-}
-.page p {
-    line-height: 1.85em !important;
-}
 .base-image img {
     margin-bottom: 5px;
     max-height: 480px;
