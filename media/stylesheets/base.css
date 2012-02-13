@@ -169,6 +169,23 @@ span#metadata {
     font-weight: normal;
 }
 
+#resume {
+    margin-top: 1em;
+}
+#resume h2 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+#resume .job {
+    float: left;
+}
+#resume .date {
+    font-weight: normal;
+    float: right;
+}
 #resume li {
     list-style: none;
+}
+#resume table {
+    font-size: 1.1em;
 }
