@@ -40,13 +40,27 @@ var getImages = function() {
 };
 
 
-// event handler: centerImage
-// ONLOAD to center an image vertically within viewport on overlay
+// center an image vertically within viewport on overlay, adjust size
 var centerImage = function(image) {
+
     var height = this.getBoundingClientRect()['height'];
     var viewportHeight = getViewportSize()['h'];
     var offset = parseInt(this.style.top);
     this.style.top = offset + (parseInt(viewportHeight) - parseInt(height)) / 2 + 'px';
+
+    var width = this.getBoundingClientRect()['width'];
+    var viewportWidth = getViewportSize()['w'];
+    this.style.left = parseInt(viewportWidth / 2) - parseInt(width / 2) + 'px';
+}
+
+// event handler: adjustImage
+// onresize: if browser resized while image is shown, resize/recenter image
+// to resize with it
+var adjustImage = function(image) {
+    var viewportWidth = getViewportSize()['w'];
+    var viewportHeight = getViewportSize()['h'];
+    img.style.maxWidth = viewportWidth;
+    img.style.maxHeight = viewportHeight;
 
     var width = this.getBoundingClientRect()['width'];
     var viewportWidth = getViewportSize()['w'];
@@ -82,16 +96,21 @@ var showImage = function() {
         // scale image down to viewport size
         var viewportWidth = getViewportSize()['w'];
         var viewportHeight = getViewportSize()['h'];
-        img.style.maxWidth = viewportWidth
-        img.style.maxHeight = viewportHeight
-
-        img.onload = centerImage;
+        img.style.maxWidth = viewportWidth;
+        img.style.maxHeight = viewportHeight;
 
         // click to restore page
         img.onclick = restoreImage;
         overlay.onclick = restoreImage;
 
+        // load image into page centered
         document.body.appendChild(img);
+        centerImage.call(document.getElementById('overlay-img'));
+
+        // if browser resized while image is shown, resize/recenter image
+        window.onresize = function() {
+            adjustImage.call(document.getElementById('overlay-img'));
+        }
     }();
 };
 
