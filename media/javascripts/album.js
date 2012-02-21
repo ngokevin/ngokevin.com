@@ -41,26 +41,31 @@ var getImages = function() {
 
 
 // center an image vertically within viewport on overlay, adjust size
-var centerImage = function(image) {
+var centerImage = function() {
 
+    // adjust for how far page is scrolled down
     var height = this.getBoundingClientRect()['height'];
     var viewportHeight = getViewportSize()['h'];
     var offset = parseInt(this.style.top);
     this.style.top = offset + (parseInt(viewportHeight) - parseInt(height)) / 2 + 'px';
 
+    // center image horizontally
     var width = this.getBoundingClientRect()['width'];
     var viewportWidth = getViewportSize()['w'];
     this.style.left = parseInt(viewportWidth / 2) - parseInt(width / 2) + 'px';
+
+    this.adjustImage;
 }
 
 // event handler: adjustImage
 // onresize: if browser resized while image is shown, resize/recenter image
 // to resize with it
-var adjustImage = function(image) {
+var adjustImage = function() {
+
     var viewportWidth = getViewportSize()['w'];
     var viewportHeight = getViewportSize()['h'];
-    img.style.maxWidth = viewportWidth;
-    img.style.maxHeight = viewportHeight;
+    this.style.maxWidth = viewportWidth;
+    this.style.maxHeight = viewportHeight;
 
     var width = this.getBoundingClientRect()['width'];
     var viewportWidth = getViewportSize()['w'];
@@ -103,9 +108,10 @@ var showImage = function() {
         img.onclick = restoreImage;
         overlay.onclick = restoreImage;
 
+        img.onload = centerImage;
+
         // load image into page centered
         document.body.appendChild(img);
-        centerImage.call(document.getElementById('overlay-img'));
 
         // if browser resized while image is shown, resize/recenter image
         window.onresize = function() {
