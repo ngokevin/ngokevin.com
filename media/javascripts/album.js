@@ -54,7 +54,7 @@ var centerImage = function() {
     var viewportWidth = getViewportSize()['w'];
     this.style.left = parseInt(viewportWidth / 2) - parseInt(width / 2) + 'px';
 
-    this.adjustImage;
+    this.style.visibility= "visible";
 }
 
 // event handler: adjustImage
@@ -64,8 +64,8 @@ var adjustImage = function() {
 
     var viewportWidth = getViewportSize()['w'];
     var viewportHeight = getViewportSize()['h'];
-    this.style.maxWidth = viewportWidth;
-    this.style.maxHeight = viewportHeight;
+    this.style.maxWidth = viewportWidth * .8;
+    this.style.maxHeight = viewportHeight *.8;
 
     var width = this.getBoundingClientRect()['width'];
     var viewportWidth = getViewportSize()['w'];
@@ -101,8 +101,11 @@ var showImage = function() {
         // scale image down to viewport size
         var viewportWidth = getViewportSize()['w'];
         var viewportHeight = getViewportSize()['h'];
-        img.style.maxWidth = viewportWidth;
-        img.style.maxHeight = viewportHeight;
+        img.style.maxWidth = viewportWidth * .8;
+        img.style.maxHeight = viewportHeight * .8;
+
+        // hide image until loaded so we can center it in the background
+        img.style.visibility= "hidden";
 
         // click to restore page
         img.onclick = restoreImage;
