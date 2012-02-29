@@ -98,6 +98,7 @@ span#metadata {
     line-height: 1em;
     font-size: 1em;
     color: #808080;
+    font-weight: bold;
 }
 
 #navigation a {

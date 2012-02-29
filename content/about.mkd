@@ -21,11 +21,10 @@ organizations. You can find out a bit more about me at [linkedin][linkedin].
 I love **learning** as well as having the ability to build practical
 applications which leads me to loving **programming**. I sort of see
 programming as a video game where I can gain new skills and technologies and
-level up. I'm more of a general programmer, working with backend coding, system
-design, frontend work, design, web development, and some systems
-administration. Besides programming, Away from the computer, I enjoy being on
-the basketball courts and cruising the streets on longboards. Also, I am a
-retired tennis player, violin prodigy, and piano enthusiast.
+level up. A godo portion of my work lies in web development and scripting. Away
+from the computer, I enjoy being on the basketball courts and cruising the
+streets on longboards. Also, I am a retired tennis player, violin prodigy, and
+piano enthusiast.
 
 I prefer working in **Linux**, developing with **Python/Django**, and keeping
 it all under wraps with **Git**. My experience spans HTML/CSS, Javascript,
