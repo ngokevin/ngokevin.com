@@ -1,10 +1,16 @@
 // album.js
 // displays thumbnails of images and full-size image onclick of thumbnails
+( function($) {
 
 var THUMBNAIL_PREFIX = 'THUMB_';
 var PER_LOAD = 12;
 var PAGE_WIDTH = 940;
 var IMG_MARGIN = 3;
+
+var Thumbnail = Backbone.Model.extend({
+    initialize: function() {
+    }
+});
 
 // function: getImages
 // return array of a-img objects and corresponding array of srcs
@@ -438,3 +444,4 @@ var imageInserter = insertImages(images['imgs'], images['srcs']);
 window.onload = imageInserter;
 window.onscroll = endlessScroller(imageInserter);
 
+})(jQuery);
