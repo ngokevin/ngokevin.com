@@ -16,7 +16,7 @@ navrank: 4
 
 ##Experience##
 
-###<a class="job" href="http://oregonstate.edu/net">OSU Network Engineering Team</a>&nbsp;- Programmer / Web-Dev / Net-Sec <div class="date">March 2011 - Current</div>###
+###<a class="resume-heading" href="http://oregonstate.edu/net">OSU Network Engineering Team</a>&nbsp;- Programmer / Web-Dev / Net-Sec <div class="date">March 2011 - Current</div>###
 
 - Developed a [Python log management application][netshed] that parses and dumps network
   logs into MongoDB along with a Django web application for network
@@ -35,7 +35,7 @@ to manage DMCA file-sharing notifications and malware security reports
 
 [netshed]:http://github.com/ngokevin/netshed
 
-###<a class="job" href="http://github.com/ngokevin">github</a>&nbsp;- Programmer / Web-Dev <div class="date">March 2011 - Current</div>###
+##<a class="resume-heading" href="http://github.com/ngokevin">github</a>&nbsp;- Programmer / Web-Dev <div class="date">March 2011 - Current</div>###
 
 - Developed a [OSU class registration system Python API][reglib] via
   screen-scraping along with a Django web frontend and hosted it on a personal
@@ -60,7 +60,7 @@ webmaster of the OSU Linux Users Group
 [prestobot]:http://www.reddit.com/r/listentothis/comments/l3j5w/prestobot_20111006_download_link_for_todays/
 [youtube-dl]:http://github.com/rg3/youtube-dl
 
-###<a class="job" href="http://freegeek.org">Free Geek</a>&nbsp;- Build Intern <div class="date">March 2009 - April 2009</div>###
+###<a class="resume-heading" href="http://freegeek.org">Free Geek</a>&nbsp;- Build Intern <div class="date">March 2009 - April 2009</div>###
 
 - Built Linux boxes from donated recycled parts to give to non-profit organizations
 
@@ -69,7 +69,7 @@ webmaster of the OSU Linux Users Group
 ##Education##
 
 
-###<a href="http://eecs.oregonstate.edu/">Oregon State University</a> <div class="date">2009-Current</div>###
+###<a class="resume-heading" href="http://eecs.oregonstate.edu/">Oregon State University</a> <div class="date">2009-Current</div>###
 
 - Computer Science | Senior Standing | 3.60 GPA
 
@@ -83,10 +83,10 @@ webmaster of the OSU Linux Users Group
 
 ##Skills##
 <table>
-    <tr><td>Languages</td><td>Python | Bash | HTML/CSS | Javascript | C | PHP | Java </td></tr>
+    <tr><td>Languages</td><td>Python | HTML/CSS | Javascript | Bash | C | PHP | Java </td></tr>
     <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery</td></tr>
     <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
-    <tr><td>Tools</td><td>Vim | Git | SVN | Puppet | Vagrant | Firebug | LaTeX</td></tr>
+    <tr><td>Tools</td><td>Vim | Git | SVN | Vagrant | Firebug </td></tr>
 </table>
 
 [ford]:http://www.tfff.org/ScholarshipPrograms/FordScholarsProgram/OregonFordScholars/tabid/65/Default.aspx

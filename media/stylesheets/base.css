@@ -8,17 +8,22 @@ body{
 a {font-weight: bold;}
 #main a:hover {font-weight: bold;}
 
+#main h1 { font-size: 1.75em; line-height: 1.75em; }
+#main h2 { font-size: 1.45em; line-height: 1.45em; }
+#main h3 { font-size: 1.25em; line-height: 1.25em; }
+
 #main p, #main span {
-    font-size: 1.05em;
+    font-size: 1.10em;
     line-height: 1.85em;
     margin-top: 1.1em;
     color: #4A4A4A;
 }
 
 #main li, #main ol {
-    font-size: 1.05em;
-    line-height: 1.85em;
     list-style: square;
+    font-size: 1.15em;
+    line-height: 1.85em;
+    color: #4A4A4A;
 }
 
 .container{
@@ -90,9 +95,6 @@ a {font-weight: bold;}
     margin-right: 15px;
     float: left;
 }
-#main h2 {
-    line-height: 1.2em;
-}
 
 span#metadata {
     line-height: 1em;
@@ -139,7 +141,10 @@ span#metadata {
 }
 
 .page {
-    margin-top: 2em;
+    margin-top: 1.0em;
+}
+#page-header {
+    display: inline;
 }
 .page_pic {
     margin-bottom: 20px;
@@ -178,22 +183,25 @@ span#metadata {
     font-weight: normal;
 }
 
-#resume {
-    margin-top: 1em;
-}
 #resume h2 {
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 1em;
 }
-#resume .job {
-    float: left;
+#resume a {
+    font-weight: normal;
+}
+#resume a:hover {
+    font-weight: normal;
+}
+#resume .resume-heading {
+    font-weight: bold;
+}
+#resume a.resume-heading:hover {
+    font-weight: bold;
 }
 #resume .date {
     font-weight: normal;
     float: right;
-}
-#resume li {
-    list-style: none;
 }
 #resume table {
     font-size: 1.1em;

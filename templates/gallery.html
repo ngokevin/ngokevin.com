@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" type="text/css" href="/stylesheets/gallery.css" />
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
-    <h2>{{ page.title }}</h2>
+    <h1>{{ page.title }}</h1>
 
     {% for album in site.categories['gallery'] | sort(attribute='datetime', reverse=True) %}
         <!--Allow JavaScript to access the slugs-->
