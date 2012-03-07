@@ -183,6 +183,9 @@ span#metadata {
     font-weight: normal;
 }
 
+#resume {
+    font-size: .9em;
+}
 #resume h2 {
     margin-top: 1em;
     margin-bottom: 1em;
