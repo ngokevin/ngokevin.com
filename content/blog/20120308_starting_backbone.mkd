@@ -17,13 +17,13 @@ Backbone.js and jQuery.
 The Javascript image gallery on my site has come a long way. Before I started
 working on it several months ago, I had little Javascript experience. I had
 only done a tiny jQuery-UI paginator and some exercises from Crockford's
-"Javascript: The Good Parts" and [Eloquent Javascript][eloquent]. There were
-two motivations behind building my own image gallery. First, it would be cool
-and I could use it to post pictures to perhaps show my family what I've been up
-to since I'm all grown-up and rarely home. Secondly, I really needed to level
-up my Javascript skills Rocky-style before I headed down to Mozilla for a web
-development internship.  What use is a web developer that doesn't know
-Javascript?
+"Javascript: The Good Parts" and [Eloquent
+Javascript](http://eloquentjavascript.net). There were two motivations behind
+building my own image gallery. First, it would be cool and I could use it to
+post pictures to perhaps show my family what I've been up to since I'm all
+grown-up and rarely home. Secondly, I really needed to level up my Javascript
+skills Rocky-style before I headed down to Mozilla for a web development
+internship.  What use is a web developer that doesn't know Javascript?
 
 I started the trek into what I called "Javascript: The Final Frontier", a
 mission to explore Javascript, to seek out new technologies, and to go where
