@@ -7,16 +7,47 @@ var PER_LOAD = 12;
 var PAGE_WIDTH = 940;
 var IMG_MARGIN = 3;
 
+var Image = Backbone.Model.extend({
+    defaults: {
+        'id': 0,
+
+        'thumb_src': '',
+        'src': '',
+
+        'thumb_width': 0,
+        'thumb_height': 0,
+        'width': 0,
+        'height': 0,
+    }
+});
+
 window.AlbumView = Backbone.View.extend({
+
+    el: $('#album'),
+
+    initialize: function() {
+        srcs = this.get_srcs();
+        sizes = this.get_sizes();
+        images = create_images(srcs, sizes);
+    },
+
+    get_srcs: function() {
+
+    },
+
+    get_sizes: function() {
+
+    },
+
+    create_images: function(srcs, sizes) {
+
+    },
+
 });
 
 
+var Row = Backbone.Collection.extend({
 
-var Thumbnail = Backbone.Model.extend({
-    defaults: {
-        'thumb_src': '',
-        'src': '',
-    }
 });
 
 // function: getImages
