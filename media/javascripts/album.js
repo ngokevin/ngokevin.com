@@ -7,8 +7,15 @@ var PER_LOAD = 12;
 var PAGE_WIDTH = 940;
 var IMG_MARGIN = 3;
 
+window.AlbumView = Backbone.View.extend({
+});
+
+
+
 var Thumbnail = Backbone.Model.extend({
-    initialize: function() {
+    defaults: {
+        'thumb_src': '',
+        'src': '',
     }
 });
 

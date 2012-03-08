@@ -5,9 +5,14 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/album.css" />
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
 
-    <!--Allows Javascript to access the image paths-->
-    {% for image in site.album_images %}
-        <span class="album-image" style="display:none">{{ image }}</span>
+    <!--Bind album image srcs to DOM-->
+    {% for src in site.album_image_srcs %}
+        <span class="src" style="display:none">{{src}}</span>
+    {% endfor %}
+
+    <!--Bind album image sizes to DOM-->
+    {% for size in site.album_image_sizes %}
+        <span class="size" style="display:none">{{size}}</span>
     {% endfor %}
 
     <h2>{{ page.title }}</h2>
