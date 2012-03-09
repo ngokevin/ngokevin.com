@@ -6,14 +6,10 @@
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
 
     <!--Bind album image srcs to DOM-->
-    {% for src in site.album_image_srcs %}
-        <span class="src" style="display:none">{{src}}</span>
-    {% endfor %}
+    <span id="srcs" style="display:none">{{ site.album_image_srcs }}</span>
 
     <!--Bind album image sizes to DOM-->
-    {% for size in site.album_image_sizes %}
-        <span class="size" style="display:none">{{size}}</span>
-    {% endfor %}
+    <span id="sizes" style="display:none">{{ site.album_image_sizes }}</span>
 
     <h2>{{ page.title }}</h2>
     {{page.content}}

@@ -1,6 +1,7 @@
 import glob
 import Image
 import os
+import simplejson
 
 GALLERY_DIR = os.path.abspath("./media/images/gallery/") + '/'
 REL_GALLERY_DIR = "/images/gallery/"
@@ -23,7 +24,7 @@ def get_image_srcs(page, templ_vars):
             # convert paths from absolute to relative
             album_images += [REL_GALLERY_DIR + album['slug'] + '/' + image.split('/')[-1] for image in image_list]
 
-        templ_vars['site']['album_image_srcs'] = sorted(album_images)
+        templ_vars['site']['album_image_srcs'] = simplejson.dumps(sorted(album_images))
 
 
 def get_image_sizes(page, templ_vars):
@@ -50,6 +51,6 @@ def get_image_sizes(page, templ_vars):
             image = Image.open(src)
             width = image.size[0]
             height = image.size[1]
-            image_sizes.append((width, height))
+            image_sizes.append([width, height])
 
-        templ_vars['site']['album_image_sizes'] = image_sizes
+        templ_vars['site']['album_image_sizes'] = simplejson.dumps(image_sizes)
