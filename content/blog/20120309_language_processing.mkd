@@ -19,7 +19,7 @@ language processing, outside the context of the class, is interesting. It's
 taking something that can be very unstructured and turning it into something
 that can be analyzed.
 
-An idea came to be earlier this week as I was flipped through my unused
+An idea came to be earlier this week as I flipped through my unused
 technical writing book that I had bought for a writing class. Normally, these
 kind of books offer nothing but some tips on structuring documents and other
 things everyone should have learned in primary school. To my surprise, there
