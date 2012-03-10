@@ -145,6 +145,7 @@ span#metadata {
 }
 h1#page-header {
     display: inline;
+    line-height: 1.2em;
 }
 
 .page_pic {
