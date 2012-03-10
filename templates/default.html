@@ -4,14 +4,8 @@
     <h1 id="page-header">{{ page.title }}</h1><br/>
 
     <span id="metadata">
-        {% if page.authors %}
-            by {% for author in page.authors %}
-                {% if loop.last and not loop.first %}and {% endif %}
-                {{ author.name }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-        {% endif %}
         {% if not page.navrank %}
-            on {{ page.date.strftime("%x") }}
+            {{ page.datetime.strftime("%A %B %d, %Y at %I:%M %p ") }}
         {% endif %}
     </span>
 
