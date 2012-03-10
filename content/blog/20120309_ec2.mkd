@@ -11,7 +11,7 @@ datetime: 2012-03-09 23:40:00
 ---
 
 I finally took the splurge on an [AWS](http://aws.amazon.com) micro EC2
-(Elastic Cloud Computer) instance. Well, it wasn't really a splurge since I
+(Elastic Cloud Compute) instance. Well, it wasn't really a splurge since I
 created a new Amazon account to qualify for their one-year free usage tier.
 
 The meat of the AWS Free Usage Tier (per month):
@@ -39,32 +39,32 @@ and [Playdoh's](http://github.com/mozilla/playdoh) Puppet template, I found a
 nice structure for my Puppet files and manifests.
 
     puppet-ngokevin/
-    ├── files
-    │   ├── etc
-    │   │   ├── apache2
-    │   │   │   └── sites-enabled
-    │   │   │       └── ngokevin.conf
-    │   │   └── vim
-    │   │       └── vimrc
-    │   └── home
-    │       ├── bashrc
-    │       └── beetsconfig
-    ├── manifests
-    │   ├── classes
-    │   │   ├── apache2.pp
-    │   │   ├── apt.pp
-    │   │   ├── bash.pp
-    │   │   ├── beets.pp
-    │   │   ├── git.pp
-    │   │   ├── init.pp
-    │   │   ├── ngokevin.pp
-    │   │   ├── python.pp
-    │   │   ├── subsonic.pp
-    │   │   ├── tzdata.pp
-    │   │   ├── vim.pp
-    │   │   └── wok.pp
-    │   └── puppet-ngokevin.pp
-    └── pip
+    |-- files
+    |   |-- etc
+    |   |   |-- apache2
+    |   |   |   |-- sites-enabled
+    |   |   |       |-- ngokevin.conf
+    |   |   |-- vim
+    |   |       |-- vimrc
+    |   |-- home
+    |       |-- bashrc
+    |       |-- beetsconfig
+    |-- manifests
+    |   |-- classes
+    |   |   |-- apache2.pp
+    |   |   |-- apt.pp
+    |   |   |-- bash.pp
+    |   |   |-- beets.pp
+    |   |   |-- git.pp
+    |   |   |-- init.pp
+    |   |   |-- ngokevin.pp
+    |   |   |-- python.pp
+    |   |   |-- subsonic.pp
+    |   |   |-- tzdata.pp
+    |   |   |-- vim.pp
+    |   |   |-- wok.pp
+    |   |-- puppet-ngokevin.pp
+    |-- pip
 
 I had puppet-ngokevin.pp act as the main manifest, defining parameters and
 specifying the order in which classes are applied. And it's smooth sailing from
