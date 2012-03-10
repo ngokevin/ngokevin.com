@@ -30,13 +30,13 @@ what to keep in mind while writing as well as what to avoid while writing.
 Some pointers included how to vary sentence length, create good verb-to-word
 ratios, and write concise prose.  Some things to avoid were pompous language
 and passive voice. In the last section the book gave an explicit list of words
-to avoid, such as buzzwords, business jargon, dead and redundant phrases, and
-the book gave words to use instead.
+to avoid such as buzzwords, business jargon, or dead and redundant phrases.
+Even better, it gives words to possibly use instead.
 
 What struck me there there was an explicit list of words, something that could
 be programmatically fed into a program and be used to analyze an document such
 as an essay. The program would look for these words to avoid and prompt the
-user if they would want to replace it with a suggest word. This idea is
+user if they would want to replace it with a suggested word. This idea is
 relatively simple as it only deals with syntax. It would pay off quickly for me
 to write since I have a large writing assignment soon to be due.
 

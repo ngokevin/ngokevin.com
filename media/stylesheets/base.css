@@ -97,8 +97,8 @@ a {font-weight: bold;}
 }
 
 span#metadata {
-    line-height: 1em;
-    font-size: 1em;
+    line-height: 1.0em;
+    font-size: 1.03em;
     color: #808080;
     font-weight: bold;
 }
