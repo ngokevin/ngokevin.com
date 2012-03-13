@@ -1,0 +1,22 @@
+title: "Kevin's Basketball Notes"
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+image:
+    url: http://imgur.com/RHVH5.jpg
+    where: right
+
+datetime: 2012-03-12 23:50:00
+
+--
+
+Here, Kevin records notes to himself on how not to suck at basketball.
+
+Jump-Shots
+- Raise the ball to chin-level, bend your knees, and shoot in one quick, fluid
+  motion. This will also help get backspin on the ball.
+- Lift upwards, straight up to get a high arc on the ball. Avoid pushing the
+  ball forwards, even slightly.
+
+Fancy Moves
+- Around-the-world step-back
