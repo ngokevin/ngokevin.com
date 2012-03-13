@@ -8,12 +8,11 @@
 
 .big-index img {
     float: left;
-    margin-top:1.5em;
+    margin-top:2.2em;
     margin-right: 1.5em;
     margin-bottom: 1.5em;
     max-width: 210px;
     max-height: 210px;
-    padding-bottom: 4em;
 }
 
 .big-index pre {
