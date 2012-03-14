@@ -12,10 +12,10 @@ Image = Backbone.Model.extend({
         'id': 0,
 
         'thumb_src': '',
-        'src': '',
-
         'thumb_width': 0,
         'thumb_height': 0,
+
+        'src': '',
         'width': 0,
         'height': 0,
     }
@@ -26,9 +26,15 @@ window.AlbumView = Backbone.View.extend({
     el: $('#album'),
 
     initialize: function() {
+
+        this.thumb_srcs = jQuery.parseJSON($('#thumb_srcs').text());
+        this.thumb_sizes =  jQuery.parseJSON($('#thumb_sizes').text());
+
         this.srcs = jQuery.parseJSON($('#srcs').text());
         this.sizes =  jQuery.parseJSON($('#sizes').text());
-        this.create_images(this.srcs, this.sizes);
+
+        this.create_images();
+
     },
 
     create_images: function() {
@@ -37,7 +43,17 @@ window.AlbumView = Backbone.View.extend({
 
         $(this.srcs).each(function(index) {
             var image = new Image({
+                'id': index,
+
+                'thumb_src': this.thumb_srcs['index'],
+                'thumb_width': this.thumb_sizes[index][0],
+                'thumb_height': this.thumb_sizes[index][0],
+
+                'src': this.srcs[index],
+                'width': this.sizes[index][0],
+                'height': this.sizes[index][0],
             });
+            this.images.push(image);
         });
     },
 
