@@ -28,35 +28,42 @@ window.AlbumView = Backbone.View.extend({
     initialize: function() {
 
         this.thumb_srcs = jQuery.parseJSON($('#thumb_srcs').text());
-        this.thumb_sizes =  jQuery.parseJSON($('#thumb_sizes').text());
+        this.thumb_sizes = jQuery.parseJSON($('#thumb_sizes').text());
 
         this.srcs = jQuery.parseJSON($('#srcs').text());
-        this.sizes =  jQuery.parseJSON($('#sizes').text());
+        this.sizes = jQuery.parseJSON($('#sizes').text());
 
         this.create_images();
-
     },
 
     create_images: function() {
 
         this.images = new Array();
+        var self = this;
 
         $(this.srcs).each(function(index) {
             var image = new Image({
                 'id': index,
 
-                'thumb_src': this.thumb_srcs['index'],
-                'thumb_width': this.thumb_sizes[index][0],
-                'thumb_height': this.thumb_sizes[index][0],
+                'thumb_src': self.thumb_srcs['index'],
+                'thumb_width': self.thumb_sizes[index][0],
+                'thumb_height': self.thumb_sizes[index][0],
 
-                'src': this.srcs[index],
-                'width': this.sizes[index][0],
-                'height': this.sizes[index][0],
+                'src': self.srcs[index],
+                'width': self.sizes[index][0],
+                'height': self.sizes[index][0],
             });
-            this.images.push(image);
+            self.images.push(image);
         });
     },
 
+},
+{
+    images: [],
+    thumb_srcs: [],
+    thumb_sizes: [],
+    srcs: [],
+    sizes: [],
 });
 
 
