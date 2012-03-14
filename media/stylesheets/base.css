@@ -75,7 +75,7 @@ a {font-weight: bold;}
 
 #main {
     padding-top:10px;
-    padding-bottom:300px;
+    padding-bottom:350px;
 }
 #main a {
     color: #005454;
@@ -97,8 +97,8 @@ a {font-weight: bold;}
 }
 
 span#metadata {
-    line-height: 1em;
-    font-size: 1em;
+    line-height: 1.0em;
+    font-size: 1.03em;
     color: #808080;
     font-weight: bold;
 }
@@ -143,9 +143,11 @@ span#metadata {
 .page {
     margin-top: 1.0em;
 }
-#page-header {
+h1#page-header {
     display: inline;
+    line-height: 1.2em;
 }
+
 .page_pic {
     margin-bottom: 20px;
 }
