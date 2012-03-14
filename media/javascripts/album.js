@@ -37,7 +37,6 @@ window.AlbumView = Backbone.View.extend({
 
         $(this.srcs).each(function(index) {
             var image = new Image({
-
             });
         });
     },

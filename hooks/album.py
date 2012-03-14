@@ -1,7 +1,8 @@
 import glob
-import Image
 import os
 import simplejson
+
+import Image
 
 GALLERY_DIR = os.path.abspath("./media/images/gallery/") + '/'
 REL_GALLERY_DIR = "/images/gallery/"
@@ -16,15 +17,17 @@ def get_image_srcs(page, templ_vars):
         album = page.meta
 
         # get paths of all of the images in the album
-        album_images = []
+        srcs = []
 
         # get absolute paths of images in album for each file type
-        for image_list in [glob.glob(GALLERY_DIR + album['slug'] + '/*.' + file_type) for file_type in FILE_TYPES]:
+        for file_type in FILE_TYPES:
+            imgs = glob.glob(GALLERY_DIR + album['slug'] + '/*.' + file_type)
 
-            # convert paths from absolute to relative
-            album_images += [REL_GALLERY_DIR + album['slug'] + '/' + image.split('/')[-1] for image in image_list]
+            for img in imgs:
+                img_rel_path = REL_GALLERY_DIR + album['slug'] + '/' + img.split('/')[-1]
+                srcs.append(img_rel_path)
 
-        templ_vars['site']['album_image_srcs'] = simplejson.dumps(sorted(album_images))
+        templ_vars['site']['srcs'] = simplejson.dumps(sorted(srcs))
 
 
 def get_image_sizes(page, templ_vars):
@@ -37,20 +40,20 @@ def get_image_sizes(page, templ_vars):
     if 'type' in page.meta and page.meta['type'] == 'album':
         album = page.meta
 
-        abs_album_image_srcs = []
+        srcs = []
 
         # get absolute paths of images in album for each file type
-        for image_list in [glob.glob(GALLERY_DIR + album['slug'] + '/*.' + file_type) for file_type in FILE_TYPES]:
+        for file_type in FILE_TYPES:
+            image_list = glob.glob(GALLERY_DIR + album['slug'] + '/*.' + file_type)
+            srcs += image_list
 
-            abs_album_image_srcs += image_list
+        srcs = sorted(srcs)
 
-        abs_album_image_srcs = sorted(abs_album_image_srcs)
-
-        image_sizes = []
-        for src in abs_album_image_srcs:
+        sizes = []
+        for src in srcs:
             image = Image.open(src)
             width = image.size[0]
             height = image.size[1]
-            image_sizes.append([width, height])
+            sizes.append([width, height])
 
-        templ_vars['site']['album_image_sizes'] = simplejson.dumps(image_sizes)
+        templ_vars['site']['sizes'] = simplejson.dumps(sizes)
