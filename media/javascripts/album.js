@@ -22,7 +22,7 @@ Image = Backbone.Model.extend({
 });
 
 window.AlbumView = Backbone.View.extend({
-
+    // ProtoProps
     el: $('#album'),
 
     initialize: function() {
@@ -57,8 +57,8 @@ window.AlbumView = Backbone.View.extend({
         });
     },
 
-},
-{
+}, {
+    // ClassProps
     images: [],
     thumb_srcs: [],
     thumb_sizes: [],
