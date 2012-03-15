@@ -2,18 +2,20 @@
 // displays thumbnails of images and full-size image onclick of thumbnails
 ( function($) {
 
+
 var THUMBNAIL_PREFIX = 'THUMB_';
 var PER_LOAD = 12;
 var PAGE_WIDTH = 940;
 var IMG_MARGIN = 3;
 
-Image = Backbone.Model.extend({
+
+var Image = Backbone.Model.extend({
     defaults: {
         'id': 0,
 
-        'thumb_src': '',
-        'thumb_width': 0,
-        'thumb_height': 0,
+        'thumbSrc': '',
+        'thumbWidth': 0,
+        'thumbHeight': 0,
 
         'src': '',
         'width': 0,
@@ -21,49 +23,64 @@ Image = Backbone.Model.extend({
     }
 });
 
+
+var AlbumImages = Backbone.Collection.extend({
+
+    model: Image,
+
+    viewed: function() {
+        return this.filter(function(image) {
+            return image.get('viewed');
+        });
+    },
+
+    unviewed: function() {
+        return this.filter(function(image) {
+            return this.without.apply(this, this.viewed());
+        });
+    },
+
+});
+
+
 window.AlbumView = Backbone.View.extend({
-    // ProtoProps
+
     el: $('#album'),
 
+    // Parse image metadata from JSON inserted by Python hooks
     initialize: function() {
+        this.albumImages = new AlbumImages();
 
-        this.thumb_srcs = jQuery.parseJSON($('#thumb_srcs').text());
-        this.thumb_sizes = jQuery.parseJSON($('#thumb_sizes').text());
+        this.thumbSrcs = jQuery.parseJSON($('#thumb_srcs').text());
+        this.thumbSizes = jQuery.parseJSON($('#thumb_sizes').text());
 
         this.srcs = jQuery.parseJSON($('#srcs').text());
         this.sizes = jQuery.parseJSON($('#sizes').text());
 
-        this.create_images();
+        this.createImages();
     },
 
-    create_images: function() {
+    // From image metadata, initialize Image models
+    createImages: function() {
 
-        this.images = new Array();
         var self = this;
 
         $(this.srcs).each(function(index) {
             var image = new Image({
                 'id': index,
 
-                'thumb_src': self.thumb_srcs['index'],
-                'thumb_width': self.thumb_sizes[index][0],
-                'thumb_height': self.thumb_sizes[index][0],
+                'thumbSrc': self.thumbSrcs['index'],
+                'thumbWidth': self.thumbSizes[index][0],
+                'thumbHeight': self.thumbSizes[index][1],
 
                 'src': self.srcs[index],
                 'width': self.sizes[index][0],
                 'height': self.sizes[index][0],
             });
-            self.images.push(image);
+            self.albumImages.add(image);
         });
     },
 
-}, {
-    // ClassProps
-    images: [],
-    thumb_srcs: [],
-    thumb_sizes: [],
-    srcs: [],
-    sizes: [],
 });
 
 
