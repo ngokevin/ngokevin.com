@@ -3,12 +3,6 @@
 ( function($) {
 
 
-var THUMBNAIL_PREFIX = 'THUMB_';
-var PER_LOAD = 12;
-var PAGE_WIDTH = 940;
-var IMG_MARGIN = 3;
-
-
 var Image = Backbone.Model.extend({
     defaults: {
         'id': 0,
@@ -27,7 +21,7 @@ var Image = Backbone.Model.extend({
 });
 
 
-var AlbumImages = Backbone.Collection.extend({
+var Images = Backbone.Collection.extend({
 
     model: Image,
 
@@ -48,6 +42,9 @@ var AlbumImages = Backbone.Collection.extend({
         });
     },
 
+    // Generate rows beforehand ?
+    // createRows: function() { },
+
 });
 
 
@@ -57,7 +54,7 @@ window.AlbumView = Backbone.View.extend({
 
     // Parse image metadata from JSON inserted by Python hooks
     initialize: function() {
-        this.albumImages = new AlbumImages();
+        this.images = new Images();
 
         this.thumbSrcs = jQuery.parseJSON($('#thumb_srcs').text());
         this.thumbSizes = jQuery.parseJSON($('#thumb_sizes').text());
@@ -66,7 +63,12 @@ window.AlbumView = Backbone.View.extend({
         this.sizes = jQuery.parseJSON($('#sizes').text());
 
         this.createImages();
-        console.log(this.albumImages.viewed());
+
+        // Or incrementally create rows?
+        // this.currentRow = new Row();
+        // if (!this.currentRow.insert(image)) {
+        //  this.currentRow = new Row();
+        // }
     },
 
     // From image metadata, initialize Image models and add to Collection
@@ -89,20 +91,21 @@ window.AlbumView = Backbone.View.extend({
                 'viewed': false,
             });
 
-            self.albumImages.add(image);
+            self.images.add(image);
         });
     },
-
-});
-
-
-Row = Backbone.Collection.extend({
 
 });
 
 albumView = new AlbumView();
 
 })(jQuery);
+
+
+// var THUMBNAIL_PREFIX = 'THUMB_';
+// var PER_LOAD = 12;
+// var PAGE_WIDTH = 940;
+// var IMG_MARGIN = 3;
 
 //// function: getImages
 //// return array of a-img objects and corresponding array of srcs
