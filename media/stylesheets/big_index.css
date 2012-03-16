@@ -8,11 +8,14 @@
 
 .big-index img {
     float: left;
-    margin-top:2.2em;
-    margin-right: 1.5em;
-    margin-bottom: 1.5em;
+    margin-top:.58em;
+    margin-right: 1.2em;
+    margin-bottom: 1.2em;
     max-width: 210px;
     max-height: 210px;
+}
+#home .big-index img {
+    margin-top: -.5em;
 }
 
 .big-index pre {
@@ -30,7 +33,7 @@
 }
 
 .big-index-post {
-    margin-top: 2em;
+    margin-top: -1.15em;
 }
 .big-index-post h1, .big-index-post h2 {
     display: none;
@@ -41,7 +44,11 @@
 .big-index-post {
     font-size: .9em;
 }
+.big-index-post li {
+    margin-left: 14.7em;
+}
 
 .paging {
     margin-bottom: 1.4em;
 }
+

@@ -6,21 +6,19 @@ body{
 }
 
 a {font-weight: bold;}
-#main a:hover {font-weight: bold;}
+.main a:hover {font-weight: bold;}
 
-#main h1 { font-size: 1.75em; line-height: 1.75em; }
-#main h2 { font-size: 1.45em; line-height: 1.45em; }
-#main h3 { font-size: 1.25em; line-height: 1.25em; }
+.main h1 { font-size: 1.75em; line-height: 1.75em; }
+.main h2 { font-size: 1.45em; line-height: 1.45em; }
+.main h3 { font-size: 1.25em; line-height: 1.25em; }
 
-#main p, #main span {
+.main p, .main span {
     font-size: 1.10em;
     line-height: 1.85em;
-    margin-top: 1.1em;
     color: #4A4A4A;
 }
 
-#main li, #main ol {
-    list-style: square;
+.main li, .main ol {
     font-size: 1.15em;
     line-height: 1.85em;
     color: #4A4A4A;
@@ -73,34 +71,27 @@ a {font-weight: bold;}
     color: grey;
 }
 
-#main {
+.main {
     padding-top:10px;
     padding-bottom:350px;
 }
-#main a {
+.main a {
     color: #005454;
     text-decoration:none;
 }
-#main a:hover {
+.main a:hover {
     color: #2AAAAA;
 }
-#main hr {
+.main hr {
     margin-bottom: 1em;
 }
-#main p:nth-child(odd) img {
+.main p:nth-child(odd) img {
     margin-left: 15px;
     float: right;
 }
-#main p:nth-child(even) img {
+.main p:nth-child(even) img {
     margin-right: 15px;
     float: left;
-}
-
-span#metadata {
-    line-height: 1.0em;
-    font-size: 1.03em;
-    color: #808080;
-    font-weight: bold;
 }
 
 #navigation a {
@@ -131,6 +122,16 @@ span#metadata {
     background:#DDDDD3;
 }
 
+p#metadata {
+    line-height: 1.0em;
+    font-size: 1.03em;
+    color: #808080;
+    font-weight: bold;
+    margin-bottom: 2em;
+}
+span#metadata {
+}
+
 .base-image img {
     margin-bottom: 5px;
     max-height: 480px;
@@ -142,6 +143,9 @@ span#metadata {
 
 .page {
     margin-top: 1.0em;
+}
+.page li {
+    list-style: square;
 }
 h1#page-header {
     display: inline;
