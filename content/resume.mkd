@@ -6,9 +6,9 @@ navrank: 4
 
 ---
 
-<head>
+<span>
 <link rel="stylesheet" type="text/css" href="/stylesheets/resume.css" />
-</head>
+</span>
 
 <span id="resume">
 
