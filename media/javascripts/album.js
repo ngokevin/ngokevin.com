@@ -33,15 +33,18 @@ var AlbumImages = Backbone.Collection.extend({
 
     // Get inserted Images
     viewed: function() {
-        return this.filter(function(image) {
+        var self = this;
+        return self.filter(function(image) {
             return image.get('viewed');
         });
     },
 
     // Get uninserted Images
     unviewed: function() {
-        return this.filter(function(image) {
-            return this.without.apply(this, this.viewed());
+
+        var self = this;
+        return self.filter(function(image) {
+            return self.without.apply(self, self.viewed());
         });
     },
 
@@ -63,6 +66,7 @@ window.AlbumView = Backbone.View.extend({
         this.sizes = jQuery.parseJSON($('#sizes').text());
 
         this.createImages();
+        console.log(this.albumImages.viewed());
     },
 
     // From image metadata, initialize Image models and add to Collection
