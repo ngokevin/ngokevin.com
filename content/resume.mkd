@@ -6,6 +6,10 @@ navrank: 4
 
 ---
 
+<span>
+<link rel="stylesheet" type="text/css" href="/stylesheets/resume.css" />
+</span>
+
 <span id="resume">
 
 ##Kevin Ngo
