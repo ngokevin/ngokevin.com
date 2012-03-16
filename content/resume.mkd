@@ -6,9 +6,37 @@ navrank: 4
 
 ---
 
-<span>
-<link rel="stylesheet" type="text/css" href="/stylesheets/resume.css" />
-</span>
+<style>
+#resume {
+    font-size: .9em;
+}
+#resume h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+#resume p {
+    margin-top: 1.1em;
+}
+#resume a {
+    font-weight: normal;
+}
+#resume a:hover {
+    font-weight: normal;
+}
+#resume .resume-heading {
+    font-weight: bold;
+}
+#resume a.resume-heading:hover {
+    font-weight: bold;
+}
+#resume .date {
+    font-weight: normal;
+    float: right;
+}
+#resume table {
+    font-size: 1.1em;
+}
+</style>
 
 <span id="resume">
 
