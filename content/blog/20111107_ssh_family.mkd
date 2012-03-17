@@ -1,4 +1,4 @@
-title: "My Dad, the Ultimate Shell"
+title: "Family > SSH"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
@@ -14,7 +14,7 @@ Time was running short as I had tickets to LaMarcus Aldridge's charity
 struggled to do so though you'd think it'd be easier now that I have know how
 to configure wpa-supplicant, but alas I am no elephant. After about an hour
 attempting to grab drivers from the Debian sources, the manufacturer's website
-(which had a broken Makefile I tried to fix), my dad *reminded* me that I had
+(which had a broken Makefile I tried to fix), I was reminded that I had
 previously used the driver CD it came with for Windows which I had used to
 install via [ndiswrapper][ndiswrapper].
 
@@ -38,17 +38,17 @@ must have *leased my server a new IP*, and I needed to open up ports to the
 newly leased IP. Stupid me for not having enough time to give it a static IP
 address.
 
-However, I did not fear as I knew **my dad** was on-site. I called him up and
-used him as a proxy Bash shell. My voice was the keyboard, and he was my
+However, I did not fear as I knew **my brother** was on-site. I called him up
+and used him as a proxy Bash shell. My voice was the keyboard, and he was my
 display. It took us about 2 minutes to communicate that I wanted him to run
-*sudo ifconfig* and what my root password was... 
+*sudo ifconfig* and what my root password was...
 
 *"x?" "no, f", "x?" "F!", "b?" "f as in fox!"*
 
-After getting ifconfig up, we noted what my local IP was. Then I had him go into the
-router settings and check what IP port 80 was forwarding too...it was **my old
-leased IP**. I enthusiastically asked him to flip it to the new one and
-**boom**, ngokevin.com was back in action!
+After getting ifconfig up, we noted what my local IP was. Then I had him go
+into the router settings and check what IP port 80 was forwarding too...it was
+**my old leased IP**. I enthusiastically asked him to flip it to the new one
+and **boom**, ngokevin.com was back in action!
 
 Welcome back again, ngokevin.com! May you live as long as Jack Harkness.
 
