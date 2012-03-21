@@ -1,0 +1,47 @@
+title: "Goals Before Mozilla"
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+date: 2012-03-21
+
+---
+
+It's been a tough last three weeks filled with projects, papers, and studying.
+Before, the term was going at a mellow pace. Then uberj said about
+three-quarters of the way into the term, "dude, I'm can't work anymore, I have
+to focus on school". Well, we're in mostly the same courses so I went to see
+what was up. It had occurred to me that most of my courses were fairly
+project-based, and everything was going to begin to pile up. I even went as far
+as to create a checklist on Google Calendar. Luckily, I saw pile-up coming from
+2 miles up the highway and took precautions. I went into "the mode", or the
+**"academic Super Saiyan"**, the ultimate peak of productivity. It was the
+longest three weeks.
+
+But now it's over. Though, I still feel the need to be hyper-productive. I
+feel as if I stoppped and relaxed, I'd feel empty inside and instead go and
+play video games or something. It's like I just drank a massive energy
+drink, and I don't want the energy to go away or else I'd begin to crash
+and feel terrible. Feeding off the lingering hyper-productivity from the
+last weeks of school I have several projects I want to knock down to warm
+up before I head to Mozilla. Since the checklist was a nice motivator and
+worked so well for me previously, here's a list of programming-related
+goals and objectives.
+
+- Port Javascript image gallery to Backbone.js to JQuery.
+- Implement user authorization system in
+  [Cyder](http://github.com/uberj/cyder), uberj's DNS/DHCP web manager work
+  project.
+- Write a OSU CS survival guide book for other students featuring guides.
+  and advice, my quality time with Latex this term will come in use
+- Play enough with d3.js to create some sort of data visualization in Cyder
+  (network topography, hive plots).
+- Get blog post tagging on this site.
+
+Now, I do other things than just program (well, sometimes). Here's some
+real-life goals and objectives.
+
+- Get Google I/O tickets!
+- Be able to create my own jump shots and hit them in pick-up basketball
+  games.
+- Be able to overhead press 110lbs and bench my own weight.
+
