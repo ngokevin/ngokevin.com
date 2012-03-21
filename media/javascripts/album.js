@@ -2,6 +2,8 @@
 // displays thumbnails of images and full-size image onclick of thumbnails
 ( function($) {
 
+var PAGE_WIDTH = 940;
+
 
 var Image = Backbone.Model.extend({
     defaults: {
@@ -16,7 +18,6 @@ var Image = Backbone.Model.extend({
         'height': 0,
 
         'viewed': false,
-        'unviewed': true,
     }
 });
 
@@ -35,15 +36,19 @@ var Images = Backbone.Collection.extend({
 
     // Get uninserted Images
     unviewed: function() {
-
         var self = this;
-        return self.filter(function(image) {
-            return self.without.apply(self, self.viewed());
+        return self.reject(function(image) {
+            return image.get('viewed');
         });
     },
 
-    // Generate rows beforehand ?
-    // createRows: function() { },
+    // iterator for uninserted images, get next unviewed, set as viewed
+    next: function() {
+        var self = this;
+        var img = self.unviewed()[0];
+        self.get(img['id']).set('viewed', true);
+        return img;
+    }
 
 });
 
@@ -64,16 +69,11 @@ window.AlbumView = Backbone.View.extend({
 
         this.createImages();
 
-        // Or incrementally create rows?
-        // this.currentRow = new Row();
-        // if (!this.currentRow.insert(image)) {
-        //  this.currentRow = new Row();
-        // }
+        console.log(this.insertRow());
     },
 
     // From image metadata, initialize Image models and add to Collection
     createImages: function() {
-
         var self = this;
 
         $(this.srcs).each(function(index) {
@@ -94,6 +94,67 @@ window.AlbumView = Backbone.View.extend({
             self.images.add(image);
         });
     },
+
+    // Insert row of even-height thumbnails fitting width of page
+    insertRow: function() {
+        var self = this;
+
+        var row = [];
+        var currentRowWidth = 0;
+
+        while (currentRowWidth < PAGE_WIDTH) {
+            var img = self.images.next();
+            row.push(img);
+            currentRowWidth += img.get('thumbWidth');
+        }
+
+        return row;
+    },
+
+//        rowPixels = 0;
+//        imgDims = new Array();
+//        for(var index in rowImgs) {
+//            imgDims.push(rowImgs[index].getBoundingClientRect());
+//            rowPixels += imgDims[index].width;
+//        }
+//
+//        // factor in margins
+//        var marginSpace = rowImgs.length * IMG_MARGIN * 2;
+//        var scale = (PAGE_WIDTH - marginSpace) / rowPixels;
+//
+//        // round down scale ratio so it doesn't auto-round up and overflow
+//        for(var index in rowImgs) {
+//            rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
+//            rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
+//        }
+//
+//        // get smallest height from row
+//        var smallestHeight;
+//        for(var index in rowImgs) {
+//            if(!smallestHeight || parseInt(rowImgs[index].style.height) < smallestHeight)
+//                smallestHeight = parseInt(rowImgs[index].style.height);
+//        }
+//
+//        // scale to smallest height
+//        var row_pixels = 0;
+//        for(var index in rowImgs) {
+//            var height = parseInt(rowImgs[index].style.height);
+//            var width = parseInt(rowImgs[index].style.width);
+//
+//            var scale = smallestHeight / height;
+//            rowImgs[index].style.height = height * scale + 'px';
+//            rowImgs[index].style.width = width * scale + 'px';
+//            row_pixels += parseInt(rowImgs[index].style.width);
+//        }
+//
+//        // stretch to end
+//        var scale = (PAGE_WIDTH - marginSpace) / row_pixels;
+//        for(var index in rowImgs) {
+//            var height = parseInt(rowImgs[index].style.height);
+//            var width = parseInt(rowImgs[index].style.width);
+//            rowImgs[index].style.height = height * scale + 'px';
+//            rowImgs[index].style.width = Math.floor(width * scale) + 'px';
+//        }
 
 });
 
