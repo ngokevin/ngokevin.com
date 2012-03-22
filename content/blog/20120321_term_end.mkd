@@ -4,6 +4,10 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
 date: 2012-03-21
 
+image:
+    url: http://i.imgur.com/fe3OY.jpg
+    where: right
+
 ---
 
 It's been a tough last three weeks filled with projects, papers, and studying.

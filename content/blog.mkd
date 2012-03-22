@@ -13,7 +13,7 @@ index:
 pagination:
     list: page.subpages
     limit: 5
-    sort_key: date
+    sort_key: datetime
     sort_reverse: True
 
 ---

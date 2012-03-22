@@ -2,7 +2,12 @@ title: "Being on Both Sides of the Interview Table"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
-date: 2012-03-21
+slug: "interviewing"
+
+datetime: 2012-03-21 22:00:00
+image:
+    url: http://i.imgur.com/saJRV.jpg
+    where: right
 
 ---
 
@@ -20,6 +25,8 @@ help you when you're next preparing for an interview.
 Hiring is very similar building an NBA team (yes, we're going with the
 good old American basketball team metaphor); we have a general idea of
 the kind of person we're looking for.
+
+---
 
 - Someone preferably young with a good several years to offer
 - Someone with experience and knowledge with some parts of our
@@ -50,7 +57,7 @@ as hippies, but we learned quickly without much guidance and turned
 out well. Rookies in the NBA with enough playing time can turn into
 solid contributors or even all-stars.
 
-Lastly, personality matters. Even if the candidate has a lot of
+Lastly, **personality matters**. Even if the candidate has a lot of
 experience and skill with stuff in our workflow, and they seem pretty
 smart, it doesn't mean they're getting the insta-hire. We've turned
 down people that were fully qualified but didn't seem like a good
@@ -63,13 +70,15 @@ cool.
 Now, every place has their own set of criteria for what they look for
 in a candidate, criteria probably different from ours. Though, I think
 I can give some advice that would apply no matter what place you
-interview for. Really try to learn about what sort of candidate the
-place is looking for and adjust your mindset to match. Don't think
-just because you don't meet every criteria on their job listing that
-you're not qualified because that may not be true; they will probably
-be a bit flexible. Finally, present yourself well during the
-interview; be confident, but not arrogant, and be someone that you'd
-want to work with, not like some creeper that collects kidneys or
-something.
+interview for.
+
+- Really try to learn about what sort of candidate the place is looking for and
+  adjust your mindset to match.
+- Don't think just because you don't meet every criteria on their job listing
+  that you're not qualified because that may not be true; they will probably be
+a bit flexible.
+- Present yourself well during the interview; be confident, but not arrogant,
+  and be someone that you'd want to work with, not like some creeper that
+collects kidneys or something.
 
 And on that note...
