@@ -2,6 +2,8 @@ title: "Dungeons and Dragons: The Tale of Kiirion (Part One)"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
+slug: "dnd1"
+
 date: 2012-03-16
 
 ---
