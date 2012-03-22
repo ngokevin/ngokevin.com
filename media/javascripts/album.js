@@ -3,6 +3,7 @@
 ( function($) {
 
 var PAGE_WIDTH = 940;
+var MARGIN = 3;
 
 
 var Image = Backbone.Model.extend({
@@ -45,9 +46,9 @@ var Images = Backbone.Collection.extend({
     // iterator for uninserted images, get next unviewed, set as viewed
     next: function() {
         var self = this;
-        var img = self.unviewed()[0];
-        self.get(img['id']).set('viewed', true);
-        return img;
+        var image = self.unviewed()[0];
+        self.get(image['id']).set('viewed', true);
+        return image;
     }
 
 });
@@ -80,7 +81,7 @@ window.AlbumView = Backbone.View.extend({
             var image = new Image({
                 'id': index,
 
-                'thumbSrc': self.thumbSrcs['index'],
+                'thumbSrc': self.thumbSrcs[index],
                 'thumbWidth': self.thumbSizes[index][0],
                 'thumbHeight': self.thumbSizes[index][1],
 
@@ -90,38 +91,75 @@ window.AlbumView = Backbone.View.extend({
 
                 'viewed': false,
             });
-
             self.images.add(image);
         });
+    },
+
+    // Given src, create img element
+    createImg: function(src) {
+        var img = $('<img />');
+        img.attr('src', src);
+        return img;
     },
 
     // Insert row of even-height thumbnails fitting width of page
     insertRow: function() {
         var self = this;
 
-        var row = [];
+        var models = []; // backbone model representation
+        var row = []; // DOM representation
         var currentRowWidth = 0;
 
+        // Fill row with enough images to at least fill the page width
         while (currentRowWidth < PAGE_WIDTH) {
-            var img = self.images.next();
-            row.push(img);
-            currentRowWidth += img.get('thumbWidth');
+            var image = self.images.next();
+            models.push(image);
+            row.push(self.createImg(image.get('thumbSrc')));
+            currentRowWidth += image.get('thumbWidth');
         }
+        // Factor in margins of current set of images
+        var marginsWidth = models.length * MARGIN * 2;
 
-        return row;
+        // Scale images to equal height, based on smallest height
+        var smallestHeight = models[0].get('thumbHeight');
+        $(models).each(function(index, image) {
+            var height = image.get('thumbHeight');
+            if (height < smallestHeight) {
+                smallestHeight = height;
+            }
+        });
+        var currentRowWidth = 0;
+        $(row).each(function(index, img) {
+            var width = models[index].get('thumbWidth');
+            var height = models[index].get('thumbHeight');
+
+            var scale = smallestHeight / height;
+            var width = Math.floor(width * scale);
+            img.width(width);
+            img.height(Math.floor(height * scale));
+
+            currentRowWidth += width;
+        });
+
+        // Fit row to page width
+        var scale = (PAGE_WIDTH - marginsWidth) / currentRowWidth;
+        $(row).each(function(index, img) {
+            var width = models[index].get('thumbWidth');
+            var height = models[index].get('thumbHeight');
+
+            img.width(Math.floor(width * scale));
+            img.height(Math.floor(height * scale));
+        });
+
+
+        var self = this;
+        $(row).each(function(index, img) {
+            self.$el.append(img);
+        });
+
     },
+});
 
-//        rowPixels = 0;
-//        imgDims = new Array();
-//        for(var index in rowImgs) {
-//            imgDims.push(rowImgs[index].getBoundingClientRect());
-//            rowPixels += imgDims[index].width;
-//        }
-//
-//        // factor in margins
-//        var marginSpace = rowImgs.length * IMG_MARGIN * 2;
-//        var scale = (PAGE_WIDTH - marginSpace) / rowPixels;
-//
 //        // round down scale ratio so it doesn't auto-round up and overflow
 //        for(var index in rowImgs) {
 //            rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
@@ -155,8 +193,6 @@ window.AlbumView = Backbone.View.extend({
 //            rowImgs[index].style.height = height * scale + 'px';
 //            rowImgs[index].style.width = Math.floor(width * scale) + 'px';
 //        }
-
-});
 
 albumView = new AlbumView();
 

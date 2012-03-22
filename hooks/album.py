@@ -62,7 +62,7 @@ def get_image_sizes(page, templ_vars):
         # split full srcs and thumb srcs from srcs into two lists
         full_sizes = []
         thumb_sizes = []
-        for src in srcs:
+        for src in sorted(srcs):
             image = Image.open(src)
             width = image.size[0]
             height = image.size[1]
@@ -75,4 +75,4 @@ def get_image_sizes(page, templ_vars):
 
         # bind to template via json
         templ_vars['site']['sizes'] = simplejson.dumps(full_sizes)
-        templ_vars['site']['thumb_sizes'] = simplejson.dumps(sorted(thumb_sizes))
+        templ_vars['site']['thumb_sizes'] = simplejson.dumps(thumb_sizes)
