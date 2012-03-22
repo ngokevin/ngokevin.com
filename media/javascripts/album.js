@@ -70,7 +70,9 @@ window.AlbumView = Backbone.View.extend({
 
         this.createImages();
 
-        console.log(this.insertRow());
+        this.insertRow();
+        this.insertRow();
+        this.insertRow();
     },
 
     // From image metadata, initialize Image models and add to Collection
@@ -144,20 +146,21 @@ window.AlbumView = Backbone.View.extend({
         // Fit row to page width
         var scale = (PAGE_WIDTH - marginsWidth) / currentRowWidth;
         $(row).each(function(index, img) {
-            var width = models[index].get('thumbWidth');
-            var height = models[index].get('thumbHeight');
+            var width = img.width();
+            var height = img.height();
 
             img.width(Math.floor(width * scale));
             img.height(Math.floor(height * scale));
         });
 
-
+        // Wrap img in anchor and insert into page
         var self = this;
         $(row).each(function(index, img) {
-            self.$el.append(img);
+            var a = $('<a/>').append(img);
+            self.$el.append(a);
         });
-
     },
+
 });
 
 //        // round down scale ratio so it doesn't auto-round up and overflow
