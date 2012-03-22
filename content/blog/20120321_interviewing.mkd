@@ -1,0 +1,73 @@
+title: "Being on Both Sides of the Interview Table"
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+date: 2012-03-22
+
+---
+
+What's cool is that my current workplace, OSU NET, lets me be a part
+of the interview process when we're hiring new students programmers.
+The logic behind it is that since new students would be working most
+closely to us, we should have a strong say. Well, it's really
+enlightening to be on the other side of the interview table; I get to
+step into the mind of the interviewer, see what it's like. Knowing
+what it's like on the other side really helps when I'm interviewing
+for other things myself. Since not many get the chance to be on both
+sides, I'd figure I share. Perhaps it could help you when you're next
+preparing for an interview.
+
+Hiring is very similar building an NBA team (yes, we're going with the
+good old American basketball team metaphor). We have predefined
+expectations, and we have a general idea of what we're looking for.
+
+- Someone preferably young with a good several years to offer
+- Someone with experience and knowledge with some parts of our
+  workflow (Linux, Python, Git/SVN, networking protocols)
+- Someone with potential, self-driven, independent
+- Someone that would be a good culture fit.
+
+Some of these criterion are flexible and some are not.
+
+If a candidate is a bit older, but has a lot of experience in with
+stuff in our workflow, they have a good chance. Like in the NBA, a
+good team is composed of a mix of young guys and veterans.
+
+If the candidate comes in already with knowledge of stuff like Python,
+that's a definite plus, and the candidate climbs the resume stack.
+But say, the candidate has had little experience Python (like me when
+I first interviewed). Well, that's perfectly fine. If the candidate
+has shown the ability to program in like C and Java, and the candidate
+is willing to learn, we'd wouldn't mark you down.
+
+Potential, the willingness to learn, and independence is just as much
+of a factor as proven experience. We should be able to tell someone,
+"go program this", and they should seem like they would be able to do
+it without very much hand-holding or guidance. When my co-worker and I
+were first hired, we were green as hippies, but we learned quickly
+without much guidance and turned out well. Rookies in the NBA with
+enough playing time can turn into solid contributors or even
+all-stars.
+
+Lastly, personality matters. Even if the candidate has a lot of
+experience and skill with stuff in our workflow, and they seem pretty
+smart, it doesn't mean they're a shoe-in. We've turned down people
+that were fully qualified but didn't seem like a good culture fit.
+We'd like people that seem friendly, seem confident, and have a good
+sense of humor (they could take an offensive joke...or many of them).
+A well-qualified candidate can ruin their chances if they talk really
+quietly or, inversely, act arrogant.
+
+Now, every place has their own set of criteria for what they look for
+in a candidate, criteria probably very different from ours. Though, I
+think I can give some advice that would apply no matter what place you
+interview for. Really try to learn about what sort of candidate
+they're looking for and adjust your mindset to match. Don't think
+just because you don't meet every criteria on their job listing that
+you're not qualified because that may not be true; they will probably
+be a bit flexible. Finally, present yourself well during the
+interview; be confident, but not arrogant, and be someone that you'd
+want to work with, not like some creeper that collects kidneys or
+something.
+
+And on that note...
