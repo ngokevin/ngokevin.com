@@ -45,9 +45,11 @@ var Images = Backbone.Collection.extend({
 
     // iterator for uninserted images, get next unviewed, set as viewed
     next: function() {
-        var self = this;
-        var image = self.unviewed()[0];
-        self.get(image['id']).set('viewed', true);
+        var image = this.unviewed()[0];
+        if (typeof image == "undefined") {
+            return null;
+        }
+        this.get(image['id']).set('viewed', true);
         return image;
     }
 
@@ -58,7 +60,13 @@ window.AlbumView = Backbone.View.extend({
 
     el: $('#album'),
 
+    events: {
+        'onscroll' : 'endlessScroller',
+        'scroll' : 'endlessScroller',
+    },
+
     // Parse image metadata from JSON inserted by Python hooks
+    // Insert initial rows, set up endless scrolling
     initialize: function() {
         this.images = new Images();
 
@@ -69,6 +77,11 @@ window.AlbumView = Backbone.View.extend({
         this.sizes = jQuery.parseJSON($('#sizes').text());
 
         this.createImages();
+
+        var self = this;
+        $(window).scroll( function() {
+          self.endlessScroller();
+        });
 
         this.insertRow();
         this.insertRow();
@@ -119,8 +132,6 @@ window.AlbumView = Backbone.View.extend({
             row.push(self.createImg(image.get('thumbSrc')));
             currentRowWidth += image.get('thumbWidth');
         }
-        // Factor in margins of current set of images
-        var marginsWidth = models.length * MARGIN * 2;
 
         // Scale images to equal height, based on smallest height
         var smallestHeight = models[0].get('thumbHeight');
@@ -143,6 +154,9 @@ window.AlbumView = Backbone.View.extend({
             currentRowWidth += width;
         });
 
+        // Factor in margins of images when calculate scale
+        var marginsWidth = models.length * MARGIN * 2;
+
         // Fit row to page width
         var scale = (PAGE_WIDTH - marginsWidth) / currentRowWidth;
         $(row).each(function(index, img) {
@@ -161,43 +175,31 @@ window.AlbumView = Backbone.View.extend({
         });
     },
 
+    // Insert row of images if scroll near bottom of page
+    endlessScroller: function() {
+
+        // don't do anything if all images inserted
+        if (this.images.unviewed().length == 0) {
+            return;
+        }
+
+        var documentHeight = $(document).height();
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+
+        var scrollBot = scrollTop + windowHeight;
+
+        if (scrollBot / documentHeight >= .85) {
+            this.insertRow();
+            this.insertRow();
+        }
+    },
+
 });
 
-//        // round down scale ratio so it doesn't auto-round up and overflow
-//        for(var index in rowImgs) {
-//            rowImgs[index].style.width = Math.floor(imgDims[index].width * scale) + 'px';
-//            rowImgs[index].style.height = Math.floor(imgDims[index].height * scale) + 'px';
-//        }
-//
-//        // get smallest height from row
-//        var smallestHeight;
-//        for(var index in rowImgs) {
-//            if(!smallestHeight || parseInt(rowImgs[index].style.height) < smallestHeight)
-//                smallestHeight = parseInt(rowImgs[index].style.height);
-//        }
-//
-//        // scale to smallest height
-//        var row_pixels = 0;
-//        for(var index in rowImgs) {
-//            var height = parseInt(rowImgs[index].style.height);
-//            var width = parseInt(rowImgs[index].style.width);
-//
-//            var scale = smallestHeight / height;
-//            rowImgs[index].style.height = height * scale + 'px';
-//            rowImgs[index].style.width = width * scale + 'px';
-//            row_pixels += parseInt(rowImgs[index].style.width);
-//        }
-//
-//        // stretch to end
-//        var scale = (PAGE_WIDTH - marginSpace) / row_pixels;
-//        for(var index in rowImgs) {
-//            var height = parseInt(rowImgs[index].style.height);
-//            var width = parseInt(rowImgs[index].style.width);
-//            rowImgs[index].style.height = height * scale + 'px';
-//            rowImgs[index].style.width = Math.floor(width * scale) + 'px';
-//        }
 
-albumView = new AlbumView();
+var albumView = new AlbumView();
+
 
 })(jQuery);
 
