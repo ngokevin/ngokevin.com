@@ -60,11 +60,6 @@ window.AlbumView = Backbone.View.extend({
 
     el: $('#album'),
 
-    events: {
-        'onscroll' : 'endlessScroller',
-        'scroll' : 'endlessScroller',
-    },
-
     // Parse image metadata from JSON inserted by Python hooks
     // Insert initial rows, set up endless scrolling
     initialize: function() {
@@ -114,6 +109,11 @@ window.AlbumView = Backbone.View.extend({
     createImg: function(src) {
         var img = $('<img />');
         img.attr('src', src);
+        img.addClass('thumb-img');
+        img.mouseenter({'view': this}, this.expandImg);
+        img.mouseleave({'view': this}, function() {
+            $('expand-img').remove();
+        });
         return img;
     },
 
@@ -194,6 +194,116 @@ window.AlbumView = Backbone.View.extend({
             this.insertRow();
         }
     },
+
+    // Create img on top of mouseovered thumb and expand size
+    expandImg: function(event) {
+
+        var position = $(this).offset();
+
+        // create new img on top of hovered image
+        var img = $('<img />');
+        img.attr('src', this.src);
+        img.attr('class', 'expand-img');
+
+        img.width(this.width);
+        img.height(this.height);
+        img.css('position', 'absolute');
+        img.css(position);
+
+        img.mouseleave(function() {
+            $('.expand-img').remove();
+        });
+
+        event.data.view.$el.append(img);
+
+        img.delay(500).animate({
+            left: parseInt(img.css('left')) - (.125 * 1.4 * img.width()),
+            top: parseInt(img.css('top')) - (.125 * 1.4 * img.height()),
+            width: 1.4 * img.width(),
+            height: 1.4 * img.height(),
+        }, 100, function(){
+            // Animation Complete
+        });
+
+    }
+
+//// event handler: expandImage
+//// ONMOUSEOVER to show full-res image on top of thumbnail
+//var expandImage = function() {
+//
+//    var thumb_img = this;
+//    var width = thumb_img.width;
+//    var height = thumb_img.height;
+//
+//    return expand = function() {
+//
+//        // restore back on mouseout of full image
+//        var mouseout_flag = 0;
+//        thumb_img.onmouseout = function() {
+//            mouseout_flag = 1;
+//        }
+//
+//        // putting in function allows easier mouseover delay
+//        var addFullImage = function() {
+//            var expand = document.createElement("div");
+//            expand.setAttribute("id","expand");
+//            expand.setAttribute("class", "expand");
+//            document.body.appendChild(expand);
+//
+//            // add full img OVER thumb image
+//            position = getXYpos(thumb_img);
+//
+//            // create img for full-res image
+//            img = new Image();
+//            img.style.position = 'absolute';
+//            img.style.left = position['x'] + 'px';
+//            img.style.top = position['y'] + 'px';
+//
+//            // start as same size as thumb img
+//            img.style.width = width;
+//            img.style.height = height;
+//
+//            img.onclick = showImage;
+//            img.onmouseout = function() {
+//                document.body.removeChild(document.getElementById("expand"));
+//            };
+//
+//            // load new src after expand
+//            img.src = thumb_img.src;
+//
+//            expand.appendChild(img);
+//        };
+//
+//        setTimeout(function() {
+//            if(mouseout_flag == 0){
+//                addFullImage();
+//                step();
+//            }
+//        }, 700);
+//
+//        var step = function() {
+//
+//            // simulate expanding image from center by shifting every step
+//            img.style.left = (parseInt(img.style.left) - parseInt((width - parseInt(img.style.width))/2)) + 'px';
+//            img.style.top = (parseInt(img.style.top) - parseInt((height - parseInt(img.style.height))/2)) + 'px';
+//            img.style.width = width + 'px';
+//            img.style.height = height + 'px';
+//
+//            if(parseInt(img.style.width) < parseInt(thumb_img.width * 1.4)
+//            || parseInt(img.style.height) < parseInt(thumb_img.height * 1.4)) {
+//                setTimeout(step, 1);
+//            }
+//            else {
+//                // load full image
+//                img.src = thumb_img.src.replace(THUMBNAIL_PREFIX, '');
+//            }
+//
+//            width = parseInt(width * 1.1);
+//            height = parseInt(height * 1.1);
+//        };
+//    }();
+//};
+
 
 });
 
