@@ -28,11 +28,11 @@
         border-top: 20px solid #005454;
 }
 
-.expand {
+img.expanded {
     cursor: pointer;
     z-index: 9;
 }
-.expand img {
+img.expanded {
     border-style: solid;
     border-color: #EEEEE6;
     border-width: 7px;
