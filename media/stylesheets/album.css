@@ -65,13 +65,3 @@ img.expanded {
     -webkit-box-shadow: 0 0 5px 2px #666;
     box-shadow: 0 0 5px 2px #666;
 }
-.overlay-img {
-    width: 960px;
-    height: auto;
-}
-.overlay-img {
-    width: auto;
-    height: 80%;
-}
-
-
