@@ -189,14 +189,22 @@ window.AlbumView = Backbone.View.extend({
     // Insert row of images if scroll near bottom of page
     endlessScroller: function() {
 
+        var documentHeight = $(document).height();
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+
+        // adjust overlay if exist
+        if (scrollTop + windowHeight <= documentHeight) {
+            $('.overlay').css('top', scrollTop);
+            var overlayImg = $('.overlay-img');
+            overlayImg.css('top', scrollTop);
+            this.centerShownImage();
+        }
+
         // don't do anything if all images inserted
         if (this.images.unviewed().length == 0) {
             return;
         }
-
-        var documentHeight = $(document).height();
-        var windowHeight = $(window).height();
-        var scrollTop = $(window).scrollTop();
 
         var scrollBot = scrollTop + windowHeight;
 
@@ -204,12 +212,6 @@ window.AlbumView = Backbone.View.extend({
             this.insertRow();
             this.insertRow();
         }
-
-        $('.overlay').css('top', scrollTop);
-        var overlayImg = $('.overlay-img');
-        overlayImg.css('top', scrollTop);
-        this.centerShownImage();
-
     },
 
     // Create img on top of mouseovered thumb and expand size

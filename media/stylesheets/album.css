@@ -57,6 +57,13 @@ img.expanded {
     position: absolute;
     z-index: 11;
     left: 15.5%;
+
+    border-style: solid;
+    border-color: #EEEEE6;
+    border-width: 7px;
+    -moz-box-shadow: 0 0 5px 2px #666;
+    -webkit-box-shadow: 0 0 5px 2px #666;
+    box-shadow: 0 0 5px 2px #666;
 }
 .overlay-img {
     width: 960px;
