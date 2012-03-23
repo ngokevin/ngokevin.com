@@ -19,14 +19,14 @@ a {font-weight: bold;}
 
 .main p, .main span {
     font-size: 1.10em;
-    line-height: 1.85em;
-    color: #4A4A4A;
+    line-height: 1.90em;
+    color: rgb(65, 75, 65);
 }
 
 .main li, .main ol {
     font-size: 1.15em;
     line-height: 1.85em;
-    color: #4A4A4A;
+    color: rgb(95, 105, 95);
 }
 
 .container{
