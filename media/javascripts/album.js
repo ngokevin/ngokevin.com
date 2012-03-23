@@ -44,6 +44,14 @@ var Images = Backbone.Collection.extend({
         });
     },
 
+    // get model by src
+    getBySrc: function(src) {
+        var self = this;
+        return self.filter(function(image) {
+            return image.get('src') == src;
+        });
+    },
+
     // iterator for uninserted images, get next unviewed, set as viewed
     next: function() {
         var image = this.unviewed()[0];
@@ -212,6 +220,8 @@ window.AlbumView = Backbone.View.extend({
             $('.expand').remove();
         });
 
+        img.click({'view': event.data.view}, event.data.view.showImage);
+
         event.data.view.$el.append(img);
 
         var self = this;
@@ -236,6 +246,52 @@ window.AlbumView = Backbone.View.extend({
         }, 700);
     },
 
+    // Overlay full size image when clicked
+    showImage: function(event) {
+        var scrollTop = $(window).scrollTop();
+
+        // create overlay background
+        var overlay = $('<div />');
+        overlay.addClass('overlay');
+        overlay.css('top', scrollTop);
+        $(document.body).append(overlay);
+
+        // create full size image
+        var img = $('<img />');
+        img.css('top', scrollTop);
+        img.attr('src', $(this).attr('src').replace(THUMB_PREFIX, ''));
+        img.addClass('overlay-img');
+        $(document.body).append(img);
+
+        // scale image down to viewport size
+        var viewWidth = $(window).width();
+        var viewHeight = $(window).height();
+        img.css('max-width', viewWidth * .8);
+        img.css('max-height', viewHeight * .8);
+
+        event.data.view.centerShownImage.call(img);
+
+        // from the src, get the corresponding model of the image
+        var split = img.attr('src').split('/');
+        var rel_src = '/' + split.slice(3, split.length).join('/');
+        model = event.data.view.images.getBySrc(rel_src);
+    },
+
+    // center full shown image in viewport
+    centerShownImage: function() {
+
+        // adjust for how far page is scrolled down
+        var height = this.height();
+        var viewHeight = $(window).height();
+        var offset = parseInt(this.css('top'));
+        this.css('top', offset + (viewHeight - height) / 2);
+
+        // center image horizontally
+        var width = this.width();
+        var viewWidth = $(window).width();
+        this.css('left', (viewWidth / 2) - (width / 2) + 'px');
+    },
+
 });
 
 
@@ -245,45 +301,6 @@ var albumView = new AlbumView();
 })(jQuery);
 
 
-// var THUMBNAIL_PREFIX = 'THUMB_';
-// var PER_LOAD = 12;
-// var PAGE_WIDTH = 940;
-// var IMG_MARGIN = 3;
-
-//// function: getImages
-//// return array of a-img objects and corresponding array of srcs
-//// don't set src yet for lazy load
-//var getImages = function() {
-//    images = new Array();
-//    thumb_srcs = new Array();
-//
-//    srcs = document.getElementsByClass('album-image');
-//    for(var index in srcs) {
-//        srcs[index] = srcs[index].innerHTML;
-//
-//        // grab only thumbnails
-//        var image_name = srcs[index].split('/');
-//        if(image_name[image_name.length -1].indexOf(THUMBNAIL_PREFIX) !== 0) {
-//            continue;
-//        }
-//
-//        var a = document.createElement("a");
-//        var img = document.createElement("img");
-//
-//        img.onclick = showImage;
-//        img.onmouseover = expandImage;
-//
-//        a.appendChild(img)
-//        images.push(a);
-//        thumb_srcs.push(srcs[index]);
-//    }
-//    return {
-//        'imgs': images,
-//        'srcs': thumb_srcs
-//    };
-//};
-//
-//
 //// center an image vertically within viewport on overlay, adjust size
 //var centerImage = function() {
 //

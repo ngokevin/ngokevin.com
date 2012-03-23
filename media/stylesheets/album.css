@@ -28,6 +28,9 @@
         border-top: 20px solid #005454;
 }
 
+img.expand {
+    cursor: pointer;
+}
 img.expanded {
     cursor: pointer;
     z-index: 9;
