@@ -134,6 +134,11 @@ window.AlbumView = Backbone.View.extend({
         // Fill row with enough images to at least fill the page width
         while (currentRowWidth < PAGE_WIDTH) {
             var image = self.images.next();
+
+            if (image === null) {
+                return;
+            }
+
             models.push(image);
             row.push(self.createImg(image.get('thumbSrc')));
             currentRowWidth += image.get('thumbWidth');
@@ -199,6 +204,12 @@ window.AlbumView = Backbone.View.extend({
             this.insertRow();
             this.insertRow();
         }
+
+        $('.overlay').css('top', scrollTop);
+        var overlayImg = $('.overlay-img');
+        overlayImg.css('top', scrollTop);
+        this.centerShownImage();
+
     },
 
     // Create img on top of mouseovered thumb and expand size
@@ -248,12 +259,18 @@ window.AlbumView = Backbone.View.extend({
 
     // Overlay full size image when clicked
     showImage: function(event) {
+        var removeOverlay = function() {
+            $('.overlay').remove();
+            $('.overlay-img').remove();
+        }
+
         var scrollTop = $(window).scrollTop();
 
         // create overlay background
         var overlay = $('<div />');
         overlay.addClass('overlay');
         overlay.css('top', scrollTop);
+        overlay.click(removeOverlay);
         $(document.body).append(overlay);
 
         // create full size image
@@ -261,6 +278,14 @@ window.AlbumView = Backbone.View.extend({
         img.css('top', scrollTop);
         img.attr('src', $(this).attr('src').replace(THUMB_PREFIX, ''));
         img.addClass('overlay-img');
+
+        // center image based on its width/height and viewport size once loaded
+        img.hide();
+        img.on('load', function() {
+            event.data.view.centerShownImage();
+            img.show();
+        });
+        img.click(removeOverlay);
         $(document.body).append(img);
 
         // scale image down to viewport size
@@ -269,27 +294,27 @@ window.AlbumView = Backbone.View.extend({
         img.css('max-width', viewWidth * .8);
         img.css('max-height', viewHeight * .8);
 
-        event.data.view.centerShownImage.call(img);
-
         // from the src, get the corresponding model of the image
         var split = img.attr('src').split('/');
         var rel_src = '/' + split.slice(3, split.length).join('/');
         model = event.data.view.images.getBySrc(rel_src);
     },
 
-    // center full shown image in viewport
+    // center overlayed img in viewport, run again on window resize/scroll
     centerShownImage: function() {
 
+        var img = $('.overlay-img');
+
         // adjust for how far page is scrolled down
-        var height = this.height();
+        var height = img.height();
         var viewHeight = $(window).height();
-        var offset = parseInt(this.css('top'));
-        this.css('top', offset + (viewHeight - height) / 2);
+        var offset = parseInt(img.css('top'));
+        img.css('top', offset + (viewHeight - height) / 2);
 
         // center image horizontally
-        var width = this.width();
+        var width = img.width();
         var viewWidth = $(window).width();
-        this.css('left', (viewWidth / 2) - (width / 2) + 'px');
+        img.css('left', (viewWidth / 2) - (width / 2) + 'px');
     },
 
 });
