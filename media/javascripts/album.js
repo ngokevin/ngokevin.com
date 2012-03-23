@@ -86,6 +86,9 @@ window.AlbumView = Backbone.View.extend({
         $(window).scroll( function() {
           self.endlessScroller();
         });
+        $(window).resize( function() {
+          self.centerShownImage();
+        });
 
         this.insertRow();
         this.insertRow();
@@ -290,12 +293,6 @@ window.AlbumView = Backbone.View.extend({
         img.click(removeOverlay);
         $(document.body).append(img);
 
-        // scale image down to viewport size
-        var viewWidth = $(window).width();
-        var viewHeight = $(window).height();
-        img.css('max-width', viewWidth * .8);
-        img.css('max-height', viewHeight * .8);
-
         // from the src, get the corresponding model of the image
         var split = img.attr('src').split('/');
         var rel_src = '/' + split.slice(3, split.length).join('/');
@@ -306,17 +303,22 @@ window.AlbumView = Backbone.View.extend({
     centerShownImage: function() {
 
         var img = $('.overlay-img');
+        var viewHeight = $(window).height();
+        var viewWidth = $(window).width();
+
+        // scale down to viewport size if necessary
+        img.css('max-width', viewWidth * .8);
+        img.css('max-height', viewHeight * .8);
 
         // adjust for how far page is scrolled down
         var height = img.height();
-        var viewHeight = $(window).height();
-        var offset = parseInt(img.css('top'));
-        img.css('top', offset + (viewHeight - height) / 2);
+        var scrollTop = $(window).scrollTop();
+        img.css('top', scrollTop + (viewHeight - height) / 2);
 
         // center image horizontally
         var width = img.width();
-        var viewWidth = $(window).width();
         img.css('left', (viewWidth / 2) - (width / 2) + 'px');
+
     },
 
 });
