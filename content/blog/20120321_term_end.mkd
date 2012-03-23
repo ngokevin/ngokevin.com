@@ -2,7 +2,13 @@ title: "Goals Before Mozilla"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
+slug: "goals-before-moz"
+
 date: 2012-03-21
+
+image:
+    url: http://i.imgur.com/fe3OY.jpg
+    where: right
 
 ---
 
