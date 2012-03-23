@@ -23,7 +23,7 @@
 <hr/>
 
 <!--Blog Posts-->
-<div class="span16 columns" style="margin-left:0px">
+<div id="home" class="span16 columns" style="margin-left:0px">
 
     <div class="big-index">
 
@@ -48,11 +48,11 @@
 
                         <!--Header Group-->
                         <h2 class="big-index-title"><a href="{{blog.url}}">{{ blog.title }}</a></h2>
-                        <span id="metadata">
+                        <p id="metadata">
                             {% if blog.datetime %}
                                 {{ blog.datetime.strftime("%A %B %d, %Y") }}
                             {% endif %}
-                        </span>
+                        </p >
                         <!--End Header Group-->
 
                         <!--Blog Image-->
