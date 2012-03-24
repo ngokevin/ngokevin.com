@@ -95,6 +95,9 @@ window.AlbumView = Backbone.View.extend({
         this.insertRow();
         this.insertRow();
         this.insertRow();
+
+        this.spinner.addSpinner();
+
     },
 
     // From image metadata, initialize Image models and add to Collection
@@ -131,7 +134,6 @@ window.AlbumView = Backbone.View.extend({
     // Insert row of even-height thumbnails fitting width of page
     insertRow: function() {
         var self = this;
-        self.spinner.addSpinner()
 
         var models = []; // backbone model representation
         var row = []; // DOM representation
@@ -191,7 +193,6 @@ window.AlbumView = Backbone.View.extend({
             self.$el.append(a);
         });
 
-        self.spinner.stopSpinner()
     },
 
     // Insert row of images if scroll near bottom of page
@@ -329,7 +330,7 @@ window.AlbumView = Backbone.View.extend({
     // spinner generator, start/stop functions
     createSpinner: function() {
 
-        var indicator = $('.arrow-down');
+        var indicator = $('#indicator');
         var target = $('#spin');
 
         var opts = {
@@ -372,46 +373,3 @@ var albumView = new AlbumView();
 
 
 })(jQuery);
-
-//// object: loadSpinner
-//// returns an object with function to add a spinner below
-//// the current album row and a function to stop it
-//var loadSpinner = function() {
-//
-//    var target = document.getElementById('spin');
-//    var load_msg = document.getElementById('load_msg');
-//
-//    var opts = {
-//      lines: 12, // The number of lines to draw
-//      length: 7, // The length of each line
-//      width: 4, // The line thickness
-//      radius: 10, // The radius of the inner circle
-//      color: '#000', // #rgb or #rrggbb
-//      speed: 1, // Rounds per second
-//      trail: 60, // Afterglow percentage
-//      shadow: false // Whether to render a shadow
-//    };
-//
-//    return {
-//
-//        spinner: 0,
-//
-//        addSpinner: function() {
-//
-//            load_msg.style.display = "none";
-//            target.style.display = "block";
-//
-//            this.spinner = new Spinner(opts).spin(target);
-//            this.spinner.el.style.top = '50px';
-//        },
-//
-//        stopSpinner: function(last) {
-//            this.spinner.stop();
-//
-//            target.style.display = "none";
-//            if(!last) {
-//                load_msg.style.display = "block";
-//            }
-//        }
-//    };
-//};
