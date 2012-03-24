@@ -61,7 +61,6 @@ var Images = Backbone.Collection.extend({
         this.get(image['id']).set('viewed', true);
         return image;
     }
-
 });
 
 
@@ -95,9 +94,6 @@ window.AlbumView = Backbone.View.extend({
         this.insertRow();
         this.insertRow();
         this.insertRow();
-
-        this.spinner.addSpinner();
-
     },
 
     // From image metadata, initialize Image models and add to Collection
@@ -152,6 +148,8 @@ window.AlbumView = Backbone.View.extend({
             currentRowWidth += image.get('thumbWidth');
         }
 
+        this.spinner.addSpinner();
+
         // Scale images to equal height, based on smallest height
         var smallestHeight = models[0].get('thumbHeight');
         $(models).each(function(index, image) {
@@ -193,6 +191,12 @@ window.AlbumView = Backbone.View.extend({
             self.$el.append(a);
         });
 
+        if (self.images.unviewed().length == 0) {
+            self.spinner.stopSpinner(last=true);
+        }
+        else {
+            self.spinner.stopSpinner(last=false);
+        }
     },
 
     // Insert row of images if scroll near bottom of page
@@ -331,7 +335,7 @@ window.AlbumView = Backbone.View.extend({
     createSpinner: function() {
 
         var indicator = $('#indicator');
-        var target = $('#spin');
+        var target = $('#rowSpinner');
 
         var opts = {
           lines: 12, // The number of lines to draw
@@ -351,16 +355,15 @@ window.AlbumView = Backbone.View.extend({
                 indicator.hide();
                 target.show();
 
-                this.spinner = new Spinner(opts).spin(target);
+                this.spinner = new Spinner(opts).spin(target[0]);
                 $(this.spinner.el).css('top', 50);
             },
 
             stopSpinner: function(last) {
                 this.spinner.stop();
-
                 target.hide();
-                if(!last) {
-                    target.show();
+                if (last != true) {
+                    indicator.show();
                 }
             }
         };

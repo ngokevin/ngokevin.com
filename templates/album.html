@@ -16,19 +16,19 @@
     <h1 id="page-header">{{ page.title }}</h1>
     {{page.content}}
 
-    <div id="album" class="container">
-        <script type="text/javascript" src="/javascripts/libraries/jquery-1.7.1.min.js" ></script>
-        <script type="text/javascript" src="/javascripts/libraries/underscore-min.js" ></script>
-        <script type="text/javascript" src="/javascripts/libraries/backbone-min.js" ></script>
-        <script type="text/javascript" src="/javascripts/libraries/spin.min.js" ></script>
-        <script type="text/javascript" src="/javascripts/album.js" ></script>
-    </div>
+    <div id="album" class="container"></div>
 
     <span id="indicator">
         <span class="arrow-down"></span>
     </span>
 
-    <span id="spin" style="display:none;"></span>
+    <span id="rowSpinner" style="display:none;"></span>
+
+    <script type="text/javascript" src="/javascripts/libraries/jquery-1.7.1.min.js" ></script>
+    <script type="text/javascript" src="/javascripts/libraries/underscore-min.js" ></script>
+    <script type="text/javascript" src="/javascripts/libraries/backbone-min.js" ></script>
+    <script type="text/javascript" src="/javascripts/libraries/spin.min.js" ></script>
+    <script type="text/javascript" src="/javascripts/album.js" ></script>
 
 {% endblock %}
 
