@@ -5,25 +5,30 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/album.css" />
     <script type="text/javascript" src="/javascripts/utilities.js" ></script>
 
-    <!--Allows Javascript to access the image paths-->
-    {% for image in site.album_images %}
-        <span class="album-image" style="display:none">{{ image }}</span>
-    {% endfor %}
+    <!--Bind album image srcs to DOM-->
+    <span id="srcs" style="display:none">{{ site.srcs }}</span>
+    <span id="thumb_srcs" style="display:none">{{ site.thumb_srcs }}</span>
+
+    <!--Bind album image sizes to DOM-->
+    <span id="sizes" style="display:none">{{ site.sizes }}</span>
+    <span id="thumb_sizes" style="display:none">{{ site.thumb_sizes }}</span>
 
     <h1 id="page-header">{{ page.title }}</h1>
     {{page.content}}
 
-    <div id="album" class="container">
-        <script type="text/javascript" src="/javascripts/spin.min.js" ></script>
-        <script type="text/javascript" src="/javascripts/album.js" ></script>
-    </div>
+    <div id="album" class="container"></div>
 
-    <span id="load_msg">
-        <div class="arrow-down"></div>
+    <span id="indicator">
+        <span class="arrow-down"></span>
     </span>
 
-    <div id="spin" style="display:none";>
-    </div>
+    <span id="rowSpinner" style="display:none;"></span>
+
+    <script type="text/javascript" src="/javascripts/libraries/jquery-1.7.1.min.js" ></script>
+    <script type="text/javascript" src="/javascripts/libraries/underscore-min.js" ></script>
+    <script type="text/javascript" src="/javascripts/libraries/backbone-min.js" ></script>
+    <script type="text/javascript" src="/javascripts/libraries/spin.min.js" ></script>
+    <script type="text/javascript" src="/javascripts/album.js" ></script>
 
 {% endblock %}
 
