@@ -1,24 +1,34 @@
-.span4 {
-    width: 205px;
+.view i {
+    font-size: 128px;
+
+    position:relative;
+    top: 50%;
 }
 
 .view {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    width: 205px;
+    height: 205px;
 
-    border-style: double;
-    border-width: 7px;
-    border-color: #DDDDD3;
+    text-align: center;
+
+    border: 7px solid #DDDDD3;
+
+    overflow: hidden;
 
     background: rgb(245, 245, 245);
 }
 
-.view i {
-    margin: 44px;
-    font-size: 128px;
-}
+.mask {
+    overflow: hidden;
 
-i.extended {
-    margin: 54px;
+    position: relative;
+    top: 50%;
 }
+/*.mask h3 {
+    -moz-transform: translateX(100px);
+}
+.mask p {
+    -moz-transform: translateX(400px);
+    -moz-transform: translateY(50px);
+}*/
 
