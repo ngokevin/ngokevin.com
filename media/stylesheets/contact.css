@@ -1,0 +1,24 @@
+.span4 {
+    width: 205px;
+}
+
+.view {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    border-style: double;
+    border-width: 7px;
+    border-color: #DDDDD3;
+
+    background: rgb(245, 245, 245);
+}
+
+.view i {
+    margin: 44px;
+    font-size: 128px;
+}
+
+i.extended {
+    margin: 54px;
+}
+
