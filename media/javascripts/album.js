@@ -136,11 +136,14 @@ window.AlbumView = Backbone.View.extend({
         var currentRowWidth = 0;
 
         // Fill row with enough images to at least fill the page width
-        while (currentRowWidth < PAGE_WIDTH) {
+        while (currentRowWidth < PAGE_WIDTH || self.images.unviewed().length <= 2) {
             var image = self.images.next();
 
-            if (image === null) {
+            if (image === null && currentRowWidth == 0) {
                 return;
+            }
+            else if (image == null) {
+                break;
             }
 
             models.push(image);
