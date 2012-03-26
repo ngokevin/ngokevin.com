@@ -3,6 +3,8 @@
 
     -moz-transition: all .1s linear;
     -webkit-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    -ms-transition: all .1s linear;
 
     display: block;
     position: relative;
@@ -46,6 +48,12 @@
 
     -webkit-transform: translateY(-100px);
     -webkit-transition: all .3s linear;
+
+    -o-transform: translateY(-100px);
+    -o-transition: all .3s linear;
+
+    -ms-transform: translateY(-100px);
+    -ms-transition: all .3s linear;
 
     opacity: 0;
 
@@ -100,18 +108,32 @@
     -webkit-transform: translateY(0px);
     -webkit-transform: scale(1);
 
+    -o-transform: translateX(0px);
+    -o-transform: translateY(0px);
+    -o-transform: scale(1);
+
+    -ms-transform: translateX(0px);
+    -ms-transform: translateY(0px);
+    -ms-transform: scale(1);
+
     opacity: 100;
 }
 
 .mask:hover h3 {
     -moz-transition-delay: .3s;
     -webkit-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    -ms-transition-delay: .3s;
 }
 .mask:hover p {
     -moz-transition-delay: .1s;
     -webkit-transition-delay: .1s;
+    -o-transition-delay: .1s;
+    -ms-transition-delay: .1s;
 }
 .mask:hover a {
-    -mos-transition-delay: .1s;
+    -moz-transition-delay: .1s;
     -webkit-transition-delay: .1s;
+    -o-transition-delay: .1s;
+    -ms-transition-delay: .1s;
 }
