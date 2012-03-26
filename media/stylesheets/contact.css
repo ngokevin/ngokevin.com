@@ -1,6 +1,7 @@
 .view i {
     font-size: 128px;
 
+    display: inline-block;
     position:relative;
     top: 50%;
 }
@@ -12,6 +13,7 @@
     text-align: center;
 
     border: 7px solid #DDDDD3;
+    box-shadow: 1px 1px 2px rgb(190, 190, 190);
 
     overflow: hidden;
 
@@ -19,16 +21,27 @@
 }
 
 .mask {
-    overflow: hidden;
+    opacity: 0;
 
     position: relative;
-    top: 50%;
+    top: -18px;
+
+    width:205px;
+    height:205px;
+
+    background-color: rgba(150,200,150, 0.7);
+
+    overflow: hidden;
 }
-/*.mask h3 {
-    -moz-transform: translateX(100px);
+.mask h3 {
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
 }
 .mask p {
-    -moz-transform: translateX(400px);
-    -moz-transform: translateY(50px);
-}*/
+    color: white;
+}
 
+.mask:hover {
+    -moz-transition: opacity .2s linear;
+    opacity: 100;
+}
