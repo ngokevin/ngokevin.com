@@ -23,6 +23,7 @@
 #resume .date {
     font-weight: normal;
     float: right;
+    line-height: 1em;
 }
 #resume table {
     font-size: 1.1em;

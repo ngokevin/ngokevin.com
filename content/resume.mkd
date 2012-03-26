@@ -13,6 +13,7 @@ navrank: 4
 - 503-432-9128 | ngoke@onid.oregonstate.edu | ngoke on irc.freenode.net |
 [ngokevin.com](http://ngokevin.com) | [linkedin](http://www.linkedin.com/pub/kevin-ngo/42/576/b5a)
 
+<hr/>
 ##Experience
 
 ###<a class="resume-heading" href="http://oregonstate.edu/net">OSU Network Engineering Team</a>&nbsp;- Programmer / Web-Dev / Net-Sec <span class="date">March 2011 - Current</span>
@@ -62,8 +63,8 @@ Rapidshare, and posts download links back to the community
 
 - Tested Ubuntu installs to ensure that the drivers were working properly
 
+<hr/>
 ##Education##
-
 
 ###<a class="resume-heading" href="http://eecs.oregonstate.edu/">Oregon State University</a> <span class="date">2009-Current</span>
 
@@ -77,6 +78,7 @@ Rapidshare, and posts download links back to the community
 
 - Recipient of Ford Family Foundation's [Ford Scholars Program][ford] Four-Year Scholarship
 
+<hr/>
 ##Skills
 <table>
     <tr><td>Languages</td><td>Python | HTML/CSS | Javascript | Bash | C | PHP | Java </td></tr>
