@@ -18,6 +18,8 @@ simplifies web design.
 CSS3 is rolled out amongst all modern browsers, although currently the
 experimental prefix tags (e.g -moz, -webkit) are required.
 
+---
+
 ###Transitions
 
 CSS3 transitions allow smooth and easily-specified transitions of CSS
@@ -31,7 +33,7 @@ an element. Transitions can take four arguments.
   follow (e.g. ease, linear, ease-in, ease-out, ease-in-out)
 - Transition-delay: how long before the transition starts
 
-Below is a simple structure for transitioning an arbitrary property.................................................................................
+Below is a simple structure for transitioning an arbitrary property.
 
 myClass is initially has a value set for some property. A transition is
 defined for that property. If the property changes such as through an event

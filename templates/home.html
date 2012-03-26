@@ -66,7 +66,11 @@
                         <!--Blog Preview Post-->
                         <div class="big-index-post">
                             <span>
-                                {{blog.content|truncate(length=1200)}}
+                                {% if blog.preview %}
+                                    {{blog.preview}}
+                                {% else %}
+                                    {{blog.content|truncate(length=1200)}}
+                                {% endif %}
                                 </pre>
                                 </code>
                             </span>
