@@ -23,41 +23,38 @@ navrank: 4
 ###<a class="resume-heading" href="http://oregonstate.edu/net">OSU Network Engineering Team</a>&nbsp;- Programmer / Web-Dev / Net-Sec <span class="date">March 2011 - Current</span>
 
 - Developed a [Python log management application][netshed] that parses and dumps network
-  logs into MongoDB along with a Django web application for network
-administrators to perform searches on logs
-
-- Wrote and maintained a library of Python scripts that track and notify
-  malware-infected hosts on the network
-
-- Completely redesigned, maintain, and fix bugs for the open source PHP
-  DNS/DHCP network management web application currently being used by over
-40,000 hosts on the OSU network.
+  logs into MongoDB with a Django frontend for network
+administrators to perform log searches
 
 - Refactored and maintain the program that handles the automated OSU DMCA
-  file-sharing process and developed the Django web frontend for administrators
+  file-sharing process, developed the Django frontend for administrators
 to manage DMCA file-sharing notifications and malware security reports
+
+- Maintained a library of Python scripts that track and notify
+  malware-infected hosts on the network
+
+- Maintained and fixed bugs for a PHP DNS/DHCP network management
+  web application currently being used by over 40,000 hosts on the OSU network
 
 [netshed]:http://github.com/ngokevin/netshed
 
 ###<a class="resume-heading" href="http://github.com/ngokevin">github</a>&nbsp;- Programmer / Web-Dev <span class="date">March 2011 - Current</span>
 
-- Developed a [OSU class registration system Python API][reglib] via
-  screen-scraping along with a Django web frontend and hosted it on a personal
-Apache web server
+- Wrote from scratch a Javascript [gallery](/gallery) for
+  personal website, later ported to use Backbone.js and jQuery
 
-- Wrote a pure Javascript [gallery](/gallery) and image viewer from scratch for
-  personal website, powered in the backend by Python and Jinja2 templates
+- Designed, and currently maintain, and write blog posts for the OSU [Linux
+  Users Group website](http://lug.oregonstate.edu) as webmaster
 
-- Developed a [Soundcloud Python CLI][soundcloud] and integrated into active
-  open source project, [youtube-dl][youtube-dl]
+- Developed a [Soundcloud Python CLI][soundcloud] and integrated
+  [youtube-dl][youtube-dl]
 
-- Wrote a [music bot][prestobot] that scrapes user-posted YouTube links from Reddit then
-  downloads and encodes the YouTube audio, uploads the music to Rapidshare via
-their API, and posts download links back to the community via the Reddit API
+- Wrote a [music bot][prestobot] that scrapes user-posted YouTube links from
+  Reddit, downloads and encodes the YouTube audio, uploads the music to
+Rapidshare, and posts download links back to the community
 
-- Designed, currently maintain, and write blog posts and guides for the OSU
-  [Linux Users Group website](http://lug.oregonstate.edu) as officer /
-webmaster of the OSU Linux Users Group
+- Worked on a Python [OSU class registration API][reglib] via
+  screen-scraping, along with a Django frontend
 
 [reglib]:http://github.com/ngokevin/reglib
 [soundcloud]:http://github.com/ngokevin/soundcloud-dl
@@ -88,8 +85,8 @@ webmaster of the OSU Linux Users Group
 ##Skills
 <table>
     <tr><td>Languages</td><td>Python | HTML/CSS | Javascript | Bash | C | PHP | Java </td></tr>
-    <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery</td></tr>
-    <tr><td>Databases</td><td>[MongoDB][mongodb] | MySQL</td></tr>
+    <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery | [Backbone][backbone] </td></tr>
+    <tr><td>Databases</td><td>SQL | [MongoDB][mongodb] </td></tr>
     <tr><td>Tools</td><td>Vim | Git | SVN | Vagrant | Firebug </td></tr>
 </table>
 
@@ -97,5 +94,6 @@ webmaster of the OSU Linux Users Group
 [mongodb]:http://mongodb.org
 [wok]:http://github.com/mythmon/wok
 [bootstrap]:http://twitter.github.com/bootstrap
+[backbone]:http://documentcloud.github.com/backbone/
 
 </span>
