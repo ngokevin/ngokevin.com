@@ -1,11 +1,4 @@
-.big-index-heading {
-    margin-top: 1.0em;
-}
-.big-index-title {
-    line-height: 1.30em;
-}
-
-.big-index img {
+.list-view img {
     float: left;
     margin-top:.58em;
     margin-right: 1.2em;
@@ -15,28 +8,34 @@
 }
 
 /* line up image with text */
-#home .big-index img {
+#home .list-view img {
     margin-top: -.5em;
 }
 
 /* hide code segments */
-.big-index pre, .big-index code {
+.list-view pre, .list-view code {
     display: none;
 }
 
-/* The actual post */
-.big-index-post {
+.heading {
+    margin-top: 1.0em;
+}
+.title {
+    line-height: 1.30em;
+}
+
+.preview {
     margin-top: -1.15em;
 }
-.big-index-post h1, .big-index-post h2, .big-index-post h3 {
+.preview h1, .preview h2, .preview h3 {
     display: none;
 }
-.big-index-post img {
+.preview img {
     display: none;
 }
-.big-index-post {
+.preview {
     font-size: .9em;
 }
-.big-index-post li {
+.preview li {
     clear:both;
 }

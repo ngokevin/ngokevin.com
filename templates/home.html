@@ -2,7 +2,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/stylesheets/scrapbook.css" />
-<link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/list-view.css" />
 
 <div id="scrapbook">
     <div class="container">
@@ -25,11 +25,11 @@
 <!--Blog Posts-->
 <div id="home" class="span16 columns" style="margin-left:0px">
 
-    <div class="big-index">
+    <div class="list-view">
 
         <h3 style="display:inline; font-size:1.3em;">Recent Blogs</h3>&nbsp;&nbsp;
-        <form method="link" action="/blog/index.html" style="display:inline;">
-            <button class="btn success" id="sliding-all"><a href="/blog/index.html">All</a></button>
+        <form method="link" action="/blog/" style="display:inline;">
+            <button class="btn success" id="sliding-all"><a href="/blog">All</a></button>
         </form>
 
         <!--Graceful degradation for non-js enabled browsers-->
@@ -47,7 +47,7 @@
                     <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
 
                         <!--Header Group-->
-                        <h2 class="big-index-title"><a href="{{blog.url}}">{{ blog.title }}</a></h2>
+                        <h2 class="title"><a href="{{blog.url}}">{{ blog.title }}</a></h2>
                         <p id="metadata">
                             {% if blog.datetime %}
                                 {{ blog.datetime.strftime("%A %B %d, %Y") }}
@@ -57,14 +57,12 @@
 
                         <!--Blog Image-->
                         {% if blog.image %}
-                            <div class="big-index">
-                                <img src="{{blog.image.url}}"/>
-                            </div>
+                            <img src="{{blog.image.url}}"/>
                         {% endif %}
                         <!--End Blog Image-->
 
                         <!--Blog Preview Post-->
-                        <div class="big-index-post">
+                        <div class="preview">
                             <span>
                                 {% if blog.preview %}
                                     {{blog.preview}}

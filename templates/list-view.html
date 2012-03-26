@@ -19,34 +19,32 @@
 {# Render list #}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/stylesheets/big_index.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/list-view.css" />
 
 <h1 id="page-header">{{ page.title }}</h1><br/>
 
-<div class="paging">
-    {% if page.pagination %}
-        {% if page.pagination.prev_page %}
-            <a href="{{ page.pagination.prev_page.url }}">Previous Page</a> |
-        {% endif %}
-        Page {{ page.pagination.cur_page }} of {{ page.pagination.num_pages }}
-        {% if page.pagination.next_page %}
-            | <a href="{{ page.pagination.next_page.url }}">Next Page</a>
-        {% endif %}
+{% if page.pagination %}
+    {% if page.pagination.prev_page %}
+        <a href="{{ page.pagination.prev_page.url }}">Previous Page</a> |
     {% endif %}
-    {{ page.content }}
-</div>
+    Page {{ page.pagination.cur_page }} of {{ page.pagination.num_pages }}
+    {% if page.pagination.next_page %}
+        | <a href="{{ page.pagination.next_page.url }}">Next Page</a>
+    {% endif %}
+{% endif %}
+{{ page.content }}
 
-<div class="big-index">
+<div class="list-view">
     {% for subpage in pagination.page_items %}
 
-        <div class="big-index-item">
+        <div class="item">
 
             {% if not loop.first %}
                 <hr/>
             {% endif %}
 
-            <div class="big-index-heading">
-                <h2 class="big-index-title"><a href="{{subpage.url}}">{{subpage.title}}</a></h2>
+            <div class="heading">
+                <h2 class="title"><a href="{{subpage.url}}">{{subpage.title}}</a></h2>
                 <p id="metadata">
                     {% if subpage.datetime %}
                         {{ subpage.datetime.strftime("%A %B %d, %Y")}}
@@ -54,7 +52,7 @@
                 </p>
             </div>
 
-            <div class="big-index-post">
+            <div class="preview">
                 <span>
                     {% if subpage.image %}
                         <img style="float:left; display:inline" src="{{subpage.image.url}}"/>
@@ -70,6 +68,8 @@
             </div>
 
         </div>
+
     {% endfor %}
 </div>
+
 {% endblock %}

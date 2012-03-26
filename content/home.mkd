@@ -1,6 +1,6 @@
 title: Home
 type: home
-url: /index.html
+url: /
 
 pagination:
     limit: 3
