@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 id="page-header">{{ page.title }}</h1>
+
+    <p id="metadata">
+        {% if not page.navrank %}
+            {{ page.datetime.strftime("%A %B %d, %Y") }}
+        {% endif %}
+    </p>
+
+    <div class="blog">
+        {{ page.content }}
+    </div>
+{% endblock %}
