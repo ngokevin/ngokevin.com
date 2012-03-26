@@ -1,4 +1,5 @@
 title: "Beautiful Soup is Beautiful"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

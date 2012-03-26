@@ -1,4 +1,5 @@
 title: "An Easy Way to Trim Media Files"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

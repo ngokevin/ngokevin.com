@@ -1,4 +1,5 @@
 title: "Web Server Back Up"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
@@ -35,7 +36,7 @@ table.
 And this weekend, I took my webserver home back to Portland! It was about time
 the Internet felt my presence. I reinstalled Debian on my webserver (in case it
 was somehow **rooted**), revamped the website from Django to Wok (borrowing
-elements from when I had worked on the [LUG website][lug]), and put it back up. 
+elements from when I had worked on the [LUG website][lug]), and put it back up.
 
 I will probably begin hosting my webserver at my home in Portland since the
 internet here is quite a bit faster, and the internet in my apartment is slow,

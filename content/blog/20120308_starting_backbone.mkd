@@ -1,4 +1,5 @@
 title: "Trek Into Backbone.js"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

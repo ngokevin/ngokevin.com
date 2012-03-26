@@ -1,4 +1,5 @@
 title: "Taking Cold Showers and the Zen State"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

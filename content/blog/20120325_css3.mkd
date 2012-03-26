@@ -31,7 +31,13 @@ an element. Transitions can take four arguments.
   follow (e.g. ease, linear, ease-in, ease-out, ease-in-out)
 - Transition-delay: how long before the transition starts
 
-Below is a simple structure for transitioning an arbitrary property.
+Below is a simple structure for transitioning an arbitrary property.................................................................................
+
+myClass is initially has a value set for some property. A transition is
+defined for that property. If the property changes such as through an event
+(e.g. hover), the transition will handle the change. After the transition,
+element fires "transitioned" event which is accessible by Javascript (check
+for the specific event keyword which currently varies by browser).
 
     ::css
     .myClass {
@@ -41,12 +47,6 @@ Below is a simple structure for transitioning an arbitrary property.
     .myClass:hover {
         someProperty: {{value after}};
     }
-
-myClass is initially has a value set for some property. A transition is
-defined for that property. If the property changes such as through an event
-(e.g. hover), the transition will handle the change. After the transition,
-element fires "transitioned" event which is accessible by Javascript (check
-for the specific event keyword which currently varies by browser).
 
 ###Transforms
 

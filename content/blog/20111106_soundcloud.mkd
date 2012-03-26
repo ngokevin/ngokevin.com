@@ -1,4 +1,5 @@
 title: "Scrape the Internet! Our Python Soundcloud API"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
@@ -35,8 +36,8 @@ with every CookieJar known to man, thedjpetersen proclaimed that he had
 successfully gotten the URL.
 
 We rushed to pull his commit and tried it on a Mord Fustang song...we had the script write the stream to a file, and we opened it in VLC...The song had a length! Except it wasn't
-playing. We tried to play it on uberj's machine...**and it worked!**. After a high-five 
-session and a burst of gratitude to thedjpetersen, we went to look what he did. He 
+playing. We tried to play it on uberj's machine...**and it worked!**. After a high-five
+session and a burst of gratitude to thedjpetersen, we went to look what he did. He
 found we had to request a page from a cross-domain, probably for cookies, and then
 scrape the stream. We went off to wrap everything into a neat package and add
 more functionality.

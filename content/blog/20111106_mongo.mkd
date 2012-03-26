@@ -1,4 +1,5 @@
 title: "MongoDB: Success or Hu-mongo-us Mistake?"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

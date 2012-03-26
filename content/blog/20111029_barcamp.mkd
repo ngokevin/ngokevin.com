@@ -1,4 +1,5 @@
 title: "Recap: Beaver Bar Camp 8"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
@@ -49,4 +50,4 @@ guy. Keep on the lookout for **BBC9!**
 [apple]:http://beaverbarcamp.org/index.php/Apple_Killed_the_Publisher,_Now_What%3F
 [gpg]:/blog/recap:-gpg-key-signing-party/index.html
 [wok]:https://github.com/mythmon/wok
-[puppet]:http://puppetlabs.com 
+[puppet]:http://puppetlabs.com

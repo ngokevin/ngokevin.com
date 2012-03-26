@@ -1,4 +1,5 @@
 title: "Why SOPA Sucks: The People, The Problem, The Solution"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
@@ -10,7 +11,7 @@ datetime: 2012-01-12 14:00:00
 
 ---
 
-**What is SOPA?**
+###What is SOPA?
 
 The Wild West of the clouds, the group of rampant pirates known as the Internet,
 has thrown their gloves to the ground against bills proposed in the House and
@@ -53,8 +54,7 @@ Piracy is an issue that needs attention, but there are three problems with SOPA:
 - the overstated problem of piracy it claims
 - the solution it proposes
 
-<br/>
-**The People Behind SOPA**
+###The People Behind SOPA
 
 The supporters behind SOPA are generally unaware (and have even jokingly admitted
 this) of the technological implications on DNS. A paper written by the Internet
@@ -103,8 +103,7 @@ rather a lot of green.
 [opencongress]:http://www.opencongress.org/bill/112-h3261/
 [wired]:http://www.wired.com/threatlevel/2011/12/sopa-vote-delayed/
 
-<br/>
-*The Overstated Problem of Piracy*
+###The Overstated Problem of Piracy
 
 A [study][techdirt] from HADOPI indicates that that greatest infringers of
 online content also tend to be the greatest consumers. It is somewhat
@@ -134,8 +133,7 @@ increase sales overall.
 [geek2]:http://www.geek.com/articles/news/anime-piracy-and-streaming-found-to-increase-dvd-sales-in-japan-2011027/
 [ubisoft]:http://mmofallout.com/2011/11/24/ubisoft-95-of-our-consumers-are-pirates/
 
-<br/>
-*The Wrong Solution*
+###The Wrong Solution
 
 SOPA may address some legitimate issues with foreign rogue websites, but the
 solutions it proposes are anything but adequate. The provisions involving DNS

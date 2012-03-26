@@ -1,7 +1,6 @@
 .big-index-heading {
     margin-top: 1.0em;
 }
-
 .big-index-title {
     line-height: 1.30em;
 }
@@ -14,22 +13,22 @@
     max-width: 210px;
     max-height: 210px;
 }
+
+/* line up image with text */
 #home .big-index img {
     margin-top: -.5em;
 }
 
+/* hide code segments */
 .big-index pre, .big-index code {
     display: none;
 }
 
-.big-index-item hr {
-    margin-top: 2em;
-}
-
+/* The actual post */
 .big-index-post {
     margin-top: -1.15em;
 }
-.big-index-post h1, .big-index-post h2 {
+.big-index-post h1, .big-index-post h2, .big-index-post h3 {
     display: none;
 }
 .big-index-post img {
@@ -39,10 +38,7 @@
     font-size: .9em;
 }
 .big-index-post li {
-    margin-left: 14.7em;
+    clear:both;
 }
 
-.paging {
-    margin-bottom: 1.4em;
-}
 

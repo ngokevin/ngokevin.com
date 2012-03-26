@@ -1,4 +1,5 @@
 title: "Beets - CLI Media Library Management for OCD Geeks"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

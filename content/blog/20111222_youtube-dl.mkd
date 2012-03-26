@@ -1,4 +1,5 @@
 title: "Extracting Sound from Youtube Videos with youtube-dl"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

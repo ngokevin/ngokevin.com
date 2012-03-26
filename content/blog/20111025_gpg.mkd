@@ -1,4 +1,5 @@
 title: "Recap: GPG Key Signing Party"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

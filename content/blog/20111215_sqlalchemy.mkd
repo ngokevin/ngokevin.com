@@ -1,4 +1,5 @@
 title: "SQLAlchemy is Sorcery"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

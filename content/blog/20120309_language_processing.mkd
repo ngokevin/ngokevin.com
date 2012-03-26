@@ -1,4 +1,5 @@
 title: "Idea Stash - Language Processing for Improving Prose and Diction"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

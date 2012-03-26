@@ -1,4 +1,5 @@
 title: "Being on Both Sides of the Interview Table"
+type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 

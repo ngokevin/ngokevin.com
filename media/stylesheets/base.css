@@ -131,6 +131,7 @@ p#metadata {
     font-size: 1.03em;
     color: #808080;
     font-weight: bold;
+    margin-bottom: 2em;
 }
 
 .base-image img {
@@ -142,9 +143,6 @@ p#metadata {
     font-style: italic;
 }
 
-.page {
-    margin-top: 1.0em;
-}
 .page li {
     list-style: square;
 }
