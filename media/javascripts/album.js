@@ -224,7 +224,7 @@ window.AlbumView = Backbone.View.extend({
 
         var scrollBot = scrollTop + windowHeight;
 
-        if (scrollBot / documentHeight >= .85) {
+        if (scrollBot / documentHeight >= .85 || scrollTop == documentHeight) {
             this.insertRow();
             this.insertRow();
         }
