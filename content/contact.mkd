@@ -1,11 +1,9 @@
 title: Contact
+type: contact
 
 tags: navigation
 navrank: 5
 
-image:
-    url: /images/working.jpg
-    where: right
 
 ---
 

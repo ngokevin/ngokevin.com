@@ -1,0 +1,117 @@
+.view i {
+    font-size: 128px;
+
+    -moz-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+
+    display: block;
+    position: relative;
+    top: 50%;
+}
+
+.view {
+    width: 205px;
+    height: 205px;
+
+    text-align: center;
+
+    border: 7px solid #DDDDD3;
+    box-shadow: 1px 1px 2px rgb(190, 190, 190);
+
+    overflow: hidden;
+
+    background: rgb(245, 245, 245);
+}
+
+.view:hover i {
+    font-size: 150px;
+}
+
+.mask {
+    opacity: 0;
+
+    position: relative;
+    top: -18px;
+
+    width:205px;
+    height:205px;
+
+    background-color: rgba(000,90,000, 0.8);
+
+    overflow: hidden;
+}
+.mask h3 {
+    -moz-transform: translateY(-100px);
+    -moz-transition: all .3s linear;
+
+    -webkit-transform: translateY(-100px);
+    -webkit-transition: all .3s linear;
+
+    opacity: 0;
+
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+}
+.mask p {
+    -moz-transform: scale(10);
+    -moz-transition: all .2s linear;
+
+    -webkit-transform: scale(10);
+    -webkit-transition: all .2s linear;
+
+    opacity: 0;
+
+    color: white;
+    padding: 15px 5px 15px 5px;
+    font-style: italic;
+}
+.mask a.info {
+    -moz-transform: scale(10);
+    -moz-transition: all .25s linear;
+
+    -webkit-transform: scale(10);
+    -webkit-transition: all .25s linear;
+
+    opacity: 0;
+
+    color: white;
+    background: black;
+    box-shadow: 0 0 1px #000;
+    padding: 5px 5px 5px 5px;
+
+    position: absolute;
+    top: 78%;
+    right: 5%;
+    left: 5%;
+    bottom: 8%;
+}
+
+.mask:hover {
+    -moz-transition: opacity .2s linear;
+    opacity: 100;
+}
+.mask:hover h3, .mask:hover p, .mask:hover a {
+    -moz-transform: translateX(0px);
+    -moz-transform: translateY(0px);
+    -moz-transform: scale(1);
+
+    -webkit-transform: translateX(0px);
+    -webkit-transform: translateY(0px);
+    -webkit-transform: scale(1);
+
+    opacity: 100;
+}
+
+.mask:hover h3 {
+    -moz-transition-delay: .3s;
+    -webkit-transition-delay: .3s;
+}
+.mask:hover p {
+    -moz-transition-delay: .1s;
+    -webkit-transition-delay: .1s;
+}
+.mask:hover a {
+    -mos-transition-delay: .1s;
+    -webkit-transition-delay: .1s;
+}
