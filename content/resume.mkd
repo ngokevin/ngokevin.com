@@ -81,7 +81,7 @@ Rapidshare, and posts download links back to the community
 <hr/>
 ##Skills
 <table>
-    <tr><td>Languages</td><td>Python | HTML/CSS | Javascript | Bash | C | PHP | Java </td></tr>
+    <tr><td>Languages</td><td>Python | HTML/CSS3 | Javascript | Bash | C | PHP | Java </td></tr>
     <tr><td>Frameworks</td><td>Django | [Wok][wok] | [Bootstrap][bootstrap] | jQuery | [Backbone][backbone] </td></tr>
     <tr><td>Databases</td><td>SQL | [MongoDB][mongodb] </td></tr>
     <tr><td>Tools</td><td>Vim | Git | SVN | Vagrant | Firebug </td></tr>
