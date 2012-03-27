@@ -1,3 +1,6 @@
+h1#page-header {
+    color: #005454;
+}
 .blog h2, .blog h3, .blog h4 {
     display: block;
     margin-top: 1em;

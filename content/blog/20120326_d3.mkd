@@ -1,4 +1,4 @@
-title: "Swan Dive! d3.js"
+title: "Swan Dive! Into d3.js"
 type: blog
 category: blog
 
@@ -6,8 +6,6 @@ slug: "d3"
 date: 2012-03-26
 
 ---
-
-<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
 
 Today, I started experimenting with d3.js. A fortune-teller hinted to me that
 I would be doing a lot of data visualization work in the near-future and that
@@ -25,6 +23,10 @@ However, it is not a visualization framework loaded with visualization
 functions. It is more of a tool that focuses on efficient manipulation of
 documents based on data. Because it's simply a tool, it can be used to build
 whatever kind of data visualizations or graphs needed.
+
+---
+
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
 
 ## Let's draw a useless circle
 
@@ -220,6 +222,8 @@ to be the GPA, and that's the meat of it.
 We do similar things to position the axes and text (check the source of this
 page to see) except we have to pad the chart to make room for the axes. We
 eventually have the finished bar chart.
+<br/>
+<br/>
 
 <div id="chart"></div>
 <script type="text/javascript">
@@ -323,6 +327,7 @@ chart.append('svg:text').
     attr('y', 15);
 </script>
 
+<br/>
 Over the next few days, I'll be doing more things with d3.js. In the future,
 I hope to do data visualization work with
 [Cyder](http://github.com/uberj/cyder) and at Mozilla. It's just so pretty
