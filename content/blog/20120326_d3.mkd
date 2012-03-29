@@ -291,12 +291,11 @@ chart.selectAll('text').
         return datum.gpa;
     }).
     attr('x', function(datum, index) {
-        return xScale(index) + barWidth;
+        return xScale(index) + barWidth / 2;
     }).
     attr('y', function(datum) {
         return chartHeight - yScale(datum.gpa);
     }).
-    attr('dx', -barWidth / 2). // x padding
     attr('dy', '1.2em'). // y padding
     attr('text-anchor', 'middle').
     attr('fill', 'white').
@@ -312,10 +311,9 @@ chart.selectAll('text.xAxis').
         return datum.term;
     }).
     attr('x', function(datum, index) {
-        return xScale(index) + barWidth;
+        return xScale(index) + barWidth / 2;
     }).
     attr('y', chartHeight + padding).
-    attr('dx', -barWidth / 2).
     attr('text-anchor', 'middle').
     attr("style", "font-size: 12; font-family: Helvetica, sans-serif");
 
