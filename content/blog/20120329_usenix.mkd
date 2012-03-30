@@ -1,0 +1,27 @@
+title: "Got Grant? USENIX NSDI."
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "usenixgrant"
+
+date: 2012-03-28
+
+---
+
+Sadly, I didn't get into Google I/O. But last month, I applied for a student
+grant with [uberj](http://uberj.com) to go to the 9th USENIX Symposium for
+Networked Systems Design and Implementation
+([NSDI](https://www.usenix.org/conference/nsdi12)). This year, it's being held
+in San Jose. And today, I got it! It must've helped to be working at some place
+called Network Engineering Team, be working on a DNS management web
+application, and to have nabbed that Mozilla internship.
+
+They're spotting our registration and hotel. The best part of all? The
+conference ends the day before we were going to move down to Mountain View, so
+right afterwards we can simply drive 20 minutes from San Jose to Mountain View
+and begin the summer.
+
+This conference will be a bit too technical for me, but gives me a reason to
+read that O'Reilly DNS and Bind book to prepare. Life, how you work out so
+nicely.
