@@ -1,0 +1,71 @@
+title: "One Year at NET"
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "net"
+
+image:
+    url: http://i.imgur.com/NxJhU.jpg
+    where: top
+
+date: 2012-04-02
+
+---
+
+It's been a year since I started working at OSU's Network Engineering Team
+([NET][net]) as a programmer, and I have few words (mostly happy swearing) to
+say how awesome it's been. I'd probably be lying face-down in in some ditch
+somewhere had I not been hired. I've met many smart people, picked up the art
+of hacking, been within three feet of Linus Torvalds, and nabbed an internship
+at Mozilla. NET is one of the sweetest places to work on campus, heck I'd work
+for free (don't tell my bosses).
+
+NET "provides data hosting, networking, phone services, and conferencing
+solutions for the OSU community". Basically, NET keeps OSU's network beating.
+Every time there's slow Internet, NET lubes it up. And every time there's
+outage or attack, NET is on the scene. Without NET, students would not be able
+to log onto Facebook. Oh, the tragedy. NET runs about three data centers on
+campus, two of which are in Kerr, with another data center on the way (plopping
+it right on some farmland). Now that we sort of know what NET is, let me amuse
+myself with some retrospection.
+
+I heard about the opening at NET from [uberj](uberj) who had already been
+working there. I told him, "I'm a pleb! I need to find a job and become
+awesome". Funny thing, uberj was my TA for a freshman CS course. I was taking
+it in my second year since I skipped it my freshman year. He noticed we were in
+the same classes and that I was browsing Reddit (before it became Digg). Lucky,
+had I taken that course as a freshman like everyone else, tested out of it, or
+had I not been browsing Reddit, I'd be probably be in that ditch I mentioned
+earlier. I pinged him on IRC for details, emailed my resume, went on with life
+for a bit. After a bit of waiting, I received an interview.
+
+I was interviewed by three people, two bouses and a student. "Three people?", I
+thought. I was caught a bit off-guard by that. At that point, I hadn't realized
+that it was actually a programming job. Unfortunately, I acted as if I was
+interviewing for a helpdesk job. The best things I had programmed at the time
+were a lame network chat client, lame network tic-tac-toe game, a lame (and
+broken) DNS client, and some programming challenges. All I knew was C and Java,
+and their language was Python. I was not confident that I could program
+anything useful though I wanted to learn. I wanted to learn, and I had a black
+belt in Google-Fu (yeah, that was on my resume). Apparently, that was enough.
+
+Surprisingly, I found out I got the job via email one day while I was lounging
+around during spring break. I had been trying to step my game up and was
+programming a heads-up poker system in Java (my secret first GitHub project).
+But forget everything about that. Along with my full scholarship offer and Mozilla
+offer, that job offer was a "your life gonna change" moment. I started work the day
+after spring break.
+
+I buzzed into the loud humming of the data center, and walked into a small
+quieter room within the data center to meet my co-workers. I go up to shake one
+of the guy's hand and introduce myself. He stares at me for a bit and turns
+away. He turns back around while writing something on a small scratch pad, "my
+name is David, welcome to NET bro!". uberj turns around and tells me that he's
+mute. "Oh...nice to meet you", I say sort of surprisingly. All of while this is
+happening, limed, the boss, is shaking is head disapprovingly at the massive
+trolling. It really was 'welcome to NET, bro'.
+
+[net]:http://oregonstate.edu/net
+[uberj]:http://uberj.com
+
