@@ -1,0 +1,31 @@
+title: "USENIX NDSI'12 Day 1"
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "nsdi-day1"
+
+date: 2012-04-25
+
+---
+
+Previously, I received a [grant](/blog/usenixgrant/) to attend this year's
+USENIX Networked Systems Design and Implementation Symposium. After a lengthy
+drive from Portland that involved temporarily losing my wallet and
+experiencing culture shock from Californian drivers, I arrived a Mountain
+View. I toured some streets and the Mozilla office for a bit, slept, and took
+off to NSDI in San Jose.
+
+From a pool of about 170 submitted research papers, 30 were chosen by a board
+to be presented to other researchers and industry representatives. They were
+then grouped into a handful of topics. Topics for the first day were big data,
+wireless, content and service-oriented networking, and network robustness.
+
+## Big Data
+
+## Wireless
+
+## Content and Service-Oriented Networking
+
+## Network Robustness
+
