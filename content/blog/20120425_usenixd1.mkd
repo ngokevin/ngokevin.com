@@ -109,4 +109,5 @@ killer in the room.
 **update:** I got tired of trying of summarizing every single paper. Couple of other
 cool talks for this day included redundant packet transmission, signed logging
 for client accountability in P2P-infrastructure hybrid networks, and static
-header-space analysis for finding loops in the network.
+header-space analysis for finding loops in the network. I should save my energy
+for summarizing several papers for the USENIX magazine.
