@@ -1,0 +1,224 @@
+title: "USENIX NSDI'12: New Architectures and Platforms"
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "nsdi"
+
+date: 2012-04-29
+
+---
+<style>
+    p.metadata {
+        margin-top: -1em;
+    }
+</style>
+
+For USENIX [NSDI'12](/blogl/nsdi-day1/), I volunteered to take notes on and
+summarize talks for the USENIX;login: magazine. After a long weekend and
+replaying the talks over and over to understand what the speakers were saying,
+I was able to barf out 12 thick paragraphs (4 for each talk). Just when I
+thought I could escape writing essays. As celebration, we had a barbeque of the
+most delicious burgers ever (Uber-burgers) and drank in the hot tub. Since I spent so much effort writing these, I'll put the summaries down below for my own satisfaction.
+---
+
+### XIA: Efficient Support for Evolvable Internetworking
+
+<p class="metadata" id="metadata">
+Dongsu Han, Carnegie Mellon University; Ashok Anand, University of
+Wisconsin-Madison; Fahad Dogar, Boyan Li, and Hyeontaek Lim, Carnegie
+Mellon University; Michel Machado, Boston University; Arvind Mukundan,
+Carnegie Mellon University; Wenfei Wu and Aditya Akella, University of
+Wisconsin-Madison; David G. Andersen, Carnegie Mellon University; John W.
+Byers, Boston University; Srinivasan Seshan and Peter Steenkiste, Carnegie
+Mellon University
+</p>
+
+Hyeontaek Lim started introducing a new network architecture eXpressive
+Internet Architecture (XIA) after the session chair joked, 'that is the
+longest author list I have ever seen...so long we couldn't find a session
+chair that wasn't on the list'. XIA provides a unique foundation for
+diverse communication styles. Lim first points out flaws in today's
+Internet architecture, specifically IP. IP is described as 'the narrow
+waist of the internet', an outdated model for host-centric communications
+that is still being used despite increasing demand for service and
+content-oriented communications. XIA seeks to support heterogeneous
+communication types (e.g. service, content, mobility, cloud) on a single
+Internet architecture rather than focusing on one communication type, all
+while being extensible for future communication types.
+
+Lim introduces two primary design pillars, 'principal types' and
+'fallbacks'. Principal types allows the defining of ad-hoc communication
+models in XIA. The current Internet architecture has one principal type,
+the IP address. In XIA, a principal specifies a type and a type-specific
+identifier (e.g. service type and hash of service's public key). Each
+principal has type-specific semantics to allow XIA routers to logically
+process it. XIA routers do not have to support all principal types though
+they must support host-based communication. However, there must be a way of
+supporting legacy routers that would not understand these new principal
+types.
+
+Fallbacks are mechanisms that allows incremental deployment of new
+communication types and backwards-compatibility. With direct acyclic graph
+(DAG) addressing, intent is encoded into packets. If necessary, the
+architecture can fall back to different routing choices if the intent of
+the packet is not understood by a router. DAG addresses, routes with
+indicated possible fallbacks, are encoded into packet headers (the encoding
+method can be found in the paper). Fallbacks can even be nested. With a
+click-based implementation on commodity hardware with 351,000 table entries
+based on a Route Views snapshot, they found with XIA routers, forwarding
+provides throughput comparable to that of high-speed IP routers with
+minimal slowdown for small packets with 3 fallbacks. The prototype of XIA
+is hosted on GitHub at github.com/XIA-Project/xia-core which supports LAN,
+XIA-over-IP, and GENI.
+
+An attendee wasn't clear whether the source address in XIA was the legacy
+source address or a DAG. Lim replied that there is a symmetry between the
+destination address and the source address, and that the source address can
+be a service to allow flexible communication between any pair of entities
+in the network. Another attendee noted the original Internet was intended
+to be evolvable and extensible but over time that idea was lost for several
+reasons and asked if deployed how XIA would avoid the noted pitfalls that
+TCP and IP fell into. Lim answered that XIA had a security feature,
+intrinsic security, where the host identifier can be used to identify the
+source of a packet which can be used to amend some problems on the
+Internet. The attendee followed up with a reservation that people would end
+up adopting only a select few principal types and asked if the architecture
+could prevent that. Lim responded that they had not addressed that at that
+point. David Oran remarked that content networking people preferred no
+source addresses at all and asked how Lim would answer that. Lim supported
+source addresses for security reasons and noted that they do not hinder
+flexibility in content networks. Oran also asked why they did not use
+partial orders rather than DAGs. Lim did not find much difference between
+them and found no side-effect of using DAGs over partial orders.
+
+### Design and Implementation of a Consolidated Middlebox Architecture
+
+<p class="metadata" id="metadata">
+Vyas Sekar, Intel Labs; Norbert Egi, Huawei; Sylvia Ratnasamy, UC Berkeley;
+Michael K. Reiter, UNC Chapel Hill; Guangyu Shi, Huawei
+</p>
+
+Vyas Sekar talked about a new approach for building and managing middlebox
+deployments. As networks evolve, new applications and devices appear along
+with evolving threats to exploit these applications. Then as companies move
+these applications to be Internet-enabled, there is the question about
+policy compliance. Looking at an enterprise network, Sekar's group found
+that rather than changing routers and switchers, the current standard was to
+add specialized appliances, or middleboxes. Middleboxes are often shipped
+with narrow interfaces that can be frustrating to manage. As network
+requirements grow, the only option for network operators is to buy more of
+these middleboxes which is not only costly, but limits extensibility and
+flexibility. This work seeks to consolidate the building of individual
+middleboxes and the managing of a network of middleboxes.
+
+CoMb is top-down design with a logically centralized middlebox controller.
+On the management layer, the goal was to balance the load across the
+network and to assign processing responsibilities across different
+middleboxes. However, reuse and policy dependencies made this difficult.
+The need for explicitly capturing these dependencies are eliminated if all
+applications relating to a given session run on the same node. Sekar
+introduces hyperapps which take the logical union of all the actions that
+need to be run on a given packet so common actions are not duplicated. With
+hyperapps in place, the management problem becomes a simple and
+near-optimal program. Sekar goes on to explain the design in-depth which
+consists of a policy enforcement layer that logically routes packets.
+
+Sekar then shows that consolidation has a low overhead for existing
+applications, takes little time to index a network, has five times higher
+throughput than VM-based consolidation, sharply reduces maximum load
+many-fold, and cuts provisioning costs by about half. Addressing isolation,
+he notes that CoMb currently relies on process-level isolation and
+leverages user-space for high performance networking. He also addresses the
+problem of changing vendor business models and says that consolidating
+middleboxes is already happening in the form of virtual appliances and that
+the benefits implies that someone will adopt it.
+
+An attendee had reservations about using CoMb in the presence of topology
+constraints. Sekar notes that the paper addresses those cases. Another
+attendee from Cambridge asked about hidden policies in middleboxes. Sekar
+responds that the policies are not coming from the middlebox vendor but
+rather from the network operator who is running an optimization. The
+attendee then plugs a project from Cambridge, Mirage, that addressed an
+isolation-reuse problem which pleased Sekar. John Dunnigan asked why they
+did not run everything on every server and simply choose the number of
+servers which is the alternative he saw becoming adopted. Sekar says in
+some sense, that is the kind of resource management they are doing by
+removing the physical coupling. Dunnigan followed-up and remarked if every
+server provided uniform functionality, rather than policy specification, an
+easier approach to sizing would be to route one person to the traffic to
+measure CPU utilization. Sekar responded that policy specification was more
+for deciding what kinds of traffic needed what kinds of processing, not
+resource management. Aaron Gembar asked whether there was a way to get
+expected resource consumption. Sekar affirmed and said they had open
+thoughts on more fine-grained fairness issues. Michael Sirivianos
+referenced an earlier point and asked why different middleboxes had
+different peak times. Sekar said different boxes have different types of
+functionality which causes non-overlapping traffic. Lastly, Dongsu Han
+wondered how they accounted for vendor-specific hardware optimizations and
+if so whether that created issues. Sekar responded that if an application
+has an affinity for a particular sort of hardware, it would be run on that
+hardware.
+
+### An Operating System for the Home
+
+<p class="metadata" id="metadata">
+Colin Dixon, IBM Research; Ratul Mahajan, Sharad Agarwal, A.J. Brush,
+Bongshin Lee, Stefan Saroiu, and Paramvir Bahl, Microsoft Research
+</p>
+
+Colin Dixon presented HomeOS, an home operating system that eases
+extensibility and management by providing a PC abstraction for home
+technology. The motivation was to bring to life the long-envisioned
+smarthome where devices are able to come together to cater to wants and
+needs such as climate control and energy monitoring.  They talked to
+homeowners of smarthomes and found although the smarthomes were convenient,
+they had poor extensibility and were frustrating to manage. It was
+difficult to add new devices and configuring each individual device with
+access control. Dixon presents two existing abstractions for technology
+within the home, a network of devices with interoperability protocols and
+fixed appliances with fixed tasks. A network of devices is easily
+extensible but difficult to manage whereas appliances are easier to manage
+due to their closed nature, but extensibility is difficult. To achieve both
+extensibility and management, Dixon tells us to view the home as a computer
+where adding devices consists of plugging in a peripheral and adding tasks
+consists of installing an application.
+
+HomeOS logically centralizes all devices by running across and using
+drivers to access them. Applications run on top of HomeOS and communicate
+with the devices using the drivers. Users can interact with HomeOS's
+centralized high-level interface rather than interact with individual
+devices. Dixon presented three challenges with HomeOS in the field.
+First, non-technical users have to suddenly become network managers.
+Second, heterogeneity can make it difficult for developers to build
+applications. Lastly, it can be difficult for HomeOS to keep up with new
+classes of devices and applications that arrive frequently. HomeOS
+respectively addresses these challenges with management primitives that
+align with user's mental models, with protocol-independent abstract APIs
+for devices, and with a kernel agnostic towards device functionalities.
+These goals are mapped onto a stack with layers for device connectivity,
+device functionality, management, and applications. This stack respectively
+covers the heterogeneity of topology, devices, control, and tasks.
+
+Dixon then does a live demo of HomeOS on a laptop. He installs an
+application from a list of compatible applications from the HomeStore.
+Through a wizard, two cameras were added and configured, and the video from
+the cameras were shown on-screen. Dixon's group evaluated HomeOS based on
+usability and extensibility using field experiences and controlled
+experiments. They found the field experiences were positive; users could
+manage their HomeOS deployments and developers found the programming
+abstractions and layering to be natural. Though, users found it hard to
+diagnose faults, interoperability protocols could be fragile, and not all
+device features were exposed over the network. In the controlled
+experiments, they found most non-technical users were able to complete
+management tasks without training and found developers were able to very
+quickly write one of two realistic applications.
+
+An attendee asked where HomeOS would physically be located within the home.
+Dixon responded that HomeOS would run on a single PC where it has access to
+the network to communicate with devices. Another attendee asked about
+conflicting devices to which Dixon replied that there was little to do to
+stop two devices conflicting. Another attendee asked whether there would be
+configuration management for devices, and Dixon replied that there would
+not be.
+

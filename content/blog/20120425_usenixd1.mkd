@@ -26,6 +26,8 @@ to be presented to other researchers and industry representatives. They were
 then grouped into a handful of topics. Topics for the first day were big data,
 wireless, content and service-oriented networking, and network robustness.
 
+---
+
 ## Big Data
 
 Unfortunately, I lost my notes for the topics on big data and wireless. Big
