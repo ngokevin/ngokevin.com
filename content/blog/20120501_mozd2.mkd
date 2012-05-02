@@ -1,0 +1,251 @@
+title: "Mozilla Day Two, Offsite Talks"
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "mozilla-day-two"
+
+image:
+    url: http://i.imgur.com/nxnsl.jpg
+    where: right
+
+date: 2012-05-01
+
+---
+
+[Day One](/blog/mozilla-day-one)
+
+Day two was sort of like a webdev BarCamp filled with some cool keynotes
+and lightning talks. I dodged a bullet by waking up on time despite alarms
+being off and got Ubuntu installed with the desktop environment all set up
+on my new laptop. I am liking the laptop. This week is working out well;
+I'm learning what's currently up with webdev and I'm meeting the whole
+webdev team at once (and remembering names!).
+
+## Keynotes
+
+### morgamic - past/present/future of webdev
+
+morgamic, boss, talked about what was going on with webdev. He talked about
+some recent achievements, what teams were currently working on, and how
+quickly the webdev team was growing (literally exponentially, currently at
+60). He presented a pretty cool infographic about stability v. innovation.
+Some apps were under stability (SUMO, addons, socorro) whereas some were
+under innovation (boot2gecko).
+
+### kumar - apps
+
+kumar, future teammate for Mozilla Marketplace, talked about what apps
+meant and how prevalent they are today. He noted how iOS/Android/FB all had
+closed-down app stores distributing apps with signed blobs, also with
+incentives to lock down their users. Mozilla is getting into the market
+with a more open cross-platform market where the apps are simply
+HTML/CSS/JS with a metadata file. He also made a note on the challenges of
+in-app payments.
+
+### potch - marketplace UI/frontend
+
+potch wanted to make the marketplace UI look like an app. For marketplace,
+the team spent the effort to prototype it. potch commended Mozilla for
+having an environment where devs were able to rewrite projects from
+scratch. marketplace currently shares the same codebase as
+[addons](http://addons.mozilla.org).
+
+potch went into a bit of detail (and code) on some aspects of the frontend,
+which turned out to be really cool. To make it like an app, marketplace was
+built around the single-page browsing but without location tags. At first
+they tried pjax (pushstate + ajax) . **Pushstate** is an HTML5 feature to
+change the URL of the page, without making an HTTP request, while
+manipulating the browser history to be able to go back and forward. The
+team ultimately went with the idea of fragments which allowed for
+conditional Jinja2 template extends based on whether the request was ajax.
+If so, only the content block was returned, down the wire, very quickly.
+
+He talked about using LESS, the CSS preprocessor, and how little work was
+needed to set up a grid system.
+
+    ::css
+    @column: 48;
+    @gutter: 24;
+    @px: 1px;
+
+    .max-width {
+
+    }
+    .width {
+
+    }
+
+He also talked about templating. The marketplace has app objects with
+descriptive fields which could be used to fill in templates (such as app
+info widget) like a form. potch stayed away from JS MVC for marketplace
+since there were many different pages that weren't consistent with each
+other, server-side is more than fast enough.
+
+### ednapiranha - identity
+
+ednapiranha gave a quick talk about identity. Identity on the web is shared
+information online, presumably safe, that is typically managed and tied to
+emails. Back in the day, everyone used to be anonymous and could do
+whatever they pleased on the Internet. Now, everything is tied to your name
+and Facebook picture. Online services now sometimes require identity often
+for datamining purposes. privacy v. identity is something to think about.
+
+### mcoates - security
+
+mcoates talked about the security assurance team and how webdev should
+approach security. Cybercrime today outranks marijuana/heroine/cocaine
+combined in terms of money movement. Mozilla is awesome and protecting the
+open web, though due to Mozilla's size, it is also a delicious target
+It is important to understand the risks and their priority, to realize some
+are more important than others and some must be accepted but kept wary of.
+
+Interestingly, the Mozilla security program embeds security people into
+development teams as sort of consultants. mcoates also put up a link to
+[hacking
+tutorials](http://people.mozilla.com/~mcoates/websecuritylab.html),
+spanning the major attacks, where you get to practice exploiting
+vulnerabilities in web apps to understand the risks. He also linked to
+[security coding
+guidelines](http://people.mozilla.com/~mcoates/security_coding_guidelines)
+such things to keep in mind when writing a 'forgot password' system.
+
+playdoh is notable since it was written partly with security-by-default in
+mind. It has x-frame-options, stronger hashing, secure/http-only set to
+true, bleach HTML sanitizer, and django-session-csrf (cross-site request
+forgery). He talked about garmr, a sort of (static?) security inspector for
+apps, put into continuous integration to make sure security is thought of
+early, not as an afterthought.
+
+### kimber/bradf - recruiting
+
+kimber and bradf, recruiters, talked about recruiting, interviewing,
+internship program (me!). First topic, I learned jobvite sucks, but is a
+necessary pain.
+
+They stressed doing tech interviews and looking at code (Github). In the
+past, people may have floated through casual interviews without
+demonstration of tech knowledge (code). Etherpad, skype, coder.cc are good
+tools. Some good interview questions are asking what's the craziest hack
+they've ever done or asking for what reasons they built something that way.
+Have positive energy and don't be a dick, being an asshole in an interview
+can reflect poorly on Mozilla and could drive away future applicants.
+
+Referrals give $$. They are a great way to find hires since there is
+familiarity of what they're capable of.
+
+Intern recruiting process is most active from September to November. Teams
+specify how many interns they would like (wishlist). I found out this year
+there will be 3 webdev interns including me. Interviews are usually 3-5
+30min phone interviews. They look for some technical abilities as well as
+gauge their potential/how much they could get out of an internship.
+
+Someone had reservations about Mozilla hiring only 'rockstars' and no
+'backup musicians' to do more janitorial work (tests, bugs, refactors).
+This is sort of like morgamic's stability v. innovation idea. The rockstars
+tend to want to do mostly innovative things and will flock to companies
+where they are free to do that. Mozilla could pick up younger people like
+university first-years to do more janitorial stuff that would benefit them
+a lot. I think people are capable of doing both and that they are not
+mutually exclusive.
+
+Internships are like a mini-full-job. morgamic stressed humility, being
+able to open up, be a sponge, do some osmosis. He recalled telling me that
+I would get to spend my time building something cool and really taking
+something away, and that's what he wanted to internship program to be like.
+They also wanted to continue to bring in more people internationally.
+
+### lunch
+
+webdev tshirts!
+
+Yummy make-your-own sandwiches (tuna, cheeses, meats) with tomato soup.
+
+Snacks later were caramel chocolate cake and nom-cookies.
+
+### groovecoder/r1cky/pmac - scrumbugs
+
+Scrumbugs is a webapp to keep track of current agile sprints revolving
+around bugzilla tickets. Here's how it works. Their team meets every other
+Wednesday to discuss the upcoming sprint. They use a game called Planning
+Poker where they grab a bug and work together to assign it points
+representing how much time it would take to clear it.
+
+They fill in a whiteboard field in bugzilla tickets (hacky, but
+necessary/easy) and parse it to populate the charts/graphs/tables on
+scrumbugs. Scrumbugs could eventually log into bugzilla itself if it
+becomes larger though there are security concerns. They also talked about
+teamstat.us where people update their current progress on tickets and can
+say whether or not their progress is being blocked by another's unfinished
+work.
+
+### lonnen - GPG
+
+Lonnen talked about GPG keysigning and using it with Git to sign commits.
+With Git, the author and committer of a commit are technically unverified
+and could possibly (rarely) be malicious. GPG keysigning creates a web of
+trust that can be used to verify that commits are coming from the correct
+person. We don't have to sign every commit (overkill), just sign on
+releases which would verify all the previous commits as well.
+
+### kumar - stop using firebug, you can do it
+
+Firebug was recorded as the slowest add-on in boot and even slows down the
+whole browser on every page load and new tab. It seemed people using
+Firebug often complained about Firefox and people who didn't loved it. It's
+almost deprecated by devtools. tools > web developer has most of the
+features as well as the DOM inspector. This was a realization to me as to
+why my Firefox was sometimes sluggish. I am going to stop using Firebug for
+general cases.
+
+### r1cky - backbone
+
+r1cky gave a quick overview over backbone.js, a Javascript MVC-like
+framework. Models can listen to changes and fire off an event. It depends
+on underscore.js. There was some discussion on JS MVC.
+
+### mkelly - 2d javascript game engine template
+
+mkelly showed off a 2d JS game engine template/boostrap called house-blend.
+He talked a bit about 2d v. 3d gaming in the browser and noted that 2d
+games are still extremely popular despite the move towards 3d. Using the
+engine, he wrote a quick example game from scratch in no time.
+
+In games, entities are anything from players/enemies/objects. He created
+the protagonist, Firefox, with an entity class. He set the graphic (firefox
+logo), pulled in the prototype, set the coordinates, and instantiated a
+keyboard object to have control over keybindings. With this, he was able to
+move the Firefox logo with the arrow keys. Pretty cool.
+
+Then he created the enemy entity with a graphic conspicuously named
+'chrome.jpg'. He put up a hitbox on the Chrome logo for collision-detection
+and had Firefox put on a beating ('watch out Firefox!' as the fight raged
+on). Afterwards, there was a long discussion on different JS engines,
+responsive design.
+
+### lorchard - django-badger
+
+Django badger hands out badges on the web for achievements and skills. With
+openbadges, it would describe the badge and who won it/context. There could
+even be physical badges with a virtual code on the back to attain the
+virtual one. He then gave out a cool JS Firefox badge.
+
+### dinner
+
+Groups of 10 went to different reserved restaurants. ashort pinged
+MostAwesomeDude from back home to give me a greeting. Others and I went to
+Hulu's Tiki House for many drinks and food, accumulating a hefty check.
+Stuff happened, too late/tired to think/type, 3am. I met cvan, future
+teammate on marketplace/addons. Then I went back to spent many hours
+setting up my laptop (NVIDIA!!! *shakes fist*) on the balcony in front of
+the crashing waves. Worked on improving my Puppet configs. And spent too
+much time on this blog post. Long day.
+
+*snore*
+
+
+
+
+
+
+
