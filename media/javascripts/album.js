@@ -268,9 +268,10 @@ window.AlbumView = Backbone.View.extend({
                 width: 1.4 * img.width(),
                 height: 1.4 * img.height(),
             }, 60, function(){
-                var src = img.attr('src').replace(THUMB_PREFIX, '');
-                img.attr('src', src);
-                self.src = this.src;
+                // FIXME: images too large can break stuff
+                // var src = img.attr('src').replace(THUMB_PREFIX, '');
+                // img.attr('src', src);
+                // self.src = this.src;
             });
         }, 700);
     },
