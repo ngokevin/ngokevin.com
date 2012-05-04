@@ -1,4 +1,4 @@
-title: "Mozilla Day One"
+title: "Mozilla Day One, Get in the Bus"
 type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>

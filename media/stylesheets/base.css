@@ -89,14 +89,6 @@ a {font-weight: bold;}
 .main hr {
     margin-bottom: 1em;
 }
-.main p:nth-child(odd) img {
-    margin-left: 15px;
-    float: right;
-}
-.main p:nth-child(even) img {
-    margin-right: 15px;
-    float: left;
-}
 
 #navigation a {
     margin-left: .5em;
