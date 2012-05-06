@@ -268,10 +268,9 @@ window.AlbumView = Backbone.View.extend({
                 width: 1.4 * img.width(),
                 height: 1.4 * img.height(),
             }, 60, function(){
-                // FIXME: images too large can break stuff
-                // var src = img.attr('src').replace(THUMB_PREFIX, '');
-                // img.attr('src', src);
-                // self.src = this.src;
+                var src = img.attr('src').replace(THUMB_PREFIX, '');
+                img.attr('src', src);
+                self.src = this.src;
             });
         }, 700);
     },
@@ -296,6 +295,7 @@ window.AlbumView = Backbone.View.extend({
         var img = $('<img />');
         img.css('top', scrollTop);
         img.attr('src', $(this).attr('src').replace(THUMB_PREFIX, ''));
+        console.log($(this).attr('src').replace(THUMB_PREFIX, ''));
         img.addClass('overlay-img');
 
         // center image based on its width/height and viewport size once loaded
