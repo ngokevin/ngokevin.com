@@ -1,0 +1,98 @@
+title: "Mozilla Marketplace, Draw Nothing's Debut, Pool and Food"
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "mozilla-day-five"
+
+image:
+    url: http://i.imgur.com/Q3y9t.jpg
+    where: right
+
+date: 2012-05-04
+
+---
+
+[Day Four](/blog/mozilla-day-four)
+
+Alas, I must get back to reality and return to the dreary sunny city of
+Mountain View and the mundane most-awesome-office-in-the-world Mozilla
+office.  Today was the last day of the offsite work week in Santa Cruz.
+Upon return, I was asked to present my hacakthon app, [Draw
+Nothing](http://ngokevin.com/~ngoke/draw_nothing) on video during lunch.
+But before that I met with my team. Mozilla held a cantina for Cinco de
+Mayo Eve with the most delicious Mexican food ever. At night, I played
+basketball and returned to the Mozilla office to eat, drink, and play Rock
+Band and pool.
+
+## Mozilla Marketplace Statistics and Graphs
+
+Earlier in the week, I learned that I would be working on the
+Marketplace/Add-Ons team. The Marketplace is Mozilla's new cross-platform
+webapp store, and Add-Ons is the site where people go to install Firefox
+extensions. I had a small meeting with my manager and new mentor to assign
+me a project and get me into the workflow. For the beginning of my
+internship, I will be working on statistics and graphs for the Mozilla
+Marketplace. This means taking data about app purchases and turning it into
+pretty graphs. I am pretty excited since I was hoping to work with data
+visualization, had done some work with [d3](/blog/d3) before, and will be
+working on some pretty public-facing stuff.
+
+Though before I could begin working, I was asked to present Draw Nothing to
+the apps and webdev teams on video.
+
+## Release of Draw Nothing
+
+First though, I had to make sure my display drivers and wireless were
+working. I got a VGA display up using NVIDIA's XServer Settings GUI and got
+onto Mozilla's secure wireless by setting the wireless security settings to
+PEAP. I grabbed free lunch (lasagna) before heading into a conference room.
+I was first up to present. This time, I knew a bit more what I was going to
+say since I had presented before. I drew another Firefox logo and gave
+Captain Jean Luc Picard a top hat and monocle. It seemed pretty
+well-received, I got nice compliments from it, and I gained a bit of
+'visibility'.
+
+Draw Nothing still needs touch support and  a manifest to be submitted into
+the Marketplace. If I find time, I'd love to hack on it some more and give
+it some original features.
+
+## Setting Up My Development (and Physical) Environment
+
+I was introduced to some QA people of the Marketplace team and was
+suggested to migrate my work area about 15 feet to be closer. So I did
+that, moved all my stuff to another desk. Though I felt a bit uncomfortable
+there since it was a more highly-trafficked area and had less surrounding
+space than before. I was then suggested to move into another part where a
+previous intern, who was like 7-feet tall, worked. I moved my stuff again.
+But it was like I walked into Wonderland because everything was big and
+raised, to fit the previous tall intern. In the end, I just gave up and
+moved to my original spot where I felt really comfortable.
+
+I worked on setting up a development environment up in Linux for
+[zamboni](http://github.com/mozilla/zamboni), documenting along the way
+since it hadn't really been documented before for Ubuntu. At first, I spent
+about an hour or two wrangling around with Puppet to set up Vagrant.
+Eventually, I just started to set it up in a virtualenv. I spent some time
+in the office and at home setting it up without too many problems. It was
+mostly straightforward though there was a problem with a library not being
+compatible with newer Ubuntu's disabled SSL\_v2 support in OpenSSL. Though
+it was patched so I just had to check out the newest source of the library
+from Github. Currently, I hit a traceback and am still working to set it
+up though I haven't had time, but nothing that can't be handled.
+
+## Cantina, Pool, Basketball, Rock Band
+
+In the afternoon. Mozilla hosted a cantina themed around Cinco de Mayo. It
+had so much delicious Mexican food. We played pool.
+
+<img src="http://i.imgur.com/cUqOw.jpg" />
+
+I went home to play basketball and continue setting up my development
+environment. We later spontaneously went out at night looking for a
+bar/club but ended up returning to the Mozilla offices at midnight since
+there's free beer and food there. To our delight, the food from the cantina
+was still there. We played Rock Band and pool through the night (well,
+until like 1am).
+
+<img src="/images/gallery/mozilla-week-one/052_rockband.jpg"/>

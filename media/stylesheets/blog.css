@@ -11,3 +11,8 @@ h1#page-header {
 p#metadata {
     margin-bottom: 1.5em;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+}
