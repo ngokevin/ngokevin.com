@@ -15,11 +15,17 @@ date: 2012-04-29
 </style>
 
 For USENIX [NSDI'12](/blogl/nsdi-day1/), I volunteered to take notes on and
-summarize talks for the USENIX;login: magazine. After a long weekend and
+summarize talks for the **USENIX;login:** magazine. After a long weekend and
 replaying the talks over and over to understand what the speakers were saying,
 I was able to barf out 12 thick paragraphs (4 for each talk). Just when I
 thought I could escape writing essays. As celebration, we had a barbeque of the
-most delicious burgers ever (Uber-burgers) and drank in the hot tub. Since I spent so much effort writing these, I'll put the summaries down below for my own satisfaction.
+most delicious burgers ever (Uber-burgers) and drank in the hot tub.
+
+<img src="/images/gallery/mountainview-april/THUMB_032_big_burger.JPG" />
+
+Since I spent so much effort writing these, I'll put the summaries down below
+for my own satisfaction.
+
 ---
 
 ### XIA: Efficient Support for Evolvable Internetworking
