@@ -59,11 +59,15 @@
                     {% endif %}
                     {% if subpage.preview %}
                         {{ subpage.preview }}
+                        {% if subpage.preview|count < 600 %}
+                            <br/>
+                        {% endif %}
                     {% else %}
                         {{subpage.content|truncate(length=char_limit, end="<a href="+subpage.url+">...more</a>")}}
                     {% endif %}
                     </code>
                     </pre>
+
                 </span>
             </div>
 
