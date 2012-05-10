@@ -53,10 +53,10 @@ cryptography package, ElasticSearch, and BrowserID (which is really nice). [The
 notes](http://ngokevin.com/~ngoke/notes/zamboni_setup) I took during the
 process.
 
-I went out with some of the team for a hefty $15 Italian dinner. That night
-I played basketball and got a few good pick & rolls in.
-
 <img width="480px" src="http://i.imgur.com/JgWPa.jpg"></img>
+*I went out with some of the team for a hefty $15 Italian dinner.*
+
+That night I played basketball and got a few good pick & rolls in.
 
 ## Day Seven: Hacking
 
