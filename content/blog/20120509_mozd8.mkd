@@ -48,8 +48,8 @@ start developing.
 On my team and throughout the whole web development team in Mountain View),
 everyone was using a Mac. I was the only one using Linux, so I was a bit on
 my own. I took notes for documentation on the process of doing it on
-Ubuntu. It was somewhat straightforward though I hit a few roadblocks with
-a cryptography package and ElasticSearch. [The
+Ubuntu. It was somewhat straightforward though I hit a few roadblocks with a
+cryptography package, ElasticSearch, and BrowserID (which is really nice). [The
 notes](http://ngokevin.com/~ngoke/notes/zamboni_setup) I took during the
 process.
 
