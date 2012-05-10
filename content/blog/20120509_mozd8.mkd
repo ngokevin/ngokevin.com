@@ -15,8 +15,6 @@ date: 2012-05-09
 
 [Day Five](/blog/mozilla-day-nine)
 
-## Day Eight
-
 After a week of practically partying and a couple days of setting up my
 development environment, I got a commit ("to add code") into Mozilla's
 Marketplace (app store). I am working on the statistics and graphs that
@@ -32,7 +30,7 @@ quite luxurious.
 ---
 
 
-## Monday: Setting Up
+## Day Six: Setting Up
 
 The first task I took on was a seemingly simple one, to **add a link** to a
 page and sidebar that leads to the page with statistics. In Bugzilla
@@ -60,7 +58,7 @@ I played basketball and got a few good pick & rolls in.
 
 <img width="480px" src="http://i.imgur.com/JgWPa.jpg"></img>
 
-## Tuesday: Hacking
+## Day Seven: Hacking
 
 With the environment now up, I could finally try to add that link. It
 seemed a little easier than it actually was because I wanted to do it
@@ -133,7 +131,7 @@ play basketball. It's nice to leave work while in the middle of something
 since I can pick up where I left up on the next day rather than come into
 work not knowing what to do next. I played HORSE that night.
 
-## Wednesday: R+, What's Next
+## Day Eight: R+, What's Next
 
 Today, I made lunch for myself! For the first time ever, I cooked something
 larger than a sandwich. It took two hours in the kitchen and washing off a
