@@ -1,0 +1,82 @@
+title: "Building a Statistics Dashboard for Mozilla Marketplace"
+type: blog
+category: blog
+author: Kevin Ngo <ngoke@onid.oregonstate.edu>
+
+slug: "mkt-stats"
+
+image:
+    url: http://i.imgur.com/puHgM.jpg
+    where: right
+
+date: 2012-06-21
+
+---
+
+It's been a busy month-and-a-half since my last update filled with coding,
+basketball, some Saint's Row 3 and Mass Effect, and more recently tennis.
+There hasn't been quite a dull enough stretch enough time where I thought 'hm
+nothing to do, I should sit down for a couple of hours and write a nice old blog
+post'. But I have been burning through my list of bugs with Marketplace Beta
+launching today, and my body is sore from straight days of basketball,
+lifting, and tennis. So now is as good of a time as any to write.
+
+I'll be explaining how the statistics dashboard for Mozilla Marketplace.
+Marketplace is Mozilla's app store meant to support their mobile operating
+system, Boot2Gecko. What's unique about Marketplace is that the apps are
+simple webapps (HTML/CSS/JS) and is thus platform and device independent. Apps
+can be installed on any OS, any browser, any device. Developers are no longer
+tied to a specific programming language and app store. I'll be explaining how
+it currently works and be talking about what it was like to work on it.
+
+## Statistics Dashboard
+
+A statistics dashboard is a page that displays data in the form of graphs,
+charts, and tables with controls to change what data is displayed. An example
+is Google Analytics which gives information about a website's hits. This helps
+users know how well their site is doing, what kinds of people are visiting,
+and what they do during their visit. The landing dashboard shows hits over
+time along with a table with aggregated stats.
+
+<img src="http://imgur.com/xJh8Z"/>
+
+For Marketplace, the statistics dashboard should let developers know how well
+their apps are doing, where their purchases are coming from, and how much bank
+they are making. For the dashboard, we want to precalculate the data so it
+doesn't have to get calculated every time a user pulls up the dashboard since
+tht would be slow. Thus we store the data in a data store beforehand,
+calculating it daily.
+
+## An Analogy
+
+Kevin is a boy who likes to play with toys. To get toys, Kevin has to go to
+the toy store, but the toy store is far away. It doesn't make sense to have to
+go to the toy store everytime Kevin wants to play with toys. Not only that, he
+has to spend time in the toy store looking for what he wants. So instead he
+goes to buy toys every day after school and puts it in his drawer. He
+categorizes different types of toys into different drawers so he can quickly
+locate his desired toys. Now every time he wants to play with a certain toy,
+he doesn't have to go all the way to the toy store, find the toy, and bring it
+home. He can just go to his drawer.
+
+Here's the part where I explain the analogy. Kevin represents a user of
+Marketplace who wants to pull up certain data (toys) from the statistics
+dashboard. The slow way to do it would be to ask the database (toy store) for
+data which is represented by the time it takes to get to the toy store. Once
+the data is handed over from the database, calculations has to be done to it
+to get the desired metric of data we want, which is represented by the time it
+takes Kevin to find his toy in the toy store. Instead, we do everything at
+once beforehand (every day after school) by grabbing data from the database
+(toy store), performing aggregations (finding the toy), and storing it into
+the datastore (a certain drawer). Then whenever a user hits the page, time
+isn't wasted going to the database every time. Because the task of calculating
+data beforehand is done asynchronously (in the background), users don't
+experience any slowness. Kevin is free to play with his toys on demand.
+
+## How It Really Works
+
+
+
+
+
+
