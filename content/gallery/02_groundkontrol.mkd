@@ -1,0 +1,11 @@
+title: "Ground Kontrol"
+slug: groundkontrol
+category: gallery
+type: album
+
+datetime: 2012-02-04 21:00:00
+
+---
+
+Some of the photos below provided by [Benjamin Kerensa](http://benjaminkerensa.com) under the Creative Commons license.
+

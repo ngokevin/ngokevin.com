@@ -1,0 +1,12 @@
+title: "Mountain View - April"
+slug: mountainview-april
+category: gallery
+type: album
+
+datetime: 2012-04-27 11:00:00
+
+---
+
+The drive down, the move in, the tour around, and the USENIX NSDI'12
+conference.
+

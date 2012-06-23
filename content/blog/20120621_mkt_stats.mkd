@@ -6,7 +6,7 @@ author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 slug: "mkt-stats"
 
 image:
-    url: http://i.imgur.com/puHgM.jpg
+    url: http://i.imgur.com/cjFkd.jpg
     where: right
 
 date: 2012-06-21
@@ -32,14 +32,14 @@ what it was like to work on it.
 
 ## Statistics Dashboard
 
-A statistics dashboard is a page that displays data in the form of graphs,
+A *statistics dashboard* is a page that displays data in the form of graphs,
 charts, and tables with controls to change what data is displayed. An example
 is Google Analytics which gives information about a website's hits. This helps
 users know how well their site is doing, what kinds of people are visiting,
 and what they do during their visit. The landing dashboard shows hits over
 time along with a table with aggregated stats.
 
-<img src="http://imgur.com/xJh8Z"/>
+<img src="http://imgur.com/xJh8Z.jpg"/>
 
 For Marketplace, the statistics dashboard should let developers know how well
 their apps are doing, where their purchases are coming from, and how much bank
@@ -80,9 +80,7 @@ The stack consists of Python in the backend (and Django as the web framework),
 [highcharts.js](http://highcharts.com) for the frontend, and ElasticSearch
 acting as a key-value store (drawer). The inital codebase was copied over from
 Mozilla's [add-ons](http://addons.mozilla.org) site.
-
-The backend's duty is to pull objects from the database (toy store),
-perform aggregations, and store the aggregations into ElasticSearch, which
+The backend's duty is to pull objects from the database (toy store), perform aggregations, and store the aggregations into ElasticSearch, which
 is all done asynchronously in the backend as a cron job (task set to
 run at a regular interval, like an alarm clock). The frontend's duty is to
 query (ask for data) ElasticSearch for the already aggregated data and
@@ -95,7 +93,7 @@ data for already calculated days since that would be a waste of computing
 power. So we grab the newest object from ElasticSearch, check its date and
 time, and then we know where to start from.
 
-First we have to write an indexer. It first pulls payment objects, or
+First we have to write an **indexer**. It first pulls payment objects, or
 purchase records, from the database that are later than the newest object
 from ElasticSearch. We check a purchase record's date, say 'oh, we need to
 calculate the sales per day for that date', and count the number of
@@ -110,7 +108,7 @@ count represents.
 
 So the data is stored, the toy is in the drawer ready to be played with.
 The data sits there until it is needed when a user visits an app's
-statistics page. This is where the frontend comes in. When a user visits
+statistics page. This is where the **frontend** comes in. When a user visits
 the statistics page, a template page (HTML/CSS) is loaded with no graphs or
 tables yet. It just contains things like a header and links. Django, the
 web framework, handles this part, and the rest is up to Javascript. Space
@@ -150,9 +148,9 @@ Marketplace project.
 
 I grokked the codebase pretty quickly, but there were things that gave me a
 lot of trouble and have eaten up many of my hours. The main culprit was
-ElasticSearch. How the hell does ElasticSearch work? Who knows.  Data comes
-in, data goes out, [you can't
-explain](http://http://knowyourmeme.com/memes/bill-oreilly-you-cant-explain-that).
+ElasticSearch. How the hell does ElasticSearch work? Who knows. **Data comes
+in, data goes out,** [**you can't
+explain that**](http://http://knowyourmeme.com/memes/bill-oreilly-you-cant-explain-that).
 The documentation isn't very helpful and there wasn't documentation for
 ElasticSearch for the Marketplace project. It's very difficult to debug
 since it's a big black box. There was a difficult hurdle where
@@ -191,6 +189,7 @@ feeling healthy. Food (and Vitamin waters) are plentiful and free. Hell, I'm
 pretty much saving up for retirement now since I got everything I need. Watched
 the NBA Finals and play Halo on a giant 110-inch screen at the office. Former
 boss just got hired to Mozilla, I wouldn't be here if I hadn't been working at
-[NET](http://ngokevin.com/blog/net). Just got off a little vacation with my
-family and many more fun things to expect for the summer (woo, kayaking).  And
-Silicon Valley is nice and sunny, clear skies ahead.
+[NET](http://ngokevin.com/blog/net). Just got off a little
+[vacation](http://ngokevin.com/gallery/mountainview-june) with my family and
+many more fun things to expect for the summer (woo, kayaking).  And Silicon
+Valley is nice and sunny, clear skies ahead.

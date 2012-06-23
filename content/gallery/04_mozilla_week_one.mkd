@@ -1,0 +1,10 @@
+title: "Mozilla Week One"
+slug: mozilla-week-one
+category: gallery
+type: album
+
+datetime: 2012-05-01 11:00:00
+
+---
+
+Mozilla webdev offsite work week in Santa Cruz.

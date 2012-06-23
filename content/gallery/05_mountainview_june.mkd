@@ -1,0 +1,10 @@
+title: "Mountain View - June"
+slug: mountainview-june
+category: gallery
+type: album
+
+datetime: 2012-06-21 22:00:00
+
+---
+
+The family visits.
