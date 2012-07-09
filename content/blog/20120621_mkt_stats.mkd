@@ -127,11 +127,7 @@ is cached into local storage so reloading the page doesn't make another
 redundant request to the web server. And that's it from a heuristic level,
 we have pretty data!
 
-<img src="http://i.imgur.com/4a1d4.png"/>
-
-The design and UX for the page hasn't been done yet so it doesn't look as
-pretty and intuitive as it could be, but it's a good initial start with
-base functionality.
+<img src="http://imgur.com/5eAjA.jpg"/>
 
 ## Thoughts on Working on It
 
