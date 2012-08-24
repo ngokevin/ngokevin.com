@@ -12,38 +12,28 @@ image:
 ---
 
 My name is Kevin Ngo, an undergraduate **computer science** student at Oregon
-State University. I currently work at the OSU Network Engineering Team
-[NET][net] in Network Services Systems as a programmer and web developer. In
-the past, I have volunteered at [Free Geek][freegeek], helping build Linux
-boxes out of recycled and donated computers to give to non-profit
-organizations. You can find out a bit more about me at [linkedin][linkedin].
+State University. I am currently an intern at **Mozilla** in Mountain View as a web
+developer working on the Mozilla Marketplace. During the school year, I work at
+the OSU Network Engineering Team [NET][net] in Network Services Systems as a
+programmer and web developer. I put this blog up to show off my projects or
+post anything I get excited about.
 
 I love **learning** as well as having the ability to build practical
-applications which leads me to loving **programming**. I sort of see
-programming as a video game where I can gain new skills and technologies and
-level up. A good portion of my work lies in web development and scripting. Away
-from the computer, I enjoy being on the basketball courts and cruising the
-streets on longboards. Also, I am a retired tennis player, violin prodigy, and
-piano enthusiast.
+applications which leads me to loving **programming**. My goal is to build cool
+things that many people will want to use. And I see the **open web** as my vehicle
+towards that goal since it is highly accessible and universal. Away from the
+computer, my favorite place to be is on the basketball or tennis courts. Though
+I also like cruising the streets on longboards or sight-reading on the piano.
 
-I prefer working in **Linux**, developing with **Python/Django**, and keeping
-it all under wraps with **Git**. My experience spans HTML/CSS, Javascript,
-Puppet, PHP, SQL, MongoDB, C, Java, and SVN. Though I can handle whatever
-anyone throws at me.
+I rock **Linux**, hack with **Javascript** and **Python/Django**, and keep it
+all under wraps with **Git**.
 
 Check out my [**resume**](/resume) for the rundown on some of my previous
-projects.
+projects. Even better, you can check out all of my projects on
+[Github][github].
 
 [net]:http://oregonstate.edu/net
-[freegeek]:http://freegeek.com
 [linkedin]:http://www.linkedin.com/pub/kevin-ngo/42/576/b5a
 [piano]:http://www.youtube.com/watch?v=bocsXSPMYbU
 [tennis]:http://www.facebook.com/video/video.php?v=1065800744763
-[reggit]:http://reggit.us
-[prestobot]:http://www.reddit.com/r/listentothis/comments/kxtx2/prestobot_20111001_download_link_for_todays/
-[lug]:http://lug.oregonstate.edu
-[soundcloud]:http://github.com/ngokevin/soundcloud-dl
-[netshed]:http://github.com/ngokevin/netshed
-[uberj]:http://uberj.com
-[thedjpetersen]:http://thedjpetersen.github.com
-[youtube-dl]:http://github.com/rg3/youtube-dl
+[github]:http://github.com/ngokevin
