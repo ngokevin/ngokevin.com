@@ -1,5 +1,6 @@
 html,
 body{
+    font-family: 'Gentium Book Basic', serif;
     margin:0;
     padding:0;
     height:100%;
@@ -18,14 +19,14 @@ a {font-weight: bold;}
 .main h3 { font-size: 1.25em; line-height: 1.25em; }
 
 .main p, .main span {
-    font-size: 1.10em;
-    line-height: 1.90em;
+    font-size: 17px;
+    line-height: 32px;
     color: rgb(65, 75, 65);
 }
 
 .main li, .main ol {
-    font-size: 1.15em;
-    line-height: 1.85em;
+    font-size: 17px;
+    line-height: 32px;
     color: rgb(95, 105, 95);
 }
 
@@ -172,8 +173,8 @@ h1#page-header {
 }
 
 .sliding-index {
-    min-height: 1050px;
-    max-height: 1050px;
+    min-height: 1250px;
+    max-height: 1250px;
 }
 #sliding-all a {
     color: black;
