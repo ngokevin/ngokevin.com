@@ -39,3 +39,8 @@
 .preview li {
     clear:both;
 }
+
+.list-view hr {
+    clear:both;
+    margin-top: 2em;
+}

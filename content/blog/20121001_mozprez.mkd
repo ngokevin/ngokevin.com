@@ -1,0 +1,23 @@
+title: "Open Web Apps and the Mozilla Marketplace, my Intern Prez"
+type: blog
+category: blog
+author: Kevin Ngo
+
+slug: "mozprez"
+
+image:
+    url: http://imgur.com/FTvTc.jpg
+    where: top
+
+date: 2012-10-01
+
+---
+
+Mozilla interns give a presentation at the end of their internships. I
+encapsulated my five-month stint into an impress.js presentation (which I did
+not steal!). My [Mozilla intern presentation
+slides](http://ngokevin.com/~ngoke/mozprez).
+
+Also they were kind enough to stream it. The [recording of my
+presentation](https://air.mozilla.org/intern-presentation-open-web-apps-and-the-mozilla-marketplace/).
+
