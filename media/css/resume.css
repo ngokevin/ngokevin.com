@@ -22,9 +22,13 @@
 }
 #resume .date {
     font-weight: normal;
+    font-size: 15px;
     float: right;
     line-height: 1em;
 }
 #resume table {
-    font-size: 1.1em;
+    font-size: 15px;
+}
+#resume table tr:first-child td {
+    border-top: none;
 }
