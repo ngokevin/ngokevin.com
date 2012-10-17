@@ -10,15 +10,15 @@ navrank: 4
 <br>
 # Primary Skills
 <table>
-    <tr><td>Languages</td><td>Python | Javascript | HTML5 | CSS3 </td></tr>
-    <tr><td>Libraries</td><td>Django | jQuery | Node.js </td></tr>
-    <tr><td>Datastores</td><td>SQL | ElasticSearch | MongoDB </td></tr>
-    <tr><td>Tools</td><td>Vim | Git </td></tr>
+    <tr><td>Languages</td><td>Python | Javascript | HTML(5) | CSS(3)</td></tr>
+    <tr><td>Libraries</td><td>Django | jQuery | Node.js</td></tr>
+    <tr><td>Datastores</td><td>SQL | ElasticSearch | MongoDB</td></tr>
+    <tr><td>Tools</td><td>Vim | Git</td></tr>
 </table>
 
 #Experience
 
-###<a class="resume-heading" href="http://mozilla.org">Mozilla Corporation</a>&nbsp;- Web Developer, Marketplace Team<span class="date">April 2012 - Current</span>
+###<a class="resume-heading" href="http://mozilla.org">Mozilla Corporation</a>&nbsp;- Web Developer, Marketplace Team<span class="date">April - September 2012</span>
 
 - Built statistics dashboard that allows developers to view their app sales and
   usage
@@ -33,15 +33,18 @@ navrank: 4
 
 ###<a class="resume-heading" href="http://oregonstate.edu/net">OSU Network Engineering Team</a>&nbsp;- Programmer, Network Security<span class="date">March 2011 - Current</span>
 
-- Developed a [Python log management application][netshed] that parses and dumps network
-  logs into MongoDB with a Django frontend for network
-administrators to perform log searches
+- Rewriting the university network's DNS / DHCP web manager in Django,
+  primarily as frontend developer
 
-- Refactored and maintain the program that handles the automated OSU DMCA
-  file-sharing process, developed the Django frontend for administrators
-to manage DMCA file-sharing notifications and malware security reports
+- Wrote a [Python log management application][netshed] that parses and dumps
+  network logs into MongoDB along with a Django frontend for network
+  administrators to perform log searches
 
-- Maintained a library of Python scripts that track and notify
+- Developed a Python program that handles the automated OSU DMCA
+  file-sharing process along with a Django frontend
+  to manage DMCA file-sharing notifications and malware security reports
+
+- Wrote a library of Python scripts that track and notify
   malware-infected hosts on the network
 
 - Maintained and fixed bugs for a PHP DNS/DHCP network management
@@ -51,19 +54,19 @@ to manage DMCA file-sharing notifications and malware security reports
 
 ###<a class="resume-heading" href="http://github.com/ngokevin">Some Github Projects</a><span class="date">March 2011 - Current</span>
 
-- Multiplayer heads-up poker game with match-making
+- Multiplayer heads-up poker game with match-making (Node)
 
-- Physics sandbox game
+- Physics sandbox game (HTML5/JS)
 
-- Minimalistic list app
+- Minimalistic list app (HTML5/JS)
 
-- Doodle app
+- Doodle app (HTML5/JS)
 
-- Image gallery
+- Image gallery (JS)
 
-- Soundcloud integration into youtube-dl
+- Soundcloud integration into youtube-dl (Python)
 
-- Alternative Oregon State University class registration system
+- Alternative Oregon State University class registration system (Django)
 
 #Education
 
