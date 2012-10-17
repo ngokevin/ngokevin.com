@@ -1,0 +1,44 @@
+.list-view img {
+    float: left;
+    margin-bottom: 1.2em;
+    margin-right: 1.2em;
+    margin-top: .58em;
+    max-width: 210px;
+    max-height: 210px;
+}
+
+#home .list-view img {
+    /* line up image with text */
+    margin-top: -0.5em;
+}
+
+.list-view {
+    /* hide code segments */
+    pre, code {
+        display: none;
+    }
+}
+
+.heading {
+    margin-top: 1.0em;
+}
+
+.title {
+    line-height: 1.30em;
+}
+
+.preview {
+    margin-top: -1.15em;
+    h1, h2, h3, img {
+        display: none;
+    }
+    font-size: .9em;
+    li {
+        clear: both;
+    }
+}
+
+.list-view hr {
+    clear: both;
+    margin-top: 2em;
+}

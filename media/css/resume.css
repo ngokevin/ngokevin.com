@@ -1,34 +1,22 @@
 #resume {
-    font-size: .9em;
-}
-#resume h2 {
-    margin-top: 1em;
+  font-size: .9em; }
+  #resume h2 {
     margin-bottom: 1em;
-}
-#resume p {
-    margin-top: 1.1em;
-}
-#resume a {
-    font-weight: normal;
-}
-#resume a:hover {
-    font-weight: normal;
-}
-#resume .resume-heading {
-    font-weight: bold;
-}
-#resume a.resume-heading:hover {
-    font-weight: bold;
-}
-#resume .date {
+    margin-top: 1em; }
+  #resume p {
+    margin-top: 1.1em; }
+  #resume a {
+    font-weight: normal; }
+    #resume a:hover {
+      font-weight: normal; }
+  #resume .resume-heading, #resume a.resume-heading:hover {
+    font-weight: bold; }
+  #resume .date {
+    float: right;
     font-weight: normal;
     font-size: 15px;
-    float: right;
-    line-height: 1em;
-}
-#resume table {
-    font-size: 16px;
-}
-#resume table tr:first-child td {
-    border-top: none;
-}
+    line-height: 1em; }
+  #resume table {
+    font-size: 16px; }
+    #resume table tr:first-child td {
+      border-top: none; }

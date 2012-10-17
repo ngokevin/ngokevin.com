@@ -1,0 +1,21 @@
+h1#page-header {
+    color: #005454;
+}
+
+.blog {
+    h2, h3, h4 {
+      display: block;
+      font-style: underline;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+}
+
+p#metadata {
+    margin-bottom: 1.5em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}

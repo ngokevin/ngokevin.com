@@ -5,7 +5,7 @@ tags: navigation
 navrank: 1
 
 image:
-    url: /images/star.jpg
+    url: /img/star.jpg
     where: right
     caption: Looking towards the stars
 

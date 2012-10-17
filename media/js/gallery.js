@@ -13,7 +13,7 @@ var getAlbums = function() {
     slugs = document.getElementsByClass("album-slug");
     for(var index in slugs) {
         slugs[index] = slugs[index].innerHTML;
-        dirs[index] = "/images/gallery/" + slugs[index] + "/";
+        dirs[index] = "/img/gallery/" + slugs[index] + "/";
     }
 
     titles = document.getElementsByClass("album-title");

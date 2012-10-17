@@ -1,46 +1,34 @@
 .resize img {
-    width: 320px;
-    height : auto;
-}
-.resize img {
-    width: auto;
-    height : 240px;
-}
+  width: 320px;
+  height: auto;
+  width: auto;
+  height: 240px; }
+
 #scrapbook {
-    background: #007500;
-}
-#scrapbook a {
-   display:block;
-   float:left;
-   width:188px;
-   height:290px;
-   overflow:hidden;
-   position:relative;
-   z-index:1;
-}
-#scrapbook a img {
-   float:left;
-   position:absolute;
-}
-#scrapbook #img1{
-    top:-10px;
-    left:-20px;
-}
-#scrapbook #img2{
-    top:-10px;
-    left:-22px;
-}
-#scrapbook #img3{
-    top:-10px;
-    left:-25px;
-}
-#scrapbook #img4{
-    top:-10px;
-    left:-70px;
-}
-#scrapbook #img5{
-    top:-10px;
-    left:-15px;
-}
-
-
+  background: #007500; }
+  #scrapbook a {
+    display: block;
+    float: left;
+    height: 290px;
+    overflow: hidden;
+    position: relative;
+    width: 188px;
+    z-index: 1; }
+    #scrapbook a img {
+      float: left;
+      position: absolute; }
+  #scrapbook #img1 {
+    left: -20px;
+    top: -10px; }
+  #scrapbook #img2 {
+    left: -22px;
+    top: -10px; }
+  #scrapbook #img3 {
+    left: -25px;
+    top: -10px; }
+  #scrapbook #img4 {
+    left: -70px;
+    top: -10px; }
+  #scrapbook #img5 {
+    left: -15px;
+    top: -10px; }

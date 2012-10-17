@@ -93,4 +93,4 @@ there's free beer and food there. To our delight, the food from the cantina
 was still there. We played Rock Band and pool through the night (well,
 until like 1am).
 
-<img src="/images/gallery/mozilla-week-one/052_rockband.jpg"/>
+<img src="/img/gallery/mozilla-week-one/052_rockband.jpg"/>
