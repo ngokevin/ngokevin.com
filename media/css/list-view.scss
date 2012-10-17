@@ -1,4 +1,6 @@
+@import "globals.scss";
 .list-view img {
+    @include img-box-shadow();
     float: left;
     margin-bottom: 1.2em;
     margin-right: 1.2em;

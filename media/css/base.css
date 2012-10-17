@@ -39,6 +39,8 @@ h1, h2, h3, h4, h5, #logo {
 #footer {
   /* Overrides sticky-footer */
   background: #c8c8c8;
+  font-size: 14px;
+  line-height: 23px;
   height: 115px;
   margin-top: -100px;
   min-width: 960px;
@@ -80,21 +82,23 @@ h1, h2, h3, h4, h5, #logo {
   .main hr {
     margin-bottom: 1em; }
 
-#navigation a {
-  margin-left: .5em;
-  text-decoration: none;
-  vertical-align: middle; }
-  #navigation a:hover {
-    color: #2AAAAA; }
-#navigation span {
-  border-radius: 8px;
-  color: black;
-  padding: 1.1em;
-  padding-left: 1.6em;
-  padding-right: 1.6em;
-  padding-top: 1.8em; }
-  #navigation span:hover {
-    background: #DDDDD3; }
+#navigation {
+  float: right; }
+  #navigation a {
+    margin-left: .5em;
+    text-decoration: none;
+    vertical-align: middle; }
+    #navigation a:hover {
+      color: #2AAAAA; }
+  #navigation span {
+    border-radius: 8px;
+    color: #0A0A0A;
+    padding: 1.1em;
+    padding-left: 1.6em;
+    padding-right: 1.6em;
+    padding-top: 1.8em; }
+    #navigation span:hover {
+      background: #DDDDD3; }
 
 #current_nav span {
   background: #DDDDD3;

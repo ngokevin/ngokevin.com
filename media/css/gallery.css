@@ -1,9 +1,9 @@
 #gallery {
   margin-top: 1.1em; }
   #gallery a {
-    -moz-box-shadow: 3px 3px 5px #888888;
-    -webkit-box-shadow: 3px 3px 5px #888888;
-    box-shadow: 3px 3px 5px #888888;
+    -moz-box-shadow: 2px 2px 4px #888888;
+    -webkit-box-shadow: 2px 2px 4px #888888;
+    box-shadow: 2px 2px 4px #888888;
     background-color: #EEEEE6;
     border-color: #DDDDD3;
     border-style: double;

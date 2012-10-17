@@ -51,6 +51,8 @@ h1, h2, h3, h4, h5, #logo {
 #footer {
     /* Overrides sticky-footer */
     background: rgb(200, 200, 200);
+    font-size: 14px;
+    line-height: 23px;
     height: 115px;
     margin-top: -100px;
     min-width: 960px;
@@ -106,6 +108,7 @@ h1, h2, h3, h4, h5, #logo {
 }
 
 #navigation {
+    float: right;
     a {
       margin-left: .5em;
       text-decoration: none;
@@ -116,7 +119,7 @@ h1, h2, h3, h4, h5, #logo {
     }
     span {
       border-radius: 8px;
-      color: black;
+      color: #0A0A0A;
       padding: 1.1em;
       padding-left: 1.6em;
       padding-right: 1.6em;

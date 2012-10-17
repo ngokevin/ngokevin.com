@@ -1,0 +1,31 @@
+@mixin box-shadow($shadow) {
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin transform($transform) {
+    -moz-transform: $transform;
+   -ms-transform: $transform;
+   -o-transform: $transform;
+   -webkit-transform: $transform;
+}
+
+@mixin transition($transition) {
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+}
+
+@mixin transition-delay($delay) {
+   -moz-transition-delay: $delay;
+   -ms-transition-delay: $delay;
+   -o-transition-delay: $delay;
+   -webkit-transition-delay: $delay;
+}
+
+@mixin img-box-shadow() {
+    @include box-shadow(2px 2px 4px #888888);
+}
+

@@ -1,15 +1,20 @@
 h1#page-header {
   color: #005454; }
 
-.blog h2, .blog h3, .blog h4 {
-  display: block;
-  font-style: underline;
-  margin-bottom: 1em;
-  margin-top: 1em; }
+.blog {
+  margin-top: 25px; }
+  .blog h2, .blog h3, .blog h4 {
+    display: block;
+    font-style: underline;
+    margin-bottom: 1em;
+    margin-top: 16px; }
 
 p#metadata {
   margin-bottom: 1.5em; }
 
 img {
+  -moz-box-shadow: 2px 2px 4px #888888;
+  -webkit-box-shadow: 2px 2px 4px #888888;
+  box-shadow: 2px 2px 4px #888888;
   display: block;
   max-width: 100%; }

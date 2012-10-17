@@ -1,9 +1,8 @@
+@import "globals.scss";
 #gallery {
     margin-top: 1.1em;
     a {
-      -moz-box-shadow: 3px 3px 5px #888888;
-      -webkit-box-shadow: 3px 3px 5px #888888;
-      box-shadow: 3px 3px 5px #888888;
+      @include img-box-shadow();
       background-color: #EEEEE6;
       border-color: #DDDDD3;
       border-style: double;
