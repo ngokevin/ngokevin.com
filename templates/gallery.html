@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <link rel="stylesheet" type="text/css" href="/stylesheets/gallery.css" />
-    <script type="text/javascript" src="/javascripts/utilities.js" ></script>
+    <link rel="stylesheet" type="text/css" href="/css/gallery.css" />
+    <script type="text/javascript" src="/js/utilities.js" ></script>
     <h1 id="page-header">{{ page.title }}</h1>
 
     {% for album in site.categories['gallery'] | sort(attribute='datetime', reverse=True) %}
@@ -11,7 +11,7 @@
         <div class="album-info">
             <span class="album-slug" style="display:none;">{{ album.slug }}</span>
             <span class="album-title" style="display:none;">{{ album.title}}</span>
-            <div class="album-images" style="display:none">
+            <div class="album-img" style="display:none">
                 {% for image in site['albums'][album.slug] %}
                     <span>{{site['albums'][album.slug][loop.index0]}}</span>
                 {% endfor %}
@@ -20,7 +20,7 @@
     {% endfor %}
 
     <div id="gallery">
-        <script type="text/javascript" src="/javascripts/gallery.js" ></script>
+        <script type="text/javascript" src="/js/gallery.js" ></script>
     </div>
 
 {% endblock %}

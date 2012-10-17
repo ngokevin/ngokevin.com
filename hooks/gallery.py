@@ -1,8 +1,8 @@
 import glob
 import os
 
-GALLERY_DIR = os.path.abspath("./media/images/gallery/") + '/'
-REL_GALLERY_DIR = "/images/gallery/"
+GALLERY_DIR = os.path.abspath("./media/img/gallery/") + '/'
+REL_GALLERY_DIR = "/img/gallery/"
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
 THUMB_PREFIX = "THUMB_"
 PREVIEW_IMGS_NUM = 3

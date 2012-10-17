@@ -5,7 +5,7 @@ import os
 
 ORIG_THUMBNAIL_SIZE = [210, 210]
 THUMBNAIL_PREFIX = 'THUMB_'
-GALLERY_DIR = os.path.abspath("./media/images/gallery/") + '/'
+GALLERY_DIR = os.path.abspath("./media/img/gallery/") + '/'
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
 
 def create_thumbnails():
