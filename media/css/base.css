@@ -1,18 +1,18 @@
 html, body {
   background-color: #eeeeee;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: 'Source Sans Pro', sans-serif;
   height: 100%;
   margin: 0;
   padding: 0; }
 
 hr {
-  border-color: gainsboro; }
+  border-color: #dcdcdc; }
 
 a, .main a:hover {
   font-weight: bold; }
 
 h1, h2, h3, h4, h5, #logo {
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: 'Gentium Book Basic', serif; }
 
 .main h1 {
   font-size: 1.75em;
