@@ -11,7 +11,7 @@
         <div class="album-info">
             <span class="album-slug" style="display:none;">{{ album.slug }}</span>
             <span class="album-title" style="display:none;">{{ album.title}}</span>
-            <div class="album-img" style="display:none">
+            <div class="album-images" style="display:none">
                 {% for image in site['albums'][album.slug] %}
                     <span>{{site['albums'][album.slug][loop.index0]}}</span>
                 {% endfor %}
