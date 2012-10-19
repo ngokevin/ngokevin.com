@@ -6,7 +6,7 @@ html, body {
   padding: 0; }
 
 hr {
-  border-color: #dcdcdc; }
+  border-color: gainsboro; }
 
 a, .main a:hover {
   font-weight: bold; }
@@ -33,8 +33,7 @@ h1, h2, h3, h4, h5, #logo {
   color: #5f695f; }
 
 .container {
-  min-height: 100%;
-  position: relative; }
+  min-height: 100%; }
 
 #footer {
   /* Overrides sticky-footer */
