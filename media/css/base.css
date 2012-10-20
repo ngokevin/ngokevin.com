@@ -86,8 +86,9 @@ hr {
 p#metadata {
   color: #808080;
   font-size: 13px;
+  font-weight: bold;
   line-height: 6px;
-  font-weight: bold; }
+  margin-bottom: 16px; }
 
 .base-image img {
   margin-bottom: 5px;
