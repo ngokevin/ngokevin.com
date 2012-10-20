@@ -3,7 +3,7 @@ type: blog
 category: blog
 author: Kevin Ngo
 
-slug: "mozprez"
+slug: "poker"
 
 image:
     url: http://imgur.com/fzeMH.jpg
