@@ -1,10 +1,8 @@
 #resume {
-  font-size: .9em; }
-  #resume h2 {
-    margin-bottom: 1em;
-    margin-top: 1em; }
+  font-size: 16px h2;
+    font-size-margin: 13px 0 13px; }
   #resume p {
-    margin-top: 1.1em; }
+    margin-top: 14px; }
   #resume a {
     font-weight: normal; }
     #resume a:hover {
@@ -13,9 +11,9 @@
     font-weight: bold; }
   #resume .date {
     float: right;
-    font-weight: normal;
     font-size: 15px;
-    line-height: 1em; }
+    font-weight: normal;
+    line-height: 13px; }
   #resume table {
     font-size: 15px; }
     #resume table tr:first-child td {

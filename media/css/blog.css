@@ -6,11 +6,12 @@ h1#page-header {
   .blog h2, .blog h3, .blog h4 {
     display: block;
     font-style: underline;
-    margin-bottom: 1em;
+    margin-bottom: 16px;
     margin-top: 16px; }
 
 p#metadata {
-  margin-bottom: 1.5em; }
+  line-height: 17px;
+  margin-bottom: 26px; }
 
 img {
   -moz-box-shadow: 2px 2px 4px #888888;

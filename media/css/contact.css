@@ -1,7 +1,9 @@
 .view {
+  -moz-box-shadow: 1px 1px 2px #bebebe;
+  -webkit-box-shadow: 1px 1px 2px #bebebe;
+  box-shadow: 1px 1px 2px #bebebe;
   background: #f5f5f5;
   border: 7px solid #DDDDD3;
-  box-shadow: 1px 1px 2px #bebebe;
   height: 205px;
   overflow: hidden;
   text-align: center;
@@ -70,7 +72,7 @@
     color: white;
     left: 5%;
     opacity: 0;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     position: absolute;
     right: 5%;
     top: 78%; }

@@ -1,4 +1,5 @@
 @import "globals.scss";
+
 h1#page-header {
     color: #005454;
 }
@@ -8,13 +9,14 @@ h1#page-header {
     h2, h3, h4 {
       display: block;
       font-style: underline;
-      margin-bottom: 1em;
+      margin-bottom: 16px;
       margin-top: 16px;
     }
 }
 
 p#metadata {
-    margin-bottom: 1.5em;
+    line-height: 17px;
+    margin-bottom: 26px;
 }
 
 img {
