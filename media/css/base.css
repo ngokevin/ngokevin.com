@@ -17,6 +17,9 @@ a, .main a:hover {
 hr {
   border-color: #dcdcdc; }
 
+strong {
+  color: #333; }
+
 .main h1 {
   font-size: 26px;
   line-height: 41px; }
