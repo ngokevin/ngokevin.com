@@ -78,6 +78,11 @@ navrank: 4
 
 - Webmaster of the [Linux Users Group](http://lug.oregonstate.edu)
 
+- Published in [USENIX ;login: August 2012, Volume 37, Number
+  4](https://www.usenix.org/publications/login/august-2012-volume-37-number-4)
+  on New Architectures and Platforms from
+  [NSDI'12](https://www.usenix.org/conference/nsdi12)
+
 ###David Douglas High School <span class="date">2005-2009</span>
 
 - Graduated with 3.97 GPA
