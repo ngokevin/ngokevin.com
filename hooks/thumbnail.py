@@ -53,7 +53,10 @@ def create_thumbnails():
                             thumbnail_size[1] = height
 
                         # convert to thumbnail image
-                        image.thumbnail(thumbnail_size, Image.ANTIALIAS)
+                        try:
+                            image.thumbnail(thumbnail_size, Image.ANTIALIAS)
+                        except Exception as e:
+                            print image
 
                         # prefix thumbnail file with prefix
                         image_name = '/' + THUMBNAIL_PREFIX + infile.split('/')[-1]
