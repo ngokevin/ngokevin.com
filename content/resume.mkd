@@ -54,6 +54,8 @@ navrank: 4
 
 ###<a class="resume-heading" href="http://github.com/ngokevin">Some Github Projects</a><span class="date">March 2011 - Current</span>
 
+- Animated painting generator (HTML5/JS)
+
 - Multiplayer heads-up poker game with match-making (Node)
 
 - Physics sandbox game (HTML5/JS)
