@@ -20,7 +20,7 @@ hr {
 strong {
   color: #333; }
 
-.main#page-header {
+.main #page-header {
   display: inline;
   line-height: 34px; }
 .main p, .main span {
