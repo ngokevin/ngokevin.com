@@ -24,7 +24,7 @@ path to beautification.
 ### Typography
 
 The easiest way to give your website an entire makeover, change the fonts. The
-most popular resource is [Google Web Fonts](www.google.com/webfonts). They
+most popular resource is [Google Web Fonts](http://www.google.com/webfonts). They
 have a wide selection and you can sort by popularity as well as
 serif/sans-serif. Try out different fonts and see the changes in character
 they make for your site and try to choose a font that matches your site's
@@ -37,7 +37,7 @@ for your content as it is more readable.
 Currently, even this magnificent blog needs a bit of work on the typography
 (font-sizing). Typography takes a lot of toying with!
 
-- [Google Web Fonts](www.google.com/webfonts)
+- [Google Web Fonts](http://www.google.com/webfonts)
 - A serif font for headers, a sans-serif font for content
 - Use a good-sized line height (space between lines of text) for readability
 - Have contrast between text and background
