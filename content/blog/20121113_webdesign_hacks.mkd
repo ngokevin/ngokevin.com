@@ -1,4 +1,4 @@
-title: "Plastic Surgery, Quick Web Design Tips"
+title: "Four Web Design Hacks"
 type: blog
 category: blog
 
