@@ -5,75 +5,68 @@
 {% set char_limit = 300 %}
 
 {% if page.index %}
-    {% if page.index.height %}
-        {% set min_height = page.index.height %}
-    {% endif %}
-    {% if page.index.char_limit %}
-        {% set char_limit = page.index.char_limit %}
-    {% endif %}
-    {% if page.index.char_limit %}
-        {% set char_limit = page.index.char_limit %}
-    {% endif %}
+  {% if page.index.height %}
+    {% set min_height = page.index.height %}
+  {% endif %}
+  {% if page.index.char_limit %}
+    {% set char_limit = page.index.char_limit %}
+  {% endif %}
+  {% if page.index.char_limit %}
+    {% set char_limit = page.index.char_limit %}
+  {% endif %}
 {% endif %}
 
-{# Render list #}
+{% block page_header %}
+  <h1>{{ page.title }}</h1>
 
-{% block content %}
-<link rel="stylesheet" type="text/css" href="/css/list-view.css" />
-
-<h1 id="page-header">{{ page.title }}</h1><br/>
-
-{% if page.pagination %}
+  {% if page.pagination %}
     {% if page.pagination.prev_page %}
-        <a href="{{ page.pagination.prev_page.url }}">Previous Page</a> |
+      <a href="{{ page.pagination.prev_page.url }}">Previous Page</a> |
     {% endif %}
     Page {{ page.pagination.cur_page }} of {{ page.pagination.num_pages }}
     {% if page.pagination.next_page %}
-        | <a href="{{ page.pagination.next_page.url }}">Next Page</a>
+      | <a href="{{ page.pagination.next_page.url }}">Next Page</a>
     {% endif %}
-{% endif %}
-{{ page.content }}
+  {% endif %}
+  {{ page.content }}
+{% endblock %}
 
-<div class="list-view">
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="/css/list-view.css" />
+
+  <div class="list-view">
     {% for subpage in pagination.page_items %}
 
-        <div class="item">
-
-            {% if not loop.first %}
-                <hr/>
+      <div class="item c">
+        <div class="heading">
+          <h2 class="title"><a href="{{subpage.url}}">{{subpage.title}}</a></h2>
+          <span class="metadata">
+            {% if subpage.datetime %}
+              {{ subpage.datetime.strftime("%A %B %d, %Y")}}
             {% endif %}
-
-            <div class="heading">
-                <h2 class="title"><a href="{{subpage.url}}">{{subpage.title}}</a></h2>
-                <p id="metadata">
-                    {% if subpage.datetime %}
-                        {{ subpage.datetime.strftime("%A %B %d, %Y")}}
-                    {% endif %}
-                </p>
-            </div>
-
-            <div class="preview">
-                <span>
-                    {% if subpage.image %}
-                        <img style="float:left; display:inline" src="{{subpage.image.url}}"/>
-                    {% endif %}
-                    {% if subpage.preview %}
-                        {{ subpage.preview }}
-                        {% if subpage.preview|count < 600 %}
-                            <br/>
-                        {% endif %}
-                    {% else %}
-                        {{subpage.content|truncate(length=char_limit, end="<a href="+subpage.url+">...more</a>")}}
-                    {% endif %}
-                    </code>
-                    </pre>
-
-                </span>
-            </div>
-
+          </span>
         </div>
 
-    {% endfor %}
-</div>
+        <div class="preview">
+          <span>
+            {% if subpage.image %}
+              <img style="float:left; display:inline" src="{{subpage.image.url}}"/>
+            {% endif %}
+            {% if subpage.preview %}
+              {{ subpage.preview }}
+              {% if subpage.preview|count < 600 %}
+                <br/>
+              {% endif %}
+            {% else %}
+              {{subpage.content|truncate(length=char_limit, end="<a href="+subpage.url+">...more</a>")}}
+            {% endif %}
+            </code>
+            </pre>
 
+          </span>
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
 {% endblock %}

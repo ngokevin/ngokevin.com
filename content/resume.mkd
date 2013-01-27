@@ -2,9 +2,6 @@ title: Resume
 slug: resume
 type: resume
 
-tags: navigation
-navrank: 4
-
 ---
 
 <br>

@@ -1,96 +1,80 @@
 {% extends "base.html" %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/css/scrapbook.css" />
-<link rel="stylesheet" type="text/css" href="/css/list-view.css" />
+  <link rel="stylesheet" type="text/css" href="/css/scrapbook.css" />
+  <link rel="stylesheet" type="text/css" href="/css/list-view.css" />
 
-<div id="scrapbook">
-    <div class="container">
-        <div class="row">
-            <div class="span16">
-               <div class="resize">
-                   <a href="#"><img id="img1" src="/img/skate.jpg"/></a>
-                   <a href="#"><img id="img2" src="/img/sanfran.jpg"/></a>
-                   <a href="#"><img id="img4" src="/img/terminal.jpg"/></a>
-                   <a href="#"><img id="img3" src="/img/ocean.jpg"/></a>
-                   <a href="#"><img id="img5" src="/img/basketball.jpg"/></a>
-               </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br/>
-<hr/>
+  <div id="scrapbook">
+    <div class="resize">
+       <a href="#"><img id="img1" src="/img/skate.jpg"/></a>
+       <a href="#"><img id="img2" src="/img/sanfran.jpg"/></a>
+       <a href="#"><img id="img4" src="/img/terminal.jpg"/></a>
+       <a href="#"><img id="img3" src="/img/ocean.jpg"/></a>
+       <a href="#"><img id="img5" src="/img/basketball.jpg"/></a>
+     </div>
+  </div>
 
-<!--Blog Posts-->
-<div id="home" class="span16 columns" style="margin-left:0px">
+  <!--Blog Posts-->
+  <div class="list-view">
+    <h3>Recent Blogs</h3>
+    <form method="link" action="/blog/">
+      <button class="btn success" id="sliding-all"><a href="/blog">All</a></button>
+    </form>
 
-    <div class="list-view">
+    <!--Graceful degradation for non-js enabled browsers-->
+    <noscript><div style="display:none;"</noscript>
+      <button href="#" class="btn small" id="sliding-prev-page">Prev</button>
+      <button href="#" class="btn small" id="sliding-next-page">Next</button>
+    <noscript></div></noscript>
 
-        <h3 style="display:inline; font-size:1.3em;">Recent Blogs</h3>&nbsp;&nbsp;
-        <form method="link" action="/blog/" style="display:inline;">
-            <button class="btn success" id="sliding-all"><a href="/blog">All</a></button>
-        </form>
+    <div class="sliding-index">
+      {% for blog in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
+        {% if loop.index <= pagination.post_limit %}
 
-        <!--Graceful degradation for non-js enabled browsers-->
-        <noscript><div style="display:none;"</noscript>
-            <button href="#" class="btn small" id="sliding-prev-page">Prev</button>
-            <button href="#" class="btn small" id="sliding-next-page">Next</button>
-        <noscript></div></noscript>
+          <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
 
-        <br/>
-        <br/>
-        <div class="sliding-index">
-            {% for blog in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
-                {% if loop.index <= pagination.post_limit %}
+            <!--Header Group-->
+            <h2 class="title"><a href="{{blog.url}}">{{ blog.title }}</a></h2>
+            <span id="metadata">
+              {% if blog.datetime %}
+                {{ blog.datetime.strftime("%A %B %d, %Y") }}
+              {% endif %}
+            </span>
+            <!--End Header Group-->
 
-                    <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
+            <!--Blog Image-->
+            {% if blog.image %}
+              <img src="{{blog.image.url}}"/>
+            {% endif %}
+            <!--End Blog Image-->
 
-                        <!--Header Group-->
-                        <h2 class="title"><a href="{{blog.url}}">{{ blog.title }}</a></h2>
-                        <p id="metadata">
-                            {% if blog.datetime %}
-                                {{ blog.datetime.strftime("%A %B %d, %Y") }}
-                            {% endif %}
-                        </p >
-                        <!--End Header Group-->
-
-                        <!--Blog Image-->
-                        {% if blog.image %}
-                            <img src="{{blog.image.url}}"/>
-                        {% endif %}
-                        <!--End Blog Image-->
-
-                        <!--Blog Preview Post-->
-                        <div class="preview">
-                            <span>
-                                {% if blog.preview %}
-                                    {{blog.preview}}
-                                {% else %}
-                                    {{blog.content|truncate(length=1200)}}
-                                {% endif %}
-                                </pre>
-                                </code>
-                            </span>
-                            <a href="{{blog.url}}">more</a>
-                        </div>
-                        <!--End Blog Preview Post-->
-
-                        {% if not loop.last%}
-                            <hr>
-                        {% endif %}
-
-                        <div style="clear:both;"></div>
-                    </div>
+            <!--Blog Preview Post-->
+            <div class="preview">
+              <span>
+                {% if blog.preview %}
+                  {{blog.preview}}
+                {% else %}
+                  {{blog.content|truncate(length=1200)}}
                 {% endif %}
-            {% endfor %}
-        </div>
+                </pre>
+                </code>
+              </span>
+              <a href="{{blog.url}}">more</a>
+            </div>
+            <!--End Blog Preview Post-->
+
+            {% if not loop.last%}
+              <hr>
+            {% endif %}
+
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
-</div>
-<!--End Blog Posts-->
+  </div>
+  <!--End Blog Posts-->
 
-<script type="text/javascript" src="/js/libraries/jquery-1.7.1.min.js" ></script>
-<script type="text/javascript" src="/js/libraries/jquery-ui-1.8.16.custom.min.js"></script>
-<script type="text/javascript" src="/js/sliding-paginator-thing.js" ></script>
-
+  <script type="text/javascript" src="/js/libraries/jquery-1.7.1.min.js" ></script>
+  <script type="text/javascript" src="/js/libraries/jquery-ui-1.8.16.custom.min.js"></script>
+  <script type="text/javascript" src="/js/sliding-paginator-thing.js" ></script>
 {% endblock %}

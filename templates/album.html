@@ -1,34 +1,31 @@
 {% extends "default.html" %}
 
+{% block page_header %}
+  <h1>{{ page.title }}</h1>
+{% endblock %}
+
 {% block content %}
+  <link rel="stylesheet" type="text/css" href="/css/album.css" />
+  <script type="text/javascript" src="/js/utilities.js" ></script>
 
-    <link rel="stylesheet" type="text/css" href="/css/album.css" />
-    <script type="text/javascript" src="/js/utilities.js" ></script>
+  <!--Bind album image srcs to DOM-->
+  <span id="srcs" style="display:none">{{ site.srcs }}</span>
+  <span id="thumb_srcs" style="display:none">{{ site.thumb_srcs }}</span>
 
-    <!--Bind album image srcs to DOM-->
-    <span id="srcs" style="display:none">{{ site.srcs }}</span>
-    <span id="thumb_srcs" style="display:none">{{ site.thumb_srcs }}</span>
+  <!--Bind album image sizes to DOM-->
+  <span id="sizes" style="display:none">{{ site.sizes }}</span>
+  <span id="thumb_sizes" style="display:none">{{ site.thumb_sizes }}</span>
 
-    <!--Bind album image sizes to DOM-->
-    <span id="sizes" style="display:none">{{ site.sizes }}</span>
-    <span id="thumb_sizes" style="display:none">{{ site.thumb_sizes }}</span>
+  {{  page.content  }}
+  <div id="album" class="container"></div>
+  <span id="indicator"><span class="arrow-down"></span></span>
+  <span id="rowSpinner" style="display:none;"></span>
 
-    <h1 id="page-header">{{ page.title }}</h1>
-    {{page.content}}
-
-    <div id="album" class="container"></div>
-
-    <span id="indicator">
-        <span class="arrow-down"></span>
-    </span>
-
-    <span id="rowSpinner" style="display:none;"></span>
-
-    <script type="text/javascript" src="/js/libraries/jquery-1.7.1.min.js" ></script>
-    <script type="text/javascript" src="/js/libraries/underscore-min.js" ></script>
-    <script type="text/javascript" src="/js/libraries/backbone-min.js" ></script>
-    <script type="text/javascript" src="/js/libraries/spin.min.js" ></script>
-    <script type="text/javascript" src="/js/album.js" ></script>
+  <script type="text/javascript" src="/js/libraries/jquery-1.7.1.min.js" ></script>
+  <script type="text/javascript" src="/js/libraries/underscore-min.js" ></script>
+  <script type="text/javascript" src="/js/libraries/backbone-min.js" ></script>
+  <script type="text/javascript" src="/js/libraries/spin.min.js" ></script>
+  <script type="text/javascript" src="/js/album.js" ></script>
 
 {% endblock %}
 

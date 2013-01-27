@@ -1,22 +1,16 @@
 @import "globals.scss";
 
-h1#page-header {
+h1 {
     color: #005454;
 }
 
 .blog {
-    margin-top: 25px;
     h2, h3, h4 {
       display: block;
       font-style: underline;
       margin-bottom: 16px;
       margin-top: 16px;
     }
-}
-
-p#metadata {
-    line-height: 17px;
-    margin-bottom: 26px;
 }
 
 img {

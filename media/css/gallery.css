@@ -24,14 +24,18 @@
     filter: alpha(opacity=75);
     opacity: .75; }
   #gallery h3 span {
-    background: black;
-    /* fallback color */
-    background: rgba(0, 0, 0, 0.7);
+    background: url("/img/textures/assault.png") repeat scroll 0 0;
+    border-radius: 2px;
     bottom: 60px;
-    color: white;
+    color: #fafafa;
     font: bold 16px/37px Helvetica, Sans-Serif;
     left: 7px;
     letter-spacing: -1px;
     padding: 10px;
     position: relative;
     z-index: 1001; }
+  #gallery .span4 {
+    display: inline;
+    float: left;
+    margin-right: 15px;
+    width: 220px; }

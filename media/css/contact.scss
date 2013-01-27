@@ -1,5 +1,8 @@
 @import "globals.scss";
 .view {
+    float: left;
+    width: 24%;
+    margin-right: 1.25%;
     i {
         @include transition(all .1s linear);
         font-size: 128px;
@@ -31,14 +34,14 @@
         @include transform(translateY(-100px));
         @include transition(all .3s linear);
         background: rgba(0, 0, 0, 0.8);
-        color: white;
+        color: $white;
         padding: 10px;
         opacity: 0;
     }
     p {
         @include transform(scale(10));
         @include transition(all .2s linear);
-        color: white;
+        color: $white;
         font-size: 14px;
         font-style: italic;
         opacity: 0;
@@ -50,7 +53,7 @@
         @include transition(all .25s linear);
         background: black;
         bottom: 8%;
-        color: white;
+        color: $white;
         left: 5%;
         opacity: 0;
         padding: 5px;
@@ -74,4 +77,11 @@
             @include transition-delay(.1s);
         }
     }
+}
+
+.span4 {
+    display: inline;
+    float: left;
+    margin-right: 15px;
+    width: 220px;
 }

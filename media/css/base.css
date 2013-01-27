@@ -2,61 +2,80 @@ html, body {
   background-color: #F9FAFA;
   font-family: 'Source Sans Pro', sans-serif;
   height: 100%;
-  margin: 0;
-  padding: 0; }
+  padding: 0;
+  text-align: justify; }
 
-.container {
-  min-height: 100%; }
+#wrap {
+  margin: 0 auto;
+  width: 940px; }
 
 h1, h2, h3, h4, h5, #logo {
-  font-family: 'Gentium Book Basic', serif; }
+  font-family: 'Gentium Book Basic', serif;
+  margin: 0; }
 
 a, .main a:hover {
   transition: all .2s;
   font-weight: bold; }
 
 hr {
-  border-color: gainsboro; }
+  border-color: #dcdcdc; }
 
 strong {
   color: #333; }
 
-.main #page-header {
-  display: inline;
-  line-height: 34px; }
-.main p, .main span {
-  font-size: 17px;
-  line-height: 32px;
-  color: #414b41; }
-.main li, .main ol {
-  font-size: 17px;
-  line-height: 32px;
-  list-style: square;
-  color: #5f695f; }
+.main {
+  padding-bottom: 350px; }
+  .main .page-header-group {
+    margin-bottom: 26px; }
+    .main .page-header-group h1 {
+      margin-bottom: 0; }
+  .main p, .main span {
+    font-size: 17px;
+    margin: 0;
+    line-height: 32px;
+    color: #414b41; }
+  .main li, .main ol {
+    font-size: 17px;
+    line-height: 32px;
+    list-style: square;
+    color: #5f695f; }
+  .main a {
+    color: #005454;
+    text-decoration: none; }
+    .main a:hover {
+      color: #2AAAAA; }
+  .main hr {
+    margin-bottom: 13px; }
 
 #header {
-  margin-top: 26px; }
+  height: 78px;
+  position: relative;
+  margin-bottom: 26px; }
   #header hr {
     margin-bottom: 6px;
     margin-top: 12px; }
 
-#logo {
-  font-size: 36px;
-  font-weight: bold; }
-  #logo a {
-    color: #005454;
-    text-decoration: none; }
-    #logo a:hover {
-      color: #2AAAAA; }
-
-#sublogo {
-  color: grey;
-  font-size: 15px;
-  line-height: 34px; }
+.logos {
+  position: absolute;
+  left: 0;
+  top: 10px; }
+  .logos #logo {
+    font-size: 36px;
+    font-weight: bold; }
+    .logos #logo a {
+      color: #005454;
+      text-decoration: none; }
+      .logos #logo a:hover {
+        color: #2AAAAA; }
+  .logos #sublogo {
+    color: grey;
+    font-size: 15px; }
 
 #navigation {
-  float: right;
-  font-size: 14px; }
+  position: absolute;
+  font-size: 14px;
+  right: 0;
+  top: 20px; }
   #navigation a {
     margin-left: 6px;
     text-decoration: none;
@@ -70,23 +89,16 @@ strong {
     transition: all .2s; }
     #navigation span:hover, #navigation span.current-nav {
       background: #DDDDD3; }
+  #navigation hr {
+    clear: both; }
 
-.main {
-  padding: 10px 0 350px; }
-  .main a {
-    color: #005454;
-    text-decoration: none; }
-    .main a:hover {
-      color: #2AAAAA; }
-  .main hr {
-    margin-bottom: 13px; }
-
-p#metadata {
+span.metadata {
   color: #808080;
   font-size: 13px;
   font-weight: bold;
   line-height: 6px;
-  margin-bottom: 16px; }
+  position: relative;
+  top: 4px; }
 
 .base-image img {
   margin-bottom: 5px;
@@ -139,3 +151,20 @@ p#metadata {
     text-decoration: none; }
     #footer a:hover {
       color: #2AAAAA; }
+
+.c:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
+
+.c {
+  display: inline-block; }
+
+html[xmlns] .c {
+  display: block; }
+
+* html .c {
+  height: 1%; }
