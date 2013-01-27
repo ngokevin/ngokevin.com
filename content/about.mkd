@@ -7,12 +7,11 @@ navrank: 1
 image:
     url: /img/star.jpg
     where: right
-    caption: Looking towards the stars
 
 ---
 
-My name is Kevin Ngo, an undergraduate **computer science** student at Oregon
-State University. I was recently an intern at **Mozilla** as a web
+An undergraduate **computer science** student at Oregon
+State University. Recently an intern at **Mozilla** as a web
 developer working on the Mozilla Marketplace. During the school year, I work at
 the OSU Network Engineering Team [NET][net] in Network Services Systems as a
 programmer and web developer. I put this blog up to show off my projects or

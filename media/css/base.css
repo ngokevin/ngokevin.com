@@ -1,12 +1,18 @@
 html, body {
-  background-color: #fafafa;
+  background: url("../img/textures/satinweave.png") repeat scroll 0 0 transparent;
   font-family: 'Source Sans Pro', sans-serif;
   height: 100%;
-  padding: 0;
+  margin: 4px 0 0;
   text-align: justify; }
 
 #wrap {
+  -moz-box-shadow: 0 1px 2px #ddddd3;
+  -webkit-box-shadow: 0 1px 2px #ddddd3;
+  box-shadow: 0 1px 2px #ddddd3;
+  background: url("../img/textures/cream_dust.png") repeat scroll 0 0 transparent;
+  border-radius: 3px;
   margin: 0 auto;
+  padding: 4px 39px 0 39px;
   width: 940px; }
 
 h1, h2, h3, h4, h5, #logo {
@@ -31,7 +37,7 @@ hr {
   .main .header-group {
     margin-bottom: 26px; }
     .main .header-group h1, .main .header-group h2 {
-      color: #50505a; }
+      color: #003a3a; }
     .main .header-group h1 {
       margin-bottom: 0; }
   .main p, .main span {
@@ -98,7 +104,7 @@ hr {
     padding: 64px 16px 16px 16px;
     transition: background .4s; }
     #navigation span:hover, #navigation span.current-nav {
-      background: #ddddd3; }
+      background: url("../img/textures/willie_holiday.png") repeat scroll 0 0 transparent; }
   #navigation hr {
     clear: both; }
 
@@ -111,11 +117,17 @@ span.metadata {
   top: 4px; }
 
 .base-image img {
-  margin-bottom: 5px;
-  max-height: 480px; }
+  -moz-box-shadow: 0 0 2px #50505a;
+  -webkit-box-shadow: 0 0 2px #50505a;
+  box-shadow: 0 0 2px #50505a;
+  max-height: 480px;
+  margin: 0 auto 52px auto; }
 .base-image span {
   font-size: 13px;
   font-style: italic; }
+
+.pagination {
+  margin-bottom: 26px; }
 
 #sliding-all a {
   color: #0a0a14;
@@ -127,7 +139,7 @@ span.metadata {
 
 #footer {
   /* Overrides sticky-footer */
-  background: #c8c8c8;
+  background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
   font-size: 14px;
   line-height: 28px;
   height: 115px;

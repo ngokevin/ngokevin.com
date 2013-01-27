@@ -19,16 +19,17 @@
 {% block page_header %}
   <h1>{{ page.title }}</h1>
 
-  {% if page.pagination %}
-    {% if page.pagination.prev_page %}
-      <a href="{{ page.pagination.prev_page.url }}">Previous Page</a> |
+  <div class="pagination">
+    {% if page.pagination %}
+      {% if page.pagination.prev_page %}
+        <a href="{{ page.pagination.prev_page.url }}">Previous Page</a> |
+      {% endif %}
+      Page {{ page.pagination.cur_page }} of {{ page.pagination.num_pages }}
+      {% if page.pagination.next_page %}
+        | <a href="{{ page.pagination.next_page.url }}">Next Page</a>
+      {% endif %}
     {% endif %}
-    Page {{ page.pagination.cur_page }} of {{ page.pagination.num_pages }}
-    {% if page.pagination.next_page %}
-      | <a href="{{ page.pagination.next_page.url }}">Next Page</a>
-    {% endif %}
-  {% endif %}
-  {{ page.content }}
+  </div>
 {% endblock %}
 
 {% block content %}

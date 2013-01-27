@@ -4,12 +4,12 @@
     .album-preview {
         display: inline;
         float: left;
-        margin-right: 15px;
+        margin-right: 13px;
         width: 220px;
     }
     a {
         @include def-box-shadow();
-        background-color: lighten($light-gray, 5%);
+        background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
         border: 7px double $light-gray;
         cursor: pointer;
         float: left;

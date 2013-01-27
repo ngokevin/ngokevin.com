@@ -5,23 +5,21 @@
   .page h2, .page h3, .page h4 {
     margin: 39px 0; }
 
-.page_pic {
-  margin-bottom: 52px; }
-  .page_pic img {
-    display: block;
-    max-width: 100%; }
-  .page_pic.right {
-    float: right;
-    margin-left: 52px;
-    text-align: right; }
-  .page_pic.left {
-    float: left;
-    margin-right: 52px;
-    text-align: left; }
-  .page_pic.top {
-    text-align: right; }
-    .page_pic.top img {
-      margin-bottom: 52px; }
+.page_pic img {
+  display: block;
+  max-width: 100%; }
+.page_pic.right {
+  float: right;
+  margin-left: 52px;
+  text-align: right; }
+.page_pic.left {
+  float: left;
+  margin-right: 52px;
+  text-align: left; }
+.page_pic.top {
+  text-align: right; }
+  .page_pic.top img {
+    margin: 52px auto; }
 
 img {
   -moz-box-shadow: 0 0 2px #50505a;

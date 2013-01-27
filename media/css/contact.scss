@@ -1,8 +1,8 @@
 @import "globals.scss";
 .view {
     @include def-box-shadow();
-    background: $white;
-    border: 7px solid #DDDDD3;
+    background: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/cream_dust.png") repeat scroll 0% 0% transparent;
+    border: 7px solid $light-gray;
     float: left;
     height: 205px;
     overflow: hidden;
@@ -10,7 +10,7 @@
     text-align: center;
     width: 205px;
     &:not(:last-child) {
-        margin-right: 20px;
+        margin-right: 21px;
     }
     i {
         @include transition(all .1s linear);

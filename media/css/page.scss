@@ -1,5 +1,6 @@
 @import "globals.scss";
 
+
 .page {
     p {
         margin-bottom: 26px;
@@ -11,7 +12,6 @@
 }
 
 .page_pic {
-    margin-bottom: 52px;
     img {
         display: block;
         max-width: 100%;
@@ -29,7 +29,7 @@
     &.top {
         text-align: right;
         img {
-          margin-bottom: 52px;
+            margin: 52px auto;
         }
     }
 }

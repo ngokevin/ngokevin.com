@@ -1,13 +1,13 @@
 #gallery .album-preview {
   display: inline;
   float: left;
-  margin-right: 15px;
+  margin-right: 13px;
   width: 220px; }
 #gallery a {
   -moz-box-shadow: 0 0 2px #50505a;
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
-  background-color: #e8e8e1;
+  background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
   border: 7px double #ddddd3;
   cursor: pointer;
   float: left;
