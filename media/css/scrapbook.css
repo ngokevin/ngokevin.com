@@ -1,16 +1,18 @@
-.resize img {
-  width: 320px;
-  height: auto;
-  width: auto;
-  height: 240px; }
-
 #scrapbook {
-  background: #007500; }
+  margin-bottom: 52px; }
+  #scrapbook .resize {
+    -moz-box-shadow: 0 0 2px #50505a;
+    -webkit-box-shadow: 0 0 2px #50505a;
+    box-shadow: 0 0 2px #50505a; }
+    #scrapbook .resize img {
+      width: 320px;
+      height: auto;
+      width: auto;
+      height: 240px; }
   #scrapbook a {
     display: block;
     float: left;
-    height: 240px;
-    margin-bottom: 39px;
+    height: 230px;
     overflow: hidden;
     position: relative;
     width: 188px;

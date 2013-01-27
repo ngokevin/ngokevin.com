@@ -1,17 +1,21 @@
-.resize img {
-    width: 320px;
-    height: auto;
-    width: auto;
-    height: 240px;
-}
+@import "globals.scss";
+
 
 #scrapbook {
-    background: #007500;
+    margin-bottom: 52px;
+    .resize {
+        @include def-box-shadow();
+        img {
+            width: 320px;
+            height: auto;
+            width: auto;
+            height: 240px;
+        }
+    }
     a {
         display: block;
         float: left;
-        height: 240px;
-        margin-bottom: 39px;
+        height: 230px;
         overflow: hidden;
         position: relative;
         width: 188px;

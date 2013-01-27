@@ -1,13 +1,16 @@
 @import "globals.scss";
 
 #gallery {
-    margin-top: 1.1em;
+    .album-preview {
+        display: inline;
+        float: left;
+        margin-right: 15px;
+        width: 220px;
+    }
     a {
-        @include img-box-shadow();
-        background-color: #EEEEE6;
-        border-color: #DDDDD3;
-        border-style: double;
-        border-width: 7px;
+        @include def-box-shadow();
+        background-color: lighten($light-gray, 5%);
+        border: 7px double $light-gray;
         cursor: pointer;
         float: left;
         height: 210px;
@@ -27,7 +30,7 @@
         opacity: .75;
     }
     h3 span {
-        background: url('/img/textures/assault.png') repeat scroll 0 0;
+        background: rgba(10, 10, 20, .85);
         border-radius: 2px;
         bottom: 60px;
         color: $white;
@@ -37,11 +40,5 @@
         padding: 10px;
         position: relative;
         z-index: 1001;
-    }
-    .span4 {
-        display: inline;
-        float: left;
-        margin-right: 15px;
-        width: 220px;
     }
 }

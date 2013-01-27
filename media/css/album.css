@@ -7,16 +7,16 @@
     margin-top: 0px;
     width: auto; }
   #album img:hover {
-    -moz-box-shadow: 0 0 5px 2px #888888;
-    -webkit-box-shadow: 0 0 5px 2px #888888;
-    box-shadow: 0 0 5px 2px #888888; }
+    -moz-box-shadow: 0 0 2px #50505a;
+    -webkit-box-shadow: 0 0 2px #50505a;
+    box-shadow: 0 0 2px #50505a; }
 
-.arrow-down {
+#arrow-down {
   display: block;
   height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-top: 30px solid #fafafa;
+  border-top: 30px solid #007500;
   opacity: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -32,17 +32,15 @@
 img.expand {
   cursor: pointer; }
 img.expanded {
-  -moz-box-shadow: 0 0 5px 2px #888888;
-  -webkit-box-shadow: 0 0 5px 2px #888888;
-  box-shadow: 0 0 5px 2px #888888;
-  border-color: #EEEEE6;
-  border-style: solid;
-  border-width: 7px;
+  -moz-box-shadow: 0 0 2px #50505a;
+  -webkit-box-shadow: 0 0 2px #50505a;
+  box-shadow: 0 0 2px #50505a;
+  border: 7px solid #ddddd3;
   cursor: pointer;
   z-index: 9; }
 
 .overlay {
-  background-color: #000;
+  background-color: #0a0a14;
   filter: alpha(opacity=70);
   left: 0px;
   height: 100%;
@@ -52,12 +50,10 @@ img.expanded {
   z-index: 10; }
 
 .overlay-img {
-  -moz-box-shadow: 0 0 5px 2px #666666;
-  -webkit-box-shadow: 0 0 5px 2px #666666;
-  box-shadow: 0 0 5px 2px #666666;
+  -moz-box-shadow: 0 0 2px #50505a;
+  -webkit-box-shadow: 0 0 2px #50505a;
+  box-shadow: 0 0 2px #50505a;
   z-index: 11;
-  border-color: #EEEEE6;
-  border-style: solid;
-  border-width: 7px;
+  border: 7px solid #ddddd3;
   left: 15.5%;
   position: absolute; }

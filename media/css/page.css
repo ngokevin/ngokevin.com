@@ -1,6 +1,3 @@
-h1 {
-  color: #005454; }
-
 .page {
   margin-bottom: 92px; }
   .page p {
@@ -8,9 +5,27 @@ h1 {
   .page h2, .page h3, .page h4 {
     margin: 39px 0; }
 
+.page_pic {
+  margin-bottom: 52px; }
+  .page_pic img {
+    display: block;
+    max-width: 100%; }
+  .page_pic.right {
+    float: right;
+    margin-left: 52px;
+    text-align: right; }
+  .page_pic.left {
+    float: left;
+    margin-right: 52px;
+    text-align: left; }
+  .page_pic.top {
+    text-align: right; }
+    .page_pic.top img {
+      margin-bottom: 52px; }
+
 img {
-  -moz-box-shadow: 0 0 2px #32323c;
-  -webkit-box-shadow: 0 0 2px #32323c;
-  box-shadow: 0 0 2px #32323c;
+  -moz-box-shadow: 0 0 2px #50505a;
+  -webkit-box-shadow: 0 0 2px #50505a;
+  box-shadow: 0 0 2px #50505a;
   display: block;
   max-width: 100%; }

@@ -1,5 +1,5 @@
 html, body {
-  background-color: #F9FAFA;
+  background-color: #fafafa;
   font-family: 'Source Sans Pro', sans-serif;
   height: 100%;
   padding: 0;
@@ -30,6 +30,8 @@ hr {
   padding-bottom: 350px; }
   .main .header-group {
     margin-bottom: 26px; }
+    .main .header-group h1, .main .header-group h2 {
+      color: #50505a; }
     .main .header-group h1 {
       margin-bottom: 0; }
   .main p, .main span {
@@ -43,17 +45,18 @@ hr {
     list-style: square;
     color: #5f695f; }
   .main a {
+    font-weight: bold;
     color: #005454;
     text-decoration: none; }
     .main a:hover {
-      color: #2AAAAA; }
+      color: #2aaaaa; }
   .main hr {
     margin-bottom: 13px; }
 
 #header {
   height: 78px;
   position: relative;
-  margin-bottom: 26px; }
+  margin-bottom: 39px; }
   #header hr {
     margin-bottom: 6px;
     margin-top: 12px; }
@@ -69,34 +72,38 @@ hr {
       color: #005454;
       text-decoration: none; }
       .logos #logo a:hover {
-        color: #2AAAAA; }
+        color: #2aaaaa; }
   .logos #sublogo {
-    color: grey;
+    color: #50505a;
     font-size: 15px; }
 
 #navigation {
   position: absolute;
-  font-size: 14px;
+  font: 16px 'Gentium Book Basic', serif;
   right: 0;
   top: 20px; }
   #navigation a {
-    margin-left: 6px;
+    color: #32323c;
+    margin-left: 26px;
     text-decoration: none;
-    vertical-align: middle; }
+    position: relative;
+    vertical-align: middle;
+    top: 0;
+    transition: top .3s; }
     #navigation a:hover {
-      color: #2AAAAA; }
+      top: 13px; }
   #navigation span {
+    background: none;
     border-radius: 8px;
-    color: #0A0A0A;
-    padding: 32px 16px 16px 16px;
-    transition: all .2s; }
+    padding: 64px 16px 16px 16px;
+    transition: background .4s; }
     #navigation span:hover, #navigation span.current-nav {
-      background: #DDDDD3; }
+      background: #ddddd3; }
   #navigation hr {
     clear: both; }
 
 span.metadata {
-  color: #808080;
+  color: #50505a;
   font-size: 13px;
   font-weight: bold;
   line-height: 6px;
@@ -110,29 +117,8 @@ span.metadata {
   font-size: 13px;
   font-style: italic; }
 
-.page_pic {
-  margin-bottom: 20px; }
-  .page_pic img {
-    display: block;
-    max-width: 100%; }
-  .page_pic.right {
-    float: right;
-    margin-left: 20px;
-    text-align: right; }
-  .page_pic.left {
-    float: left;
-    margin-right: 20px;
-    text-align: left; }
-  .page_pic.top {
-    text-align: right; }
-    .page_pic.top img {
-      margin-bottom: 5px; }
-  .page_pic img {
-    margin-top: 5px;
-    display: block; }
-
 #sliding-all a {
-  color: black;
+  color: #0a0a14;
   font-weight: normal; }
 
 .sliding-index {
@@ -143,17 +129,17 @@ span.metadata {
   /* Overrides sticky-footer */
   background: #c8c8c8;
   font-size: 14px;
-  line-height: 40px;
+  line-height: 28px;
   height: 115px;
   margin-top: -100px;
   min-width: 960px;
-  padding-top: 15px;
+  padding-top: 26px;
   text-align: center; }
   #footer a {
     color: #005454;
     text-decoration: none; }
     #footer a:hover {
-      color: #2AAAAA; }
+      color: #2aaaaa; }
 
 a.btn {
   background: #007500;

@@ -25,6 +25,7 @@
     }
     .more-link {
         font-size: 15px;
+        font-weight: bold;
         left: 6px;
         position: relative;
     }
@@ -33,7 +34,7 @@
         margin-bottom: 13px;
     }
     img {
-        @include img-box-shadow();
+        @include def-box-shadow();
         float: left;
         margin: 10px 20px 20px 0;
         max-width: 210px;

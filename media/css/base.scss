@@ -2,7 +2,7 @@
 
 
 html, body {
-    background-color: #F9FAFA;
+    background-color: $white;
     font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
     padding: 0;
@@ -41,6 +41,9 @@ hr {
     padding-bottom: 350px;
     .header-group {
         margin-bottom: 26px;
+        h1, h2 {
+            color: $gray;
+        }
         h1 {
             margin-bottom: 0;
         }
@@ -58,10 +61,11 @@ hr {
         color: rgb(95, 105, 95);
     }
     a {
-        color: #005454;
+        font-weight: bold;
+        color: $dark-green;
         text-decoration: none;
         &:hover {
-          color: #2AAAAA;
+          color: $light-green;
         }
     }
     hr {
@@ -74,7 +78,7 @@ hr {
 #header {
     height: 78px;
     position: relative;
-    margin-bottom: 26px;
+    margin-bottom: 39px;
     hr {
         margin-bottom: 6px;
         margin-top: 12px;
@@ -89,41 +93,45 @@ hr {
         font-size: 36px;
         font-weight: bold;
         a {
-            color: #005454;
+            color: $dark-green;
             text-decoration: none;
             &:hover {
-              color: #2AAAAA;
+              color: $light-green;
             }
         }
     }
 
     #sublogo {
-        color: grey;
+        color: $gray;
         font-size: 15px;
     }
 }
 
 #navigation {
     position: absolute;
-    font-size: 14px;
+    font: 16px 'Gentium Book Basic', serif;
     right: 0;
     top: 20px;
     a {
-          margin-left: 6px;
-          text-decoration: none;
-          vertical-align: middle;
-          &:hover {
-                color: #2AAAAA;
-          }
+        color: $dark-gray;
+        margin-left: 26px;
+        text-decoration: none;
+        position: relative;
+        vertical-align: middle;
+        top: 0;
+        transition: top .3s;
+        &:hover {
+            top: 13px;
+        }
     }
     span {
-          border-radius: 8px;
-          color: #0A0A0A;
-          padding: 32px 16px 16px 16px;
-          transition: all .2s;
-          &:hover, &.current-nav {
-                background: #DDDDD3;
-          }
+        background: none;
+        border-radius: 8px;
+        padding: 64px 16px 16px 16px;
+        transition: background .4s;
+        &:hover, &.current-nav {
+            background: $light-gray;
+        }
     }
     hr {
         clear: both;
@@ -131,7 +139,7 @@ hr {
 }
 
 span.metadata {
-    color: #808080;
+    color: $gray;
     font-size: 13px;
     font-weight: bold;
     line-height: 6px;
@@ -150,36 +158,8 @@ span.metadata {
     }
 }
 
-.page_pic {
-    margin-bottom: 20px;
-    img {
-        display: block;
-        max-width: 100%;
-    }
-    &.right {
-        float: right;
-        margin-left: 20px;
-        text-align: right;
-    }
-    &.left {
-        float: left;
-        margin-right: 20px;
-        text-align: left;
-    }
-    &.top {
-        text-align: right;
-        img {
-          margin-bottom: 5px;
-        }
-    }
-    img {
-        margin-top: 5px;
-        display: block;
-    }
-}
-
 #sliding-all a {
-    color: black;
+    color: $black;
     font-weight: normal;
 }
 .sliding-index {
@@ -191,17 +171,17 @@ span.metadata {
     /* Overrides sticky-footer */
     background: rgb(200, 200, 200);
     font-size: 14px;
-    line-height: 40px;
+    line-height: 28px;
     height: 115px;
     margin-top: -100px;
     min-width: 960px;
-    padding-top: 15px;
+    padding-top: 26px;
     text-align: center;
     a {
-        color: #005454;
+        color: $dark-green;
         text-decoration: none;
         &:hover {
-          color: #2AAAAA;
+          color: $light-green;
         }
     }
 }

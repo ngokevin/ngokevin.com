@@ -1,41 +1,37 @@
-#gallery {
-  margin-top: 1.1em; }
-  #gallery a {
-    -moz-box-shadow: 0 0 2px #32323c;
-    -webkit-box-shadow: 0 0 2px #32323c;
-    box-shadow: 0 0 2px #32323c;
-    background-color: #EEEEE6;
-    border-color: #DDDDD3;
-    border-style: double;
-    border-width: 7px;
-    cursor: pointer;
+#gallery .album-preview {
+  display: inline;
+  float: left;
+  margin-right: 15px;
+  width: 220px; }
+#gallery a {
+  -moz-box-shadow: 0 0 2px #50505a;
+  -webkit-box-shadow: 0 0 2px #50505a;
+  box-shadow: 0 0 2px #50505a;
+  background-color: #e8e8e1;
+  border: 7px double #ddddd3;
+  cursor: pointer;
+  float: left;
+  height: 210px;
+  margin-right: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 210px;
+  z-index: 1; }
+  #gallery a img {
     float: left;
-    height: 210px;
-    margin-right: 10px;
-    overflow: hidden;
-    position: relative;
-    width: 210px;
-    z-index: 1; }
-    #gallery a img {
-      float: left;
-      position: absolute; }
-  #gallery img:hover {
-    -moz-opacity: .75;
-    filter: alpha(opacity=75);
-    opacity: .75; }
-  #gallery h3 span {
-    background: url("/img/textures/assault.png") repeat scroll 0 0;
-    border-radius: 2px;
-    bottom: 60px;
-    color: #fafafa;
-    font: bold 16px/37px Helvetica, Sans-Serif;
-    left: 7px;
-    letter-spacing: -1px;
-    padding: 10px;
-    position: relative;
-    z-index: 1001; }
-  #gallery .span4 {
-    display: inline;
-    float: left;
-    margin-right: 15px;
-    width: 220px; }
+    position: absolute; }
+#gallery img:hover {
+  -moz-opacity: .75;
+  filter: alpha(opacity=75);
+  opacity: .75; }
+#gallery h3 span {
+  background: rgba(10, 10, 20, 0.85);
+  border-radius: 2px;
+  bottom: 60px;
+  color: #fafafa;
+  font: bold 16px/37px Helvetica, Sans-Serif;
+  left: 7px;
+  letter-spacing: -1px;
+  padding: 10px;
+  position: relative;
+  z-index: 1001; }

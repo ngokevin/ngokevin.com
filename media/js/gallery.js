@@ -104,14 +104,13 @@ var insertAlbums = function() {
         // make a new row every four albums
         if (index % 4 == 0) {
             var row = document.createElement("div");
-            row.className = "row";
             gallery.appendChild(row);
         }
 
         // create a div for the album to separate it
         var div = document.createElement("div");
         div.id = "album-preview" + index;
-        div.className = "span4";
+        div.className = "album-preview";
         div.appendChild(albums['images'][index][0]);
 
         // create overlay text with album title
