@@ -1,20 +1,27 @@
+.list-view .item {
+  margin-bottom: 52px; }
 .list-view .heading {
   margin-top: 13px; }
 .list-view .preview h1, .list-view .preview h2, .list-view .preview h3, .list-view .preview img, .list-view .preview pre, .list-view .preview code {
   display: none; }
+.list-view .preview p:last-child {
+  display: inline; }
 .list-view .preview li {
   clear: both; }
-.list-view h3 {
+.list-view .recent-blogs {
   display: inline;
-  font-size: 16px;
   margin-right: 10px; }
+.list-view .more-link {
+  font-size: 15px;
+  left: 6px;
+  position: relative; }
 .list-view form {
   display: inline-block;
   margin-bottom: 13px; }
 .list-view img {
-  -moz-box-shadow: 2px 2px 4px #888888;
-  -webkit-box-shadow: 2px 2px 4px #888888;
-  box-shadow: 2px 2px 4px #888888;
+  -moz-box-shadow: 0 0 2px #32323c;
+  -webkit-box-shadow: 0 0 2px #32323c;
+  box-shadow: 0 0 2px #32323c;
   float: left;
   margin: 10px 20px 20px 0;
   max-width: 210px;

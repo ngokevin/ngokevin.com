@@ -1,3 +1,6 @@
+@import "globals.scss";
+
+
 html, body {
     background-color: #F9FAFA;
     font-family: 'Source Sans Pro', sans-serif;
@@ -22,17 +25,21 @@ a, .main a:hover {
     font-weight: bold;
 }
 
+span p a {
+    font-weight: normal;
+}
+
+strong {
+    color: $gray;
+}
+
 hr {
     border-color: rgb(220, 220, 220);
 }
 
-strong {
-    color: #333;
-}
-
 .main {
     padding-bottom: 350px;
-    .page-header-group {
+    .header-group {
         margin-bottom: 26px;
         h1 {
             margin-bottom: 0;
@@ -184,7 +191,7 @@ span.metadata {
     /* Overrides sticky-footer */
     background: rgb(200, 200, 200);
     font-size: 14px;
-    line-height: 23px;
+    line-height: 40px;
     height: 115px;
     margin-top: -100px;
     min-width: 960px;
@@ -196,6 +203,28 @@ span.metadata {
         &:hover {
           color: #2AAAAA;
         }
+    }
+}
+
+a.btn {
+    background: $green;
+    border-radius: 5px;
+    bottom: 0;
+    color: $white;
+    font-weight: normal;
+    margin-right: 5px;
+    padding: 3px 8px;
+    text-decoration: none;
+    transition: .5s .1s;
+    &:hover {
+        background: lighten($green, 5%);
+        font-weight: normal;
+        color: $white;
+        cursor: pointer;
+    }
+    &:active {
+        background: darken($green, 10%);
+        transition: .03s 0s;
     }
 }
 

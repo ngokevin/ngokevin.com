@@ -16,57 +16,20 @@
 
   <!--Blog Posts-->
   <div class="list-view">
-    <h3>Recent Blogs</h3>
-    <form method="link" action="/blog/">
-      <button class="btn success" id="sliding-all"><a href="/blog">All</a></button>
-    </form>
-
-    <!--Graceful degradation for non-js enabled browsers-->
-    <noscript><div style="display:none;"</noscript>
-      <button href="#" class="btn small" id="sliding-prev-page">Prev</button>
-      <button href="#" class="btn small" id="sliding-next-page">Next</button>
-    <noscript></div></noscript>
+    <div class="header-group">
+      <h3 class="recent-blogs">Recent Blogs</h3>
+      <!--Graceful degradation for non-js enabled browsers-->
+      <noscript><div style="display:none;"</noscript>
+        <a href="#" class="btn" id="sliding-prev-page">Prev</a>
+        <a href="#" class="btn" id="sliding-next-page">Next</a>
+      <noscript></div></noscript>
+    </div>
 
     <div class="sliding-index">
-      {% for blog in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
+      {% for item in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
         {% if loop.index <= pagination.post_limit %}
-
           <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
-
-            <!--Header Group-->
-            <h2 class="title"><a href="{{blog.url}}">{{ blog.title }}</a></h2>
-            <span id="metadata">
-              {% if blog.datetime %}
-                {{ blog.datetime.strftime("%A %B %d, %Y") }}
-              {% endif %}
-            </span>
-            <!--End Header Group-->
-
-            <!--Blog Image-->
-            {% if blog.image %}
-              <img src="{{blog.image.url}}"/>
-            {% endif %}
-            <!--End Blog Image-->
-
-            <!--Blog Preview Post-->
-            <div class="preview">
-              <span>
-                {% if blog.preview %}
-                  {{blog.preview}}
-                {% else %}
-                  {{blog.content|truncate(length=1200)}}
-                {% endif %}
-                </pre>
-                </code>
-              </span>
-              <a href="{{blog.url}}">more</a>
-            </div>
-            <!--End Blog Preview Post-->
-
-            {% if not loop.last%}
-              <hr>
-            {% endif %}
-
+            {% include "includes/list_view_item.html" %}
           </div>
         {% endif %}
       {% endfor %}

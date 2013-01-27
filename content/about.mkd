@@ -23,8 +23,8 @@ applications which leads me to loving **programming**. My goal is to build cool
 things that many people will want to use. And I see the **open web** as my
 vehicle towards that goal, with the web being highly accessible and universal
 and all. Away from the computer, my favorite place to be is on the basketball
-or [tennis](tennis) courts. Though I also like cruising the streets on longboards or
-sight-reading on the [piano](piano).
+or [tennis][tennis] courts. Though I also like cruising the streets on longboards or
+sight-reading on the [piano][piano].
 
 I rock **Linux**, hack with **Javascript** and **Python/Django**, and keep it
 all under wraps with **Git**.

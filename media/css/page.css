@@ -1,0 +1,16 @@
+h1 {
+  color: #005454; }
+
+.page {
+  margin-bottom: 92px; }
+  .page p {
+    margin-bottom: 26px; }
+  .page h2, .page h3, .page h4 {
+    margin: 39px 0; }
+
+img {
+  -moz-box-shadow: 0 0 2px #32323c;
+  -webkit-box-shadow: 0 0 2px #32323c;
+  box-shadow: 0 0 2px #32323c;
+  display: block;
+  max-width: 100%; }

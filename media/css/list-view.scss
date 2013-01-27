@@ -1,6 +1,10 @@
 @import "globals.scss";
 
+
 .list-view {
+    .item {
+        margin-bottom: 52px;
+    }
     .heading {
         margin-top: 13px;
     }
@@ -8,14 +12,21 @@
         h1, h2, h3, img, pre, code {
             display: none;
         }
+        p:last-child {
+            display: inline;
+        }
         li {
             clear: both;
         }
     }
-    h3 {
+    .recent-blogs {
         display: inline;
-        font-size: 16px;
         margin-right: 10px;
+    }
+    .more-link {
+        font-size: 15px;
+        left: 6px;
+        position: relative;
     }
     form {
         display: inline-block;

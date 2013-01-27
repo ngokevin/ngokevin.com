@@ -35,38 +35,8 @@
   <link rel="stylesheet" type="text/css" href="/css/list-view.css" />
 
   <div class="list-view">
-    {% for subpage in pagination.page_items %}
-
-      <div class="item c">
-        <div class="heading">
-          <h2 class="title"><a href="{{subpage.url}}">{{subpage.title}}</a></h2>
-          <span class="metadata">
-            {% if subpage.datetime %}
-              {{ subpage.datetime.strftime("%A %B %d, %Y")}}
-            {% endif %}
-          </span>
-        </div>
-
-        <div class="preview">
-          <span>
-            {% if subpage.image %}
-              <img style="float:left; display:inline" src="{{subpage.image.url}}"/>
-            {% endif %}
-            {% if subpage.preview %}
-              {{ subpage.preview }}
-              {% if subpage.preview|count < 600 %}
-                <br/>
-              {% endif %}
-            {% else %}
-              {{subpage.content|truncate(length=char_limit, end="<a href="+subpage.url+">...more</a>")}}
-            {% endif %}
-            </code>
-            </pre>
-
-          </span>
-        </div>
-      </div>
-
+    {% for item in pagination.page_items %}
+      {% include "includes/list_view_item.html" %}
     {% endfor %}
   </div>
 {% endblock %}

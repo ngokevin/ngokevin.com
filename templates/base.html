@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="/css/lib/sticky_footer.css" />
   <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.css" />
   <link rel="stylesheet" type="text/css" href="/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
   <link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=3"/>
@@ -34,7 +35,7 @@
     </div>
 
     <div class="main">
-      <div class="page-header-group">{% block page_header %}{% endblock %}</div>
+      <div class="header-group">{% block page_header %}{% endblock %}</div>
 
       <div class="base-image">
         {% if page.image %}
@@ -56,9 +57,8 @@
 
   <div id="footer">
     <span>
-      Footer space for sale.<br>
+      <a href="http://github.com/ngokevin">github:ngokevin</a><br>
       Powered by <a href="http://github.com/mythmon/wok">Wok</a><br>
-      Github: <a href="http://github.com/ngokevin">github.com/ngokevin</a><br>
     </span>
   </div>
 

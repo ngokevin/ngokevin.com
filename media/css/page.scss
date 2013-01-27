@@ -4,13 +4,14 @@ h1 {
     color: #005454;
 }
 
-.blog {
-    h2, h3, h4 {
-      display: block;
-      font-style: underline;
-      margin-bottom: 16px;
-      margin-top: 16px;
+.page {
+    p {
+        margin-bottom: 26px;
     }
+    h2, h3, h4 {
+      margin: 39px 0;
+    }
+    margin-bottom: 92px;
 }
 
 img {
