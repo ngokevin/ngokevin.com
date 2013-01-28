@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, #logo {
 }
 
 a, .main a:hover {
-    transition: all .2s;
+    @include transition(all .2s);
     font-weight: bold;
 }
 
@@ -123,7 +123,7 @@ hr {
         position: relative;
         vertical-align: middle;
         top: 0;
-        transition: top .3s;
+        @include transition(top .3s);
         &:hover {
             top: 13px;
         }
@@ -132,7 +132,7 @@ hr {
         background: none;
         border-radius: 8px;
         padding: 64px 16px 16px 16px;
-        transition: background .4s;
+        @include transition(background .4s);
         &:hover, &.current-nav {
             background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
         }
@@ -204,7 +204,7 @@ a.btn {
     margin-right: 5px;
     padding: 3px 8px;
     text-decoration: none;
-    transition: .5s .1s;
+    @include transition(.5s .1s);
     &:hover {
         background: lighten($green, 5%);
         font-weight: normal;
@@ -213,7 +213,7 @@ a.btn {
     }
     &:active {
         background: darken($green, 10%);
-        transition: .03s 0s;
+        @include transition(.03s 0s);
     }
 }
 
