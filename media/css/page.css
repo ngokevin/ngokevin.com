@@ -1,9 +1,7 @@
-.page {
-  margin-bottom: 92px; }
-  .page p {
-    margin-bottom: 26px; }
-  .page h2, .page h3, .page h4 {
-    margin: 39px 0; }
+.page p {
+  margin-bottom: 26px; }
+.page h2, .page h3, .page h4 {
+  margin: 39px 0; }
 
 .page_pic img {
   display: block;
@@ -26,4 +24,5 @@ img {
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
   display: block;
+  margin: 0 auto 39px auto;
   max-width: 100%; }

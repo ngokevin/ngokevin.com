@@ -47,7 +47,7 @@
         @include transform(scale(10));
         @include transition(all .2s linear);
         color: $white;
-        font-size: 15px;
+        font-size: 13px;
         font-style: italic;
         opacity: 0;
         padding: 15px 5px 15px 5px;
@@ -59,6 +59,7 @@
         background: $black;
         bottom: 8%;
         color: $white;
+        font-size: 14px;
         left: 5%;
         opacity: 0;
         padding: 5px;

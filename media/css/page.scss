@@ -8,7 +8,6 @@
     h2, h3, h4 {
       margin: 39px 0;
     }
-    margin-bottom: 92px;
 }
 
 .page_pic {
@@ -37,5 +36,6 @@
 img {
     @include def-box-shadow();
     display: block;
+    margin: 0 auto 39px auto;
     max-width: 100%;
 }
