@@ -1,4 +1,0 @@
-#!/bin/sh
-
-wok
-cp -r output /var/www/
