@@ -10,27 +10,23 @@ image:
 
 ---
 
-An undergraduate **computer science** student at Oregon
-State University. Recently an intern at **Mozilla** as a web
-developer working on the Mozilla Marketplace. During the school year, I work at
-the OSU Network Engineering Team [NET][net] in Network Services Systems as a
-programmer and web developer. I put this blog up to show off my projects or
-post anything I get excited about.
+An undergraduate **computer science** student at Oregon State University.
+Recently an webdev intern at **Mozilla** on the Firefox Marketplace Team.
+During the school year, I webdev at the OSU Network Engineering Team
+[NET][net], and recently started working for Mozilla again part-time. I put
+this blog up to show off my projects or post anything I find exciting or
+profound.
 
-I love **learning** as well as having the ability to build practical
-applications which leads me to loving **programming**. My goal is to build cool
-things that many people will want to use. And I see the **open web** as my
-vehicle towards that goal, with the web being highly accessible and universal
-and all. Away from the computer, my favorite place to be is on the basketball
-or [tennis][tennis] courts. Though I also like cruising the streets on longboards or
-sight-reading on the [piano][piano].
+I love programming; It joins endless learning with pragmatism. I also love
+design, making things neat, pretty, and usable. My goal is to build cool things
+that people want to use and experience. I see the **open web** as the easiest
+way to do so. Away from the computer, my favorite place to be is on a
+basketball court.
 
 I rock **Linux**, hack with **Javascript** and **Python/Django**, and keep it
 all under wraps with **Git**.
 
-Check out my [**resume**](/resume) for the rundown on some of my previous
-projects. Even better, you can check out all of my projects on
-[Github][github].
+Feel free to check out my projects on [Github][github].
 
 [net]:http://oregonstate.edu/net
 [linkedin]:http://www.linkedin.com/pub/kevin-ngo/42/576/b5a

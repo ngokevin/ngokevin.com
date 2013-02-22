@@ -1,4 +1,4 @@
-title: "5 Ways SublimeText Just Bodybags vim+Terminator"
+title: "How Ways SublimeText Just Bodybags vim+Terminator"
 type: blog
 category: blog
 
