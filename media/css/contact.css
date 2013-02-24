@@ -23,9 +23,12 @@
     display: block;
     margin: 0 auto;
     position: relative;
-    top: 52px; }
+    top: 56px; }
   .view:hover i {
-    font-size: 150px; }
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    -webkit-transform: scale(1.15); }
 
 .mask {
   background-color: rgba(0, 90, 0, 0.8);

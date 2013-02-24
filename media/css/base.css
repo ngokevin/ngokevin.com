@@ -1,6 +1,6 @@
 html, body {
   background: url("../img/textures/satinweave.png") repeat scroll 0 0 transparent;
-  font-family: 'Open Sans Pro', sans-serif;
+  font-family: "Open Sans Pro", sans-serif;
   height: 100%;
   margin: 4px 0 0;
   text-align: justify; }
@@ -16,7 +16,7 @@ html, body {
   width: 940px; }
 
 h1, h2, h3, h4, h5, #logo {
-  font-family: 'Gentium Book Basic', serif;
+  font-family: "Gentium Book Basic", serif;
   margin: 0; }
 
 a, .main a:hover {
@@ -48,7 +48,11 @@ hr {
     font-size: 16px;
     margin: 0;
     line-height: 36px;
+<<<<<<< HEAD
     color: #0a0a14; }
+=======
+    color: #0d0d1b; }
+>>>>>>> 5707899... fix contact page
   .main li, .main ol {
     font-size: 17px;
     line-height: 32px;
@@ -89,7 +93,7 @@ hr {
 
 #navigation {
   position: absolute;
-  font: 16px 'Gentium Book Basic', serif;
+  font: 16px "Gentium Book Basic", serif;
   right: 0;
   top: 20px; }
   #navigation a {

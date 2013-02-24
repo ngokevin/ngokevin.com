@@ -19,10 +19,10 @@
         display: block;
         margin: 0 auto;
         position: relative;
-        top: 52px;
+        top: 56px;
     }
     &:hover i {
-        font-size: 150px;
+        @include transform(scale(1.15));
     }
 }
 
