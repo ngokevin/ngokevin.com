@@ -3,3 +3,4 @@ push
 output
 *.pyc
 .sass-cache
+gallery

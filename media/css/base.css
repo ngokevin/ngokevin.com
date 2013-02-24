@@ -34,7 +34,7 @@ strong {
   color: #50505a; }
 
 hr {
-  border-color: #dcdcdc; }
+  border-color: gainsboro; }
 
 .main {
   padding-bottom: 350px; }
@@ -48,7 +48,7 @@ hr {
     font-size: 16px;
     margin: 0;
     line-height: 36px;
-    color: #414b41; }
+    color: #0a0a14; }
   .main li, .main ol {
     font-size: 17px;
     line-height: 32px;

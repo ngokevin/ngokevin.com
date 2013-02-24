@@ -1,0 +1,8 @@
+title: "Minecraft"
+slug: minecraft
+category: gallery
+type: album
+
+datetime: 2011-12-15 00:04:15
+
+---

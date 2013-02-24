@@ -1,4 +1,4 @@
-title: "The Serenity of the 5pm Bedtime"
+title: "The Serenity of a 5pm Bedtime"
 type: blog
 category: blog
 
@@ -8,7 +8,7 @@ image:
     url: http://i.imgur.com/fGDie3f.jpg
     where: top
 
-date: 2013-02-22
+date: 2013-02-23
 
 ---
 
@@ -19,20 +19,18 @@ Such was the case with my sleep schedule. One dawn, I took to bed around the
 wee hours of 7am with the expectation of only a couple hours shut-eye. After a
 short day, I fell into bed at 5pm. Then something quite magical happened.
 
-As if walking down the brick-paved streets of Amsterdam, and briefly making
-that eye contact with that one true love, I had stumbled upon a perfect sleep
-schedule. Love at first nap. Going to bed at 5pm and naturally waking up a bit
-past midnight.
+I had stumbled upon a perfect sleep schedule. Love at first nap. Going to bed
+at 5pm and naturally waking up a bit past midnight.
 
-Then the reversed day presents itself.
+The reversed day presents itself.
 
 ---
 
 ##1am to 8am: Distraction-Free Work, Study, and Leisure
 
-The night is long, quite, serene. My mind is refreshed. It is just Pandora, my
+The night is long, quiet, serene. My mind is refreshed. It is just Pandora, my
 computer, and me. Most of the Internet is sleeping, and there is little
-content being generated.  Once I exhaust Facebook, Reddit, HackerNews, etc, the
+content being generated.  Once I exhaust Facebook, Reddit, Hacker News, etc, the
 Internet is effectively out of my way. I put in some productive work (web
 development), and studies, with a clear head.
 
@@ -80,3 +78,5 @@ from class and work, this will do nicely until I am out of school.
 
 Until then, I will contently rest in the blankets of happiness and serenity
 that is the 5pm sleep schedule.
+
+*Burn the land and boil the sea, you can't take my bed from me.*
