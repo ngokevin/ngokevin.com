@@ -1,6 +1,0 @@
-title: "Test"
-slug: test4
-category: gallery
-type: album
-
----
