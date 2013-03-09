@@ -1,5 +1,8 @@
 @import "globals.scss";
 
+.text {
+    margin-bottom: 26px;
+}
 
 .view {
     @include def-box-shadow();

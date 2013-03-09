@@ -23,9 +23,6 @@ that people want to use and experience. I see the **open web** as the easiest
 way to do so. Away from the computer, my favorite place to be is on a
 basketball court.
 
-I rock **Linux**, hack with **Javascript** and **Python/Django**, and keep it
-all under wraps with **Git**.
-
 Feel free to check out my projects on [Github][github].
 
 [net]:http://oregonstate.edu/net
