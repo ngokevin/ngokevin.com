@@ -1,4 +1,4 @@
-title: "How Ways SublimeText Just Bodybags vim+Terminator"
+title: "Sublime Text is a Bodybagger"
 type: blog
 category: blog
 
@@ -22,16 +22,16 @@ My whole desktop is vimified: workspace and window management hotkeys,
 Firefox, [Terminator](http://lifehacker.com/5858676/the-best- terminal-
 emulator-for- linux) hotkeys, and vim itself. vim is good for text editing, but
 it ain't good at some things that I have simply put up with for years. Two days
-ago, I tried out SublimeText, and today I bought it. Here are five reasons why
-[SublimeText](http://sublimetext.com) is just Frosted Flakes great.
+ago, I tried out Sublime Text, and today I bought it. Here are five reasons why
+[Sublime Text](http://sublimetext.com) is just Frosted Flakes great.
 
 ---
 
 ##5. vim compatability!
 
 Horray for filler items in list-based posts! Seriously, to replace vim, it must
-have vim. SublimeText comes with **Vintage mode** that has most vim support. It
-combines vim's command mode with SublimeText's. With a few tweaks, I was able
+have vim. Sublime Text comes with **Vintage mode** that has most vim support. It
+combines vim's command mode with Sublime Text's. With a few tweaks, I was able
 to make it just like vim as far as I could tell, minus some :commands.
 
 To enable it, from your preferences, change
@@ -54,7 +54,7 @@ ctrl+r to be redo. How did I do that you say? Glance 100 pixels below.
 
 Set and overwrite keybindings for anything you want. The default settings
 openly lists all the keybindings, but you can write stronger ones. It is good
-practice to overwrite keybindings and preferences in your local SublimeText
+practice to overwrite keybindings and preferences in your local Sublime Text
 configs.
 
 It satisfies all of my idiosyncratic keybinding needs such as alt+hjkl to
@@ -71,7 +71,7 @@ buffers.
 
 Install the [PackageControl](http://wbond.net/sublime_packages/package_control/
 installation) plugin with a one-line command into the console, and you can
-install all the good SublimeText plugins within SublimeText.
+install all the good Sublime Text plugins within Sublime Text.
 
 My current plugin loadout:
 
@@ -81,7 +81,7 @@ My current plugin loadout:
 - **Emmett**: can expand css selectors into HTML syntax
 - **Origami**: enhance pane splitting and allows me to set shortcuts to navigate
    between them
-- **Theme-Soda**: popular SublimeText theme
+- **Theme-Soda**: popular Sublime Text theme
 - **SidebarEnhancements**: enhances the sidebar to allow all them file operations
    on right-click
 - **SublimeLinter**: all-in-one code linter for popular languages
@@ -94,7 +94,7 @@ My current plugin loadout:
 
 <img src="http://imgur.com/XDcPsSB.jpg">
 
-Close SublimeText and open it again. All of your buffers and panes will be just
+Close Sublime Text and open it again. All of your buffers and panes will be just
 as you left it. For multiple windows, they can be restored if you saved the
 project. Granted vim has .swp files, but how many times have I asked vim to
 "edit anyways"? And Terminator doesn't remember the pane layouts and what

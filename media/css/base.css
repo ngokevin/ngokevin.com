@@ -48,11 +48,7 @@ hr {
     font-size: 16px;
     margin: 0;
     line-height: 36px;
-<<<<<<< HEAD
-    color: #0a0a14; }
-=======
     color: #0d0d1b; }
->>>>>>> 5707899... fix contact page
   .main li, .main ol {
     font-size: 17px;
     line-height: 32px;
@@ -213,3 +209,20 @@ html[xmlns] .c {
 
 * html .c {
   height: 1%; }
+
+.addthis_button_tweet {
+  position: relative;
+  right: 10px; }
+
+#top-share {
+  position: relative;
+  top: 19px;
+  right: 2px; }
+
+#bottom-share {
+  position: relative;
+  margin-top: 39px;
+  right: 2px; }
+
+#disqus_thread {
+  margin-top: 13px; }

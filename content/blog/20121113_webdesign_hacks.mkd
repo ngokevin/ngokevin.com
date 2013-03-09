@@ -1,4 +1,4 @@
-title: "Four Web Design Hacks"
+title: "Easy Bake Web Design"
 type: blog
 category: blog
 
@@ -21,7 +21,7 @@ path to beautification.
 
 ---
 
-### Typography
+## Typography
 
 The easiest way to give your website an entire makeover, change the fonts. The
 most popular resource is [Google Web Fonts](http://www.google.com/webfonts). They
@@ -42,7 +42,7 @@ Currently, even this magnificent blog needs a bit of work on the typography
 - Use a good-sized line height (space between lines of text) for readability
 - Have contrast between text and background
 
-### Building a Color Palette
+## Building a Color Palette
 
 The color palette defines the "mood" of the site. However, it is more important
 that your selected colors don't clash. Just like in music, dissonance is not
@@ -70,7 +70,7 @@ mentioned earlier, also define your off-blacks and off-whites as constants
 - Use off-blacks and off-whites over pure black and pure white.
 - Saturate your blacks and whites for subtle color.
 
-### Textures
+## Textures
 
 Using texture patterns in your site gives it nice and subtle detail. A
 texture pattern over a plain color background really adds some polish and
@@ -86,7 +86,7 @@ content background, and one for your footer background.
 - Try a texture pattern background over a plain color background.
 - Keep it simple and clean and use only two or three textures
 
-### Icon Fonts
+## Icon Fonts
 
 Websites with plain headers and links are boring, but images are bulky.
 Icon fonts can be mixed in to add some fun and detail. [Font
