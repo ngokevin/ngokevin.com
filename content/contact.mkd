@@ -7,23 +7,4 @@ navrank: 5
 
 ---
 
-###ping on irc
-*ngoke* on irc.freenode.net
-
-###shoot an email
-ngoke@onid.oregonstate.edu
-
-###shoot a super email
-kevin.ngo@oregonstate.edu
-
-###check out my code
-[github](http://github.com/ngokevin)
-
-###send a secret encrypted message
-
-[pgp key](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x0E11100869B85527)
-
-###catch on linkedin
-
-[linkedin](http://www.linkedin.com/pub/kevin-ngo/42/576/b5a)
-
+Inquiries, fan mail, death threats. I accept them all!

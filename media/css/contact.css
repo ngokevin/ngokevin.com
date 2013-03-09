@@ -1,3 +1,6 @@
+.text {
+  margin-bottom: 26px; }
+
 .view {
   -moz-box-shadow: 0 0 2px #50505a;
   -webkit-box-shadow: 0 0 2px #50505a;

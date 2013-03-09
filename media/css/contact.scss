@@ -1,4 +1,9 @@
 @import "globals.scss";
+
+.text {
+    margin-bottom: 26px;
+}
+
 .view {
     @include def-box-shadow();
     background: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/cream_dust.png") repeat scroll 0% 0% transparent;
