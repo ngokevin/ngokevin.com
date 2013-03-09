@@ -1,0 +1,47 @@
+@media only screen and (max-width: 1000px) {
+  #contact .mask, #contact h3, #contact p, #contact a {
+    opacity: 1;
+    transform: none; }
+  #contact .view {
+    display: block;
+    float: none;
+    margin: 52px auto;
+    transform: scale(1.1); } }
+@media only screen and (max-width: 980px) {
+  #wrap {
+    margin: 0 auto;
+    width: 90%; }
+    #wrap .page_pic {
+      float: none;
+      margin-left: 0;
+      text-align: right; }
+      #wrap .page_pic img {
+        margin: 52px auto; }
+    #wrap .item img {
+      float: none; }
+
+  .main {
+    padding-bottom: 38em; } }
+@media only screen and (max-width: 768px) {
+  #header {
+    margin-bottom: 78px; }
+    #header .logos {
+      position: static;
+      text-align: center; }
+    #header #navigation {
+      position: static;
+      padding-top: 26px;
+      text-align: center; }
+      #header #navigation a {
+        background: #ddddd3;
+        margin: 0 2px;
+        padding: 13px 7px; }
+        #header #navigation a:hover {
+          background: #c7c7b6;
+          top: 0; }
+        #header #navigation a span {
+          padding: 0; }
+          #header #navigation a span:hover {
+            background: none; }
+          #header #navigation a span.current-nav {
+            background: none; } }
