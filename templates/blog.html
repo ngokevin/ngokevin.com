@@ -11,12 +11,28 @@
       {{ page.datetime.strftime("%A %B %d, %Y") }}
     {% endif %}
   </span>
+
+  <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style" style="position: relative; top: 26px; right: 2px;">
+    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    <a class="addthis_button_tweet"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+  <!-- AddThis Button END -->
 {% endblock %}
 
 {% block content %}
   <div class="page c">
     {{ page.content }}
   </div>
+
+   <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style" style="position: relative; top: 39px; right: 2px;">
+    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    <a class="addthis_button_tweet"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+  <!-- AddThis Button END -->
 
   <div id="disqus_thread"></div>
   <script type="text/javascript">
@@ -32,6 +48,4 @@
                         </script>
                         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                         <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
 {% endblock %}
