@@ -17,8 +17,6 @@
       text-align: right; }
       #wrap .page_pic img {
         margin: 52px auto; }
-    #wrap .item img {
-      float: none; }
 
   .main {
     padding-bottom: 38em; } }
@@ -34,6 +32,7 @@
       text-align: center; }
       #header #navigation a {
         background: #ddddd3;
+        border-radius: 3px;
         margin: 0 2px;
         padding: 13px 7px; }
         #header #navigation a:hover {
@@ -44,4 +43,15 @@
           #header #navigation a span:hover {
             background: none; }
           #header #navigation a span.current-nav {
-            background: none; } }
+            background: none; }
+
+  #wrap .list-view .title {
+    text-align: center; }
+  #wrap .list-view .metadata {
+    display: block;
+    text-align: center; }
+  #wrap .list-view .item .preview {
+    clear: left; }
+  #wrap .list-view img {
+    max-height: 100%;
+    max-width: 100%; } }

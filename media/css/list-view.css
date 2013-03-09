@@ -2,6 +2,8 @@
   margin-bottom: 52px; }
 .list-view .heading {
   margin-top: 13px; }
+.list-view .title {
+  text-align: left; }
 .list-view .preview h1, .list-view .preview h2, .list-view .preview h3, .list-view .preview img, .list-view .preview pre, .list-view .preview code {
   display: none; }
 .list-view .preview p:last-child {

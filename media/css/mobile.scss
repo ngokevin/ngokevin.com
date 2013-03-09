@@ -27,9 +27,6 @@
                 margin: 52px auto;
             }
         }
-        .item img {
-            float: none;
-        }
     }
     .main {
         padding-bottom: 38em;
@@ -49,6 +46,7 @@
             text-align: center;
             a {
                 background: $light-gray;
+                border-radius: 3px;
                 margin: 0 2px;
                 padding: 13px 7px;
                 &:hover {
@@ -65,6 +63,22 @@
                     }
                 }
             }
+        }
+    }
+    #wrap .list-view {
+        .title {
+            text-align: center;
+        }
+        .metadata {
+            display: block;
+            text-align: center;
+        }
+        .item .preview {
+            clear: left;
+        }
+        img {
+            max-height: 100%;
+            max-width: 100%;
         }
     }
 }
