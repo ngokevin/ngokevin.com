@@ -31,6 +31,11 @@
       padding-top: 26px;
       text-align: center; }
       #header #navigation a {
+        -moz-transition: background 0.2s;
+        -ms-transition: background 0.2s;
+        -o-transition: background 0.2s;
+        -webkit-transition: background 0.2s;
+        transition: background 0.2s;
         background: #ddddd3;
         border-radius: 3px;
         margin: 0 2px;

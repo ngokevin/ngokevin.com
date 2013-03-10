@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, #logo {
 }
 
 a, .main a:hover {
-    @include transition(all .2s);
+    @include transition(color .2s);
     font-weight: bold;
 }
 
@@ -207,7 +207,7 @@ a.btn {
     margin-right: 5px;
     padding: 3px 8px;
     text-decoration: none;
-    @include transition(.5s .1s);
+    @include transition(background .5s .1s);
     &:hover {
         background: lighten($green, 5%);
         font-weight: normal;
@@ -216,7 +216,7 @@ a.btn {
     }
     &:active {
         background: darken($green, 10%);
-        @include transition(.03s 0s);
+        @include transition(background .03s 0s);
     }
 }
 

@@ -20,11 +20,11 @@ h1, h2, h3, h4, h5, #logo {
   margin: 0; }
 
 a, .main a:hover {
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  -moz-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
   font-weight: bold; }
 
 span p a {
@@ -177,11 +177,11 @@ a.btn {
   margin-right: 5px;
   padding: 3px 8px;
   text-decoration: none;
-  -moz-transition: 0.5s 0.1s;
-  -ms-transition: 0.5s 0.1s;
-  -o-transition: 0.5s 0.1s;
-  -webkit-transition: 0.5s 0.1s;
-  transition: 0.5s 0.1s; }
+  -moz-transition: background 0.5s 0.1s;
+  -ms-transition: background 0.5s 0.1s;
+  -o-transition: background 0.5s 0.1s;
+  -webkit-transition: background 0.5s 0.1s;
+  transition: background 0.5s 0.1s; }
   a.btn:hover {
     background: #008f00;
     font-weight: normal;
@@ -189,11 +189,11 @@ a.btn {
     cursor: pointer; }
   a.btn:active {
     background: #004200;
-    -moz-transition: 0.03s 0s;
-    -ms-transition: 0.03s 0s;
-    -o-transition: 0.03s 0s;
-    -webkit-transition: 0.03s 0s;
-    transition: 0.03s 0s; }
+    -moz-transition: background 0.03s 0s;
+    -ms-transition: background 0.03s 0s;
+    -o-transition: background 0.03s 0s;
+    -webkit-transition: background 0.03s 0s;
+    transition: background 0.03s 0s; }
 
 .c:after {
   content: ".";

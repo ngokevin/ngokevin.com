@@ -45,6 +45,7 @@
             padding-top: 26px;
             text-align: center;
             a {
+                @include transition(background .2s);
                 background: $light-gray;
                 border-radius: 3px;
                 margin: 0 2px;
