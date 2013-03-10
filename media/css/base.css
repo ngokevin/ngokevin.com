@@ -154,8 +154,13 @@ span.metadata {
   -o-transition: background 0.5s;
   -webkit-transition: background 0.5s;
   transition: background 0.5s; }
-  #sliding-next-page[disabled='disabled'], #sliding-prev-page[disabled='disabled'] {
+  #sliding-next-page:not(disabled), #sliding-prev-page:not(disabled) {
     background: #ddddd3; }
+    #sliding-next-page:not(disabled):hover, #sliding-prev-page:not(disabled):hover {
+      background: #007500; }
+  #sliding-next-page[disabled='disabled'], #sliding-prev-page[disabled='disabled'] {
+    background: #007500;
+    cursor: default; }
 
 .sliding-index {
   min-height: 1250px; }

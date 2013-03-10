@@ -175,8 +175,15 @@ span.metadata {
 }
 #sliding-next-page, #sliding-prev-page {
     @include transition(background .5s);
-    &[disabled='disabled'] {
+    &:not(disabled) {
         background: $light-gray;
+        &:hover {
+            background: $green;
+        }
+    }
+    &[disabled='disabled'] {
+        background: $green;
+        cursor: default;
     }
 }
 .sliding-index {
