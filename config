@@ -1,2 +1,2 @@
-site_title: Kevin Ngo
+site_title: ngokevin
 url_pattern: "/{category}/{slug}/{page}/"
