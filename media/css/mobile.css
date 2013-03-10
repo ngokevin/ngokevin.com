@@ -1,12 +1,18 @@
 @media all and (max-width: 62.5em) {
   #contact .mask, #contact h3, #contact p, #contact a {
     opacity: 1;
-    transform: none; }
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    -webkit-transform: none; }
   #contact .view {
     display: block;
     float: none;
     margin: 52px auto;
-    transform: scale(1.1); } }
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1); } }
 @media all and (max-width: 61.25em) {
   #wrap {
     margin: 0 auto;

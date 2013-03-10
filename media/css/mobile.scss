@@ -5,13 +5,13 @@
     #contact {
         .mask, h3, p, a {
             opacity: 1;
-            transform: none;
+            @include transform(none);
         }
         .view {
             display: block;
             float: none;
             margin: 52px auto;
-            transform: scale(1.1);
+            @include transform(scale(1.1));
         }
     }
 }
