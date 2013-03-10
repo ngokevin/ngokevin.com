@@ -1,4 +1,4 @@
-@media only screen and (max-width: 62.5em) {
+@media all and (max-width: 62.5em) {
   #contact .mask, #contact h3, #contact p, #contact a {
     opacity: 1;
     transform: none; }
@@ -7,7 +7,7 @@
     float: none;
     margin: 52px auto;
     transform: scale(1.1); } }
-@media only screen and (max-width: 61.25em) {
+@media all and (max-width: 61.25em) {
   #wrap {
     margin: 0 auto;
     width: 90%; }
@@ -20,7 +20,7 @@
 
   .main {
     padding-bottom: 38em; } }
-@media only screen and (max-width: 48em) {
+@media all and (max-width: 48em) {
   #header {
     margin-bottom: 78px; }
     #header .logos {

@@ -1,6 +1,6 @@
 @import "globals.scss";
 
-@media only screen and (max-width: 62.5em) {
+@media all and (max-width: 62.5em) {
     // 1000px.
     #contact {
         .mask, h3, p, a {
@@ -16,7 +16,7 @@
     }
 }
 
-@media only screen and (max-width: 61.25em) {
+@media all and (max-width: 61.25em) {
     // 980px.
     #wrap {
         margin: 0 auto;
@@ -35,7 +35,7 @@
     }
 }
 
-@media only screen and (max-width: 48em) {
+@media all and (max-width: 48em) {
     // 768px.
     #header {
         margin-bottom: 78px;
