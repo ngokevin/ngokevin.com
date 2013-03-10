@@ -13,7 +13,7 @@ date: 2013-03-10
 ---
 
 Shrink your browser window, I dare you. I spent my last night plastering on some
-good old **responsive web design (RWD)** on top of the big bad blog, ngokevin. It
+good old **responsive web design (RWD)** on top of my big bad blog, ngokevin. It
 was well-timed since I have been recently working on RWD for [Firefox
 Marketplace's](http://marketplace.firefox.com) app reviewing tools. Initially,
 I was not sure where to start on converting my px-based blog to be more fluid.
