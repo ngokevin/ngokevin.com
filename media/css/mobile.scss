@@ -93,10 +93,16 @@
             width: 49%;
         }
     }
-    .main pre span {
-        font-size: 10px;
+    .main {
+        p, li {
+            text-align: left;
+        }
+        pre span {
+            font-size: 13px;
+            line-height: 26px;
+        }
     }
-    li, ol {
+    ul, ol {
         padding-left: 16px;
     }
     .blog {

@@ -73,10 +73,13 @@
     text-align: center;
     width: 49%; }
 
+  .main p, .main li {
+    text-align: left; }
   .main pre span {
-    font-size: 10px; }
+    font-size: 13px;
+    line-height: 26px; }
 
-  li, ol {
+  ul, ol {
     padding-left: 16px; }
 
   .blog h1, .blog .metadata {

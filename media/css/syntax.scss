@@ -8,6 +8,7 @@ html body pre {
     color: $white;
     padding: 0 1em;
     margin-bottom: 26px;
+    overflow: auto;
 
     .hll { background-color: #49483e }
     .c { color: #75715e } /* Comment */
