@@ -148,6 +148,15 @@ span.metadata {
   color: #0a0a14;
   font-weight: normal; }
 
+#sliding-next-page, #sliding-prev-page {
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s; }
+  #sliding-next-page[disabled='disabled'], #sliding-prev-page[disabled='disabled'] {
+    background: #ddddd3; }
+
 .sliding-index {
   min-height: 1250px;
   max-height: 1250px; }

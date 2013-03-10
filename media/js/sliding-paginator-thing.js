@@ -1,41 +1,41 @@
 $(document).ready(function(){
+    // My very first piece of JS code ever.
+    var NUM_PAGES = 2;
 
-    num_pages = 2;
-
-    // show the first page, hide the rest
+    // Show the first page, hide the rest
     var i = 0;
-    for (i=0; i<=num_pages; i++){
+    for (i = 0; i <= NUM_PAGES; i++){
         $('div.sliding-index-page' + i).hide();
     }
-    current_page = 0;
-    $('div.sliding-index-page' + current_page).show();
-    document.getElementById("sliding-prev-page").disabled = true;
-    document.getElementById("sliding-next-page").disabled = false;
 
-    // previous page
+    var currentPage = 0;
+    $('div.sliding-index-page' + currentPage).show();
+    $("#sliding-prev-page").attr('disabled', true);
+    $("#sliding-next-page").attr('disabled', false);
+
+    // Previous page.
     $('#sliding-prev-page').on('click touchstart', function() {
-        document.getElementById("sliding-next-page").disabled = false;
-        if (current_page !== 0) {
-            $('div.sliding-index-page' + current_page).hide();
-            current_page--;
-            if (current_page === 0) {
-                document.getElementById("sliding-prev-page").disabled = true;
+        $("#sliding-next-page").attr('disabled', false);
+        if (currentPage !== 0) {
+            $('div.sliding-index-page' + currentPage).fadeOut();
+            currentPage--;
+            if (currentPage === 0) {
+                $("#sliding-prev-page").attr('disabled', true);
             }
-            $('div.sliding-index-page' + current_page).show('slide', {direction:'left'}, 800);
+            $('div.sliding-index-page' + currentPage).fadeIn();
         }
     });
 
-    // next page
+    // Next page.
     $('#sliding-next-page').on('click touchstart', function() {
-        document.getElementById("sliding-prev-page").disabled = false;
-        if (current_page != num_pages-1){
-            $('div.sliding-index-page' + current_page).hide();
-            current_page++;
-            if (current_page == num_pages-1) {
-                document.getElementById("sliding-next-page").disabled = true;
+        $("#sliding-prev-page").attr('disabled', false);
+        if (currentPage != NUM_PAGES - 1){
+            $('div.sliding-index-page' + currentPage).fadeOut();
+            currentPage++;
+            if (currentPage == NUM_PAGES - 1) {
+                $("#sliding-next-page").attr('disabled', true);
             }
-            $('div.sliding-index-page' + current_page).show('slide', {direction:'right'}, 800);
+            $('div.sliding-index-page' + currentPage).fadeIn();
         }
     });
-
 });
