@@ -59,10 +59,10 @@ hr {
         color: lighten($black, 2%);
     }
     li, ol {
-        font-size: 17px;
+        color: lighten($black, 5%);
+        font-size: 16px;
         line-height: 32px;
         list-style: square;
-        color: rgb(95, 105, 95);
     }
     a {
         color: $dark-green;
@@ -144,6 +144,7 @@ hr {
 
 span.metadata {
     color: $gray;
+    display: block;
     font-size: 14px;
     font-weight: bold;
     line-height: 6px;

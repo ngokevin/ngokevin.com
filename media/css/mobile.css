@@ -54,4 +54,22 @@
     clear: left; }
   #wrap .list-view img {
     max-height: 100%;
-    max-width: 100%; } }
+    max-width: 100%; }
+  #wrap .list-view h3.recent-blogs {
+    display: block;
+    text-align: center; }
+  #wrap .list-view a.btn[href="#"] {
+    display: inline-block;
+    margin: 6px 0 0 0;
+    padding: 7px 0;
+    text-align: center;
+    width: 49%; }
+
+  .main pre span {
+    font-size: 10px; }
+
+  li, ol {
+    padding-left: 16px; }
+
+  .blog h1, .blog .metadata {
+    text-align: center; } }

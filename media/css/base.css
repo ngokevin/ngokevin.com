@@ -50,10 +50,10 @@ hr {
     line-height: 36px;
     color: #0d0d1b; }
   .main li, .main ol {
-    font-size: 17px;
+    color: #131325;
+    font-size: 16px;
     line-height: 32px;
-    list-style: square;
-    color: #5f695f; }
+    list-style: square; }
   .main a {
     color: #005454;
     font-weight: bold;
@@ -122,6 +122,7 @@ hr {
 
 span.metadata {
   color: #50505a;
+  display: block;
   font-size: 14px;
   font-weight: bold;
   line-height: 6px;

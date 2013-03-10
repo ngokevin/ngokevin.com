@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block page_header %}
-  <h1>{{ page.title }}</h1>
-  <span class="metadata">
-    {% if not page.navrank %}
-      {{ page.datetime.strftime("%A %B %d, %Y") }}
-    {% endif %}
-  </span>
+  <div class="blog">
+    <h1>{{ page.title }}</h1>
+    <span class="metadata">
+      {% if not page.navrank %}
+        {{ page.datetime.strftime("%A %B %d, %Y") }}
+      {% endif %}
+    </span>
+</div>
 
   <!-- AddThis Button BEGIN -->
   <div id="top-share" class="addthis_toolbox addthis_default_style">
