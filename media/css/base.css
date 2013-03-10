@@ -158,8 +158,7 @@ span.metadata {
     background: #ddddd3; }
 
 .sliding-index {
-  min-height: 1250px;
-  max-height: 1250px; }
+  min-height: 1250px; }
 
 #footer {
   /* Overrides sticky-footer */
