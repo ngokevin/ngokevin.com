@@ -13,9 +13,11 @@ datetime: 2012-03-12 23:50:00
 
 ---
 
-Here, Kevin records notes to himself on how not to suck at basketball.
+Kevin records notes to himself on how not to suck at basketball.
 
-####Jump-Shots
+---
+
+##Jump-Shots
 
 - Raise the ball to chin-level, bend your knees, and shoot in one quick, fluid
   motion. This will also help get backspin on the ball.
@@ -25,4 +27,6 @@ Here, Kevin records notes to himself on how not to suck at basketball.
 - Snap the wrist straight towards the hoop
 - Start the ball just over forehead
 - Fingerpads
+- Soft flick release
+- Deep knee bend at the trey
 

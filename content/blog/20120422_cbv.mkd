@@ -16,6 +16,8 @@ by having a generic base code that can be subclassed or extended to fulfill
 specific needs. Using these concepts can simplify code down to zero-LOC
 templates and zero-LOC views.
 
+---
+
 ## Django Class-Based Generic Views
 
 Django class-based generic views (CBVs) are like a set of prebuilt views
