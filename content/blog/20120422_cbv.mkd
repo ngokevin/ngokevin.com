@@ -1,4 +1,4 @@
-title: "Go Generic, Inherit the Riches, Django CBVs"
+title: "Bootstrapping CRUD-Heavy Django Apps with CBVs"
 type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>

@@ -1,4 +1,4 @@
-title: "Goals Before Mozilla"
+title: "My Goals Before Starting at Mozilla"
 type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
@@ -48,8 +48,7 @@ Now, I do other things than just program (well, sometimes). Here's some
 real-life goals and objectives.
 
 - Get Google I/O tickets!
-- Be able to create my own jump shots and hit them in pick-up basketball
-  games.
+- Stop sucking at basketball
 - Be able to overhead press 110lbs and bench my own weight.
 - Beat Metal Gear Solid 2/3 (gotta have *some* mindless fun eh?)
 

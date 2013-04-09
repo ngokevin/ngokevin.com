@@ -1,4 +1,4 @@
-title: "Mozilla, Me, Programming!"
+title: "Nabbing an Internship at Mozilla"
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
 
@@ -64,18 +64,15 @@ applications and only talked to a few and that they would take several.
 The following day while checking my email as I normally do every few seconds, I
 received an offer from Mozilla! I gave fridgei a high-five and obviously
 accepted. I would then start the process of dropping out of MECOP. What a
-relief, I was not excited to work in Windows, .NET frameworks, quality
-assurance, or any of that stuffy stuff.
+relief, I was not excited to work in Windows, .NET frameworks or QAing home
+security lock software.
 
 Today, I received a call from the recruiters who had been helping getting my
 availability and scheduling my interviews, about the internship.
 
-- Three months in Mountain View, California (edit: I actually chose to skip
-  spring term and work five months)
+- Five months in Mountain View, California
 
-- Free transportation, housing, and laptop to keep (Macbook or Thinkpad)
-
-- $6k/month
+- Free transportation, housing, and laptop
 
 - All of the fun stuff at Mozilla and Mountain View
 

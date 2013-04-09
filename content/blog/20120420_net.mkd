@@ -1,4 +1,4 @@
-title: "One Year at NET"
+title: "One Year Working at NET"
 type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>

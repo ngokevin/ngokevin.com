@@ -1,4 +1,4 @@
-title: "Easy Bake Web Design"
+title: "Web Design Heuristics"
 type: blog
 category: blog
 
@@ -23,9 +23,7 @@ path to beautification.
 
 ## Typography
 
-The easiest way to give your website an entire makeover, change the fonts. The
-most popular resource is [Google Web Fonts](http://www.google.com/webfonts). They
-have a wide selection and you can sort by popularity as well as
+The easiest way to give your website an entire makeover, change the fonts. The most popular resource is [Google Web Fonts](http://www.google.com/webfonts). They have a wide selection and you can sort by popularity as well as
 serif/sans-serif. Try out different fonts and see the changes in character
 they make for your site and try to choose a font that matches your site's
 purpose.

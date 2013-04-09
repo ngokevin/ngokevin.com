@@ -1,4 +1,4 @@
-title: Secure Shell (SSH)
+title: Introduction to SSH
 type: blog
 category: blog
 tags: guide

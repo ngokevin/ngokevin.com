@@ -18,7 +18,7 @@ date: 2012-05-03
 w3bd3v h@ck d4y! Yet another day in Santa Cruz, and we started`off writing open
 web apps with Boot2Gecko and the Mozilla Marketplace in mind. On a side
 note, I will be working on mostly the Mozilla Marketplace and Addons site
-for my internship, for which I am excited.  For the hackathon, I churned
+for my internship, for which I am excited. For the hackathon, I churned
 out a doodle app which I named
 [DrawNothing](http://github.com/ngokevin/draw_nothing). In the afternoon,
 we all presented our 'finished' products. Afterwards, I worked on
@@ -26,13 +26,9 @@ processing some images, sprinted to the amusement park, rode a
 rollercoaster, spent some time at the arcade, played laser tag and
 minigolf, and then got a bit tipsy.
 
-*pre-script: congratulations to my little brother for winning the district
-spelling bee, and good luck to him competing at the county state fair next
-Tuesday!*
-
 ## DrawNothing
 
-[Try it out!](http://ngokevin.com/~ngoke/draw_nothing)
+[Try it out!](http://drawnothing.ngokevin.com)
 
 For the hackathon, I built a doodle app called DrawNothing. I chose
 something that I could feasibly do within a few hours yet wouldn't be too
@@ -106,10 +102,3 @@ fired (shitty). Wat.
 By the end, I had three fruity drinks (mmm...sangria). I got a little
 buzzed for the second time, both times on some nice occasions. Now sleepy,
 have to wake up early for bus tomorrow. Zz.
-
-
-
-
-
-
-
