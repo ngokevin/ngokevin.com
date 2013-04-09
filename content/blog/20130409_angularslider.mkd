@@ -1,0 +1,40 @@
+title: "Mobile Sliders with AngularJS"
+type: blog
+category: blog
+
+slug: "angularslider"
+
+image:
+    url: http://i.imgur.com/JM0yS3I.jpg
+    where: top
+
+date: 2013-04-09
+
+---
+
+I ditched jQuery Mobile's sliders for my growing AngularJS [poker
+app](http://github.com/ngokevin/underthegun). It had served as the app's poker
+bet slider. All I wanted was a simple slider widget from jQuery Mobile, but the
+UI framework wanted me to marry it in return. It had its way with my HTML
+markup, littering my DOM elements full of selfish classes and attributes, like
+a garbage truck whose driver forgot to close the rear door. My CSS rules became
+oppressed like liberal college students as jQuery Mobile's CSS files applied
+forceful rules my top-level ```html``` and ```body``` elements. The kicker? The
+slider quickly became deprecated, not working on newer versions of Firefox. I
+never even saw it work on Chrome.
+
+My disappointment digresses. The point is: I assembled my own customizable
+mobile slider that hooked into AngularJS in the form of a directive. Let us
+begin with the HTML, which AngularJS enhances with declarative two-way bindings.
+
+    ::html
+    <div bet-slider class="bet-slider" step="10">
+      <span></span>
+    </div>
+
+Unfortunately, this is not the most exciting display of AngularJS's abilities.
+Though by giving the element a ```bet-slider``` attribute, I hook the element
+to an AngularJS directive, which is where all the magic will happen. Note that
+the following Javascript code snippets are parts of a whole.
+
+    ::js
