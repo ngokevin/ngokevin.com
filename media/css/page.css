@@ -26,3 +26,23 @@ img {
   display: block;
   margin: 0 auto 39px auto;
   max-width: 100%; }
+
+.blurb {
+  -moz-box-shadow: 0 0 2px #50505a;
+  -webkit-box-shadow: 0 0 2px #50505a;
+  box-shadow: 0 0 2px #50505a;
+  background: #ddddd3;
+  border-radius: 3px;
+  padding: 10px 20px; }
+  .blurb h2 {
+    font-style: italic;
+    margin: 6px 0; }
+  .blurb img {
+    border-radius: 100px;
+    display: inline;
+    float: left;
+    margin: 0;
+    text-align: left;
+    margin: 16px; }
+  .blurb p {
+    margin-left: 12px; }

@@ -170,22 +170,6 @@ span.metadata {
 .sliding-index {
   min-height: 1250px; }
 
-#footer {
-  /* Overrides sticky-footer */
-  background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
-  font-size: 14px;
-  line-height: 28px;
-  height: 115px;
-  margin-top: -100px;
-  min-width: 100%;
-  padding-top: 26px;
-  text-align: center; }
-  #footer a {
-    color: #005454;
-    text-decoration: none; }
-    #footer a:hover {
-      color: #2aaaaa; }
-
 a.btn {
   background: #007500;
   border-radius: 3px;
@@ -213,6 +197,22 @@ a.btn {
     -webkit-transition: background 0.03s 0s;
     transition: background 0.03s 0s; }
 
+#footer {
+  /* Overrides sticky-footer */
+  background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
+  font-size: 14px;
+  line-height: 28px;
+  height: 115px;
+  margin-top: -100px;
+  min-width: 100%;
+  padding-top: 26px;
+  text-align: center; }
+  #footer a {
+    color: #005454;
+    text-decoration: none; }
+    #footer a:hover {
+      color: #2aaaaa; }
+
 .c:after {
   content: ".";
   display: block;
@@ -230,6 +230,7 @@ html[xmlns] .c {
 * html .c {
   height: 1%; }
 
+/* Social share buttons */
 .addthis_button_tweet {
   position: relative;
   right: 10px; }
