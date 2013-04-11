@@ -1,6 +1,8 @@
 @import "globals.scss";
 
 
+$comment: lighten(#757153, 15%);
+
 html body pre {
     @include def-box-shadow();
     border-radius: 3px;
@@ -18,10 +20,10 @@ html body pre {
     .n { color: #f8f8f2 } /* Name */
     .o { color: #f92672 } /* Operator */
     .p { color: #f8f8f2 } /* Punctuation */
-    .cm { color: #75715e } /* Comment.Multiline */
-    .cp { color: #75715e } /* Comment.Preproc */
-    .c1 { color: #75715e } /* Comment.Single */
-    .cs { color: #75715e } /* Comment.Special */
+    .cm { color: $comment} /* Comment.Multiline */
+    .cp { color: $comment} /* Comment.Preproc */
+    .c1 { color: $comment} /* Comment.Single */
+    .cs { color: $comment} /* Comment.Special */
     .ge { font-style: italic } /* Generic.Emph */
     .gs { font-weight: bold } /* Generic.Strong */
     .kc { color: #66d9ef } /* Keyword.Constant */

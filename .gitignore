@@ -1,5 +1,6 @@
 push
 *.swp
+*.swo
 output
 *.pyc
 .sass-cache

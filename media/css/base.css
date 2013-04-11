@@ -36,6 +36,11 @@ strong {
 hr {
   border-color: gainsboro; }
 
+code {
+  background: #ddddd3;
+  border-radius: 1px;
+  padding: 0 4px; }
+
 .main {
   padding-bottom: 350px; }
   .main .header-group {

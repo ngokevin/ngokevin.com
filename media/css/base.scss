@@ -41,6 +41,12 @@ hr {
     border-color: rgb(220, 220, 220);
 }
 
+code {
+    background: $light-gray;
+    border-radius: 1px;
+    padding: 0 4px;
+}
+
 .main {
     padding-bottom: 350px;
     .header-group {
