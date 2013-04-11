@@ -35,17 +35,30 @@ img {
   border-radius: 3px;
   padding: 10px 20px; }
   .blurb h2 {
+    display: inline-block;
     font-style: italic;
     margin: 6px 0; }
   .blurb img {
+    clear: right;
     border-radius: 100px;
     display: inline;
     float: left;
     margin: 16px;
     position: relative;
     right: 6px;
+    top: 8px;
     text-align: left; }
   .blurb p {
     margin-left: 12px;
     position: relative;
     right: 6px; }
+  .blurb .social {
+    float: right;
+    margin-bottom: 10px;
+    position: relative;
+    top: 9px; }
+    .blurb .social a {
+      margin: 0 4px;
+      padding: 5px; }
+    .blurb .social i {
+      font-size: 23px; }

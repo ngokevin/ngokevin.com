@@ -88,6 +88,15 @@ code {
       text-decoration: none; }
       .logos #logo a:hover {
         color: #2aaaaa; }
+    .logos #logo .social {
+      margin-left: 2px; }
+      .logos #logo .social a {
+        color: #ddddd3;
+        margin: 0 2px; }
+        .logos #logo .social a:hover {
+          color: #50505a; }
+      .logos #logo .social i {
+        font-size: 23px; }
   .logos #sublogo {
     color: #50505a;
     font-size: 14px; }
@@ -212,6 +221,14 @@ a.btn {
     text-decoration: none; }
     #footer a:hover {
       color: #2aaaaa; }
+  #footer .social {
+    margin-left: 6px;
+    position: relative;
+    top: 1px; }
+    #footer .social a {
+      margin-right: 4px; }
+    #footer .social i {
+      font-size: 16px; }
 
 .c:after {
   content: ".";

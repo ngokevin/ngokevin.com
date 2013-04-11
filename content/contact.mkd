@@ -1,10 +1,6 @@
 title: Contact
 type: contact
 
-tags: navigation
-navrank: 5
-
-
 ---
 
 Inquiries, fan mail, death threats. I accept them all!

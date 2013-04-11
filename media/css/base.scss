@@ -108,6 +108,19 @@ code {
               color: $light-green;
             }
         }
+        .social {
+            margin-left: 2px;
+            a {
+                color: $light-gray;
+                margin: 0 2px;
+                &:hover {
+                    color: $gray;
+                }
+            }
+            i {
+                font-size: 23px;
+            }
+        }
     }
 
     #sublogo {
@@ -233,6 +246,17 @@ a.btn {
         text-decoration: none;
         &:hover {
           color: $light-green;
+        }
+    }
+    .social {
+        margin-left: 6px;
+        position: relative;
+        top: 1px;
+        a {
+            margin-right: 4px;
+        }
+        i {
+            font-size: 16px;
         }
     }
 }
