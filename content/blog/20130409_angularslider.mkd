@@ -34,6 +34,8 @@ My disappointment digresses. The point is: I assembled my own customizable
 mobile slider that hooked into AngularJS in the form of a directive. Let us
 begin with the HTML, which AngularJS enhances with declarative two-way bindings.
 
+---
+
     ::html
     <div slider class="slider" min="0" max="9001" step="10">
       <span></span>
