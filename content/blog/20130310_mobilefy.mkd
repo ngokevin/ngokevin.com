@@ -1,4 +1,4 @@
-title: "I Think Just Mobilefied Myself"
+title: "I Think I Just Mobilefied Myself"
 type: blog
 category: blog
 

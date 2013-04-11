@@ -34,3 +34,5 @@
 .list-view hr {
   clear: both;
   margin-top: 26px; }
+.list-view .demo {
+  display: none; }
