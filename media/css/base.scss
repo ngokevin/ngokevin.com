@@ -3,7 +3,9 @@
 
 html, body {
     background: url("../img/textures/satinweave.png") repeat scroll 0 0 transparent;
-    font-family: 'Open Sans Pro', sans-serif;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times,
+                 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑",
+                 serif;
     height: 100%;
     margin: 4px 0 0;
     text-align: justify;
@@ -18,10 +20,13 @@ html, body {
     width: 940px;
 }
 
-
 h1, h2, h3, h4, h5, #logo {
-    font-family: 'Gentium Book Basic', serif;
+    color: $black;
     margin: 0;
+}
+
+h1, #logo {
+    font-family: 'Gentium Book Basic', serif;
 }
 
 a, .main a:hover {
@@ -43,7 +48,10 @@ hr {
 
 code {
     background: $light-gray;
+    border: 1px solid $gray;
     border-radius: 1px;
+    font-family: monospace;
+    font-size: 0.88em;
     padding: 0 4px;
 }
 

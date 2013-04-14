@@ -22,6 +22,8 @@ whole site from px to em. But then I went into my programming [Avatar
 State](http://i.imgur.com/405shFa.jpg), bending my arsenal of media queries at
 will.
 
+---
+
 In my Web Developer State, I yielded RWD. **My RWD process**.
 
 - Take a desktop site that looks like complete bollocks when not 1920x1080.
