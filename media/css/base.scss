@@ -50,22 +50,24 @@ hr {
     border-color: rgb(220, 220, 220);
 }
 
-pre {
-    font-size: 13px;
+.main pre span {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 24px;
 }
 code {
-    background: $light-gray;
-    border: 1px solid $gray;
+    background: darken($white, 3%);
+    border: 1px solid $light-gray;
     border-radius: 1px;
     font-family: monospace;
-    font-size: 0.88em;
+    font-size: 14px;
     padding: 0 4px;
 }
 
 .main {
     padding-bottom: 350px;
     .header-group {
-        margin-bottom: 39px;
+        margin-bottom: 26px;
         h1, h2 {
             color: $dark-green;
         }
@@ -74,16 +76,15 @@ code {
         }
     }
     p, span {
-        font-size: 16px;
-        margin: 0;
-        line-height: 36px;
         color: lighten($black, 2%);
+        font-size: 16px;
+        line-height: 34px;
+        margin: 0;
     }
     li, ol {
         color: lighten($black, 5%);
         font-size: 16px;
-        line-height: 36px;
-        list-style: square;
+        line-height: 34px;
     }
     a {
         color: $dark-green;

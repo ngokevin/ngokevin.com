@@ -74,7 +74,7 @@ the element acting as the directive template, and attributes of the element.
 
 Let us get some initialization out of the way.
 
-     ::js
+    ::js
     // Linking function.
     var $element = $(element);
     var $bar = $('span', $element);

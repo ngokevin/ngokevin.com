@@ -8,9 +8,9 @@ html body pre {
     border-radius: 3px;
     background: rgb(80, 82, 82);
     color: $white;
-    padding: 0 1em;
     margin-bottom: 26px;
     overflow: auto;
+    padding: 8px 0 8px 26px;
 
     .hll { background-color: #49483e }
     .c { color: #75715e } /* Comment */
