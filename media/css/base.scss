@@ -29,6 +29,10 @@ h1, #logo {
     font-family: 'Gentium Book Basic', serif;
 }
 
+h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
 a, .main a:hover {
     @include transition(color .2s);
     font-weight: bold;
