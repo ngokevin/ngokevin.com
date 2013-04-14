@@ -161,7 +161,7 @@ change the slider's value in the scope. But we also need to account for if the
 slider's value in the scope is changed somewhere else, we need to visually
 update the slider. We accomplish this by registering a watcher on the scope.
 
-    :: js
+    ::js
     scope.$watch('sliderValue', function(sliderValue) {
         $bar.width(sliderValue / attrs.max * 100 + '%');
     });
