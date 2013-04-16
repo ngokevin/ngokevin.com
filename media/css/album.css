@@ -35,7 +35,7 @@ img.expanded {
   -moz-box-shadow: 0 0 2px #50505a;
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
-  border: 7px solid #ddddd3;
+  border: 7px solid #e1e1dc;
   cursor: pointer;
   z-index: 9; }
 
@@ -54,6 +54,6 @@ img.expanded {
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
   z-index: 11;
-  border: 7px solid #ddddd3;
+  border: 7px solid #e1e1dc;
   left: 15.5%;
   position: absolute; }

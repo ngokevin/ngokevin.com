@@ -1,7 +1,15 @@
 .page p {
   margin: 26px 0; }
 .page h2, .page h3, .page h4 {
-  margin: 39px 0; }
+  margin: 26px 0; }
+.page h2 {
+  border-bottom: 1px solid silver;
+  font-size: 32px;
+  padding-bottom: 5px; }
+.page h3 {
+  font-size: 24px; }
+.page h4, .page h5, .page h6 {
+  font-size: 18px; }
 
 .page_pic img {
   display: block;
@@ -31,10 +39,10 @@ img {
   -moz-box-shadow: 0 0 2px #50505a;
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
-  background: #ddddd3;
+  background: #e1e1dc;
   border-radius: 3px;
   padding: 10px 20px; }
-  .blurb h2 {
+  .blurb h3 {
     display: inline-block;
     font-style: italic;
     margin: 6px 0; }
@@ -45,8 +53,8 @@ img {
     float: left;
     margin: 16px;
     position: relative;
-    right: 6px;
-    top: 8px;
+    right: 8px;
+    top: 5px;
     text-align: left; }
   .blurb p {
     margin-left: 12px;
@@ -56,7 +64,7 @@ img {
     float: right;
     margin-bottom: 10px;
     position: relative;
-    top: 9px; }
+    top: 6px; }
     .blurb .social a {
       margin: 0 4px;
       padding: 5px; }

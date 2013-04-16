@@ -39,12 +39,12 @@
         -o-transition: background 0.2s;
         -webkit-transition: background 0.2s;
         transition: background 0.2s;
-        background: #ddddd3;
+        background: #e1e1dc;
         border-radius: 3px;
         margin: 0 2px;
         padding: 13px 7px; }
         #header #navigation a:hover {
-          background: #c7c7b6;
+          background: #c9c9c1;
           top: 0; }
         #header #navigation a span {
           padding: 0; }

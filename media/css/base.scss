@@ -20,6 +20,12 @@ html, body {
     width: 940px;
 }
 
+@media all and (min-width: 62.5em) {
+    #wrap {
+        padding: 4px 1.5% 0;
+    }
+}
+
 h1, h2, h3, h4, h5, #logo {
     color: $black;
     margin: 0;
