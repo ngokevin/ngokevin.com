@@ -1,4 +1,4 @@
-title: Introduction to SSH
+title: How to SSH
 type: blog
 category: blog
 tags: guide

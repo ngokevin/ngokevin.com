@@ -1,4 +1,4 @@
-title: "Dumpnig syslog-ng Logs with MongoDB"
+title: "Dumping syslog-ng Logs with MongoDB"
 type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>

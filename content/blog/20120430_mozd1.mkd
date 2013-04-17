@@ -1,4 +1,4 @@
-title: "Mozilla Day One, Get in the Bus"
+title: "First Day At Mozilla"
 type: blog
 category: blog
 author: Kevin Ngo <ngoke@onid.oregonstate.edu>
@@ -77,7 +77,3 @@ along with hearing James Bennett was around. Most people got pretty drunk.
 It takes too much work for me to get drunk, would take about 5 drinks which
 would bloat me up. Hour from midnight, I headed back and worked on setting
 up my laptop some more.
-
-Pretty adventurous day. I will put up pictures...soon...in the
-[gallery](/gallery).
-
