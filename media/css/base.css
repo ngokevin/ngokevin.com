@@ -16,16 +16,20 @@ html, body {
   width: 940px; }
 
 @media all and (min-width: 62.5em) {
-  padding: 4px 2.5% 0; }
+  #wrap {
+    padding: 4px 2% 0; } }
 h1, h2, h3, h4, h5, #logo {
   color: #0a0a14;
   margin: 0; }
 
 h1, #logo {
-  font-family: "Gentium Book Basic", serif; }
+  font-family: 'Gentium Book Basic', serif; }
 
 h2, h3, h4, h5 {
   font-weight: normal; }
+
+h2 {
+  font-size: 22px; }
 
 a, .main a:hover {
   -moz-transition: color 0.2s;
@@ -118,7 +122,7 @@ code {
 
 #navigation {
   position: absolute;
-  font: 16px "Gentium Book Basic", serif;
+  font: 16px 'Gentium Book Basic', serif;
   right: 0;
   top: 20px; }
   #navigation a {

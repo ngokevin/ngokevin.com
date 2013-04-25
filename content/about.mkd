@@ -17,11 +17,10 @@ year, and am writing a book on ```AngularJS``` in my spare time. I started this
 blog to show off projects or write about anything I find helpful, curious, or
 profound.
 
-I am all about programming, fingers pitter-pattering on the keyboard. Never a
+I'm all about that programming, fingers pitter-pattering on the keyboard. Never a
 time to stop learning, never a chance to stop building. Design just as well,
-rendering things neat, pretty, and intuitive nets me satisfaction. Overall, the
-goal is to build cool things that people will enjoy using. Away from the
-computer, my favorite place to be is on a basketball court.
+rendering things neat, pretty, and intuitive is a satisfaction. Simply put, the
+goal is to build cool things that people will enjoy using.
 
 Feel free to check out my projects on [Github][github].
 

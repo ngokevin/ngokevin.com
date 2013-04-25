@@ -4,7 +4,7 @@
   margin: 26px 0; }
 .page h2 {
   border-bottom: 1px solid silver;
-  font-size: 32px;
+  font-size: 26px;
   padding-bottom: 5px; }
 .page h3 {
   font-size: 24px; }
@@ -16,7 +16,7 @@
   max-width: 100%; }
 .page_pic.right {
   float: right;
-  margin-left: 52px;
+  margin: 11px 0 0 52px;
   text-align: right; }
 .page_pic.left {
   float: left;
