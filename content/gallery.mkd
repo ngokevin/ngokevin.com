@@ -1,4 +1,4 @@
-title: Gallery
+title: Photography
 type: gallery
 slug: gallery
 
