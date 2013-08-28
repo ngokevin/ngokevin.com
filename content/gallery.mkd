@@ -1,4 +1,4 @@
-title: Gallery
+title: Photography
 slug: gallery
 url: /gallery/index{page}.html
 type: gallery
