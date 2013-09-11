@@ -2,7 +2,7 @@
 
 
 html, body {
-    background: url("../img/textures/satinweave.png") repeat scroll 0 0 transparent;
+    background: url("../img/textures/body-bg.png") repeat scroll 0 0 transparent;
     font-family: Georgia, Palatino, 'Palatino Linotype', Times,
                  'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑",
                  serif;
@@ -13,7 +13,7 @@ html, body {
 
 #wrap {
     @include box-shadow(0 1px 2px $light-gray);
-    background: url("../img/textures/cream_dust.png") repeat scroll 0 0 transparent;
+    background: url("../img/textures/main-bg.png") repeat scroll 0 0 transparent;
     border-radius: 3px;
     margin: 0 auto;
     padding: 4px 3% 0;
@@ -178,7 +178,7 @@ code {
         padding: 64px 16px 16px 16px;
         @include transition(background .4s);
         &:hover, &.current-nav {
-            background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
+            background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
         }
     }
     hr {
@@ -259,7 +259,7 @@ a.btn {
 
  #footer {
     /* Overrides sticky-footer */
-    background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
+    background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
     font-size: 14px;
     line-height: 28px;
     height: 115px;

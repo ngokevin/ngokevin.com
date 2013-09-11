@@ -9,7 +9,7 @@
     }
     a {
         @include def-box-shadow();
-        background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
+        background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
         border: 7px double $light-gray;
         cursor: pointer;
         float: left;

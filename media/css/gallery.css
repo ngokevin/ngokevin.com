@@ -7,7 +7,7 @@
   -moz-box-shadow: 0 0 2px #50505a;
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
-  background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
+  background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
   border: 7px double #e1e1dc;
   cursor: pointer;
   float: left;
@@ -29,7 +29,7 @@
   border-radius: 2px;
   bottom: 60px;
   color: #fafafa;
-  font: bold 16px/37px Helvetica, Sans-Serif;
+  font: bold 16px / 37px Helvetica, Sans-Serif;
   left: 7px;
   letter-spacing: -1px;
   padding: 10px;

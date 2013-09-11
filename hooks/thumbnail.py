@@ -8,6 +8,7 @@ THUMBNAIL_PREFIX = 'THUMB_'
 GALLERY_DIR = os.path.abspath("./media/img/gallery/") + '/'
 FILE_TYPES = ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG"]
 
+
 def create_thumbnails():
     """
     Wok site.start hook

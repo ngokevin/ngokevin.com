@@ -6,4 +6,6 @@ push
 output
 *.pyc
 .sass-cache
-gallery
+
+config.py
+THUMB_*

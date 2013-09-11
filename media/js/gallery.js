@@ -1,17 +1,22 @@
-// gallery.js
-// fading album previews using info dumped into template from gallery hook
+/*
+    Fading album previews with info dumped into template from gallery hook.
+*/
 
+// TODO: Feed these in through config.py.
 var NUM_PREVIEW_IMGS = 3;
 var THUMBNAIL_SIZE = 210;
 var EXPAND_SIZE = 1.1;
+var GALLERY_PATH = '/gallery/';
+
 
 // function: getAlbum
-// grab album metadata (slugs, titles, dirs, srcs)
+// Grab album metadata (slugs, titles, dirs, srcs).
 var getAlbums = function() {
 
+    var album_infos = $('.album-info');
     dirs = new Array();
     slugs = document.getElementsByClass("album-slug");
-    for(var index in slugs) {
+    for (var index in slugs) {
         slugs[index] = slugs[index].innerHTML;
         dirs[index] = "/img/gallery/" + slugs[index] + "/";
     }
@@ -22,11 +27,11 @@ var getAlbums = function() {
     }
 
     srcs = new Array();
-    // skip empty text nodes
+    // Skip empty text nodes.
     var grab_srcs = function(album_srcs) {
         actual_srcs = new Array();
-        for(index in album_srcs) {
-            if(album_srcs[index].innerHTML != undefined) {
+        for (index in album_srcs) {
+            if (album_srcs[index].innerHTML != undefined) {
                 actual_srcs.push(album_srcs[index].innerHTML);
             }
         }
@@ -47,22 +52,23 @@ var getAlbums = function() {
 
 
 // function: loadAlbums
-// use src metadata to load albums with a/img html objects
+// Use src metadata to load albums with a/img html objects.
 var loadAlbums = function(albums) {
 
     albums['images'] = new Array();
 
-    // create list of a/img objects for each album and push to albums
+    // Create list of a/img objects for each album and push to albums.
     for (var index in albums['slugs']) {
         var images = new Array();
 
         for(var index_src in albums['srcs'][index]){
 
             var a = document.createElement("a");
-            a.href = albums['slugs'][index];
+            a.href = GALLERY_PATH + albums['slugs'][index];
 
             var img = new Image();
-            img.style.visibility= "hidden"; // don't display until shifted
+            // Don't display until shifted.
+            img.style.visibility= "hidden";
             img.onload = imageShift();
             img.src = albums['srcs'][index][index_src]
 
@@ -72,15 +78,14 @@ var loadAlbums = function(albums) {
         albums['images'].push(images);
     }
 
-    // add mouseover event handlers after albums have been loaded
+    // Add mouseover event handlers after albums have been loaded.
     for (var album_index in albums['images']) {
 
         var images = albums['images'][album_index];
         for (var image_index in images){
-
             var img = images[image_index].firstChild;
 
-            // assign handler
+            // Assign handler.
             img.orig_src = img.src;
             img.onmouseover = imageSwapFade(image_index, images, img);
         }
@@ -89,56 +94,55 @@ var loadAlbums = function(albums) {
 
 
 // function: insertAlbums
-// insert albums to dom into gallery div
+// Insert albums to dom into gallery div.
 var insertAlbums = function() {
 
     var gallery = document.getElementById("gallery");
 
     for (var index in albums['images']) {
-
-        // covering my bases
+        // Covering my bases.
         if(albums['images'][index].length == 0){
             continue;
         }
 
-        // make a new row every four albums
+        // Make a new row every four albums.
         if (index % 4 == 0) {
             var row = document.createElement("div");
             gallery.appendChild(row);
         }
 
-        // create a div for the album to separate it
+        // Create a div for the album to separate it.
         var div = document.createElement("div");
         div.id = "album-preview" + index;
         div.className = "album-preview";
         div.appendChild(albums['images'][index][0]);
 
-        // create overlay text with album title
+        // Create overlay text with album title.
         h3 = document.createElement("h3");
         span = document.createElement("span");
         span.appendChild(document.createTextNode(albums['titles'][index]));
         h3.appendChild(span);
         div.appendChild(h3);
 
-        // append to row
+        // Append to row.
         row.appendChild(div);
     }
 };
 
 
 // event handler: imageShift
-// ONLOAD that shifts image viewport towards center
+// ONLOAD that shifts image viewport towards center.
 var imageShift = function() {
 
-    // closure holds thumbnail_size constant
+    // Closure holds thumbnail_size constant.
     return shift = function() {
         var img_box = this.getBoundingClientRect();
 
-        // because we're swapping in-place, need to reset the style
+        // Because we're swapping in-place, need to reset the style.
         this.style.left = "0"
         this.style.top= "0"
 
-        // shift by closing in image towards center
+        // Shift by closing in image towards center.
         var shift_left = (img_box.width - THUMBNAIL_SIZE) / 2;
         if (shift_left > 0) {
             this.style.left = "-" + shift_left + "px";
@@ -148,7 +152,7 @@ var imageShift = function() {
             this.style.top = "-" + shift_top + "px";
         }
 
-        // show image after shifting
+        // Show image after shifting.
         this.style.visibility= "visible";
     }
 };
@@ -163,58 +167,54 @@ var imageSwapFade = function(img_index, thumbnail_array, img) {
     var mouseout_flag = 0;
     var thumbnail = img;
 
-    // closure that holds the current index, thumbnail array, and img object
+    // Closure that holds the current index, thumbnail array, and img object.
     return fade = function() {
         var mouseout_flag = 0;
         thumbnail.style.opacity = .75;
 
-        // if the mouse moves out before timer calls step, don't fade
+        // If the mouse moves out before timer calls step, don't fade.
         thumbnail.onmouseout = function() {
             mouseout_flag = 1;
             thumbnail.style.opacity = 1;
         };
 
         setTimeout(function() {
-            if(mouseout_flag == 0) {
+            if (mouseout_flag == 0) {
                 step();
             }
         }, 800);
 
-        // decreases opacity of img by a bit up until clear
+        // Decreases opacity of img by a bit up until clear.
         var step = function() {
             thumbnail.style.opacity = opacity;
 
             if (opacity > 0) {
                 setTimeout(step, 10);
-            }
-            else { // swap to next image once opacity is low enough
+            } else {
+                // Swap to next image once opacity is low enough.
                 if (parseInt(index) != thumbnail_array.length - 1) {
                     index++;
-                }
-                else {
+                } else {
                     index = 0;
                 }
                 thumbnail.src = thumbnail_array[index].firstChild.orig_src;
 
-                // increases the opacity of img by a bit until opaque
+                // Increases the opacity of img by a bit until opaque.
                 var fadeIn = function () {
                     thumbnail.style.opacity = opacity;
                     if (opacity < 1) {
                         setTimeout(fadeIn, 10);
-                    }
-                    else { // swap img again if still hovering
-                        if (mouseout_flag != 1) {
-                            setTimeout(function() {
-                                if(mouseout_flag == 0) {
-                                    step();
-                                }
-                            }, 600);
-                        }
+                    } else if (mouseout_flag != 1) {
+                        // Swap img again if still hovering.
+                        setTimeout(function() {
+                            if (mouseout_flag == 0) {
+                                step();
+                            }
+                        }, 600);
                     }
                     opacity = opacity + .01;
                 };
                 setTimeout(fadeIn, 0);
-
             }
             opacity = opacity - .01;
         };

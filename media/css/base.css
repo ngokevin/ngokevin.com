@@ -1,6 +1,6 @@
 html, body {
-  background: url("../img/textures/satinweave.png") repeat scroll 0 0 transparent;
-  font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  background: url("../img/textures/body-bg.png") repeat scroll 0 0 transparent;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
   height: 100%;
   margin: 4px 0 0;
   text-align: justify; }
@@ -9,7 +9,7 @@ html, body {
   -moz-box-shadow: 0 1px 2px #e1e1dc;
   -webkit-box-shadow: 0 1px 2px #e1e1dc;
   box-shadow: 0 1px 2px #e1e1dc;
-  background: url("../img/textures/cream_dust.png") repeat scroll 0 0 transparent;
+  background: url("../img/textures/main-bg.png") repeat scroll 0 0 transparent;
   border-radius: 3px;
   margin: 0 auto;
   padding: 4px 3% 0;
@@ -149,7 +149,7 @@ code {
     -webkit-transition: background 0.4s;
     transition: background 0.4s; }
     #navigation span:hover, #navigation span.current-nav {
-      background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent; }
+      background: url("../img/textures/accent.png") repeat scroll 0 0 transparent; }
   #navigation hr {
     clear: both; }
 
@@ -227,7 +227,7 @@ a.btn {
 
 #footer {
   /* Overrides sticky-footer */
-  background: url("../img/textures/billie_holiday.png") repeat scroll 0 0 transparent;
+  background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
   font-size: 14px;
   line-height: 28px;
   height: 115px;
