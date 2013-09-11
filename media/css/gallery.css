@@ -1,3 +1,6 @@
+div.content {
+  margin-bottom: 32px; }
+
 #gallery .album-preview {
   display: inline;
   float: left;

@@ -10,6 +10,8 @@
   <link rel="stylesheet" type="text/css" href="/css/gallery.css" />
   <script type="text/javascript" src="/js/utilities.js" ></script>
 
+  <div class="content">{{ page.content }}</div>
+
   {% for album in site.categories['gallery'] | sort(attribute='datetime', reverse=True) %}
     <div class="album-info">
       <span class="album-slug" style="display:none;">{{ album.slug }}</span>
