@@ -25,8 +25,10 @@ div.content {
         width: 210px;
         z-index: 1;
         img {
-          float: left;
-          position: absolute;
+            float: left;
+            min-height: 210px;
+            min-width: 210px;
+            position: absolute;
         }
     }
     img:hover {
