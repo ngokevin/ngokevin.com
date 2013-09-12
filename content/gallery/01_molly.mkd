@@ -1,0 +1,13 @@
+title: "Molly the Cat"
+slug: cat
+category: gallery
+type: album
+
+source: flickr
+album-id: 72157635476328838
+
+datetime: 2013-09-09 20:00:00
+
+---
+
+The adventures of a snowshoe kitty.
