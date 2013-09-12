@@ -21,9 +21,9 @@
         z-index: 1;
         img {
             float: left;
-            position: absolute;
-            min-width: 210px;
             min-height: 210px;
+            min-width: 210px;
+            position: absolute;
         }
     }
     img:hover {
