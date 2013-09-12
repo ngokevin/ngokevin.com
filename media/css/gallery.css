@@ -19,7 +19,9 @@
   z-index: 1; }
   #gallery a img {
     float: left;
-    position: absolute; }
+    position: absolute;
+    min-width: 210px;
+    min-height: 210px; }
 #gallery img:hover {
   -moz-opacity: .75;
   filter: alpha(opacity=75);
