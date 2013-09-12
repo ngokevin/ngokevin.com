@@ -175,7 +175,7 @@ class Flickr(object):
             sizes = photo.getSizes()
             image = {}
             for size in sizes:
-                if size['label'] == 'Small':
+                if size['label'] == 'Medium 640':
                     image['thumb_src'] = size['source']
                     image['thumb_width'] = int(size['width'] * 1.20)
                     image['thumb_height'] = int(size['height'] * 1.20)

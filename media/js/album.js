@@ -50,7 +50,7 @@ var Images = Backbone.Collection.extend({
     getBySrc: function(src) {
         var self = this;
         return self.filter(function(image) {
-            return image.get('src') == src;
+            return [image.get('src'), image.get('thumbSrc')].indexOf(src) !== -1;
         });
     },
 
@@ -249,7 +249,6 @@ window.AlbumView = Backbone.View.extend({
 
         event.data.view.$el.append(img);
 
-        var self = this;
         setTimeout(function(){
             // Add image border, adjust image position for border width.
             var position = img.offset();
@@ -259,8 +258,8 @@ window.AlbumView = Backbone.View.extend({
 
             // Expand created img with center as expand point, show full-size image.
             var scaleFactor = 1.4;
-            if (this.images.count() == 1) {
-                scaleFactor = 1.2
+            if (event.data.view.images.length === 1) {
+                scaleFactor = 1.2;
             }
             img.animate({
                 left: parseInt(img.css('left')) - (.125 * scaleFactor * img.width()),
@@ -304,17 +303,9 @@ window.AlbumView = Backbone.View.extend({
         var viewWidth = $(window).width();
 
         // Scale down to viewport size if necessary.
-        $(event.data.view.imageList).each(function (i, image){
-            if (clickedSrc.indexOf(image.thumb_src, clickedSrc.length - image.thumb_src.length) !== -1) {
-                d = event.data.view.scaleImage(image.width, image.height);
-                width = d[0];
-                height = d[1];
-                imgThumb.attr('src', image.thumb_src);
-                imgLarge.attr('src', image.src);
-                imgGroup.attr('width', width);
-                imgGroup.attr('width', height);
-            }
-        });
+        var image = event.data.view.images.getBySrc(clickedSrc)[0];
+        imgThumb.attr('src', image.get('thumb_src'));
+        imgLarge.attr('src', image.get('src'));
         imgGroup.addClass('overlay-img');
 
         // Center image based on its width/height and viewport size once loaded.
@@ -322,7 +313,7 @@ window.AlbumView = Backbone.View.extend({
             imgThumb.remove();
             event.data.view.centerShownImage();
             $(this).show();
-        })
+        });
         imgThumb.on('load', function() {
             event.data.view.centerShownImage();
             $(this).show();
@@ -330,36 +321,8 @@ window.AlbumView = Backbone.View.extend({
         imgGroup.click(removeOverlay);
         $(document.body).append(imgGroup);
 
-        // From the src, get the corresponding model of the image.
-        model = event.data.view.images.getBySrc(imgLarge.attr('src'));
-    },
-
-    scaleImage: function (width, height) {
-        // We need to make the maxHeight less than the viewHeight (see centerShownImage).
-        // This is because viewHeight might shrink the image's height without shrinking
-        // the image's width. The same thing is true for maxWidth and viewWidth.
-        // These numbers seem to be magic.
-        var maxHeight = $(window).height() * 0.7;
-        var maxWidth = $(window).width() * 0.7;
-        function refactor(width, height) {
-            return [width * 0.9, height * 0.9];
-        }
-
-        function within_max(width, height) {
-            if (width > maxWidth || height > maxHeight) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        // Scale down to viewport size if necessary.
-        while (!within_max(width, height)) {
-            new_d = refactor(width, height);
-            width = new_d[0];
-            height =  new_d[1];
-        }
-        return [width, height];
+        // Return the corresponding model of the image.
+        return image;
     },
 
     centerShownImage: function() {
