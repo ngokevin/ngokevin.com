@@ -283,3 +283,6 @@ html[xmlns] .c {
 
 #disqus_thread {
   margin-top: 13px; }
+
+.overlay .prev, .next {
+  background: #32323c; }

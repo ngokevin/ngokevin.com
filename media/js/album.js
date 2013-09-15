@@ -55,13 +55,29 @@ var Images = Backbone.Collection.extend({
     },
 
     // Iterator for uninserted images, get next unviewed, set as viewed.
-    next: function() {
+    nextUnviewed: function() {
         var image = this.unviewed()[0];
         if (typeof image == "undefined") {
             return null;
         }
         this.get(image['id']).set('viewed', true);
         return image;
+    },
+
+    // Get previous image in collection.
+    prev: function(image) {
+        if (image.get('id') === 0) {
+            return this.models[this.length - 1];
+        }
+        return this.models[image.get('id') - 1];
+    },
+
+    // Get next image in collection.
+    next: function(image) {
+        if (image.get('id') === this.length - 1) {
+            return this.models[0];
+        }
+        return this.models[image.get('id') + 1];
     }
 });
 
@@ -83,15 +99,9 @@ window.AlbumView = Backbone.View.extend({
         $(window).scroll( function() {
           self.endlessScroller();
         });
-        $(window).resize( function() {
-          self.centerShownImage();
-        });
 
-        this.spinner = this.createSpinner();
-
-        this.insertRow();
-        this.insertRow();
-        this.insertRow();
+        this.insertRows();
+        this.initOverlay();
     },
 
     // From image metadata, initialize Image models and add to Collection.
@@ -135,12 +145,11 @@ window.AlbumView = Backbone.View.extend({
 
         // Fill row with enough images to at least fill the page width.
         while (currentRowWidth < PAGE_WIDTH || self.images.unviewed().length <= 2) {
-            var image = self.images.next();
+            var image = self.images.nextUnviewed();
 
-            if (image === null && currentRowWidth == 0) {
+            if (image === null && currentRowWidth === 0) {
                 return;
-            }
-            else if (image == null) {
+            } else if (image === null) {
                 break;
             }
 
@@ -148,8 +157,6 @@ window.AlbumView = Backbone.View.extend({
             row.push(self.createImg(image.get('thumbSrc')));
             currentRowWidth += image.get('thumbWidth');
         }
-
-        this.spinner.addSpinner();
 
         // Scale images to equal height, based on smallest height.
         var smallestHeight = models[0].get('thumbHeight');
@@ -159,13 +166,13 @@ window.AlbumView = Backbone.View.extend({
                 smallestHeight = height;
             }
         });
-        var currentRowWidth = 0;
+        currentRowWidth = 0;
         $(row).each(function(index, img) {
             var width = models[index].get('thumbWidth');
             var height = models[index].get('thumbHeight');
 
             var scale = smallestHeight / height;
-            var width = Math.floor(width * scale);
+            width = Math.floor(width * scale);
             img.width(width);
             img.height(Math.floor(height * scale));
 
@@ -191,12 +198,11 @@ window.AlbumView = Backbone.View.extend({
             var a = $('<a/>').append(img);
             self.$el.append(a);
         });
+    },
 
-        if (self.images.unviewed().length == 0) {
-            self.spinner.stopSpinner(last=true);
-        }
-        else {
-            self.spinner.stopSpinner(last=false);
+    insertRows: function() {
+        for (var i = 0; i < 4; i++) {
+            this.insertRow();
         }
     },
 
@@ -206,24 +212,14 @@ window.AlbumView = Backbone.View.extend({
         var windowHeight = $(window).height();
         var scrollTop = $(window).scrollTop();
 
-        // Adjust overlay if exist.
-        if (scrollTop + windowHeight <= documentHeight) {
-            $('.overlay').css('top', scrollTop);
-            var overlayImg = $('.overlay-img');
-            overlayImg.css('top', scrollTop);
-            this.centerShownImage();
-        }
-
         // Don't do anything if all images inserted.
         if (this.images.unviewed().length == 0) {
             return;
         }
 
         var scrollBot = scrollTop + windowHeight;
-
         if (scrollBot / documentHeight >= .85 || scrollTop == documentHeight) {
-            this.insertRow();
-            this.insertRow();
+            this.insertRows();
         }
     },
 
@@ -245,7 +241,13 @@ window.AlbumView = Backbone.View.extend({
             $('.expand').remove();
         });
 
-        img.click({'view': event.data.view}, event.data.view.showImage);
+        // Show image on overlay.
+        img.click({'view': event.data.view}, function() {
+            var view = event.data.view;
+            view.showImage.apply(
+                view.images.getBySrc(img.attr('src'))[0], [event]
+            );
+        });
 
         event.data.view.$el.append(img);
 
@@ -274,111 +276,88 @@ window.AlbumView = Backbone.View.extend({
         }, 500);
     },
 
+    initOverlay: function() {
+        var overlayBg = $('.overlay-bg');
+        // Create overlay background.
+        overlayBg.click(function() {
+            $('.overlay').hide();
+            $('.overlay-img.full').hide();
+            $('.overlay-img.thumb').show();
+        });
+    },
+
     // Overlay full size image when clicked.
     showImage: function(event) {
-        var removeOverlay = function() {
-            $('.overlay').remove();
-            $('.overlay-img').remove();
-        }
-
-        var scrollTop = $(window).scrollTop();
-
-        // Create overlay background.
-        var overlay = $('<div />');
-        overlay.addClass('overlay');
-        overlay.css('top', scrollTop);
-        overlay.click(removeOverlay);
-        $(document.body).append(overlay);
+        var image = this;
+        var self = event.data.view;
+        $('.overlay').show();
 
         // Create full size image.
-        var imgThumb = $('<img />');
-        var imgLarge = $('<img />');
-        var imgGroup = imgThumb.add(imgLarge);
-        imgGroup.css('top', scrollTop);
-
-        // Find the image that has this thumb.
-        var clickedSrc = $(this).attr('src');
-
-        var viewHeight = $(window).height();
-        var viewWidth = $(window).width();
+        var imgThumb = $('.overlay-img.thumb');
+        var imgLarge = $('.overlay-img.full');
+        var imgGroup = $('.overlay-img');
 
         // Scale down to viewport size if necessary.
-        var image = event.data.view.images.getBySrc(clickedSrc)[0];
-        imgThumb.attr('src', image.get('thumb_src'));
+        var d = self.calcScaledSize(this);
+        imgGroup.css('width', d[0]);
+        imgGroup.css('height', d[1]);
+        imgThumb.attr('src', image.get('thumbSrc'));
         imgLarge.attr('src', image.get('src'));
-        imgGroup.addClass('overlay-img');
+
+        // Switch to prev/next image on click.
+        // Hide the overlay images, prepare to view the next one.
+        imgGroup.add('.overlay .nav').off('click');
+        $('.nav.prev').click(function() {
+            imgGroup.hide().attr('src', '');
+            self.showImage.apply(self.images.prev(image), [event]);
+        });
+        $('.nav.next').click(function() {
+            imgGroup.hide().attr('src', '');
+            self.showImage.apply(self.images.next(image), [event]);
+        });
+        imgGroup.click(function() {
+            $(this).hide().attr('src', '');
+            var nextImage = self.images.next(image);
+            self.showImage.apply(nextImage, [event]);
+        });
 
         // Center image based on its width/height and viewport size once loaded.
         imgLarge.on('load', function() {
-            imgThumb.remove();
-            event.data.view.centerShownImage();
+            imgThumb.hide();
             $(this).show();
         });
         imgThumb.on('load', function() {
-            event.data.view.centerShownImage();
             $(this).show();
         });
-        imgGroup.click(removeOverlay);
-        $(document.body).append(imgGroup);
 
         // Return the corresponding model of the image.
         return image;
     },
 
-    centerShownImage: function() {
-        var images = $('.overlay-img');
+    calcScaledSize: function(image) {
+        /*
+            Calculates the width and height for a thumb image
+            as if we had applied max-width and max-height to
+            the full-size image. This allows the thumb image to
+            be the same scale as the full image for lazy-loading.
+        */
+        var width = image.get('width');
+        var height = image.get('height');
         var viewHeight = $(window).height();
         var viewWidth = $(window).width();
-
-        images.css('max-width', viewWidth * .9);
-        images.css('max-height', viewHeight * .9);
-
-        // Adjust for how far page is scrolled down.
-        var height = images.height();
-        var scrollTop = $(window).scrollTop();
-        images.css('top', scrollTop + (viewHeight - height) / 2);
-
-        // Center image horizontally.
-        var width = images.width();
-        images.css('left', (viewWidth / 2) - (width / 2) + 'px');
+        var aspectRatio = width / height;
+        if (width > viewWidth) {
+            width = viewWidth * 0.9;
+            height = width / aspectRatio;
+        }
+        if (height > viewHeight) {
+            height = viewHeight * 0.9;
+            width = height * aspectRatio;
+        }
+        return [width, height];
     },
-
-    // Spinner generator, start/stop functions.
-    createSpinner: function() {
-
-        var indicator = $('#indicator');
-        var target = $('#rowSpinner');
-
-        var opts = {
-          lines: 12,
-          length: 7,
-          width: 4,
-          radius: 10,
-          color: '#000',
-          speed: 1,
-          trail: 60,
-          shadow: false
-        };
-
-        return {
-            spinner: 0,
-            addSpinner: function() {
-                indicator.hide();
-                target.show();
-
-                this.spinner = new Spinner(opts).spin(target[0]);
-                $(this.spinner.el).css('top', 50);
-            },
-            stopSpinner: function(last) {
-                this.spinner.stop();
-                target.hide();
-                if (last != true) {
-                    indicator.show();
-                }
-            }
-        };
-    },
-
 });
+
 var albumView = new AlbumView();
+
 })(jQuery);
