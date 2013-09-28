@@ -327,3 +327,8 @@ html[xmlns] .c {
 #disqus_thread {
     margin-top: 13px;
 }
+
+
+.overlay div.prev, .overlay div.next {
+    background: $dark-gray;
+}

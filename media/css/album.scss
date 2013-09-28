@@ -27,13 +27,6 @@
     width: 0;
 }
 
-#rowSpinner {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3px;
-}
-
 img {
     &.expand {
         cursor: pointer;
@@ -47,20 +40,82 @@ img {
 }
 
 .overlay {
-    background-color: $black;
-    filter: alpha(opacity = 70);
-    left: 0px;
+    display: none;
     height: 100%;
-    opacity: .7;
-    position: absolute;
+    position: relative;
     width: 100%;
-    z-index: 10;
-}
 
-.overlay-img {
-    @include def-box-shadow();
-    z-index: 11;
-    border: 7px solid $light-gray;
-    left: 15.5%;
-    position: absolute;
+    &:hover {
+        cursor: pointer;
+    }
+    .overlay-bg {
+        background-color: $black;
+        bottom: 0;
+        filter: alpha(opacity = 70);
+        left: 0;
+        height: 100%;
+        margin: auto;
+        opacity: .7;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    .overlay-img {
+        @include def-box-shadow();
+        border: 7px solid $light-gray;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        margin: auto;
+        max-height: 85%;
+        max-width: 85%;
+        right: 0;
+        top: 0;
+        z-index: 11;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .prev, .next {
+        background: $gray;
+        border: 1px solid $dark-gray;
+        border-radius: 50px;
+        bottom: 0;
+        height: 50px;
+        margin: auto;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        width: 50px;
+        z-index: 12;
+
+        &:hover {
+            @include box-shadow(0 0 1px 3px $white);
+            border: none;
+        }
+        span {
+            color: $light-gray;
+            position: relative;
+            font-size: 32px;
+            font-weight: bold;
+            top: 5px;
+        }
+    }
+    .prev {
+        left: 1%;
+
+        span {
+            right: 1px;
+        }
+    }
+    .next {
+        right: 1%;
+
+        span {
+            left: 1px;
+        }
+    }
 }
