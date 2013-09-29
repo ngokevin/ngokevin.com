@@ -12,12 +12,12 @@ image:
 
 A web developer at Mozilla, previously web development intern and part-time
 contractor. I graduated with computer science at Oregon State University.
-There, I had worked for OSU's **Network Engineering Team**. On my spare time, I
-am writing a book on ```AngularJS```. I started this blog to show off projects
-or write about anything I find helpful, curious, or profound.
+There, I had worked for OSU's **Network Engineering Team**. I started this
+blog to show off projects or write about anything I find helpful, curious, or
+profound.
 
 Mainly, I am interested in front-end web development with a side-fling in
-design, but I simply want to build cool things that reaches many.
+design, but simply I want to build cool things that reaches others.
 
 Check me out on [Github][github].
 

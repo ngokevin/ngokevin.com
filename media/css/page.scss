@@ -40,6 +40,12 @@
         text-align: right;
         img {
             margin: 52px auto;
+            &.captioned {
+                margin-bottom: 13px;
+            }
+            + .caption {
+                margin-bottom: 52px;
+            }
         }
     }
 }
@@ -90,4 +96,11 @@ img {
             font-size: 23px;
         }
     }
+}
+
+span.page-caption {
+    position: relative;
+    bottom: 26px;
+    font-size: 13px;
+    font-style: italic;
 }

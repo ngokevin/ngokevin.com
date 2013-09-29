@@ -26,6 +26,10 @@
   text-align: right; }
   .page_pic.top img {
     margin: 52px auto; }
+    .page_pic.top img.captioned {
+      margin-bottom: 13px; }
+    .page_pic.top img + .caption {
+      margin-bottom: 52px; }
 
 img {
   -moz-box-shadow: 0 0 2px #50505a;
@@ -70,3 +74,9 @@ img {
       padding: 5px; }
     .blurb .social i {
       font-size: 23px; }
+
+span.page-caption {
+  position: relative;
+  bottom: 26px;
+  font-size: 13px;
+  font-style: italic; }

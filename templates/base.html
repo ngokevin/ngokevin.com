@@ -46,9 +46,9 @@
             <div class="page_pic {{ page.image.where }}" style="
                 {% if page.image.width %} max-width: {{page.image.width}}; {% endif %}
                 {% if page.image.height %} max-height: {{page.image.height}}; {% endif %}">
-              <img src="{{ page.image.url }}">
+              <img{% if page.image.caption %} class="captioned"{% endif %} src="{{ page.image.url }}">
               {% if page.image.caption %}
-                <span>{{ page.image.caption }}</span>
+                <span class="caption">{{ page.image.caption }}</span>
               {% endif %}
             </div>
           {% endif %}
