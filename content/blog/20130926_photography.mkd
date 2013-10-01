@@ -7,17 +7,11 @@ slug: "photography"
 image:
     url: http://farm4.staticflickr.com/3748/9960196186_72e0356ab0_b.jpg
     where: top
-    caption: 17-50mm lens at 38mm, ISO 100, f/13 for 15 seconds.
+    caption: 17-50mm lens at 38mm, ISO 100, f/13 for 15 seconds. Taken near Washington's Rainbow Falls State Park where I was driving my girlfriend from Seattle to Portland when we decided to take a spontaneous 20-mile detour into the countryside.
 
 date: 2013-09-26
 
 ---
-
-The [featured shot](http://farm4.staticflickr.com/3748/9960196186_72e0356ab0_b.jpg)
-was taken near Washington's Rainbow Falls State Park. I was
-driving my girlfriend from Seattle to Portland when we decided to take a
-spontaneous 20-mile detour into the countryside, all because a freeway sign
-caught our eyes.
 
 Photography has become largely crowded with much attribution to social networks
 developing an insatiable appetite for delicious images. You may spot
@@ -74,9 +68,9 @@ Photography will allow me to discover domain-specific problems to solve as side
 projects that will become useful to other photographers.
 
 Above all, the satisfying feeling is pulling the shutter, taking a glance at
-the camera's LCD, and knowing I've just captured a champion. A photograph that
-I will later gladly process thoroughly and then share online, and one day frame
-it on the wall.
+the camera's LCD, and knowing I captured a winner. A photograph that I will
+later process thoroughly and then share online, and eventually frame it on the
+wall.
 
 More on photography to come.
 

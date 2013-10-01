@@ -79,4 +79,5 @@ span.page-caption {
   position: relative;
   bottom: 26px;
   font-size: 13px;
-  font-style: italic; }
+  font-style: italic;
+  text-align: right; }
