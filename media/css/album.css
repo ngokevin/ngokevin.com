@@ -1,11 +1,13 @@
 #album {
   margin-top: 1.1em; }
-  #album a img {
-    cursor: pointer;
-    height: 210px;
-    margin: 3px;
-    margin-top: 0px;
-    width: auto; }
+  #album a {
+    margin-bottom: 3px; }
+    #album a img {
+      cursor: pointer;
+      height: 210px;
+      margin: 3px;
+      margin-top: 0;
+      width: auto; }
   #album img:hover {
     -moz-box-shadow: 0 0 2px #50505a;
     -webkit-box-shadow: 0 0 2px #50505a;
@@ -94,7 +96,7 @@ img.expanded {
       -moz-box-shadow: 0 0 1px 3px #fafafa;
       -webkit-box-shadow: 0 0 1px 3px #fafafa;
       box-shadow: 0 0 1px 3px #fafafa;
-      border: none; }
+      border: 1px solid #fafafa; }
     .overlay .prev span, .overlay .next span {
       color: #e1e1dc;
       position: relative;

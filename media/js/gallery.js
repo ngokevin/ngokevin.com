@@ -178,12 +178,6 @@ var imageSwapFade = function(img_index, thumbnail_array, img) {
             thumbnail.style.opacity = 1;
         };
 
-        setTimeout(function() {
-            if (mouseout_flag == 0) {
-                step();
-            }
-        }, 800);
-
         // Decreases opacity of img by a bit up until clear.
         var step = function() {
             thumbnail.style.opacity = opacity;
@@ -206,11 +200,9 @@ var imageSwapFade = function(img_index, thumbnail_array, img) {
                         setTimeout(fadeIn, 10);
                     } else if (mouseout_flag != 1) {
                         // Swap img again if still hovering.
-                        setTimeout(function() {
-                            if (mouseout_flag == 0) {
-                                step();
-                            }
-                        }, 600);
+                        if (mouseout_flag == 0) {
+                            step();
+                        }
                     }
                     opacity = opacity + .01;
                 };
@@ -219,6 +211,9 @@ var imageSwapFade = function(img_index, thumbnail_array, img) {
             opacity = opacity - .01;
         };
 
+        if (mouseout_flag == 0) {
+            step();
+        }
     };
 };
 

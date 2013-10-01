@@ -294,6 +294,7 @@ window.AlbumView = Backbone.View.extend({
             $('.overlay').hide();
             $('.overlay-img.full').hide();
             $('.overlay-img.thumb').show();
+            $('body').unbind('keyup');
         });
     },
 
@@ -318,18 +319,21 @@ window.AlbumView = Backbone.View.extend({
         // Switch to prev/next image on click.
         // Hide the overlay images, prepare to view the next one.
         imgGroup.add('.overlay .nav').off('click');
-        $('.nav.prev').click(function() {
+        var showPrevImage = function() {
             imgGroup.hide().attr('src', '');
             self.showImage.apply(self.images.prev(image), [event]);
-        });
-        $('.nav.next').click(function() {
+        };
+        var showNextImage = function() {
             imgGroup.hide().attr('src', '');
             self.showImage.apply(self.images.next(image), [event]);
-        });
-        imgGroup.click(function() {
-            $(this).hide().attr('src', '');
-            var nextImage = self.images.next(image);
-            self.showImage.apply(nextImage, [event]);
+        };
+        $('.nav.prev').click(showPrevImage);
+        $('.nav.next').add(imgGroup).click(showNextImage);
+        $('body').keyup(function(e) {
+            if ([32, 37].indexOf(e.keyCode || e.which) !== -1)
+                showPrevImage();
+            if ((e.keyCode || e.which) == 39)
+                showNextImage();
         });
 
         // Center image based on its width/height and viewport size once loaded.
