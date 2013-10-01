@@ -230,4 +230,3 @@ def make_image(image):
         'width': width,
         'height': height,
     }
-

@@ -29,6 +29,15 @@ img.expanded {
   -moz-box-shadow: 0 0 2px #50505a;
   -webkit-box-shadow: 0 0 2px #50505a;
   box-shadow: 0 0 2px #50505a;
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transition: all 0.05s linear;
+  -ms-transition: all 0.05s linear;
+  -o-transition: all 0.05s linear;
+  -webkit-transition: all 0.05s linear;
+  transition: all 0.05s linear;
   border: 7px solid #e1e1dc;
   cursor: pointer;
   z-index: 9; }

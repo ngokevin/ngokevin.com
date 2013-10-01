@@ -33,6 +33,8 @@ img {
     }
     &.expanded {
         @include def-box-shadow();
+        @include transform(scale(1.2));
+        @include transition(all .05s linear);
         border: 7px solid $light-gray;
         cursor: pointer;
         z-index: 9;

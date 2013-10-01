@@ -64,3 +64,26 @@ function getViewportSize(w) {
     return { w: d.body.clientWidth, h: d.body.clientWidth };
 }
 
+
+function calcScaledSize(image) {
+    /*
+        Calculates the width and height for a thumb image
+        as if we had applied max-width and max-height to
+        the full-size image. This allows the thumb image to
+        be the same scale as the full image for lazy-loading.
+    */
+    var width = image.get('width');
+    var height = image.get('height');
+    var viewHeight = $(window).height();
+    var viewWidth = $(window).width();
+    var aspectRatio = width / height;
+    if (width > viewWidth) {
+        width = viewWidth * 0.9;
+        height = width / aspectRatio;
+    }
+    if (height > viewHeight) {
+        height = viewHeight * 0.9;
+        width = height * aspectRatio;
+    }
+    return [width, height];
+}

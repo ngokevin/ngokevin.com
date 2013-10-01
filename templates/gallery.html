@@ -10,8 +10,6 @@
   <link rel="stylesheet" type="text/css" href="/css/gallery.css" />
   <script type="text/javascript" src="/js/utilities.js" ></script>
 
-  <div class="content">{{ page.content }}</div>
-
   {% for album in site.categories['gallery'] | sort(attribute='datetime', reverse=True) %}
     <div class="album-info">
       <span class="album-slug" style="display:none;">{{ album.slug }}</span>
@@ -24,7 +22,7 @@
     </div>
   {% endfor %}
 
-  <div id="gallery">
+  <div id="gallery" class="c">
     <script type="text/javascript" src="/js/lib/jquery-1.7.1.min.js" ></script>
     <script type="text/javascript" src="/js/gallery.js" ></script>
   </div>

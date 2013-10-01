@@ -5,8 +5,8 @@
 (function($) {
 
 var THUMB_PREFIX = 'THUMB_';
-var PAGE_WIDTH = 940;
 var MARGIN = 3;
+var pageWidth = $('.main').width();
 
 
 var Image = Backbone.Model.extend({
@@ -30,32 +30,33 @@ var Images = Backbone.Collection.extend({
 
     model: Image,
 
-    // Get inserted Images
     viewed: function() {
+        /* Get inserted Images. */
+
         var self = this;
         return self.filter(function(image) {
             return image.get('viewed');
         });
     },
 
-    // Get uninserted Images
     unviewed: function() {
+        /* Get uninserted Images. */
         var self = this;
         return self.reject(function(image) {
             return image.get('viewed');
         });
     },
 
-    // Get model by src.
     getBySrc: function(src) {
+        /* Get model by src. */
         var self = this;
         return self.filter(function(image) {
             return [image.get('src'), image.get('thumbSrc')].indexOf(src) !== -1;
         });
     },
 
-    // Iterator for uninserted images, get next unviewed, set as viewed.
     nextUnviewed: function() {
+        /* Iterator for uninserted images, get next unviewed, set as viewed. */
         var image = this.unviewed()[0];
         if (typeof image == "undefined") {
             return null;
@@ -64,16 +65,16 @@ var Images = Backbone.Collection.extend({
         return image;
     },
 
-    // Get previous image in collection.
     prev: function(image) {
+        /* Get previous image in collection. */
         if (image.get('id') === 0) {
             return this.models[this.length - 1];
         }
         return this.models[image.get('id') - 1];
     },
 
-    // Get next image in collection.
     next: function(image) {
+        /* Get next image in collection. */
         if (image.get('id') === this.length - 1) {
             return this.models[0];
         }
@@ -86,9 +87,9 @@ window.AlbumView = Backbone.View.extend({
 
     el: $('#album'),
 
-    // Parse image metadata from JSON inserted by Python hooks.
-    // Insert initial rows, set up endless scrolling.
     initialize: function() {
+        /* Parse image metadata from JSON inserted by Python hooks.
+           Insert initial rows, set up endless scrolling. */
         this.images = new Images();
         this.imageList = jQuery.parseJSON($('#images').text());
 
@@ -96,18 +97,26 @@ window.AlbumView = Backbone.View.extend({
 
         var self = this;
         self.imageList = this.imageList;
-        $(window).scroll( function() {
+        $(window).scroll(function() {
           self.endlessScroller();
-        });
-
+        }).resize({'view': this}, this.reinitialize);
         this.insertRows();
         this.initOverlay();
     },
 
-    // From image metadata, initialize Image models and add to Collection.
-    createImages: function() {
-        var self = this;
+    reinitialize: function(event) {
+        var view = event.data.view;
+        pageWidth = $('.main').width();
+        view.$el.find('img').remove();
+        view.images.forEach(function(model, index) {
+            model.set('viewed', false);
+        });
+        view.insertRows();
+    },
 
+    createImages: function() {
+        /* From image metadata, initialize Image models and add to Collection. */
+        var self = this;
         $(this.imageList).each(function(index, img) {
             var image = new Image({
                 'id': index,
@@ -126,25 +135,36 @@ window.AlbumView = Backbone.View.extend({
         });
     },
 
-    // Given src, create img element.
     createImg: function(src) {
+        /* Given src, create img element. */
         var img = $('<img />');
         img.attr('src', src);
         img.addClass('thumb-img');
-        img.mouseenter({'view': this}, this.expandImg);
+
+        var self = this;
+        if (pageWidth > 768) {
+            // On desktop, expand image on hover.
+            img.mouseenter({'view': this}, this.expandImg);
+        } else {
+            // If mobile, no expand-on-hover. Just clicks.
+            img.click(function() {
+                self.showImage.apply(
+                    self.images.getBySrc(src)[0], [{data: {view: self}}]
+                );
+            });
+        }
         return img;
     },
 
-    // Insert row of even-height thumbnails fitting width of page.
     insertRow: function() {
+        /* Insert row of even-height thumbnails fitting width of page. */
         var self = this;
-
         var models = [];  // Backbone model representation.
         var row = [];  // DOM representation.
         var currentRowWidth = 0;
 
         // Fill row with enough images to at least fill the page width.
-        while (currentRowWidth < PAGE_WIDTH || self.images.unviewed().length <= 2) {
+        while (currentRowWidth < pageWidth || self.images.unviewed().length <= 2) {
             var image = self.images.nextUnviewed();
 
             if (image === null && currentRowWidth === 0) {
@@ -183,7 +203,7 @@ window.AlbumView = Backbone.View.extend({
         var marginsWidth = models.length * MARGIN * 2;
 
         // Fit row to page width.
-        var scale = (PAGE_WIDTH - marginsWidth) / currentRowWidth;
+        var scale = (pageWidth - marginsWidth) / currentRowWidth;
         $(row).each(function(index, img) {
             var width = img.width();
             var height = img.height();
@@ -193,7 +213,7 @@ window.AlbumView = Backbone.View.extend({
         });
 
         // Wrap img in anchor and insert into page.
-        var self = this;
+        self = this;
         $(row).each(function(index, img) {
             var a = $('<a/>').append(img);
             self.$el.append(a);
@@ -206,14 +226,15 @@ window.AlbumView = Backbone.View.extend({
         }
     },
 
-    // Insert row of images if scroll near bottom of page.
     endlessScroller: function() {
+        /* Insert row of images if scroll near bottom of page. */
         var documentHeight = $(document).height();
         var windowHeight = $(window).height();
         var scrollTop = $(window).scrollTop();
 
         // Don't do anything if all images inserted.
         if (this.images.unviewed().length == 0) {
+            $('#indicator').remove();
             return;
         }
 
@@ -223,34 +244,30 @@ window.AlbumView = Backbone.View.extend({
         }
     },
 
-    // Create img on top of mouseovered thumb and expand size.
     expandImg: function(event) {
+        /* Create img on top of mouseovered thumb and expand size. */
+
         var position = $(this).offset();
 
-        var img = $('<img />');
-        img.attr('src', this.src);
-        img.attr('class', 'expand');
-
         // Create new img on directly top of hovered image.
-        img.width(this.width);
-        img.height(this.height);
-        img.css('position', 'absolute');
-        img.css(position);
-
-        img.mouseleave(function() {
+        var img = $('<img />');
+        img.attr('src', this.src)
+        .attr('class', 'expand')
+        .width(this.width)
+        .height(this.height)
+        .css('position', 'absolute').css(position)
+        .mouseleave(function() {
             $('.expand').remove();
-        });
-
-        // Show image on overlay.
-        img.click({'view': event.data.view}, function() {
+        }).click({'view': event.data.view}, function() {
+            // Show image on overlay on click.
             var view = event.data.view;
             view.showImage.apply(
                 view.images.getBySrc(img.attr('src'))[0], [event]
             );
         });
-
         event.data.view.$el.append(img);
 
+        var self = this;
         setTimeout(function(){
             // Add image border, adjust image position for border width.
             var position = img.offset();
@@ -258,22 +275,11 @@ window.AlbumView = Backbone.View.extend({
             img.css('left', position.left - 7);
             img.css('top', position.top - 7);
 
-            // Expand created img with center as expand point, show full-size image.
-            var scaleFactor = 1.4;
-            if (event.data.view.images.length === 1) {
-                scaleFactor = 1.2;
-            }
-            img.animate({
-                left: parseInt(img.css('left')) - (.125 * scaleFactor * img.width()),
-                top: parseInt(img.css('top')) - (.125 * scaleFactor * img.height()),
-                width: scaleFactor * img.width(),
-                height: scaleFactor * img.height(),
-            }, 60, function(){
-                var src = img.attr('src');
-                img.attr('src', src);
-                self.src = this.src;
-            });
-        }, 500);
+            // Replace with full src. If user hovers this long, they want moar.
+            var src = event.data.view.images.getBySrc(img.attr('src'))[0].get('src');
+            img.attr('src', src);
+            $(self).attr('src', src);
+        }, 400);
     },
 
     initOverlay: function() {
@@ -286,8 +292,8 @@ window.AlbumView = Backbone.View.extend({
         });
     },
 
-    // Overlay full size image when clicked.
     showImage: function(event) {
+        /* Overlay full size image when clicked. */
         var image = this;
         var self = event.data.view;
         $('.overlay').show();
@@ -298,7 +304,7 @@ window.AlbumView = Backbone.View.extend({
         var imgGroup = $('.overlay-img');
 
         // Scale down to viewport size if necessary.
-        var d = self.calcScaledSize(this);
+        var d = calcScaledSize(this);
         imgGroup.css('width', d[0]);
         imgGroup.css('height', d[1]);
         imgThumb.attr('src', image.get('thumbSrc'));
@@ -332,29 +338,6 @@ window.AlbumView = Backbone.View.extend({
 
         // Return the corresponding model of the image.
         return image;
-    },
-
-    calcScaledSize: function(image) {
-        /*
-            Calculates the width and height for a thumb image
-            as if we had applied max-width and max-height to
-            the full-size image. This allows the thumb image to
-            be the same scale as the full image for lazy-loading.
-        */
-        var width = image.get('width');
-        var height = image.get('height');
-        var viewHeight = $(window).height();
-        var viewWidth = $(window).width();
-        var aspectRatio = width / height;
-        if (width > viewWidth) {
-            width = viewWidth * 0.9;
-            height = width / aspectRatio;
-        }
-        if (height > viewHeight) {
-            height = viewHeight * 0.9;
-            width = height * aspectRatio;
-        }
-        return [width, height];
     },
 });
 
