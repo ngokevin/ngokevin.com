@@ -27,6 +27,9 @@
             text-align: right;
             img {
                 margin: 52px auto;
+                &.captioned {
+                    margin-bottom: 13px;
+                }
             }
         }
     }
@@ -108,6 +111,23 @@
     .blog {
         h1, .metadata {
             text-align: center;
+        }
+    }
+    #top-share {
+        left: 20px;
+        right: 0;
+        text-align: center;
+        top: 20px;
+    }
+    .blurb {
+        position: relative;
+        img[src] {
+            float: none;
+        }
+        div.social {
+            position: absolute;
+            right: 2px;
+            top: 17px;
         }
     }
 }

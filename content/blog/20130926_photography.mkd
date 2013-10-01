@@ -76,9 +76,9 @@ More on photography to come.
 
 ![SharksCove](http://farm4.staticflickr.com/3729/9977498426_80a0e7cb2e_h.jpg)
 
-<span class="page-caption">
+<div class="page-caption"><span>
 17-55mm weather-resistant lens at 55mm, ISO 100, f/5.6 for 1/800s. Taken at
 Shark's Cove, a popular snorkelling and diving location in Oahu, Hawaii. People
 were jumping in the crashing waves, yet the photograph captures a feeling of
 summertime nostalgia.
-</span>
+</span></div>

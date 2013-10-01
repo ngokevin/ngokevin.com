@@ -267,14 +267,12 @@ html[xmlns] .c {
   height: 1%; }
 
 /* Social share buttons */
-.addthis_button_tweet {
-  position: relative;
-  right: 10px; }
-
 #top-share {
   position: relative;
-  top: 19px;
+  top: 20px;
   right: 2px; }
+  #top-share > a {
+    float: none; }
 
 #bottom-share {
   position: relative;
