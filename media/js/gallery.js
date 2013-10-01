@@ -211,9 +211,11 @@ var imageSwapFade = function(img_index, thumbnail_array, img) {
             opacity = opacity - .01;
         };
 
-        if (mouseout_flag == 0) {
-            step();
-        }
+        setTimeout(function() {
+            if (mouseout_flag == 0) {
+                step();
+            }
+        }, 200);
     };
 };
 
