@@ -43,7 +43,8 @@ class Gallery(object):
         Wok page.template.pre hook
         Load several preview images into each album.
         """
-        if 'type' in page.meta and page.meta['type'] == GALLERY_WOK_TYPE:
+        if ('type' in page.meta and page.meta['type'] == GALLERY_WOK_TYPE and
+            'gallery' in templ_vars['site']['categories']):
             album_pages = sorted(
                 templ_vars['site']['categories']['gallery'],
                 key=lambda album: album['datetime'],
