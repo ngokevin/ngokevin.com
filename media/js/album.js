@@ -6,7 +6,7 @@
 
 var THUMB_PREFIX = 'THUMB_';
 var MARGIN = 3;
-var pageWidth = $('.main').width();
+var PAGE_WIDTH = $('.main').width();
 
 
 var Image = Backbone.Model.extend({
@@ -105,8 +105,13 @@ window.AlbumView = Backbone.View.extend({
     },
 
     reinitialize: function(event) {
+        if (PAGE_WIDTH == $('.main').width()) {
+            // Don't do it if only the height changes.
+            return;
+        }
+
+        PAGE_WIDTH = $('.main').width();
         var view = event.data.view;
-        pageWidth = $('.main').width();
         view.$el.find('img').remove();
         view.images.forEach(function(model, index) {
             model.set('viewed', false);
@@ -142,7 +147,7 @@ window.AlbumView = Backbone.View.extend({
         img.addClass('thumb-img');
 
         var self = this;
-        if (pageWidth > 768) {
+        if (PAGE_WIDTH > 768) {
             // On desktop, expand image on hover.
             img.mouseenter({'view': this}, this.expandImg);
         } else {
@@ -164,7 +169,7 @@ window.AlbumView = Backbone.View.extend({
         var currentRowWidth = 0;
 
         // Fill row with enough images to at least fill the page width.
-        while (currentRowWidth < pageWidth || self.images.unviewed().length <= 2) {
+        while (currentRowWidth < PAGE_WIDTH || self.images.unviewed().length <= 2) {
             var image = self.images.nextUnviewed();
 
             if (image === null && currentRowWidth === 0) {
@@ -203,7 +208,7 @@ window.AlbumView = Backbone.View.extend({
         var marginsWidth = models.length * MARGIN * 2;
 
         // Fit row to page width.
-        var scale = (pageWidth - marginsWidth) / currentRowWidth;
+        var scale = (PAGE_WIDTH - marginsWidth) / currentRowWidth;
         $(row).each(function(index, img) {
             var width = img.width();
             var height = img.height();
