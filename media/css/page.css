@@ -75,9 +75,10 @@ img {
     .blurb .social i {
       font-size: 23px; }
 
-span.page-caption {
-  position: relative;
+div.page-caption {
   bottom: 26px;
-  font-size: 13px;
-  font-style: italic;
+  position: relative;
   text-align: right; }
+  div.page-caption span {
+    font-size: 13px;
+    font-style: italic; }

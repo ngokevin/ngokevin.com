@@ -98,10 +98,12 @@ img {
     }
 }
 
-span.page-caption {
-    position: relative;
+div.page-caption {
     bottom: 26px;
-    font-size: 13px;
-    font-style: italic;
+    position: relative;
     text-align: right;
+    span {
+        font-size: 13px;
+        font-style: italic;
+    }
 }
