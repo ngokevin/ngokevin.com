@@ -97,9 +97,9 @@ window.AlbumView = Backbone.View.extend({
 
         var self = this;
         self.imageList = this.imageList;
-        $(window).scroll(function() {
+        $(window).scroll(_.throttle(function() {
           self.endlessScroller();
-        }).resize({'view': this}, this.reinitialize);
+        }, 100)).resize({'view': this}, this.reinitialize);
         this.insertRows();
         this.initOverlay();
     },
@@ -226,25 +226,30 @@ window.AlbumView = Backbone.View.extend({
     },
 
     insertRows: function() {
+        if (this.images.unviewed().length === 0) {
+            $('#indicator').remove();
+            return;
+        }
         for (var i = 0; i < 4; i++) {
             this.insertRow();
+        }
+        if (this.images.unviewed().length === 0) {
+            $('#indicator').remove();
         }
     },
 
     endlessScroller: function() {
         /* Insert row of images if scroll near bottom of page. */
-        var documentHeight = $(document).height();
-        var windowHeight = $(window).height();
-        var scrollTop = $(window).scrollTop();
-
-        // Don't do anything if all images inserted.
-        if (this.images.unviewed().length == 0) {
-            $('#indicator').remove();
+        if (this.images.unviewed().length === 0) {
+            // Don't do anything if all images inserted.
             return;
         }
 
+        var documentHeight = $(document).height();
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
         var scrollBot = scrollTop + windowHeight;
-        if (scrollBot / documentHeight >= .85 || scrollTop == documentHeight) {
+        if (scrollBot / documentHeight >= 0.85 || scrollTop == documentHeight) {
             this.insertRows();
         }
     },
