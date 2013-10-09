@@ -61,6 +61,7 @@ img {
     @include def-box-shadow();
     background: $light-gray;
     border-radius: 3px;
+    margin: 39px 0 13px;
     padding: 10px 20px;
     h3 {
         display: inline-block;

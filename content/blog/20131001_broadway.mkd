@@ -2,7 +2,7 @@ title: Capturing Bridgetown
 type: blog
 category: blog
 
-slug: "project-bridgetown"
+slug: "capture-bridgetown"
 
 image:
     url: http://farm3.staticflickr.com/2810/10048868613_b920812bcb_b.jpg
