@@ -5,7 +5,7 @@ category: blog
 slug: "capture-bridgetown"
 
 image:
-    url: http://farm3.staticflickr.com/2810/10048868613_b920812bcb_b.jpg
+    url: http://farm3.staticflickr.com/2810/10048868613_8fddefb6cd_h.jpg
     where: top
     caption: 17-50mm lens at 22mm, ISO 100, f/20 for 30 seconds. The scarlet-red Broadway Bridge, world's longest <a href="http://en.wikipedia.org/wiki/Bascule_bridge">bascule bridge</a>.
 
@@ -70,13 +70,13 @@ contains a ton of image data under the surface that can be brought out in order
 to make a polished photograph. It took about 30 minutes to process the photo
 exactly the way I wanted it since I really liked this shot. Behold, [the
 Broadway Bridge in processed
-form!](http://www.flickr.com/photos/101591608@N02/10048868613/in/set-72157635485131727)
+form!](http://www.flickr.com/photos/101591608@N02/10048868613/)
 
 I turned around and shot (360-deg-no-scope) the Fremont Bridge while I was at
 it. I think I could do better on another night, but I got a decent shot of that
 sexy archy beast.
 
-![Fremont Bridge](http://farm8.staticflickr.com/7398/10049262333_9d095e4577_b.jpg)
+![Fremont Bridge](http://farm8.staticflickr.com/7398/10049262333_331eb75555_h.jpg)
 
 <div class="page-caption"><span>
 17-50mm at 24mm, ISO 100, f/29 for 20 seconds. The arching Fremont Bridge, world's second longest <a href="http://en.wikipedia.org/wiki/Tied_arch_bridge">tied arch bridge</a>.
