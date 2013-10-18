@@ -55,6 +55,14 @@ var Images = Backbone.Collection.extend({
         });
     },
 
+    getById: function(id) {
+        /* Get model by id. */
+        var self = this;
+        return self.filter(function(image) {
+            return image.id == id;
+        });
+    },
+
     nextUnviewed: function() {
         /* Iterator for uninserted images, get next unviewed, set as viewed. */
         var image = this.unviewed()[0];
@@ -102,6 +110,17 @@ window.AlbumView = Backbone.View.extend({
         }, 100)).resize({'view': this}, this.reinitialize);
         this.insertRows();
         this.initOverlay();
+
+        if (window.location.hash) {
+            // Try to load hash.
+            var id = window.location.hash.split('#')[1];
+            if (id) {
+                var image = this.images.getById(id);
+                if (image) {
+                    self.showImage.apply(image[0], [{data: {view: this}}]);
+                }
+            }
+        }
     },
 
     reinitialize: function(event) {
@@ -296,6 +315,7 @@ window.AlbumView = Backbone.View.extend({
         var overlayBg = $('.overlay-bg');
         // Create overlay background.
         overlayBg.click(function() {
+            window.location.hash = null;
             $('.overlay').hide();
             $('.overlay-img.full').hide();
             $('.overlay-img.thumb').show();
@@ -308,6 +328,7 @@ window.AlbumView = Backbone.View.extend({
         var image = this;
         var self = event.data.view;
         $('.overlay').show();
+        window.location.hash = this.id;
 
         // Create full size image.
         var imgThumb = $('.overlay-img.thumb');
