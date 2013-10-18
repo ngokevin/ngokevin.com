@@ -68,6 +68,11 @@ As for down-lights? Going on a photo walk at 6:30am with 200 other
 photographers in Santa Clara. Even Ansel Adams wouldn't be able to pull a
 keeper walking through the parking lots and highways of Santa Clara.
 
+ ![Mozilla Man](http://i.imgur.com/RWnAn2o.jpg)
+<div class="page-caption"><span>
+Mozilla Man.
+</span></div>
+
 After the Summit, I gained a bit of post-conference motivation to
 pump out some more FirefoxOS apps. I might have a bit of [Mozilla
 mission](http://www.mozilla.org/en-US/mission/) kool-aid stewing
