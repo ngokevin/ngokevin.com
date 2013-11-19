@@ -1,5 +1,5 @@
-@import "globals.scss";
-
+@import "_lib";
+@import "typeplate.scss";
 
 html, body {
     background: url("../img/textures/body-bg.png") repeat scroll 0 0 transparent;
@@ -8,7 +8,6 @@ html, body {
                  serif;
     height: 100%;
     margin: 4px 0 0;
-    text-align: justify;
 }
 
 #wrap {
@@ -17,7 +16,7 @@ html, body {
     border-radius: 3px;
     margin: 0 auto;
     padding: 4px 3% 0;
-    width: 940px;
+    width: 740px;
 }
 
 @media all and (min-width: 62.5em) {
@@ -37,10 +36,6 @@ h1, #logo {
 
 h2, h3, h4, h5 {
     font-weight: normal;
-}
-
-h2 {
-    font-size: 22px;
 }
 
 a, .main a:hover {
@@ -89,14 +84,10 @@ code {
     }
     p, span {
         color: lighten($black, 2%);
-        font-size: 16px;
-        line-height: 34px;
         margin: 0;
     }
     li, ol {
         color: lighten($black, 5%);
-        font-size: 16px;
-        line-height: 34px;
     }
     a {
         color: $dark-green;
@@ -271,7 +262,6 @@ a.btn {
  #footer {
     /* Overrides sticky-footer */
     background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
-    font-size: 14px;
     line-height: 28px;
     height: 115px;
     margin-top: -100px;

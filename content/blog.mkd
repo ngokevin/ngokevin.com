@@ -1,5 +1,5 @@
 title: Blog
-type: list-view
+type: list
 slug: blog
 url: /blog/{page}/
 
