@@ -38,8 +38,10 @@
     }
     &.top {
         text-align: right;
+
         img {
             margin: 52px auto;
+
             &.captioned {
                 margin-bottom: 13px;
             }
@@ -63,6 +65,7 @@ img {
     border-radius: 3px;
     margin: 52px 0 26px;
     padding: 10px 20px;
+
     h3 {
         display: inline-block;
         font-style: italic;
@@ -89,6 +92,7 @@ img {
         margin-bottom: 10px;
         position: relative;
         top: 6px;
+
         a {
             margin: 0 4px;
             padding: 5px;
@@ -104,6 +108,7 @@ div.page-caption {
     margin-bottom: -26px;
     position: relative;
     text-align: right;
+
     span {
         font-size: 13px;
         font-style: italic;

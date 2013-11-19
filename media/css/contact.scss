@@ -40,6 +40,7 @@
     position: absolute;
     top: 0;
     width: 205px;
+
     h3 {
         @include transform(translateY(-100px));
         @include transition(all .3s linear);

@@ -8,6 +8,7 @@
     }
     a {
         font-weight: normal;
+
         &:hover {
             font-weight: normal;
         }
@@ -23,6 +24,7 @@
     }
     table {
         font-size: 15px;
+
         tr:first-child td {
             border-top: none;
         }

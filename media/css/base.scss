@@ -76,8 +76,10 @@ code {
 
 .main {
     padding-bottom: 350px;
+
     .header-group {
         margin-bottom: 26px;
+
         h1, h2 {
             color: $dark-green;
         }
@@ -100,6 +102,7 @@ code {
         color: $dark-green;
         font-weight: bold;
         text-decoration: none;
+
         &:hover {
           color: $light-green;
         }
@@ -114,6 +117,7 @@ code {
     height: 78px;
     position: relative;
     margin-bottom: 39px;
+
     hr {
         margin-bottom: 6px;
         margin-top: 12px;
@@ -124,18 +128,21 @@ code {
     position: absolute;
     left: 0;
     top: 10px;
+
     #logo {
         font-size: 36px;
         font-weight: bold;
         a {
             color: $dark-green;
             text-decoration: none;
+
             &:hover {
               color: $light-green;
             }
         }
         .social {
             margin-left: 2px;
+
             a {
                 color: $light-gray;
                 margin: 0 2px;
@@ -160,6 +167,7 @@ code {
     font: 16px 'Gentium Book Basic', serif;
     right: 0;
     top: 20px;
+
     a {
         color: $dark-gray;
         margin-left: 26px;
@@ -177,6 +185,7 @@ code {
         border-radius: 8px;
         padding: 64px 16px 16px 16px;
         @include transition(background .4s);
+
         &:hover, &.current-nav {
             background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
         }
@@ -222,6 +231,7 @@ span.metadata {
     @include transition(background .5s);
     &:not(disabled) {
         background: $light-gray;
+
         &:hover {
             background: $green;
         }
@@ -245,6 +255,7 @@ a.btn {
     padding: 3px 8px;
     text-decoration: none;
     @include transition(background .5s .1s);
+
     &:hover {
         background: lighten($green, 5%);
         font-weight: normal;
@@ -270,6 +281,7 @@ a.btn {
     a {
         color: $dark-green;
         text-decoration: none;
+
         &:hover {
           color: $light-green;
         }
@@ -278,6 +290,7 @@ a.btn {
         margin-left: 6px;
         position: relative;
         top: 1px;
+
         a {
             margin-right: 4px;
         }
@@ -314,6 +327,7 @@ html[xmlns] .c {
     position: relative;
     top: 20px;
     right: 2px;
+
     > a {
         float: none;
     }
