@@ -1,6 +1,7 @@
 @import "_lib";
 @import "typeplate.scss";
 
+
 html, body {
     background: url("../img/textures/body-bg.png") repeat scroll 0 0 transparent;
     height: 100%;
@@ -251,6 +252,9 @@ html[xmlns] .c {
     margin-top: 13px;
 }
 
+#gallery .album-preview {
+    margin-right: 36px;
+}
 .overlay div.prev, .overlay div.next {
     background: $dark-gray;
 }

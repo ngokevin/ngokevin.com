@@ -1,5 +1,6 @@
 @import "_lib";
 
+
 @media all and (max-width: 62.5em) {
     // 1000px.
     #contact {
@@ -90,10 +91,6 @@
             max-height: 100%;
             max-width: 100%;
         }
-        h3.recent-blogs {
-            display: block;
-            text-align: center;
-        }
         a.btn[href="#"] {
             display: inline-block;
             margin: 6px 0 0 0;
@@ -124,17 +121,5 @@
         right: 0;
         text-align: center;
         top: 20px;
-    }
-    .blurb {
-        position: relative;
-
-        img[src] {
-            float: none;
-        }
-        div.social {
-            position: absolute;
-            right: 2px;
-            top: 17px;
-        }
     }
 }
