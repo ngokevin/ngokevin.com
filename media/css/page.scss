@@ -49,6 +49,10 @@ img {
     max-width: 100%;
 }
 
+.end-sect {
+    text-align: center;
+}
+
 .base-image .page-caption {
     margin-bottom: -39px;
 }
@@ -62,4 +66,9 @@ div.page-caption {
         font-size: 14px;
         font-style: italic;
     }
+}
+
+.base-image img[src="/img/about.jpg"] {
+    border-radius: 100%;
+    max-height: 320px;
 }
