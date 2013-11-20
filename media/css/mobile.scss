@@ -1,43 +1,14 @@
 @import "_lib";
 
 
-@media all and (max-width: 62.5em) {
-    // 1000px.
-    #contact {
-        .mask, h3, p, a {
-            opacity: 1;
-            @include transform(none);
-        }
-        .view {
-            display: block;
-            float: none;
-            margin: 52px auto;
-            @include transform(scale(1.1));
-        }
-    }
-}
-
-@media all and (max-width: 61.25em) {
-    // 980px.
+@media all and (max-width: 540px) {
+    // 540px.
     #wrap {
         margin: 0 auto;
         width: 90%;
-
-        .page_pic {
-            float: none;
-            margin-left: 0;
-            text-align: right;
-
-            img {
-                margin: 52px auto;
-
-                &.captioned {
-                    margin-bottom: 13px;
-                }
-            }
-        }
     }
 }
+
 
 @media all and (max-width: 48em) {
     // 768px.
@@ -120,6 +91,22 @@
         left: 20px;
         right: 0;
         text-align: center;
-        top: 20px;
+    }
+}
+
+
+@media all and (max-width: 62.5em) {
+    // 1000px.
+    #contact {
+        .mask, h3, p, a {
+            opacity: 1;
+            @include transform(none);
+        }
+        .view {
+            display: block;
+            float: none;
+            margin: 52px auto;
+            @include transform(scale(1.1));
+        }
     }
 }
