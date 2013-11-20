@@ -3,9 +3,6 @@
 
 html, body {
     background: url("../img/textures/body-bg.png") repeat scroll 0 0 transparent;
-    font-family: Georgia, Palatino, 'Palatino Linotype', Times,
-                 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑",
-                 serif;
     height: 100%;
     margin: 4px 0 0;
 }
@@ -15,8 +12,8 @@ html, body {
     background: url("../img/textures/main-bg.png") repeat scroll 0 0 transparent;
     border-radius: 3px;
     margin: 0 auto;
-    padding: 4px 3% 0;
-    width: 740px;
+    padding: 4px 5% 0;
+    width: 540px;
 }
 
 @media all and (min-width: 62.5em) {
@@ -25,48 +22,28 @@ html, body {
     }
 }
 
-h1, h2, h3, h4, h5, #logo {
-    color: $black;
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-h1, #logo {
-    font-family: 'Gentium Book Basic', serif;
-}
-
-h2, h3, h4, h5 {
-    font-weight: normal;
-}
-
-a, .main a:hover {
+a {
     @include transition(color .2s);
-    font-weight: bold;
-}
+    color: $link-color;
+    text-decoration: none;
 
-span p a {
-    font-weight: normal;
-}
-
-strong {
-    color: $gray;
+    &:hover {
+        color: $link-color-hover;
+    }
 }
 
 hr {
-    border-color: rgb(220, 220, 220);
+    border-color: $light-gray;
 }
 
-.main pre span {
-    font-family: monospace;
-    font-size: 14px;
-    line-height: 24px;
-}
 code {
     background: darken($white, 3%);
     border: 1px solid $light-gray;
     border-radius: 1px;
-    font-family: monospace;
-    font-size: 14px;
-    padding: 0 4px;
 }
 
 .main {
@@ -75,30 +52,14 @@ code {
     .header-group {
         margin-bottom: 26px;
 
-        h1, h2 {
-            color: $dark-green;
-        }
         h1 {
             margin-bottom: 0;
         }
     }
     p, span {
-        color: lighten($black, 2%);
         margin: 0;
     }
-    li, ol {
-        color: lighten($black, 5%);
-    }
-    a {
-        color: $dark-green;
-        font-weight: bold;
-        text-decoration: none;
-
-        &:hover {
-          color: $light-green;
-        }
-    }
-    hr {
+        hr {
         margin-bottom: 13px;
     }
 }
@@ -120,30 +81,18 @@ code {
     left: 0;
     top: 10px;
 
-    #logo {
-        font-size: 36px;
-        font-weight: bold;
-        a {
-            color: $dark-green;
-            text-decoration: none;
+    .social {
+        margin-left: 2px;
 
+        a {
+            color: $light-gray;
+            margin: 0 2px;
             &:hover {
-              color: $light-green;
+                color: $gray;
             }
         }
-        .social {
-            margin-left: 2px;
-
-            a {
-                color: $light-gray;
-                margin: 0 2px;
-                &:hover {
-                    color: $gray;
-                }
-            }
-            i {
-                font-size: 23px;
-            }
+        i {
+            font-size: 23px;
         }
     }
 
@@ -262,30 +211,18 @@ a.btn {
  #footer {
     /* Overrides sticky-footer */
     background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
-    line-height: 28px;
     height: 115px;
     margin-top: -100px;
     min-width: 100%;
     padding-top: 26px;
     text-align: center;
-    a {
-        color: $dark-green;
-        text-decoration: none;
 
-        &:hover {
-          color: $light-green;
-        }
-    }
     .social {
-        margin-left: 6px;
-        position: relative;
-        top: 1px;
-
         a {
             margin-right: 4px;
         }
         i {
-            font-size: 16px;
+            font-size: $mega;
         }
     }
 }

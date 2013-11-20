@@ -6,8 +6,6 @@
   <!--Blog Posts-->
   <div class="list-view c">
     <div class="header-group">
-      <h3 class="recent-blogs">Recent Blogs</h3>
-      <!--Graceful degradation for non-js enabled browsers-->
       <noscript><div style="display:none;"</noscript>
         <a href="#" class="btn" id="sliding-prev-page">Fresh</a>
         <a href="#" class="btn" id="sliding-next-page">Dusty</a>
@@ -18,7 +16,7 @@
       {% for item in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
         {% if loop.index <= pagination.post_limit %}
           <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
-            {% include "includes/list_view_item.html" %}
+            {% include "list_item.html" %}
           </div>
         {% endif %}
       {% endfor %}

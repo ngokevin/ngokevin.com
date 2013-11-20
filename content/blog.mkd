@@ -1,4 +1,4 @@
-title: Blog
+title: Write
 type: list
 slug: blog
 url: /blog/{page}/
