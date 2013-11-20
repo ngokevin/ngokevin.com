@@ -39,6 +39,6 @@ $btn-color: #007500;
 }
 
 @mixin def-box-shadow() {
-    @include box-shadow(0 0 2px $gray);
+    @include box-shadow(0 0 1px $dark-gray);
 }
 

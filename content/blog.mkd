@@ -1,14 +1,9 @@
 title: Write
-type: list
-slug: blog
-url: /blog/{page}/
+type: home
+url: /{page}/
 
 tags: navigation
-navrank: 2
-
-index:
-    height: 200
-    char_limit: 1200
+navrank: 1
 
 pagination:
     list: page.subpages

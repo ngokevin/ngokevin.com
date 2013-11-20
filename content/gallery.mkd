@@ -1,11 +1,12 @@
 title: Shoot
-slug: gallery
+slug: photography
 type: gallery
 
 tags: navigation
-navrank: 3
+navrank: 2
 
 ---
 
-[Sriracha](http://github.com:ngokevin/sriracha)-powered gallery.
+Hobby photography powered by my
+[Sriracha](http://github.com:ngokevin/sriracha) gallery.
 

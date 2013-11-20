@@ -142,6 +142,7 @@ code {
 .base-image {
     img {
         @include def-box-shadow();
+        border-radius: 1px;
         max-height: 480px;
         max-width: 100%;
         margin: 0 auto 52px auto;
@@ -153,8 +154,12 @@ code {
 }
 
 .pagination {
-    font-size: 14px;
-    margin-bottom: 39px;
+    .prev {
+        float: left;
+    }
+    .next {
+        float: right;
+    }
 }
 
 #sliding-next-page, #sliding-prev-page {
@@ -252,9 +257,11 @@ html[xmlns] .c {
     margin-top: 13px;
 }
 
-#gallery .album-preview {
+#gallery div.album-preview {
     margin-right: 36px;
 }
 .overlay div.prev, .overlay div.next {
     background: $dark-gray;
+    bottom: 3px;
+    top: 0
 }

@@ -1,28 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <!--Blog Posts-->
-  <div class="list-view c">
-    <div class="header-group">
-      <noscript><div style="display:none;"</noscript>
-        <a href="#" class="btn" id="sliding-prev-page">Fresh</a>
-        <a href="#" class="btn" id="sliding-next-page">Dusty</a>
-      <noscript></div></noscript>
-    </div>
+  <div class="list-view">
+    {% for item in pagination.page_items %}
+      <!-- List item. -->
+      <div class="item c">
+        <div class="header-group">
+          <h2 class="title"><a href="{{ item.url }}">{{ item.title }}</a></h2>
+          <p class="metadata">
+            {% if item.datetime %}
+              {{ item.datetime.strftime("%A %B %d, %Y") }}
+            {% endif %}
+          </p>
+        </div>
 
-    <div class="sliding-index">
-      {% for item in site.categories['blog'] | sort(attribute='datetime', reverse=True) %}
-        {% if loop.index <= pagination.post_limit %}
-          <div class="sliding-index-page{{ loop.index0 // pagination.limit }}">
-            {% include "list_item.html" %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
+        {% if item.image %}<img src="{{ item.image.url }}">{% endif %}
+
+        <div class="preview">
+          <span>
+            {% if item.preview %}
+              {{ item.preview }}
+            {% else %}
+              {{ item.content|truncate(length=1200) }}
+            {% endif %}
+            </pre></code>
+          </span>
+          <a class="more-link" href="{{ item.url }}">&raquo;</a>
+        </div>
+      </div>
+      <!-- End list item. -->
+    {% endfor %}
   </div>
-  <!--End Blog Posts-->
 
-  <script type="text/javascript" src="/js/lib/jquery-1.7.1.min.js" ></script>
-  <script type="text/javascript" src="/js/lib/jquery-ui-1.8.16.custom.min.js"></script>
-  <script type="text/javascript" src="/js/sliding-paginator-thing.js" ></script>
+  <div class="pagination c">
+    {% if page.pagination %}
+      {% if page.pagination.next_page %}
+        <a class="prev btn" href="{{ page.pagination.next_page.url }}" title="View Older Posts">
+          &laquo; Dustier</a>
+      {% endif %}
+      {% if page.pagination.prev_page %}
+        <a class="next btn" href="{{ page.pagination.prev_page.url }}" title="View Newer Posts">
+          Fresher &raquo;</a>
+      {% endif %}
+    {% endif %}
+  </div>
 {% endblock %}
