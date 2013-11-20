@@ -7,7 +7,7 @@ $white: rgb(250, 250, 250);
 $heading-color: #005454;
 $link-color: #005454;
 $link-color-hover: #2AAAAA;
-$green: #007500;
+$btn-color: #007500;
 
 
 @mixin box-shadow($shadow) {
@@ -17,7 +17,7 @@ $green: #007500;
 }
 
 @mixin transform($transform) {
-    -moz-transform: $transform;
+   -moz-transform: $transform;
    -ms-transform: $transform;
    -o-transform: $transform;
    -webkit-transform: $transform;

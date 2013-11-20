@@ -5,45 +5,26 @@
     .item {
         margin-bottom: 52px;
     }
-    .heading {
-        margin-top: 13px;
-    }
-    .title {
-        text-align: left;
-    }
     .preview {
-        h1, h2, h3, img, pre, code {
+        h1, h2, h3, img, pre, code, .demo {
             display: none;
-        }
-        p:last-child {
-            display: inline;
         }
         li {
             clear: both;
         }
-    }
-    .recent-blogs {
-        display: inline;
-        margin-right: 10px;
-    }
-    form {
-        display: inline-block;
-        margin-bottom: 13px;
+        p:last-child {
+            display: inline;
+        }
     }
     img {
         @include def-box-shadow();
         float: left;
-        margin: 10px 20px 20px 0;
-        max-width: 210px;
-        max-height: 210px;
-        position: relative;
-        top: 3px;
+        margin: 10px 20px 10px 0;
+        max-height: 240px;
+        max-width: 240px;
     }
     hr {
         clear: both;
         margin-top: 26px;
-    }
-    .demo {
-        display: none;
     }
 }

@@ -1,11 +1,11 @@
 <div class="item c">
   <div class="header-group">
     <h2 class="title"><a href="{{ item.url }}">{{ item.title }}</a></h2>
-    <span class="metadata">
+    <p class="metadata">
       {% if item.datetime %}
         {{ item.datetime.strftime("%A %B %d, %Y") }}
       {% endif %}
-    </span>
+    </p>
   </div>
 
   {% if item.image %}<img src="{{ item.image.url }}">{% endif %}
@@ -17,8 +17,7 @@
       {% else %}
         {{ item.content|truncate(length=1200) }}
       {% endif %}
-      </pre>
-      </code>
+      </pre></code>
     </span>
     <a class="more-link" href="{{ item.url }}">&raquo;</a>
   </div>

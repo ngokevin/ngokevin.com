@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/lib/sticky_footer.css" />
     <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/list.css" />
     <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
     <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
@@ -47,7 +48,7 @@
                 {% if page.image.width %} max-width: {{page.image.width}}; {% endif %}
                 {% if page.image.height %} max-height: {{page.image.height}}; {% endif %}">
               <img{% if page.image.caption %} class="captioned"{% endif %} src="{{ page.image.url }}">
-              {% if page.image.caption %}<span class="caption">{{ page.image.caption }}</span>{% endif %}
+              {% if page.image.caption %}<div class="page-caption"><span>{{ page.image.caption }}</span></div>{% endif %}
             </div>
           {% endif %}
         </div>
@@ -58,11 +59,9 @@
     </div>
 
     <div id="footer">
-      <span class="social">
-        <a href="mailto:me@ngokevin.com"><i class="icon-envelope"></i></a>
-        <a href="http://twitter.com/ngokevin_"><i class="icon-twitter-sign"></i></a>
-        <a href="http://github.com/ngokevin"><i class="icon-github-sign"></i></a>
-      </span>
+      <a href="mailto:me@ngokevin.com"><i class="icon-envelope"></i></a>
+      <a href="http://twitter.com/ngokevin_"><i class="icon-twitter-sign"></i></a>
+      <a href="http://github.com/ngokevin"><i class="icon-github-sign"></i></a>
     </div>
 
     <script type="text/javascript">

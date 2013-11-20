@@ -4,9 +4,11 @@
   <h1>{{ page.title }}</h1>
 {% endblock %}
 
-{% block content %}
+{% block extrahead %}
   <link rel="stylesheet" type="text/css" href="/css/contact.css" />
+{% endblock %}
 
+{% block content %}
   <div id="contact" class="c">
     <div class="text">{{ page.content }}</div>
 

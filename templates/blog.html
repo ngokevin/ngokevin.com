@@ -7,11 +7,11 @@
 {% block page_header %}
   <div class="blog">
     <h1>{{ page.title }}</h1>
-    <span class="metadata">
+    <p class="metadata">
       {% if not page.navrank %}
         {{ page.datetime.strftime("%A %B %d, %Y") }}
       {% endif %}
-    </span>
+    </p>
   </div>
 
   <!-- AddThis Button BEGIN -->

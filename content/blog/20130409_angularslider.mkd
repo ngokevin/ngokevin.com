@@ -12,7 +12,7 @@ date: 2013-04-11
 
 ---
 
-<div ng-app="demo" class="demo">
+<div ng-app="demo" class="demo" style="margin-bottom: 26px;">
   <b>Value:</b> <span>{{ sliderVal || 9001 }}</span>
   <div slider class="slider" min="0" max="9001" step="10"><span></span></div>
 </div>

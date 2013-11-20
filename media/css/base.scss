@@ -23,6 +23,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
     margin: 0;
 }
 
@@ -35,15 +36,24 @@ a {
         color: $link-color-hover;
     }
 }
+p a, span a {
+    color: $link-color-hover;
+}
 
 hr {
     border-color: $light-gray;
+    margin-bottom: 13px;
 }
 
 code {
     background: darken($white, 3%);
     border: 1px solid $light-gray;
     border-radius: 1px;
+    padding: 0 4px;
+}
+
+.metadata, #sublogo {
+    font-family: $header-font-family;
 }
 
 .main {
@@ -52,33 +62,20 @@ code {
     .header-group {
         margin-bottom: 26px;
 
-        h1 {
+        p {
             margin-bottom: 0;
         }
     }
-    p, span {
-        margin: 0;
-    }
-        hr {
-        margin-bottom: 13px;
-    }
 }
-
 
 #header {
     height: 78px;
-    position: relative;
     margin-bottom: 39px;
-
-    hr {
-        margin-bottom: 6px;
-        margin-top: 12px;
-    }
+    position: relative;
 }
 
 .logos {
     position: absolute;
-    left: 0;
     top: 10px;
 
     .social {
@@ -95,7 +92,13 @@ code {
             font-size: 23px;
         }
     }
+    #logo {
+        font-weight: 400;
 
+        strong {
+            font-weight: 700;
+        }
+    }
     #sublogo {
         color: $gray;
         font-size: 14px;
@@ -103,19 +106,21 @@ code {
 }
 
 #navigation {
+    font-size: 14px;
     position: absolute;
-    font: 16px 'Gentium Book Basic', serif;
     right: 0;
     top: 20px;
 
     a {
-        color: $dark-gray;
-        margin-left: 26px;
-        text-decoration: none;
-        position: relative;
-        vertical-align: middle;
-        top: 0;
         @include transition(top .3s);
+        color: $body-copy-color;
+        font-weight: bold;
+        margin-left: 26px;
+        position: relative;
+        text-decoration: none;
+        top: 0;
+        vertical-align: middle;
+
         &:hover {
             top: 13px;
         }
@@ -130,20 +135,8 @@ code {
             background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
         }
     }
-    hr {
-        clear: both;
-    }
 }
 
-span.metadata {
-    color: $gray;
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 6px;
-    position: relative;
-    top: 6px;
-}
 
 .base-image {
     img {
@@ -153,7 +146,7 @@ span.metadata {
         margin: 0 auto 52px auto;
     }
     span {
-        font-size: 13px;
+        font-size: 14px;
         font-style: italic;
     }
 }
@@ -163,21 +156,18 @@ span.metadata {
     margin-bottom: 39px;
 }
 
-#sliding-all a {
-    color: $black;
-    font-weight: normal;
-}
 #sliding-next-page, #sliding-prev-page {
     @include transition(background .5s);
+
     &:not(disabled) {
         background: $light-gray;
 
         &:hover {
-            background: $green;
+            background: $btn-color;
         }
     }
     &[disabled='disabled'] {
-        background: $green;
+        background: $btn-color;
         cursor: default;
     }
 }
@@ -186,7 +176,8 @@ span.metadata {
 }
 
 a.btn {
-    background: $green;
+    @include transition(background .5s .1s);
+    background: $btn-color;
     border-radius: 3px;
     bottom: 0;
     color: $white;
@@ -194,17 +185,16 @@ a.btn {
     margin-right: 5px;
     padding: 3px 8px;
     text-decoration: none;
-    @include transition(background .5s .1s);
 
     &:hover {
-        background: lighten($green, 5%);
+        background: lighten($btn-color, 5%);
         font-weight: normal;
         color: $white;
         cursor: pointer;
     }
     &:active {
-        background: darken($green, 10%);
         @include transition(background .03s 0s);
+        background: darken($btn-color, 10%);
     }
 }
 
@@ -217,16 +207,13 @@ a.btn {
     padding-top: 26px;
     text-align: center;
 
-    .social {
-        a {
-            margin-right: 4px;
-        }
-        i {
-            font-size: $mega;
-        }
+    a {
+        margin-right: 8px;
+    }
+    i {
+        @extend .alpha;
     }
 }
-
 
 .c:after {
     content: ".";
@@ -236,15 +223,12 @@ a.btn {
     line-height: 0;
     height: 0;
 }
-
 .c {
     display: inline-block;
 }
-
 html[xmlns] .c {
     display: block;
 }
-
 * html .c {
     height: 1%;
 }
@@ -252,7 +236,6 @@ html[xmlns] .c {
 /* Social share buttons */
 #top-share {
     position: relative;
-    top: 20px;
     right: 2px;
 
     > a {
@@ -267,7 +250,6 @@ html[xmlns] .c {
 #disqus_thread {
     margin-top: 13px;
 }
-
 
 .overlay div.prev, .overlay div.next {
     background: $dark-gray;
