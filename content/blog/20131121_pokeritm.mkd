@@ -2,7 +2,7 @@ title: In-the-Money at My First Live Poker Tournament
 type: blog
 category: blog
 
-slug: "poker-money"
+slug: "poker-live"
 
 image:
     url: http://i.imgur.com/YOG0wka.jpg
