@@ -1,0 +1,73 @@
+---
+layout: post
+title: "First Day At Mozilla"
+date: 2012-04-30
+comments: true
+categories: life
+image: http://i.imgur.com/11CEg.jpg
+---
+
+Today, I began my internship at Mozilla. I am not quite sure if today is
+representative of a normal day at the Mozilla offices. Because somehow I
+have ended up in a large hotel room to myself overlooking the beaches of
+Santa Cruz for a week. And I remember along the way, I was in some sort of
+limousine-school bus hybrid with neon-lighted alcohol racks and a
+flat-screen TV in the back. Oh, I also met the creators of
+[django-debug-toolbar](https://github.com/django-debug-toolbar/django-debug-toolbar)
+and [jsFiddle](http://jsfiddle.net). Uh, where am I?
+
+<!-- more -->
+
+## Standard Morning
+
+Woke up, brushed my teeth, put on some clothes, and walked to the office.
+Picked up my Thinkpad (i7 2.4GHz, 8Gb), went through some orientation. Got
+some free swag. Alright, standard. About to be introduced to everyone in
+the office and on the live stream as a new intern. Okay, not too bad.
+
+**"Oh, by the way, get your !@#$ together. Going to Santa Cruz for a
+week". Wat.**
+
+## Webdev Offsite
+
+My first day was the start Webdev Offsite 2012 where all of the Mozilla
+webdevs from around the world get together to a disclosed location. It is
+like a conference. People give talks/keynotes, eat, drink, and also hack.
+I heard a story about someone's first day being flying out to Las Vegas for
+a week for a previous Webdev Offsite. Didn't know about this trip before I
+came in so it was surprising, in a good way.
+
+After I was introduced and helped myself to some Japanese catered lunch, I
+went to go edit my tax forms, but didn't have my passport. If I didn't have
+my passport, I wouldn't be able to go since I had to have my passport
+within 3 days or else I get kicked out, and the trip was week-long.
+Fortunately, I had it shipped over and was due to arrive today.  So I went
+back to the apartments, waited for the package, packed, played trivia on an
+IRC channel, and came back. Got that out of the way, good to go.
+
+## Pimp My Ride
+
+I spent some time working on setting up my laptop while waiting for the bus
+to pick us up to go to Santa Cruz. Met a bit of people. As the time came, I
+picked up my bags, and boarded the bus. Well, this wasn't no bus. It was
+like someone had built a limousine interior into a school bus. My school
+buses back in the day had chairs with gum under them. This one had
+neon-lighted alcoholic bars (with no drinks loaded, except for Diet 7up and
+Coors Light), a flat-screen TV in the back, and some bass-heavy music. I
+think Xzibit did some work on this bus.
+
+Spent the bus ride talking with some webdevs and playing with my camera.
+Finally, we arrive at the beach and hotel. We check into our rooms, and I
+find I have two queen-sized beds to myself. Though what catches my
+attention more is the glass door leading to the balcony overlooking the
+sandy beaches and rolling waves.
+
+## Fun Time
+
+Afterwards, we went out to eat and drink with tabs covered. I sat and
+talked with several webdevs, asked a bit of questions, had some beer and
+fries, and even talked to the creator of JSFiddle. I was pretty star-struck
+along with hearing James Bennett was around. Most people got pretty drunk.
+It takes too much work for me to get drunk, would take about 5 drinks which
+would bloat me up. Hour from midnight, I headed back and worked on setting
+up my laptop some more.

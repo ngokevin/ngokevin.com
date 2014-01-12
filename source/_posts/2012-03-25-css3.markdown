@@ -1,0 +1,98 @@
+---
+layout: post
+title: "Simple CSS3 - Transitions and Transforms"
+date: 2012-03-25
+comments: true
+categories: code
+---
+
+Today, I created CSS3 hover effects for my [contact](contact) page. CSS3
+comes with the ability to do transitions and transforms. Before, these
+effects would be done through Javascript. Being to be able to do
+higher-level presentation logic where presentation logic should be really
+simplifies web design.
+
+CSS3 is rolled out amongst all modern browsers, although currently the
+experimental prefix tags (e.g -moz, -webkit) are required.
+
+<!-- more -->
+
+###Transitions
+
+CSS3 transitions allow smooth and easily-specified transitions of CSS
+properties from one value to another. This could be done to fade or animate
+an element. Transitions can take four arguments.
+
+- Transition-property: choose which properties to transition (can also
+  select "all")
+- Transition-duration: duration of transition
+- Transition-timing-function: what cubic bezier curve transition should
+  follow (e.g. ease, linear, ease-in, ease-out, ease-in-out)
+- Transition-delay: how long before the transition starts
+
+Below is a simple structure for transitioning an arbitrary property.
+
+myClass is initially has a value set for some property. A transition is
+defined for that property. If the property changes such as through an event
+(e.g. hover), the transition will handle the change. After the transition,
+element fires "transitioned" event which is accessible by Javascript (check
+for the specific event keyword which currently varies by browser).
+
+    {% codeblock lang:css %}
+    .myClass {
+        someProperty: {{value before}};
+        transition: someProperty {{duration}} {{timingFunction}} {{delay}};
+    }
+    .myClass:hover {
+        someProperty: {{value after}};
+    }
+    {% endcodeblock %}
+
+###Transforms
+
+In CSS3, there are a handful defined transform functions.
+
+- rotate(angle)
+- scale(x, [y])
+- scaleX(x)
+- scaleY(y)
+- skew(angleX, angleY)
+- translate(x, [y])
+- translateX(x)
+- translateY(y)
+
+For scale and translate, if only one argument is supplied, both x and y
+will be acted upon. CSS3 transforms are just like declaring any other
+property.
+
+    {% codeblock lang:css %}
+    transform: function(value);
+    {% endcodeblock %}
+
+Transforms work nicely with transitions. Say we want to make an element
+seem like it's falling onto the page with scale and opacity when hovered
+over. We set the element to initially be very large and transparent, then
+we scale it down to make it seem like it's falling and going away from the
+screen.
+
+    {% codeblock lang:css %}
+    element {
+        opacity: 0;
+        transform: scale(10);
+        transition: all .3s ease-in;
+    }
+    element:hover {
+        opacity: 100;
+        transform: scale(1);
+    }
+    {% endcodeblock %}
+
+And that's all there is to it. This is the most basic of examples. To learn
+more about CSS3, MDN is one of the best places to go to for their
+references on [transitions][moztransitions] and
+[transforms][moztransforms], or anything else related to the web in
+general.
+
+[contact]:/contact
+[moztransitions]:https://developer.mozilla.org/en/CSS/CSS\_transitions
+[moztransforms]:https://developer.mozilla.org/en/CSS/transform
