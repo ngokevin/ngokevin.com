@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+  <h1>{{ page.title }}</h1>
+{% endblock %}
+
+{% block extrahead %}
+  <link rel="stylesheet" type="text/css" href="/css/contact.css" />
+{% endblock %}
+
+{% block content %}
+  <div id="contact" class="c">
+    <div class="text">{{ page.content }}</div>
+
+    <div>
+      <div class="view">
+        <i class="icon-github-sign"></i>
+        <div class="mask">
+          <h3>github</h3>
+          <p>github : ngokevin</p>
+          <a href="http://github.com/ngokevin" class="info">code.</a>
+        </div>
+      </div>
+
+      <div class="view">
+        <i class="icon-envelope"></i>
+        <div class="mask">
+          <h3>email</h3>
+          <p>me@ngokevin.com</p>
+          <a href="mailto:me@ngokevin.com" class="info">shoot me love.</a>
+        </div>
+      </div>
+
+      <div class="view">
+        <i class="icon-comments"></i>
+        <div class="mask">
+          <h3>irc</h3>
+          <p>ngoke on irc.freenode.net</p>
+          <a href="http://lug.oregonstate.edu/blog/20110915-irc" class="info">what is irc?</a>
+        </div>
+      </div>
+
+      <div class="view">
+        <i class="icon-twitter-sign"></i>
+        <div class="mask">
+          <h3>twitter</h3>
+          <p>@ngokevin_</p>
+          <a href="http://twitter.com/ngokevin_" class="info">#yoloswag</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

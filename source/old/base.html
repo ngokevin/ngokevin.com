@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhml" xml:lang="en" lang="en">
+
+  <head>
+    <title>{{ site.title }} | {{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/lib/sticky_footer.css" />
+    <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/list.css" />
+    <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=5"/>
+    <meta name="viewport" content="width=device-width">
+    {% block extrahead %}{% endblock %}
+  </head>
+
+  <body>
+    <div id="wrap" class="c">
+      <div id="header">
+          <div class="logos">
+            <h1 id="logo">
+              <a href='/'>ngo<strong>kevin</strong></a>
+              <span class="social">
+                <a href="mailto:me@ngokevin.com"><i class="icon-envelope"></i></a>
+                <a href="http://twitter.com/ngokevin_"><i class="icon-twitter-sign"></i></a>
+                <a href="http://github.com/ngokevin"><i class="icon-github-sign"></i></a>
+              </span>
+            </h1>
+            <span id="sublogo">web developer at mozilla</span>
+          </div>
+
+          <div id="navigation">
+            {% for link in site.tags['navigation'] | sort(attribute='navrank') %}
+              <a href="{{ link.url }}">
+                <span>{{ link.title }}</span>
+              </a>
+            {% endfor %}
+          </div>
+      </div>
+
+      <div class="main">
+        <div class="header-group">{% block page_header %}{% endblock %}</div>
+
+        <div class="base-image">
+          {% if page.image %}
+            <div class="page_pic {{ page.image.where }}" style="
+                {% if page.image.width %} max-width: {{page.image.width}}; {% endif %}
+                {% if page.image.height %} max-height: {{page.image.height}}; {% endif %}">
+              <img{% if page.image.caption %} class="captioned"{% endif %} src="{{ page.image.url }}">
+              {% if page.image.caption %}
+                <div class="page-caption">
+                  <span>{{ page.image.caption }}</span>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <div id="footer">
+      <a href="mailto:me@ngokevin.com"><i class="icon-envelope"></i></a>
+      <a href="http://twitter.com/ngokevin_"><i class="icon-twitter-sign"></i></a>
+      <a href="http://github.com/ngokevin"><i class="icon-github-sign"></i></a>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29871909-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+  </body>
+</html>
+

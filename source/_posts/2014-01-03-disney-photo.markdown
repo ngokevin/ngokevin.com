@@ -27,7 +27,7 @@ right-clicking. Disabling JS entirely would not either since the images were
 being pulled in asynchronously. Either of these wouldn't have worked well
 anyways since the images were pixelated and cropped.
 
----
+<!-- more -->
 
 ### Discovering Disney's Photo API URL
 

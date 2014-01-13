@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
+{% endblock %}
+
+{% block content %}
+  <div class="page">
+    {{ page.content }}
+  </div>
+
+  {% include "includes/end_sect.html" %}
+{% endblock %}
