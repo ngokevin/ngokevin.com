@@ -1,0 +1,12 @@
+title: Poker
+category: blog-tag
+type: blog-index
+weight: 3
+
+url: /blog/tags/poker/{page}/
+pagination:
+    list: site.tags.poker
+    limit: 5
+    sort_key: date
+    sort_reverse: True
+---

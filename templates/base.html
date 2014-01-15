@@ -18,39 +18,45 @@
 
   <body>
     <div id="wrap" class="c">
-      <div id="header">
-          <div class="logos">
-            <h1 id="logo">
-              <a href='/'>ngo<strong>kevin</strong></a>
-              <span class="social">
-                <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
-                <a href="http://twitter.com/ngokevin_"><i class="fa fa-twitter-square"></i></a>
-                <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
-                <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
-              </span>
-            </h1>
-            <span id="sublogo">web developer at mozilla</span>
-          </div>
-
-          <div id="navigation">
-            {% for link in site.tags['navigation'] | sort(attribute='navrank') %}
-              <a href="{{ link.url }}">
-                <span {% if (link.type == 'home' and page.url|length <= 3) or
-                            (link.url == page.url) %} class="current-nav"{% endif %}>
-                  {{ link.title }}</span>
-              </a>
+      <header>
+        <div class="logos">
+          <h1 id="logo">
+            <a href='/'>ngo<strong>kevin</strong></a>
+            <span class="social">
+              <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+              <a href="http://twitter.com/ngokevin_"><i class="fa fa-twitter-square"></i></a>
+              <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+              <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
+            </span>
+          </h1>
+          <span id="sublogo">web developer at mozilla</span>
+          <ul class="blog-tags">
+            {% for _page in site.categories['blog-tag'] | sort(attribute='weight') %}
+              <li>
+                <a href="{{ _page.url }}"
+                   {% if _page.url == page.url %} class="active"{% endif %}>
+                  {{ _page.title }}</a>
+              </li>
             {% endfor %}
-          </div>
-      </div>
+          </ul>
+        </div>
+
+        <nav>
+          {% for _page in site.tags['navigation'] | sort(attribute='weight') %}
+            <a href="{{ _page.url }}">
+              <span{% if _page.type == page.type %} class="active"{% endif %}>
+                {{ _page.title }}</span>
+            </a>
+          {% endfor %}
+        </nav>
+      </header>
 
       <div class="main">
         <div class="header-group">{% block page_header %}{% endblock %}</div>
 
         <div class="base-image">
           {% if page.image %}
-            <div class="page_pic {{ page.image.where }}" style="
-                {% if page.image.width %} max-width: {{page.image.width}}; {% endif %}
-                {% if page.image.height %} max-height: {{page.image.height}}; {% endif %}">
+            <div class="page_pic {{ page.image.where }}">
               <img{% if page.image.caption %} class="captioned"{% endif %} src="{{ page.image.url }}">
               {% if page.image.caption %}<div class="page-caption"><span>{{ page.image.caption }}</span></div>{% endif %}
             </div>
@@ -69,18 +75,6 @@
       <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
     </div>
 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-29871909-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-
+    {% include "includes/google_analytics.html" %}
   </body>
 </html>
-

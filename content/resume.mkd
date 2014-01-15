@@ -1,7 +1,6 @@
 title: Resume
-slug: resume
 type: resume
-
+slug: resume
 ---
 
 <br>

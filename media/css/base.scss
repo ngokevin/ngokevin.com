@@ -53,7 +53,7 @@ code {
     padding: 0 4px;
 }
 
-.metadata, #sublogo {
+.metadata, #sublogo, .blog-tags {
     font-family: $header-font-family;
 }
 
@@ -69,7 +69,7 @@ code {
     }
 }
 
-#header {
+header {
     height: 78px;
     margin-bottom: 39px;
     position: relative;
@@ -106,7 +106,36 @@ code {
     }
 }
 
-#navigation {
+.blog-tags {
+    bottom: 10px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    li {
+        display: inline;
+        font-size: 14px;
+        list-style: none;
+
+        &:not(:last-child):after {
+            content: "";
+            background: $black;
+            border-radius: 2px;
+            bottom: 3px;
+            display: inline-block;
+            left: 2px;
+            margin-right: 3px;
+            position: relative;
+            height: 2px;
+            width: 2px;
+        }
+    }
+    a.active {
+        text-decoration: underline;
+    }
+}
+
+nav {
     font-size: 14px;
     position: absolute;
     right: 0;
@@ -123,6 +152,7 @@ code {
         vertical-align: middle;
 
         &:hover {
+            color: $black;
             top: 13px;
         }
     }
@@ -132,7 +162,7 @@ code {
         padding: 64px 16px 16px 16px;
         @include transition(background .4s);
 
-        &:hover, &.current-nav {
+        &:hover, &.active {
             background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
         }
     }

@@ -1,13 +1,11 @@
 title: About
 slug: about
-
 tags: navigation
-navrank: 0
+weight: 0
 
 image:
     url: /img/about.jpg
     where: top
-
 ---
 
 Hey, I'm Kevin, a web developer for Mozilla, constantly breaking the [Firefox

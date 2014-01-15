@@ -1,10 +1,8 @@
 title: Shoot
-slug: photography
 type: gallery
-
+slug: photography
 tags: navigation
-navrank: 2
-
+weight: 2
 ---
 
 Hobby photography powered by my
