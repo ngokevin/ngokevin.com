@@ -16,16 +16,7 @@
         <span id="sublogo">web developer at mozilla</span>
       </div>
 
-      <div id="navigation">
-        {% for link in site.tags['navigation'] | sort(attribute='navrank') %}
-          <a href="{{ link.url }}">
-            <span
-              {% if (link.type == 'home' and page.url|length <= 3) or (link.url == page.url) %} class="current-nav"{% endif %}>
-              {{ link.title }}
-            </span>
-          </a>
-        {% endfor %}
-      </div>
+      <div id="navigation">{% include navigation.html %}</div>
     </div>
 
     <div class="main">
@@ -34,17 +25,17 @@
       <div class="base-image">
         {% if page.image %}
           <div class="page_pic">
-            <img{% if page.caption %} class="captioned"{% endif %} src="{{ page.image.url }}">
+            <img{% if page.caption %} class="captioned"{% endif %} src="{{ page.image }}">
             {% if page.caption %}
               <div class="page-caption">
-                <span>{{ page.image.caption }}</span>
+                <span>{{ page.caption }}</span>
               </div>
             {% endif %}
           </div>
         {% endif %}
       </div>
 
-      {{ content | expand_urls: root_url }}
+      {{ content }}
     </div>
   </div>
 

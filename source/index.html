@@ -1,5 +1,7 @@
 ---
 layout: default
+title: "Write"
+navrank: 2
 ---
 
 <div class="list-view">
@@ -8,7 +10,7 @@ layout: default
     <div class="item c">
       <div class="header-group">
         <h2 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <p class="metadata">{{ post.date.strftime("%A %B %d, %Y") }}</p>
+        <p class="metadata">{{ post.date | date: "%A %B %d, %Y" }}</p>
       </div>
 
       {% if post.image %}<img src="{{ post.image }}">{% endif %}
