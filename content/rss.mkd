@@ -1,0 +1,8 @@
+title: RSS
+type: rss
+
+slug: rss
+
+rss_category: blog
+
+---
