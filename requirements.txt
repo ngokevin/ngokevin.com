@@ -4,5 +4,6 @@ PyYAML>=3.10
 Pygments>=1.4
 docutils>=0.8.1
 requests
+pil
 
 -e git+https://github.com/ngokevin/wok.git@3c72df124e11b49ae109936523745be749cd406c#egg=wok

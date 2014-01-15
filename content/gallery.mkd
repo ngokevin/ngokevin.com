@@ -6,5 +6,5 @@ weight: 2
 ---
 
 Hobby photography powered by my
-[Sriracha](http://github.com:ngokevin/sriracha) gallery.
+[Sriracha](http://github.com/ngokevin/sriracha) gallery.
 
