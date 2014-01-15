@@ -12,16 +12,16 @@
 
 @media all and (max-width: 48em) {
     // 768px.
-    #header {
+    header {
         margin-bottom: 78px;
 
         .logos {
             position: static;
             text-align: center;
         }
-        #navigation {
+        nav {
             position: static;
-            padding-top: 26px;
+            padding-top: 12px;
             text-align: center;
 
             a {
