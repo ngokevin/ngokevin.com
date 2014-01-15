@@ -5,4 +5,4 @@ Pygments>=1.4
 docutils>=0.8.1
 requests
 
--e git+https://github.com/ngokevin/wok.git@df27c272af68e60d9360713a1ce1b059b50da655#egg=wok
+-e git+https://github.com/ngokevin/wok.git@3c72df124e11b49ae109936523745be749cd406c#egg=wok
