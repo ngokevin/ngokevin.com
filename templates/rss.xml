@@ -16,8 +16,10 @@
           <link>{{ site.base_url }}{{ item.url }}</link>
           <pubDate>{{ item.datetime.strftime(datefmt) }}</pubDate>
           <description>
-            <![CDATA[<img align="left" hspace="5" src="{{ item.image.url }}"/>{{ item.image.caption }}]]>
-              {{ item.content|e }}
+            {% if item.image %}
+              <![CDATA[<img align="left" hspace="5" src="{{ item.image.url }}"/>{{ item.image.caption }}]]>
+            {% endif %}
+            {{ item.content|e }}
           </description>
           <guid>
             {{site.base_url}}{{ item.url }}
