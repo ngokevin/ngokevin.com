@@ -4,9 +4,9 @@
   margin-right: 13px;
   width: 220px; }
 #gallery a {
-  -moz-box-shadow: 0 0 2px #50505a;
-  -webkit-box-shadow: 0 0 2px #50505a;
-  box-shadow: 0 0 2px #50505a;
+  -moz-box-shadow: 0 0 1px #32323c;
+  -webkit-box-shadow: 0 0 1px #32323c;
+  box-shadow: 0 0 1px #32323c;
   background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
   border: 7px double #e1e1dc;
   cursor: pointer;

@@ -1,9 +1,298 @@
+@charset "utf-8";
+@font-face {
+  font-family: "Ampersand";
+  src: local("Georgia"), local("Garamond"), local("Palatino"), local("Book Antiqua");
+  unicode-range: U+0026; }
+
+@font-face {
+  font-family: "Ampersand";
+  src: local("Georgia");
+  unicode-range: U+270C; }
+
+body {
+  word-wrap: break-word; }
+
+pre code {
+  word-wrap: normal; }
+
+/**
+ * Dropcap Sass @include
+ * Use the following Sass @include with any selector you feel necessary.
+ *
+    @include dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg);
+ *
+ * Extend this object into your custom stylesheet. Let the variables do the work.
+ *
+ */
+html {
+  font: normal 125%/1.65 Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", "Hiragino Sans GB", "STXihei", "微软雅黑", serif; }
+
+body {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  color: #444444; }
+
+small {
+  font-size: 65%; }
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0; }
+
+.tera {
+  font-size: 72px;
+  font-size: 3.6rem;
+  margin-bottom: 0.45833rem; }
+
+.giga {
+  font-size: 60px;
+  font-size: 3rem;
+  margin-bottom: 0.55rem; }
+
+.mega {
+  font-size: 48px;
+  font-size: 2.4rem;
+  margin-bottom: 0.6875rem; }
+
+.alpha, h1, #footer i {
+  font-size: 36px;
+  font-size: 1.8rem;
+  margin-bottom: 0.91667rem; }
+
+.beta, h2 {
+  font-size: 24px;
+  font-size: 1.2rem;
+  margin-bottom: 1.375rem; }
+
+.gamma, h3 {
+  font-size: 21px;
+  font-size: 1.05rem;
+  margin-bottom: 1.57143rem; }
+
+.delta, h4 {
+  font-size: 18px;
+  font-size: 0.9rem;
+  margin-bottom: 1.83333rem; }
+
+.epsilon, h5 {
+  font-size: 18px;
+  font-size: 0.9rem;
+  margin-bottom: 1.83333rem; }
+
+.zeta, h6 {
+  font-size: 18px;
+  font-size: 0.9rem;
+  margin-bottom: 1.83333rem; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ubuntu", sans-serif; }
+
+p {
+  margin: auto auto 1.5em; }
+  p + p {
+    text-indent: 1.5em;
+    margin-top: -1.5em; }
+
+abbr,
+acronym,
+blockquote,
+code,
+dir,
+kbd,
+listing,
+plaintext,
+q,
+samp,
+tt,
+var,
+xmp {
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  -o-hyphens: none;
+  hyphens: none; }
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap; }
+
+pre {
+  white-space: pre;
+  font-size: 14px; }
+
+code {
+  white-space: pre;
+  font-family: monospace; }
+
+/**
+ * Abbreviations Markup
+ *
+    <abbr title="hyper text markup language">HMTL</abbr>
+ *
+ * Extend this object into your markup.
+ *
+ */
+abbr {
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray; }
+  abbr[title]:hover {
+    cursor: help; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #005454; }
+
+p + .drop-cap {
+  text-indent: 0;
+  margin-top: 0; }
+
+.drop-cap:first-letter {
+  float: left;
+  margin: inherit;
+  padding: inherit;
+  font-size: 4em;
+  font-family: inherit;
+  line-height: 1;
+  text-indent: 0;
+  background: transparent;
+  color: inherit; }
+
+/**
+ * Lining Definition Style Markup
+ *
+    <dl class="lining">
+        <dt><b></b></dt>
+        <dd></dd>
+    </dl>
+ *
+ * Extend this object into your markup.
+ *
+ */
+.lining dt,
+.lining dd {
+  display: inline;
+  margin: 0; }
+.lining dt + dt:before,
+.lining dd + dt:before {
+  content: "\A";
+  white-space: pre; }
+.lining dd + dd:before {
+  content: ", "; }
+.lining dd:before {
+  content: ": ";
+  margin-left: -0.2rem; }
+
+/**
+ * Dictionary Definition Style Markup
+ *
+    <dl class="dictionary-style">
+        <dt><b></b></dt>
+            <dd></dd>
+    </dl>
+ *
+ * Extend this object into your markup.
+ *
+ */
+.dictionary-style dt {
+  display: inline;
+  counter-reset: definitions; }
+  .dictionary-style dt + dt:before {
+    content: ", ";
+    margin-left: -0.2rem; }
+.dictionary-style dd {
+  display: block;
+  counter-increment: definitions; }
+  .dictionary-style dd:before {
+    content: counter(definitions,decimal) ". "; }
+
+/**
+ * Blockquote Markup
+ *
+        <figure>
+            <blockquote cite="">
+                <p></p>
+            </blockquote>
+            <figcaption>
+                <cite>
+                    <small><a href=""></a></small>
+                </cite>
+            </figcaption>
+        </figure>
+ *
+ * Extend this object into your markup.
+ *
+ */
+/**
+ * Pull Quotes Markup
+ *
+    <aside class="pull-quote">
+        <blockquote>
+            <p></p>
+        </blockquote>
+    </aside>
+ *
+ * Extend this object into your custom stylesheet.
+ *
+ */
+.pull-quote {
+  position: relative;
+  padding: 1em; }
+  .pull-quote:before, .pull-quote:after {
+    height: 1em;
+    opacity: 0.5;
+    position: absolute;
+    font-size: 4em;
+    color: #dc976e; }
+  .pull-quote:before {
+    content: '“';
+    top: 0;
+    left: 0; }
+  .pull-quote:after {
+    content: '”';
+    bottom: 0;
+    right: 0; }
+
+/**
+ * Figures Markup
+ *
+    <figure>
+        <figcaption>
+            <strong>Fig. 4.2 | </strong>Type Anatomy, an excerpt from Mark Boulton's book<cite title="http://designingfortheweb.co.uk/book/part3/part3_chapter11.php">"Designing for the Web"</cite>
+        </figcaption>
+    </figure>
+ *
+ * Extend this object into your markup.
+ *
+ */
+/**
+ * Footnote Markup : Replace 'X' with your unique number for each footnote
+ *
+    <article>
+        <p><sup><a href="#fn-itemX" id="fn-returnX"></a></sup></p>
+        <footer>
+            <ol class="foot-notes">
+                <li id="fn-itemX"><a href="#fn-returnX">↩</a></li>
+            </ol>
+        </footer>
+    </article>
+ *
+ * Extend this object into your markup.
+ *
+ */
 html, body {
   background: url("../img/textures/body-bg.png") repeat scroll 0 0 transparent;
-  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
   height: 100%;
-  margin: 4px 0 0;
-  text-align: justify; }
+  margin: 4px 0 0; }
 
 #wrap {
   -moz-box-shadow: 0 1px 2px #e1e1dc;
@@ -12,134 +301,120 @@ html, body {
   background: url("../img/textures/main-bg.png") repeat scroll 0 0 transparent;
   border-radius: 3px;
   margin: 0 auto;
-  padding: 4px 3% 0;
-  width: 940px; }
+  padding: 4px 5% 0;
+  width: 540px; }
 
 @media all and (min-width: 62.5em) {
   #wrap {
     padding: 4px 2% 0; } }
-h1, h2, h3, h4, h5, #logo {
-  color: #0a0a14;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
   margin: 0; }
 
-h1, #logo {
-  font-family: 'Gentium Book Basic', serif; }
-
-h2, h3, h4, h5 {
-  font-weight: normal; }
-
-h2 {
-  font-size: 22px; }
-
-a, .main a:hover {
+a {
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   -o-transition: color 0.2s;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
-  font-weight: bold; }
+  color: #004545;
+  text-decoration: none; }
+  a:hover {
+    color: #2aaaaa; }
 
-span p a {
-  font-weight: normal; }
-
-strong {
-  color: #50505a; }
+p a, span a {
+  color: #2aaaaa; }
 
 hr {
-  border-color: gainsboro; }
-
-.main pre span {
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 24px; }
+  border-color: #e1e1dc;
+  margin-bottom: 13px; }
 
 code {
   background: #f2f2f2;
   border: 1px solid #e1e1dc;
   border-radius: 1px;
-  font-family: monospace;
-  font-size: 14px;
   padding: 0 4px; }
+
+.metadata, #sublogo, .blog-tags {
+  font-family: "Ubuntu", sans-serif; }
 
 .main {
   padding-bottom: 350px; }
   .main .header-group {
     margin-bottom: 26px; }
-    .main .header-group h1, .main .header-group h2 {
-      color: #005454; }
-    .main .header-group h1 {
+    .main .header-group p {
       margin-bottom: 0; }
-  .main p, .main span {
-    color: #0d0d1b;
-    font-size: 16px;
-    line-height: 34px;
-    margin: 0; }
-  .main li, .main ol {
-    color: #131325;
-    font-size: 16px;
-    line-height: 34px; }
-  .main a {
-    color: #005454;
-    font-weight: bold;
-    text-decoration: none; }
-    .main a:hover {
-      color: #2aaaaa; }
-  .main hr {
-    margin-bottom: 13px; }
 
-#header {
+header {
   height: 78px;
-  position: relative;
-  margin-bottom: 39px; }
-  #header hr {
-    margin-bottom: 6px;
-    margin-top: 12px; }
+  margin-bottom: 39px;
+  position: relative; }
 
 .logos {
   position: absolute;
-  left: 0;
   top: 10px; }
+  .logos .social {
+    margin-left: 2px; }
+    .logos .social a {
+      color: #e1e1dc;
+      margin: 0 1px; }
+      .logos .social a:hover {
+        color: #50505a; }
+    .logos .social i {
+      font-size: 23px; }
   .logos #logo {
-    font-size: 36px;
-    font-weight: bold; }
-    .logos #logo a {
-      color: #005454;
-      text-decoration: none; }
-      .logos #logo a:hover {
-        color: #2aaaaa; }
-    .logos #logo .social {
-      margin-left: 2px; }
-      .logos #logo .social a {
-        color: #e1e1dc;
-        margin: 0 2px; }
-        .logos #logo .social a:hover {
-          color: #50505a; }
-      .logos #logo .social i {
-        font-size: 23px; }
+    font-weight: 400; }
+    .logos #logo strong {
+      font-weight: 700; }
   .logos #sublogo {
     color: #50505a;
     font-size: 14px; }
 
-#navigation {
+.blog-tags {
+  bottom: 10px;
+  margin: 0;
+  padding: 0;
+  position: relative; }
+  .blog-tags li {
+    display: inline;
+    font-size: 14px;
+    list-style: none; }
+    .blog-tags li:not(:last-child):after {
+      content: "";
+      background: #0a0a14;
+      border-radius: 2px;
+      bottom: 3px;
+      display: inline-block;
+      left: 2px;
+      margin-right: 3px;
+      position: relative;
+      height: 2px;
+      width: 2px; }
+  .blog-tags a.active {
+    text-decoration: underline; }
+
+nav {
+  font-size: 14px;
   position: absolute;
-  font: 16px 'Gentium Book Basic', serif;
   right: 0;
   top: 20px; }
-  #navigation a {
-    color: #32323c;
-    margin-left: 26px;
-    text-decoration: none;
-    position: relative;
-    vertical-align: middle;
-    top: 0;
+  nav a {
     -moz-transition: top 0.3s;
     -ms-transition: top 0.3s;
     -o-transition: top 0.3s;
     -webkit-transition: top 0.3s;
-    transition: top 0.3s; }
-    #navigation a:hover {
+    transition: top 0.3s;
+    color: #444444;
+    font-weight: bold;
+    margin-left: 5px;
+    position: relative;
+    text-decoration: none;
+    top: 0;
+    vertical-align: middle; }
+    nav a:hover {
+      color: #0a0a14;
       top: 13px; }
-  #navigation span {
+  nav span {
     background: none;
     border-radius: 8px;
     padding: 64px 16px 16px 16px;
@@ -148,38 +423,25 @@ code {
     -o-transition: background 0.4s;
     -webkit-transition: background 0.4s;
     transition: background 0.4s; }
-    #navigation span:hover, #navigation span.current-nav {
+    nav span:hover, nav span.active {
       background: url("../img/textures/accent.png") repeat scroll 0 0 transparent; }
-  #navigation hr {
-    clear: both; }
-
-span.metadata {
-  color: #50505a;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 6px;
-  position: relative;
-  top: 6px; }
 
 .base-image img {
-  -moz-box-shadow: 0 0 2px #50505a;
-  -webkit-box-shadow: 0 0 2px #50505a;
-  box-shadow: 0 0 2px #50505a;
+  -moz-box-shadow: 0 0 1px #32323c;
+  -webkit-box-shadow: 0 0 1px #32323c;
+  box-shadow: 0 0 1px #32323c;
+  border-radius: 1px;
   max-height: 480px;
   max-width: 100%;
   margin: 0 auto 52px auto; }
 .base-image span {
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic; }
 
-.pagination {
-  font-size: 14px;
-  margin-bottom: 39px; }
-
-#sliding-all a {
-  color: #0a0a14;
-  font-weight: normal; }
+.pagination .prev {
+  float: left; }
+.pagination .next {
+  float: right; }
 
 #sliding-next-page, #sliding-prev-page {
   -moz-transition: background 0.5s;
@@ -199,6 +461,11 @@ span.metadata {
   min-height: 1250px; }
 
 a.btn {
+  -moz-transition: background 0.5s 0.1s;
+  -ms-transition: background 0.5s 0.1s;
+  -o-transition: background 0.5s 0.1s;
+  -webkit-transition: background 0.5s 0.1s;
+  transition: background 0.5s 0.1s;
   background: #007500;
   border-radius: 3px;
   bottom: 0;
@@ -206,48 +473,30 @@ a.btn {
   font-weight: normal;
   margin-right: 5px;
   padding: 3px 8px;
-  text-decoration: none;
-  -moz-transition: background 0.5s 0.1s;
-  -ms-transition: background 0.5s 0.1s;
-  -o-transition: background 0.5s 0.1s;
-  -webkit-transition: background 0.5s 0.1s;
-  transition: background 0.5s 0.1s; }
+  text-decoration: none; }
   a.btn:hover {
     background: #008f00;
     font-weight: normal;
     color: #fafafa;
     cursor: pointer; }
   a.btn:active {
-    background: #004200;
     -moz-transition: background 0.03s 0s;
     -ms-transition: background 0.03s 0s;
     -o-transition: background 0.03s 0s;
     -webkit-transition: background 0.03s 0s;
-    transition: background 0.03s 0s; }
+    transition: background 0.03s 0s;
+    background: #004200; }
 
 #footer {
   /* Overrides sticky-footer */
   background: url("../img/textures/accent.png") repeat scroll 0 0 transparent;
-  font-size: 14px;
-  line-height: 28px;
   height: 115px;
   margin-top: -100px;
   min-width: 100%;
   padding-top: 26px;
   text-align: center; }
   #footer a {
-    color: #005454;
-    text-decoration: none; }
-    #footer a:hover {
-      color: #2aaaaa; }
-  #footer .social {
-    margin-left: 6px;
-    position: relative;
-    top: 1px; }
-    #footer .social a {
-      margin-right: 4px; }
-    #footer .social i {
-      font-size: 16px; }
+    margin-right: 8px; }
 
 .c:after {
   content: ".";
@@ -269,7 +518,6 @@ html[xmlns] .c {
 /* Social share buttons */
 #top-share {
   position: relative;
-  top: 20px;
   right: 2px; }
   #top-share > a {
     float: none; }
@@ -282,5 +530,10 @@ html[xmlns] .c {
 #disqus_thread {
   margin-top: 13px; }
 
+#gallery div.album-preview {
+  margin-right: 36px; }
+
 .overlay div.prev, .overlay div.next {
-  background: #32323c; }
+  background: #32323c;
+  bottom: 3px;
+  top: 0; }

@@ -1,13 +1,13 @@
 html body pre {
-  -moz-box-shadow: 0 0 2px #50505a;
-  -webkit-box-shadow: 0 0 2px #50505a;
-  box-shadow: 0 0 2px #50505a;
+  -moz-box-shadow: 0 0 1px #32323c;
+  -webkit-box-shadow: 0 0 1px #32323c;
+  box-shadow: 0 0 1px #32323c;
   border-radius: 3px;
   background: #505252;
   color: #fafafa;
   margin-bottom: 39px;
   overflow: auto;
-  padding: 8px 0 8px 26px;
+  padding: 8px 0 8px 10px;
   /* Comment */
   /* Error */
   /* Keyword */
