@@ -25,7 +25,7 @@ I used:
   (setups, teardowns, assertions), automatically installed with Karma
 - [Angular Mocks](https://raw2.github.com/angular/angular.js/master/src/ngMock/angular-mocks.js) - to mock out our application
 
-### Directory Structure
+## Directory Structure
 
 If you want to see for yourself my directory structure, check out
 [the source code of my unit tests.](https://github.com/ngokevin/minimalist/tree/060a3bbc082f10d8305ef97871911b20f073e472/tests/unit_tests)
@@ -55,7 +55,7 @@ tests and end-to-end tests.
     |       `-- services.tests.js
     `--
 
-### Setting Up the Karma Test Runner
+## Setting Up the Karma Test Runner
 
 Install Karma.
 
@@ -87,7 +87,7 @@ Then we can start the Karma runner to run our tests.
 
     karma start karma.config.js
 
-### Writing Jasmine Unit Tests
+## Writing Jasmine Unit Tests
 
 Jasmine unit tests, to me, are just like any other unit testing framework, but
 more designed to be read like English. In essence it is the same, there are
@@ -169,7 +169,7 @@ own.
         });
     });
 
-#### Initializing a Jasmine Test Suite
+### Initializing a Jasmine Test Suite
 
 I'll describe portions of the code starting from the top.
 
@@ -178,7 +178,7 @@ I'll describe portions of the code starting from the top.
         // ...
     });
 
-#### Setup and Mocking LocalStorage
+### Setup and Mocking LocalStorage
 
 This initializes our test suite for our module.
 
@@ -217,7 +217,7 @@ snippet.
         store = {};
     });
 
-#### Jasmine Test Cases
+### Jasmine Test Cases
 
 The teardown called after each test case to reset the state. Here, we basically
 clear our Local Storage.
@@ -227,7 +227,7 @@ clear our Local Storage.
         // ...
     });
 
-#### Injecting Angular Modules
+### Injecting Angular Modules
 
 A single test case. The test case is created with ```it``` where we pass in  a
 string describing the behavior we are testing and the test case itself.
@@ -248,7 +248,7 @@ We call Angular Mock's ```inject``` to import our service into the test case. I
 assume the Angular app module namespace is searched to pull out the module so
 make sure the parameter name matches what we want to import.
 
-#### Jasmine Assertions
+### Jasmine Assertions
 
 To run a basic assertion, we call Jasmine's ```expect```, passing in the first
 value, and then ```toEqual``` to assert that its value is equivalent to what we

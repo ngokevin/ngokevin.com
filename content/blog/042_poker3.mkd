@@ -22,7 +22,7 @@ success from [Poker Session #2](/blog/poker2).
 
 ---
 
-### 11am Freeroll #1 - 1st Place for $355
+## 11am Freeroll #1 - 1st Place for $355
 
 After making the 1h30m drive from Corvallis, I made it in time to register for
 the 11am. Took the $15 pre-addon (as always) to give me a deep stack and a 1k
@@ -42,7 +42,7 @@ loose-passive fish with a wide limping range from all positions.
 My stack was pretty small most of the first table but I made by by stealing
 with premium hands and showing them to gain later fold equity.
 
-## 11am Freeroll #1 - Final Table
+### 11am Freeroll #1 - Final Table
 
 Eventually, I made it to the final table, having played the tournament
 mostly short-stacked due to the increasing blinds and not getting many
@@ -68,7 +68,7 @@ PAY BUBBLE $40, NOT $45"*, in a strong obnoxious accent. We all kind of looked
 at each other strangely, *"okay..."*. We agreed on $40 after someone argued so
 strongly over $5 less, enough for about a cup of coffee.
 
-## 11am Freeroll #1 - Captain Ahab
+### 11am Freeroll #1 - Captain Ahab
 
 There was a big Italian mafia-like guy at the table, a lag-tard whale who was
 hitting all of his cards. We'll call him Moby. I remembered at the first table
@@ -98,7 +98,7 @@ after getting sucked out on last session for a second-place finish.
 Results of the 11am freeroll.
 </span></div>
 
-### 5pm Freeroll #2 - 1st for $235
+## 5pm Freeroll #2 - 1st for $235
 
 I opted-out of the 1pm $2000 guaranteed (which ended up lasting 8 hours) to
 chill at my parent's place with my brothers, waiting for the second freeroll at

@@ -28,7 +28,7 @@ the States, live poker rooms were one of my only options to play. I had been
 looking forward to visiting the place for a while. After a uneventful day at
 work, I figured tonight was the night to try my hand.
 
-##Arriving at the Poker Club
+## Arriving at the Poker Club
 
 At 9pm, I started walking half a mile from my studio towards the Encore Poker
 Club. I checked the schedule online, the $500-guaranteed was to start at 10pm.
@@ -65,7 +65,7 @@ I wasn't even exactly sure where seat 4 was. But I made my best guess.
 Several people sat down, not many, but more showed up late as they were knocked out
 from an adjacent tourney. Cards in the air!
 
-##Early Game
+## Early Game
 
 Throughout the game, I was aware my image was as a complete noob, making
 frequent faux pas such as string betting, forgetting to pass the button,
@@ -89,7 +89,7 @@ more hands passed, no pots won yet.
 It was then break time, which I used to Facetime my girlfriend a good night as
 she wished me good luck.
 
-##Inducing a Value Bluff
+## Inducing a Value Bluff
 
 I get dealt **A9o** in middle position. I raise the standard 3xBB and get one
 call from the small blind. He was a regular that briefly introduced himself to
@@ -102,13 +102,13 @@ not wanting to scare him away and seeing if I could induce a small value bluff.
 Indeed, he makes a bets on the river and I call. He shows a low pair, and I
 take a healthy pot.
 
-##Stacking with AA
+## Stacking with AA
 
 Later, I was dealt **AA**. My hands shook. I open preflop and get a call from a
 young Indian shortstack. A few bets and raises, and he was all-in. The aces
 held, and I stacked him, bringing me to about 8.5k chips (started with 7k).
 
-##Fumbling with the Nuts
+## Fumbling with the Nuts
 
 The poker gods later deal me **AA** again. I stay a bit more calm than the last
 time, and make a preflop raise. One caller, a sort of tomboyish lady with the
@@ -129,7 +129,7 @@ like Phil Laak, wearing shades and a beanie. "*I can't believe this is his
 first tournament*", Phil remarked at my faux pas as I gathered my chips,
 "*Though, he's obviously good online*", he said to the other players.
 
-##Side-Pot Etiquette
+## Side-Pot Etiquette
 
 In the mid-game, I opened in position with **56s**. A really short stack,
 raised me for not much more to go all in. Phil calls, creating a side-pot. The
@@ -149,7 +149,7 @@ and said we had gotten off on the wrong foot.
 I then knock out a middle-aged man with **QQ** over **TT** all in preflop after
 my 3-bet.
 
-##The Final Table
+## The Final Table
 
 When it got down to 10, the three tables combined into the final table down to
 10. Though not for long. Two players quickly get knocked out. Then two more.
@@ -175,7 +175,7 @@ turn, seeing no value in c-betting. I was going to poke the turn as the board
 paired, though an older guy with a mustache wearing a Ducks hat pushed me out
 with an underpair. Break time.
 
-##Walk of Shame
+## Walk of Shame
 
 After the break, all the players agreed to pay the bubble, meaning the next
 player to get knocked out would still walk out with an agreed-upon amount of
