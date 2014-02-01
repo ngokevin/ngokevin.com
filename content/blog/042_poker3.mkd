@@ -218,6 +218,8 @@ Session Conclusion:
               stack.
 - Things to study - Independent Chip Model theory, double-barreling.
 
++$600
+
 ![wallet](http://i.imgur.com/w8Nt2xl.jpg)
 
 <div class="page-caption"><span>
