@@ -42,12 +42,17 @@ obtain content ratings on their own which are applicable to all regions.
 
 Developers are led from the Marketplace through an IARC portal where they can
 fill out a yes/no questionnaire that inquires about the content of their app
-(e.g. *Does it contain violence?*, *Does it contain crude humor*). Upon filling
-out the form, developers are redirected back to the Marketplace where their
-content rating will be registered to their app by both Marketplace and IARC. If
-the developer ever released their app on another storefront, their rating would
-conveniently follow that product. When people visit their app's listing page on
-the Marketplace, they will be able to read all about the its content rating.
+(e.g. *Does it contain violence?*, *Does it contain crude humor*). Although
+the app is self-rated, IARC will occasionally do spot-checks and manually
+update the rating. Marketplace app reviewers may also spot any inconsistencies
+between the app's rating and the app's content.
+
+Upon filling out the form, developers are redirected back to the Marketplace
+where their content rating will be registered to their app by both Marketplace
+and IARC. If the developer ever released their app on another storefront,
+their rating would conveniently follow that product. When people visit their
+app's listing page on the Marketplace, they will be able to read all about the
+its content rating.
 
 ![App with content ratings](http://i.imgur.com/rd9477d.png)
 
