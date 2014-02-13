@@ -218,11 +218,11 @@ Session Conclusion:
               stack.
 - Things to study - Independent Chip Model theory, double-barreling.
 
-+$600
++$560
 
 ![wallet](http://i.imgur.com/w8Nt2xl.jpg)
 
 <div class="page-caption"><span>
-$600 from today, $265 from last week, to the point the wallet can't hold itself
+$560 from today, $265 from last week, to the point the wallet can't hold itself
 closed.
 </span></div>
