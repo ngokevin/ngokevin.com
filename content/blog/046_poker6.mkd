@@ -56,11 +56,10 @@ to bluffs and marginal hands.
 
 ![](http://i.imgur.com/pUtH0P9.jpg)
 
-Session Conclusion:
+## Session Conclusion
 
-- Blunders - not playing with Russell Westbrook, overlimping too often,
-             calling two all-ins with an overpair
-- Pro Moves - folding to the money
-- Things to Study - shorthanded stealing ranges
-
-+$135
+- **Went Well**: folding to the money
+- **Mistakes**: not playing with Russell Westbrook, overlimping too often,
+                 calling two all-ins with an overpair
+- **Get Better At**: shorthanded stealing ranges
+- **Profit**: +$135

@@ -134,11 +134,10 @@ I was really sleepy and couldn't concentrate. Before I knew it, I was out,
 calling down with TPWK and getting it all in on the button with JQ vs AK.
 Easy way to burn $50.
 
-Session Conclusion:
+## Session Conclusion
 
-- Blunders - registering for a deepstack poker tourney when sleepy, not value betting
-             top set against top pair giving one guy a "negative freeroll" on the river
-- Pro Moves - stacking Chicago and becoming massive chip leader over three hands
-- Things to Study - counting the pot for proper bet sizing, pocket pairs in late position
-
-+$730
+- **Went Well**: stacking Chicago and becoming massive chip leader over three hands
+- **Mistakes**: registering for a deepstack poker tourney when sleepy, not value betting
+                top set against top pair giving one guy a "negative freeroll" on the river
+- **Get Better At**: counting the pot for proper bet sizing, pocket pairs in late position
+- **Profit**: +$730

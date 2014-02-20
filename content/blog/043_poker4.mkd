@@ -216,10 +216,9 @@ I go on auto-fold for like 45 minutes until the shootout ends to lock down my
 earnings. I opt-out of the Five Dolla Holla ($5 table lottery) and tip the
 dealer. I end up with $495 in front for $295 in profit for the cash game.
 
-Session Conclusion:
+## Session Conclusion:
 
-- Blunders - double barrel without hand reading
-- Pro Moves - flop min-raise with the read
-- Things to Study - applying hand reading
-
-+$220
+- **Went Well**: flop min-raise with the read
+- **Mistakes**: double barrel without hand reading
+- **Get Better At**: applying hand reading
+- **Profit**: +$220

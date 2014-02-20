@@ -210,15 +210,14 @@ again Friday.
 Results of the 5pm freeroll.
 </span></div>
 
-Session Conclusion:
+## Session Conclusion
 
-- Blunders - folding ATo in the small blind instead of stealing
-             because the guy was confidently stacking his chips.
-- Pro Moves - successful and frequent shove-steals during the bubble to build
-              stack.
-- Things to study - Independent Chip Model theory, double-barreling.
-
-+$560
+- **Went Well**: folding ATo in the small blind instead of stealing
+                 because the guy was confidently stacking his chips.
+- **Mistakes**: successful and frequent shove-steals during the bubble to build
+                stack.
+- **Get Better At**: Independent Chip Model theory, double-barreling.
+- **Profit**: +$560
 
 ![wallet](http://i.imgur.com/w8Nt2xl.jpg)
 
