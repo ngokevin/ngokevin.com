@@ -1,0 +1,13 @@
+title: Winter Sets
+slug: winter-sets
+category: gallery
+type: album
+
+source: flickr
+album-id: 72157641292815084
+
+date: 2013-12-15
+
+---
+
+Winter sets in December towards the frozen Diamond Lake and the serene Crater Lake.

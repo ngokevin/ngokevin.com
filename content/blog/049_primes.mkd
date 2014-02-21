@@ -3,7 +3,7 @@ type: blog
 category: blog
 date: 2014-02-19
 slug: primes
-tags: photography, life
+tags: [photography, life]
 
 image:
     url: http://i.imgur.com/ujbOCcu.jpg
