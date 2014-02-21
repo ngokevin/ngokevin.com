@@ -51,3 +51,8 @@ div.page-caption {
 .base-image img[src="/img/about.jpg"] {
   border-radius: 100%;
   max-height: 320px; }
+
+ul {
+  padding-left: 18px; }
+  ul li {
+    list-style: square; }

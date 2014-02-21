@@ -102,7 +102,7 @@ img.expanded {
       position: relative;
       font-size: 32px;
       font-weight: bold;
-      top: 5px; }
+      top: -3px; }
   .overlay .prev {
     left: 1%; }
     .overlay .prev span {
