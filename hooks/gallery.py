@@ -1,12 +1,12 @@
 import glob
+import json
 import os
 import pprint
-import json
 
-import requests
 import Image
+import requests
 
-from config import GALLERY_WOK_TYPE, IMGUR_CLIENT_ID, FLICKR_CLIENT_ID
+import config as cfg
 from lib import flickr
 
 
@@ -23,13 +23,14 @@ REL_GALLERY_DIR = '/img/gallery/'
 THUMB_PREFIX = 'THUMB_'
 
 # Imgur.
-IMGUR_HEADERS = {'Authorization': 'Client-ID {0}'.format(IMGUR_CLIENT_ID)}
+IMGUR_HEADERS = {'Authorization': 'Client-ID {0}'.format(
+                 cfg.IMGUR_CLIENT_ID)}
 IMGUR_ALBUM_CACHE = {}
 IMGUR_ALBUM_URL = 'https://api.imgur.com/3/album/{0}/'
 THUMB_SIZE = 'm'  # (see http://api.imgur.com/models/image)
 
 # Flickr.
-flickr.API_KEY = FLICKR_CLIENT_ID
+flickr.API_KEY = cfg.FLICKR_CLIENT_ID
 
 
 class Gallery(object):
@@ -43,23 +44,29 @@ class Gallery(object):
         Wok page.template.pre hook
         Load several preview images into each album.
         """
-        if ('type' in page.meta and page.meta['type'] == GALLERY_WOK_TYPE and
-            GALLERY_WOK_TYPE in templ_vars['site']['categories']):
+        if ('type' in page.meta and
+            page.meta['type'] == cfg.WOK_TYPE and
+            cfg.WOK_CATEGORY in templ_vars['site']['categories']):
+
             album_pages = sorted(
-                templ_vars['site']['categories'][GALLERY_WOK_TYPE],
+                templ_vars['site']['categories'][cfg.WOK_CATEGORY],
                 key=lambda album: album['datetime'],
             )
-            albums = {}
+
+            album_previews = {}
             for album_page in album_pages:
+                slug = album_page['slug']
+
                 image_list = []
                 images = map(
                     lambda i: i['thumb_src'],
-                    self.albums[album_page['slug']]
+                    self.albums[slug]
                 )
                 image_list += images[:PREVIEW_IMGS_NUM]
-                albums[album_page['slug']] = image_list
-            templ_vars['site']['albums'] = albums
-            templ_vars['site']['gallery_wok_type'] = GALLERY_WOK_TYPE
+                album_previews[slug] = image_list
+
+            templ_vars['site']['albums'] = album_previews
+            templ_vars['site']['gallery_wok_type'] = cfg.WOK_CATEGORY
 
     def get_images(self, page):
         """
@@ -72,6 +79,19 @@ class Gallery(object):
 
         if 'type' in page.meta and page.meta['type'] == 'album':
             album = page.meta
+            slug = album['slug']
+
+            # Check cache if album exists to not have to re-fetch.
+            if os.path.isfile(cfg.CACHE_PATH):
+                with open(cfg.CACHE_PATH, 'r') as cache:
+                    try:
+                        album_cache = json.loads(cache.read())
+                        # If album exists, set it in the template.
+                        if slug in album_cache:
+                            self.albums[slug] = album_cache[slug]
+                            return
+                    except ValueError:
+                        pass
 
             # Route to the correct image host based on source attribute.
             Klass = Local
@@ -79,7 +99,11 @@ class Gallery(object):
                 Klass = Imgur
             elif is_flickr:
                 Klass = Flickr
-            self.albums[album['slug']] = Klass().get_images(page)
+            self.albums[slug] = Klass().get_images(page)
+
+            # Update cache.
+            with open(cfg.CACHE_PATH, 'w') as cache:
+                cache.write(json.dumps(self.albums))
 
     def set_images(self, page, templ_vars):
         """

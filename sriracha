@@ -2,6 +2,7 @@ SRIRACHA_PATH='../sriracha'
 GALLERY_TEMPLATE='photography.html'
 
 cp $SRIRACHA_PATH/hooks/gallery.py hooks/
+cp $SRIRACHA_PATH/hooks/config.py-dist hooks/
 cp $SRIRACHA_PATH/templates/index.html templates/$GALLERY_TEMPLATE
 cp $SRIRACHA_PATH/templates/album.html templates/album.html
 cp $SRIRACHA_PATH/media/css/album.* media/css/

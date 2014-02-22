@@ -93,16 +93,15 @@ img.expanded {
     width: 50px;
     z-index: 12; }
     .overlay .prev:hover, .overlay .next:hover {
-      -moz-box-shadow: 0 0 1px 3px #fafafa;
-      -webkit-box-shadow: 0 0 1px 3px #fafafa;
-      box-shadow: 0 0 1px 3px #fafafa;
-      border: 1px solid #fafafa; }
+      -moz-box-shadow: 0 0 1px 3px #e1e1dc;
+      -webkit-box-shadow: 0 0 1px 3px #e1e1dc;
+      box-shadow: 0 0 1px 3px #e1e1dc; }
     .overlay .prev span, .overlay .next span {
       color: #e1e1dc;
       position: relative;
       font-size: 32px;
       font-weight: bold;
-      top: -3px; }
+      top: 5px; }
   .overlay .prev {
     left: 1%; }
     .overlay .prev span {
@@ -111,3 +110,25 @@ img.expanded {
     right: 1%; }
     .overlay .next span {
       left: 1px; }
+
+@media screen and (max-device-width: 600px) {
+  .overlay .overlay-img {
+    bottom: 55px; }
+  .overlay div.prev, .overlay div.next {
+    border-radius: 0;
+    bottom: 0;
+    height: 50px;
+    margin: 0;
+    top: auto;
+    width: 50%; }
+    .overlay div.prev:hover, .overlay div.next:hover {
+      z-index: 13; }
+    .overlay div.prev span, .overlay div.next span {
+      color: #e1e1dc;
+      position: relative;
+      font-size: 32px;
+      font-weight: bold; }
+  .overlay .prev {
+    left: 0; }
+  .overlay .next {
+    right: 0; } }

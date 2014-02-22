@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "US-ASCII";
 @font-face {
   font-family: "Ampersand";
   src: local("Georgia"), local("Garamond"), local("Palatino"), local("Book Antiqua");
@@ -533,7 +533,11 @@ html[xmlns] .c {
 #gallery div.album-preview {
   margin-right: 36px; }
 
-.overlay div.prev, .overlay div.next {
+.overlay div.prev,
+.overlay div.next {
   background: #32323c;
   bottom: 3px;
   top: 0; }
+  .overlay div.prev span,
+  .overlay div.next span {
+    top: -3px; }

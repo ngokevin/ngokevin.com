@@ -1,8 +1,7 @@
-@import "_lib";
+@import "_lib.scss";
 
 #album {
     margin-top: 1.1em;
-
     a {
         margin-bottom: 3px;
         img {
@@ -99,15 +98,14 @@ img {
         z-index: 12;
 
         &:hover {
-            @include box-shadow(0 0 1px 3px $white);
-            border: 1px solid $white;
+            @include box-shadow(0 0 1px 3px $light-gray);
         }
         span {
             color: $light-gray;
             position: relative;
             font-size: 32px;
             font-weight: bold;
-            top: -3px;
+            top: 5px;
         }
     }
     .prev {
@@ -122,6 +120,38 @@ img {
 
         span {
             left: 1px;
+        }
+    }
+}
+
+@media screen and (max-device-width: 600px) {
+    .overlay {
+        .overlay-img {
+            bottom: 55px;
+        }
+        div.prev, div.next {
+            border-radius: 0;
+            bottom: 0 ;
+            height: 50px;
+            margin: 0;
+            top: auto;
+            width: 50%;
+
+            &:hover {
+                z-index: 13;
+            }
+            span {
+                color: $light-gray;
+                position: relative;
+                font-size: 32px;
+                font-weight: bold;
+            }
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
         }
     }
 }

@@ -4,10 +4,8 @@
 */
 (function($) {
 
-var THUMB_PREFIX = 'THUMB_';
 var MARGIN = 3;
 var PAGE_WIDTH = $('.main').width();
-var INITIAL_ROWS = 8;
 
 
 var Image = Backbone.Model.extend({
@@ -250,7 +248,7 @@ window.AlbumView = Backbone.View.extend({
             $('#indicator').remove();
             return;
         }
-        for (var i = 0; i < INITIAL_ROWS; i++) {
+        for (var i = 0; i < 4; i++) {
             this.insertRow();
         }
         if (this.images.unviewed().length === 0) {

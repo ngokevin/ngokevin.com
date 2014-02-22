@@ -290,8 +290,13 @@ html[xmlns] .c {
 #gallery div.album-preview {
     margin-right: 36px;
 }
-.overlay div.prev, .overlay div.next {
+.overlay div.prev,
+.overlay div.next {
     background: $dark-gray;
     bottom: 3px;
-    top: 0
+    top: 0;
+
+    span {
+        top: -3px;
+    }
 }
