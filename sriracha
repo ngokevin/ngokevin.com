@@ -1,5 +1,5 @@
 SRIRACHA_PATH='../sriracha'
-GALLERY_TEMPLATE='gallery.html'
+GALLERY_TEMPLATE='photography.html'
 
 cp $SRIRACHA_PATH/hooks/gallery.py hooks/
 cp $SRIRACHA_PATH/templates/index.html templates/$GALLERY_TEMPLATE

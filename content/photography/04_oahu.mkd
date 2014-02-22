@@ -1,6 +1,6 @@
 title: Oahu
 slug: oahu
-category: gallery
+category: photography
 type: album
 
 source: flickr

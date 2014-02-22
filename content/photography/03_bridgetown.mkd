@@ -1,6 +1,6 @@
 title: "Bridgetown"
 slug: bridgetown
-category: gallery
+category: photography
 type: album
 
 source: flickr

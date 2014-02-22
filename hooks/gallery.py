@@ -44,9 +44,9 @@ class Gallery(object):
         Load several preview images into each album.
         """
         if ('type' in page.meta and page.meta['type'] == GALLERY_WOK_TYPE and
-            'gallery' in templ_vars['site']['categories']):
+            GALLERY_WOK_TYPE in templ_vars['site']['categories']):
             album_pages = sorted(
-                templ_vars['site']['categories']['gallery'],
+                templ_vars['site']['categories'][GALLERY_WOK_TYPE],
                 key=lambda album: album['datetime'],
             )
             albums = {}
@@ -59,6 +59,7 @@ class Gallery(object):
                 image_list += images[:PREVIEW_IMGS_NUM]
                 albums[album_page['slug']] = image_list
             templ_vars['site']['albums'] = albums
+            templ_vars['site']['gallery_wok_type'] = GALLERY_WOK_TYPE
 
     def get_images(self, page):
         """

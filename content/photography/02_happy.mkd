@@ -1,6 +1,6 @@
 title: "Happy the Dog"
 slug: dog
-category: gallery
+category: photography
 type: album
 
 source: flickr

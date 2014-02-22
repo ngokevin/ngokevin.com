@@ -1,6 +1,6 @@
 title: "Molly the Cat"
 slug: cat
-category: gallery
+category: photography
 type: album
 
 source: flickr

@@ -1,6 +1,6 @@
 title: "China"
 slug: china
-category: gallery
+category: photography
 type: album
 
 source: imgur

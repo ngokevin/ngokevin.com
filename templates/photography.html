@@ -5,16 +5,17 @@
 {% block content %}
   {{ page.content }}
 
+  <span id='gallery-path' data-gallery-wok-type="{{ site.gallery_wok_type or 'gallery' }}"></span>
   <link rel="stylesheet" type="text/css" href="/css/gallery.css" />
   <script type="text/javascript" src="/js/utilities.js" ></script>
 
-  {% for album in site.categories['gallery'] | sort(attribute='datetime', reverse=True) %}
+  {% for album in site.categories[site.gallery_wok_type or 'gallery'] | sort(attribute='datetime', reverse=True) %}
     <div class="album-info">
       <span class="album-slug" style="display:none;">{{ album.slug }}</span>
       <span class="album-title" style="display:none;">{{ album.title}}</span>
       <div class="album-images" style="display:none">
         {% for image in site['albums'][album.slug] %}
-          <span>{{site['albums'][album.slug][loop.index0]}}</span>
+          <span>{{ site['albums'][album.slug][loop.index0] }}</span>
         {% endfor %}
       </div>
     </div>

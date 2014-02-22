@@ -6,7 +6,7 @@
 var NUM_PREVIEW_IMGS = 3;
 var THUMBNAIL_SIZE = 210;
 var EXPAND_SIZE = 1.1;
-var GALLERY_PATH = '/gallery/';
+var GALLERY_PATH = $('#gallery-path').data('gallery-wok-type');
 
 
 // function: getAlbum
@@ -64,7 +64,7 @@ var loadAlbums = function(albums) {
         for(var index_src in albums['srcs'][index]){
 
             var a = document.createElement("a");
-            a.href = GALLERY_PATH + albums['slugs'][index];
+            a.href = '/' + GALLERY_PATH + '/' + albums['slugs'][index];
 
             var img = new Image();
             // Don't display until shifted.

@@ -1,6 +1,6 @@
 title: Autumn Falls
 slug: autumn-falls
-category: gallery
+category: photography
 type: album
 
 source: flickr

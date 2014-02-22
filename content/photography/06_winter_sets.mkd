@@ -1,6 +1,6 @@
 title: Winter Sets
 slug: winter-sets
-category: gallery
+category: photography
 type: album
 
 source: flickr
