@@ -2,7 +2,7 @@
 
 {% block extrahead %}
   <meta property="og:image" content="{{ site.album_preview }}"/>
-  <meta property="og:description" content="{{ page.content }}"/>
+  <meta property="og:description" content="{{ page.content|striptags }}"/>
 {% endblock %}
 
 {% block page_header %}
