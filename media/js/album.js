@@ -248,7 +248,7 @@ window.AlbumView = Backbone.View.extend({
             $('#indicator').remove();
             return;
         }
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 8; i++) {
             this.insertRow();
         }
         if (this.images.unviewed().length === 0) {
