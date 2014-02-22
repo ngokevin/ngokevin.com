@@ -111,7 +111,12 @@ class Gallery(object):
         Inserts a single JSON blob containing all images into the page.
         """
         album = page.meta
+        slug = album['slug']
+
         if 'type' in page.meta and page.meta['type'] == 'album':
+            if self.albums[slug]:
+                templ_vars['site']['album_preview'] = (
+                    self.albums[slug][0]['src'])
             templ_vars['site']['images'] = json.dumps(
                 self.albums[album['slug']]
             )

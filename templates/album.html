@@ -1,6 +1,8 @@
 {% extends "default.html" %}
 
-{% block extrahead %}{% endblock %}
+{% block extrahead %}
+  <meta property="og:image" content="{{ site.album_preview }}"/>
+{% endblock %}
 
 {% block page_header %}
   <h1>{{ page.title }}</h1>
