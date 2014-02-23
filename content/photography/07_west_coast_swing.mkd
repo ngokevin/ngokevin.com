@@ -1,0 +1,13 @@
+title: West Coast Swing
+slug: west-coast-swing
+category: photography
+type: album
+
+source: flickr
+album-id: 72157641398395784
+
+date: 2013-12-19
+
+---
+
+San Francisco, Las Vegas, Los Angeles, Mountain View, and everywhere in between.
