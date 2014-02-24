@@ -1,0 +1,105 @@
+title: "Poker Session #12 - Robin Hood"
+type: blog
+category: blog
+date: 2014-02-22
+slug: poker10
+tags: poker
+
+image:
+    url: http://i.imgur.com/QfziyOg.jpg
+---
+
+After heading to bed at 6am, I got up at 10:30am to play at the [Final
+Table](http://pokerportland.com), a 30-second drive away. I played two of the
+turbo freeroll tournaments against familiar faces final table play was fucking
+amazing during the first tournament but had a couple of hiccups during the
+second. I chopped for first place in the first tournament for $220 and finished
+third in the second tournament for $90. With pressure from my mom and
+girlfriend, I gave my mom $100 for her to donate to the impoverished in
+Vietnam. Thus I nick myself today as Robin Hood, taking from the fish and
+giving to the poor.
+
+---
+
+## 11am Freeroll - Three-Way Chop for $220
+
+Let's just skip to the final table where I just had my way over everyone
+especially during the bububble. I recognized my M-ratio and took advantage of
+all of my favorable first-in vigorish situations to pick up dead chips. As
+always, I love punishing limpers from the blinds with shoves. Fish never
+recognize how wide you're shoving. After a while, I accumulated a large stack.
+A note to myself, that female-Scotty-Nguyen-wannabe is a huge aggrodonk.
+
+Unfortunately, my KK got cracked in a three-way pot against 44 vs JJ where a
+reg spiked a 4. I built it back up but this hand was actually somewhat
+beneficial since it was the first hand I showed down after shoving a lot.
+People gave me even more credit later. Every time I shoved with face-rag,
+I showed the face and got tons of respect. For instance, I shoved with K3o,
+showed the K, and got put on KK/KQ.
+
+The reg who spiked a 4 built up a decent stack. He was a cool guy who
+complimented my game and shove timings. We talked a lot of about push/shove
+odds with the blind levels. It got down 3 way where I lost four 40/60s in a
+row. My chip lead dwindled to average until we were all about even. Unfortunate
+since I was a favorite to take it all down. Since the blinds were so large,
+it became a shove-fest so we negotiated a chop.  I shot the shit with the reg
+outside, I kind of wanted to learn more about him but I went home to come back
+later for the next freeroll.
+
+## 5pm Freeroll - Third Place for $90
+
+Chicago (whom you may know from my previous posts) was in this one. I love
+playing against him since I target him every tournament. He's an aggrodonk so I
+just tighten up and value-bet away. Though he gave me trouble in a couple of
+hands, and he was running super red hot. He went to win the freeroll, which
+is great because it'll encourage him to play more. He won two flips to knock
+me out. But I want to talk about several different hands with Chicago.
+
+### Facing a Donk Shove with Top Pair Okay Kicker
+
+I isolate two limpers on the button with A8o. Chicago calls from the BB and the
+limpers fold. Flop comes 49A two-tone. Chicago open-shoves. I tank. Chicago
+loves playing any Ax, he'll never fold them. So A9/A4 does this as well as
+possibly any set. He doesn't need to slowplay because I already represent a
+high-ace hand with my large raise preflop. I saw this as trying to get value by
+representing a bluff, but I know he doesn't bluff here. I fold and he shows
+49o. I adjust his calling range to any two cards when the blinds are low.
+
+### Facing a UTG 4-Bet with AK
+
+Chicago raises 3x UTG. I 3bet from the big blind with AKo. He 4bet snap-shoves.
+This is pretty standard. His range is a bit wider so I can say {JJ+, AQ+}.
+Since I have blockers to aces and kings, it's an okay call online but I expect
+to run into AA a lot here. Generally live, I should weigh snap shoves more
+towards AA and pick a better spot but I called since I had a rebuy. His AA
+holds. I get my chips back from him next hand when I squeeze-shove AQ from
+the SB.
+
+### Facing a Turn Shove on TQKx Board with AK
+
+Chicago raises UTG during the final table with two callers. Since I had just
+seen him raise UTG with AA, my mind might have been a bit scared. I should
+3bet squeeze here since it's good against his UTG range is {88+, any two broadways}.
+But I made the mistake of smooth calling instead of 3bet squeezing after having
+just ran into the top end of his range.
+
+Board comes TQKr. Chicago cbets, I smooth call again, hoping to further induce
+if he's bluffing. However I called planning ahead for the turn. Chicago shoves
+the blank turn to cover me. I tank.
+
+Since his UTG range was high pairs and two-broadways, his range on the turn
+here consists of a lot of straights, sets, and two pair. Although my top pair
+top kicker was a good hand, I don't see a bluff here after my call. I hadn't
+invested too many chips and I thought I could find a better spot than this. I
+fold, and Chicago shows K5o. That was definitely not in my perception of his
+UTG range, but I still think it was a good fold.
+
+## Session Conclusion
+
+I seem to do pretty well in these turbo freerolls. They're soft like Downy.
+
+- **Went Well**: exceptional preflop final table play
+- **Mistakes**: times I 3xed rather than shoved, putting myself into difficult
+spots on the flop.
+- **Get Better At**: not being a pussy with AKo
+- **Profit**: +$235
