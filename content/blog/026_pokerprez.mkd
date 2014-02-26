@@ -11,10 +11,9 @@ image:
 ---
 
 At [Beaver Bar Camp X](http://lug.oregonstate.edu/blog/bbcx), I gave a talk on
-the [theory of poker and hold'em
-strategy](http://ngokevin.com/~ngoke/pokerprez) (HTML slides). The slides were
-intended to skim the iceberg of a professional poker player's mindset. Though
-I'll skim over what I talked about here.
+the theory of poker and hold'em strategy. The slides were intended to skim the
+iceberg of a professional poker player's mindset. Though I'll skim over what I
+talked about here.
 
 ### My Poker Career in a Nutshell
 

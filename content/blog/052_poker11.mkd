@@ -1,0 +1,226 @@
+title: "Poker Session Special - Recap and Vegas"
+type: blog
+category: blog
+date: 2014-02-24
+slug: poker11
+tags: poker
+
+image:
+    url: http://i.imgur.com/PSPAMNA.jpg
+    caption: Double-barrelin' at the Bellagio.
+---
+
+[Ten posts and three months ago](/blog/poker-live), I started a journey through
+the live poker ranks of Portland. I have come a long way in a short time. With
+the help of Harrington on Hold'em, I am a completely different player than I
+was on my online days, and it is with great providence that **today** was the
+day Full Tilt released my funds of $85.51. As a way of the Poker Gods saying,
+*from henceforth, you will begin anew, as a phoenix from the flames*. To
+commemorate this multispecial day, I am taking the night off to recap my last
+ten poker session posts, to reflect on how far I have come (so far) from the
+online days, and to talk about the lost poker session of my time playing poker
+in Las Vegas.
+
+---
+
+## Ten Posts, Twelve Sessions
+
+<link rel="stylesheet" type="text/css" href="/css/poker_chart.css"/>
+<script type="text/javascript" src="/js/lib/d3.min.js" charset="utf-8"></script>
+<svg id="poker-chart"></svg>
+<script type="text/javascript" src="/js/poker-chart.js"></script>
+
+<div class="page-caption"><span>
+  A little <a href="/blog/d3">d3.js</a> chart of my recent poker earnings.
+</span></div>
+
+It's the perfect time to do "administrative" work, meaning keep count
+of numbers and such. To do so, I programmed a little chart that feeds off
+a simple JSON array. I plan on extending this graph to include tooltips on
+each plot to describe what the poker venue was (i.e Encore, Bellagio), to note
+the buy-in and guarantee if it was a tournament, to show its profit, and to
+include a link to its respective Poker Sessions blog post. By the numbers:
+
+- **Times Played:** 24
+- **Total Profit:** $1928
+- **ROI (Return on Investment):** 275.43% ($700 to win $1928)
+- **Largest Cash:** $888
+
+## Growth from Transitioning to Live Poker
+
+![](http://i.imgur.com/6lxSM.png)
+
+<div class="page-caption"><span>
+  Early graph of the good ol' days (2009). Keeps going up through 75k hands.
+</span></div>
+
+The [transition from online](/blog/poker) to live poker was a godsend for me.
+Although online poker was much more accessible, it deterred my improvement and
+learning of poker. Online I would play thousands of hands in the matter of
+hours whereas I might play in live poker only 50 hands in the same span of
+time. That sounds great, but the problem was each mistake I made online became
+last in the sea of hands. When I play live, because the hands I so slow,
+I remember a much greater number of hands and each mistake I make is magnified
+in my memory. So when I go home and blog about a session, I analyze and
+research each tough decision I faced. This is a hugely effective way to plug
+leaks; when I adjust my game by analyzing mistakes, I heavily incorporate those
+changes into my next session.
+
+It wasn't like this when I played online. I'd just play shitloads of hands and
+barely review my hands afterwards. Sure, I'd watch poker training videos, read
+the forums, read books, but I didn't target and focus down on my mistakes like
+I do now.
+
+Since I only play one table, the hands go by slower, and it's live, I have much
+more emphasis on gaining reads and exploiting opponent tendencies now. When
+I played online, I would use a HUD that would summarize in opponent in a matter
+of numbers (e.g. voluntary-put-in-pot-%, preflop-raise-%, 3-bet-%, fold-to-cbet-%).
+Combine that with play 4-6 tables at once, I played very mechanically on
+auto-pilot with little room to improve. Although I did well in the microstakes,
+I always felt stuck. But now, the live aspect of the game has brought forth new
+ideas.
+
+## A Computer Science Education
+
+The difference between now and then was not only the transition to live poker,
+but I also went through an entire **college career in computer science**. Back
+when I was a freshman computer science student, I was completely addicted to
+online poker. I did well in my classes, but I brought my laptop to lectures to
+play poker (though not much different from playing games on my phone in junior
+year and skipping classes senior year). I hadn't completely picked up the study
+habits.
+
+But my journey through computer science must have changed the way I learned.
+Computer science is a very concept-oriented subject. And it is best learned
+through application (in many cases, programming) and not through memorization.
+Back then, I'd watch poker videos, sure, but I didn't focus on applying though
+concepts well. I just took in concepts superficially and let them sit.
+
+Computer science taught me to learn iteratively. Like in a for-loop or an
+iterative-based software engineering model, I now strive to improve iteratively.
+Each session I find mistakes, each hand review session I analyze and patch
+those mistakes.
+
+I feel to improve each session by publically **communicating** and **expressing
+my thought process** in the form of these Poker Session blog posts. Not only do
+I mature, but I am able to look back, share, and improve my writing.
+
+## Lost Vegas
+
+There was one poker session that I have yet to share, the times I played poker
+in Las Vegas during the winter break of 2013. Mozilla gave everyone over a week
+off for the holidays allowing me to go carefree on a road trip with my
+girlfriend. I had been preparing by purchasing *Harrington on Hold'em Vol. 1*
+from Powell's City of Books across the street from my work office. This trip to
+Vegas right here triggered something, it rebirthed and renewed my interest in
+poker. To me, that book purchase was a PTSD flashback, a relapse as a
+4-year-dry junkie.
+
+I played once each at four different casinos:
+
+- The Bellagio
+- The Luxor
+- The Wynn
+- The Venetian
+
+### The Bellagio
+
+![](http://i.imgur.com/t0NV4Qe.jpg)
+
+<div class="page-caption"><span>
+  Should have gotten one of those back massages.
+</span></div>
+
+It was game time on Christmas Day. I had been reading my Harrington book in the
+van on the drive from LA. It was all coming back. Cbets, board textures, double
+barrels, ranges. But I was still rusty.
+
+We arrived at the Bellagio. I signed up for $1/$3 no-limit hold'em. There was
+a wait list so I picked up a *Poker Player* magazine and sat at a video poker
+machine. *"Kevin!"*, my name was called. I grabbed my $200 in chips and headed
+to a table. I sat to the left of an old Asian tourist-looking man and to the
+right of a Russian-ish man.
+
+As a funny strategy, I often had my girlfriend sitting behind me to make me
+look like any other Asian tourist to pass on a false fishy image.
+
+After about half an hour of play, I was up about $30 largely due to a
+successful cbet and a successful double-barrel bluff on a paired turn. Success.
+
+### The Luxor
+
+![](http://i.imgur.com/DloUMdJ.jpg)
+
+<div class="page-caption"><span>
+  The Luxor floor.
+</span></div>
+
+Later around midnight, my girlfriend and I went back to the Luxor, our
+Egyptian-themed pyramid hotel, to find her dad and uncle. They had been eyeing
+the poker table earlier, and against my good advice, the uncle was playing
+$1/$2 hold'em. I guess when in Vegas, you're going want to gamble, but that guy
+was free money at the tables. He was stuck a buy-in or so. They persuaded me to
+play so they could watch, offering to stake for 50% of the earnings and 50% of
+the losses, but I didn't need the stake. Although I didn't want to play at
+midnight, I sat at the Luxor tables.
+
+I was enticed by two Chinese tourist girls sharing hands and saw a couple of
+old Asian guys at the table. I love to bumhunt Asians, old people, and
+tourists. They matched all of the above. Unfortunately, the girls were
+coolered with a KK vs AA hand so they stood before I got to play with them.
+
+The uncle was walking around the table, standing right behind other players
+awkwardly, to which someone remarked.
+
+*"Can we get this guy a bit farther from me? He makes me uncomfortable. He's a
+lurker, you know?"*
+
+The table had a couple of locals and dried out pretty quickly. I managed to
+make about $25 after another half hour, all from one 3bet/cbet bluff. We
+exchanged Christmas presents in the hotel room and ended the day.
+
+### The Wynn
+
+![](http://i.imgur.com/fyvhUkl.jpg)
+
+<div class="page-caption"><span>
+  The Christmas-themed Wynn floor.
+</span></div>
+
+Unfortunately, I did not win at the Wynn. We were up the strip as my girlfriend
+had childhood connections to get us free tickets to the normally-$50 buffet.
+But while we were there and although I did not feel up to it much, I played
+some poker.
+
+Although it started off swell, it didn't end as well. I paid off a guy with
+second pair and another guy rivered a two-pair for the cooler. After an hour
+and a half, I was stuck a buy-in after the session. But the night was young for
+redemption.
+
+### The Venetian
+
+![](http://i.imgur.com/phqQ3tO.jpg)
+
+<div class="page-caption"><span>
+  Dealer does not approve. But he was cool about it.
+</span></div>
+
+We were exploring the decor of the famous casinos and hotels as we made our way
+back to the Luxor on the other end of the strip. I had wanted to play the
+Venice-themed Venetian as I heard it was a bit softer than the others. We walked
+past the indoor water canal with the sky-painted ceilings, down the stairs to
+have one final go on our last night of Vegas.
+
+I doubled up with queens within the first few hands to recoup the buy-in. There
+were rich middle-eastern businessmen tourists on my left and right. Good seat
+for a good recovery.
+
+So overall, I come out of Vegas about $40 up. But the amount wasn't important,
+it was the spur of my poker addiction for the next few months that became the
+takeaway from this experience. Though the money is nice too...
+
+![](http://i.imgur.com/uzx3gPo.jpg)
+
+<div class="page-caption"><span>
+  Not-so-humble brag.
+</span></div>

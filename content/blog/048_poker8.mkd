@@ -84,4 +84,4 @@ A2 vs QK). And when you can't win flips, you lose.
                 with a yellow stack. SB woke up with AA. Okay move, but I can choose
                 better spots
 - **Get Better At**: further develop classifying players
-- **Profit**: -$70
+- **Profit**: -$60

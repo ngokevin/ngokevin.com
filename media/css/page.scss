@@ -16,6 +16,9 @@
         display: block;
         max-width: 100%;
     }
+    h3 + p img {
+        margin-top: 28px;
+    }
     &.right {
         float: right;
         margin: 14px 0 0 52px;
