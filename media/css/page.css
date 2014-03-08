@@ -7,6 +7,8 @@
 .page img {
   display: block;
   max-width: 100%; }
+.page h3 + p img {
+  margin-top: 28px; }
 .page.right {
   float: right;
   margin: 14px 0 0 52px;

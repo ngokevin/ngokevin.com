@@ -1,0 +1,13 @@
+svg#poker-chart {
+  font-size: 12px; }
+  svg#poker-chart .axis path,
+  svg#poker-chart .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges; }
+  svg#poker-chart .x.axis path {
+    display: none; }
+  svg#poker-chart .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px; }

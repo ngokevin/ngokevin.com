@@ -1,3 +1,5 @@
+.list-view .header-group {
+  margin-bottom: 13px; }
 .list-view .item {
   margin-bottom: 52px; }
 .list-view .preview h1, .list-view .preview h2, .list-view .preview h3, .list-view .preview img, .list-view .preview pre, .list-view .preview code, .list-view .preview .demo {
