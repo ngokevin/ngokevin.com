@@ -2,7 +2,7 @@ title: "Poker for Beginners"
 type: blog
 category: blog
 date: 2014-03-07
-slug: betfair
+slug: beginning-poker
 tags: poker
 
 image:
