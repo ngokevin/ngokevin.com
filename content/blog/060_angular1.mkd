@@ -3,7 +3,7 @@ type: blog
 category: blog
 date: 2014-03-22
 slug: angular-1
-tags: code
+tags: [code, angularjs]
 ---
 
 AngularJS, or Angular, is a **model-view-controller** (MVC) client-side
@@ -116,8 +116,7 @@ backend will automatically update to "cyberman" as we type. Since we have
 ```species``` under two-way data binding, no ```onchange``` event handlers are
 required.
 
-<iframe src="/media/ng-book/examples/invitationtoangular/index.html">
-</iframe>
+<iframe src="/files/ng-book/examples/invitationtoangular/index.html"></iframe>
 
 ## Up Next
 
