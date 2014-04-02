@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>Transformer</title>
+    <script src="../lib/js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/css/shoehorn.css">
+  </head>
+  <style>
+    .box {
+        background: silver;
+        height: 100px;
+        margin: 30px auto;
+        width: 100px;
+    }
+    div.border {
+        border: 1px double silver;
+    }
+    div.circle {
+        border-radius: 50px;
+    }
+    div.red {
+        background: maroon;
+    }
+    div.rotate {
+        transform: rotate(45deg);
+    }
+    div.scale {
+        transform: scale(2);
+        margin: 60px auto;
+    }
+    div.rotate.scale {
+        transform: rotate(45deg) scale(2);
+        margin: 100px auto;
+    }
+  </style>
+  <body>
+    <h1>Transformer</h1>
+    <div class="box" ng-class="{'border': border, 'circle': circle, 'red': red,
+                                'rotate': rotate, 'scale': scale}"></div>
+    <label class="checkbox inline" for="border">
+      <input id="border" type="checkbox" ng-model="border">Border
+    </label>
+    <label class="checkbox inline" for="circle">
+      <input id="circle" type="checkbox" ng-model="circle">Circle
+    </label>
+    <label class="checkbox inline" for="red">
+      <input id="red" type="checkbox" ng-model="red">Red
+    </label>
+    <label class="checkbox inline" for="rotate">
+      <input id="rotate" type="checkbox" ng-model="rotate">Rotate
+    </label>
+    <label class="checkbox inline" for="scale">
+      <input id="scale" type="checkbox" ng-model="scale">Scale
+    </label>
+  </body>
+</html>

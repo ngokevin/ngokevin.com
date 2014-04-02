@@ -58,3 +58,7 @@ ul {
   padding-left: 18px; }
   ul li {
     list-style: square; }
+
+.blog h1 {
+  font-size: 28px;
+  font-weight: bold; }

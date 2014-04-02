@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="GymLeadersApp">
+  <head>
+    <title>Gym Leaders</title>
+    <script src="../lib/js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/css/shoehorn.css">
+    <style>
+      button.btn {
+          margin-bottom: 13px;
+      }
+      div {
+          display: inline;
+      }
+      span {
+          margin-right: 2px;
+      }
+    </style>
+  </head>
+  <body ng-controller="GymLeadersCtrl">
+    <h1>Gym Leaders</h1>
+    <button class="btn btn-primary" ng-click="kanto()">Kanto</button>
+    <button class="btn btn-primary" ng-click="johto()">Johto</button>
+    <div ng-repeat="gymLeader in gymLeaders">
+      <div ng-include="'partials/gym_leader.html'"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+#ng-book {
+    background: rgb(240, 240, 240);
+    color: rgb(5, 5, 5);
+    padding: 5%;
+    text-align: center;
+
+    img {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+
+    input[type="checkbox"] {
+        margin: 0 4px;
+    }
+
+    dt {
+        margin-bottom: 3px;
+    }
+    dd {
+        margin-bottom: 6px;
+    }
+
+    table.table th,
+    table.table td {
+        text-align: center;
+    }
+
+    a {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,19 @@
+#ng-book {
+  background: #f0f0f0;
+  color: #050505;
+  padding: 5%;
+  text-align: center; }
+  #ng-book img {
+    margin: 0 auto;
+    max-width: 320px; }
+  #ng-book input[type="checkbox"] {
+    margin: 0 4px; }
+  #ng-book dt {
+    margin-bottom: 3px; }
+  #ng-book dd {
+    margin-bottom: 6px; }
+  #ng-book table.table th,
+  #ng-book table.table td {
+    text-align: center; }
+  #ng-book a {
+    cursor: pointer; }
