@@ -5,6 +5,10 @@ date: 2014-04-05
 slug: angular-3
 tags: [code, angularjs]
 
+image:
+    url: http://i.imgur.com/m3VNrQk.jpg
+    caption: The controller is in your hands. Ready, player one?
+
 weight: 3
 ---
 

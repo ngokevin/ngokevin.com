@@ -5,6 +5,10 @@ date: 2014-04-04
 slug: angular-4
 tags: [code, angularjs]
 
+image:
+    url: http://i.imgur.com/VJBdacX.jpg
+    caption: You don't need that HTML Spec Instruction Manual, be a master builder with Angular templates!
+
 weight: 4
 ---
 

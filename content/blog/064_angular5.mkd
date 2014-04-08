@@ -5,6 +5,10 @@ date: 2014-04-03
 slug: angular-5
 tags: [code, angularjs]
 
+image:
+    url: http://i.imgur.com/FaQEtTM.jpg
+    caption: Validation is the foundation of a form.
+
 weight: 5
 ---
 

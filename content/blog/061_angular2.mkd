@@ -5,6 +5,10 @@ date: 2014-04-06
 slug: angular-2
 tags: [code, angularjs]
 
+image:
+    url: http://i.imgur.com/PSGGxhQ.jpg
+    caption: Through the eyes of the scope.
+
 weight: 2
 ---
 
