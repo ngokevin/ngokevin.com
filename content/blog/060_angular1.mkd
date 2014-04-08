@@ -5,6 +5,10 @@ date: 2014-04-07
 slug: angular-1
 tags: [code, angularjs]
 
+image:
+    url: http://i.imgur.com/pg5I3l8.jpg
+    caption: Unleash the floodgates! (taken at a dairy farm in Monroe, OR. Pictured is actually a torrent of cow manure.)
+
 weight: 1
 ---
 
