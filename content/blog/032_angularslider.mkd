@@ -3,17 +3,22 @@ type: blog
 category: blog
 date: 2013-04-11
 slug: angularslider
-tags: code
+tags: [code, angularjs]
 
 image:
     url: http://i.imgur.com/JM0yS3I.jpg
     where: top
+
+weight: 6
 ---
 
 <div ng-app="demo" class="demo" style="margin-bottom: 26px;">
   <b>Value:</b> <span>{{ sliderVal || 9001 }}</span>
   <div slider class="slider" min="0" max="9001" step="10"><span></span></div>
 </div>
+
+For a five-part introduction to AngularJS, check out [ng-okevin's
+Angular](/blog/angular-1).
 
 I ditched jQuery Mobile's sliders for my growing AngularJS [poker
 app](http://github.com/ngokevin/underthegun). It had served as the app's poker
@@ -28,7 +33,7 @@ work on Chrome.
 
 ---
 
-##AngularJS Directives
+## AngularJS Directives
 
 My disappointment digresses. The point is: I assembled my own customizable
 mobile slider that hooked into AngularJS in the form of a directive. Let us
@@ -197,9 +202,13 @@ Setting the width of the inner span changes the fill of the slider.
     }
 
 To view the code, inspect the code for this page as I inlined it in the HTML.
-Keep me in your scope, I am currently planning an AngularJS book.
 
-The **ng** in my last name is for Angular.
+## Up Next
+
+By now you might have started on your own sweet AngularJS app. But testing is
+an important part of development. How to test such an opinionated framework?
+Check out my post on [Mock Unit Testing AngularJS Services with Karma and
+Jasmine](/blog/angular-unit-testing).
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>

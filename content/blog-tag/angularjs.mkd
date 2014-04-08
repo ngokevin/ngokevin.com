@@ -1,0 +1,12 @@
+title: AngularJS
+category: blog-tag
+type: blog-index
+weight: 4
+
+url: /blog/tags/angularjs/{page}/
+pagination:
+    list: site.tags.angularjs
+    limit: 10
+    sort_key: weight
+    sort_reverse: False
+---

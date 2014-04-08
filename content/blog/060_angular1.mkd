@@ -1,9 +1,11 @@
 title: "ng-okevin's Angular ch.1 - AngularJS"
 type: blog
 category: blog
-date: 2014-03-22
+date: 2014-04-03
 slug: angular-1
 tags: [code, angularjs]
+
+weight: 1
 ---
 
 AngularJS, or Angular, is a **model-view-controller** (MVC) client-side
@@ -11,6 +13,8 @@ Javascript (JS) application framework that features two-way data binding and
 enhances HTML to be more declarative, expressive, and dynamic-friendly. Let us
 get some prerequisite concepts out of the way before we dive into hello-
 worldish code.
+
+---
 
 ## MVC
 
@@ -122,4 +126,4 @@ required.
 
 With some concepts on our belt and a sneak peek at Angular in action, we will
 take a deeper gander at the model side of Angular, the scope, in
-*Scopes, Targeting the Data Model*.
+[ch.2 Scopes](/blog/angular-2).

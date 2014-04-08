@@ -3,11 +3,16 @@ type: blog
 category: blog
 date: 2014-01-21
 slug: angular-unit-testing
-tags: code
+tags: [code, angularjs]
 
 image:
     url: http://i.imgur.com/60Xnrfn.png
+
+weight: 7
 ---
+
+For a five-part introduction to AngularJS, check out my [ng-okevin's
+Angular](/blog/angular-1).
 
 I recently migrated my [AngularJS to-do list app](http://marketplace.firefox.com/app/minimalist)
 to [AngularJS](http://angularjs.org), and I wanted
@@ -17,8 +22,11 @@ My app had a
 that abstracted all interactions with Local Storage and implemented an
 interface to my list "model". In this service, I modified the
 Local Storage schema, making it backwards-incompatible, so I wrote a migration.
-To make sure it worked, I unit-tested the entire service. To unit-test Angular,
-I used:
+To make sure it worked, I unit-tested the entire service.
+
+---
+
+To unit-test Angular, I used:
 
 - [Karma](http://karma-runner.github.io/0.10/index.html) - a JS test runner
 - [Jasmine](http://pivotal.github.io/jasmine/) - a JS testing framework
@@ -29,8 +37,6 @@ I used:
 
 If you want to see for yourself my directory structure, check out
 [the source code of my unit tests.](https://github.com/ngokevin/minimalist/tree/060a3bbc082f10d8305ef97871911b20f073e472/tests/unit_tests)
-
----
 
 I keep a folder within my app called ```tests``` that makes room for both unit
 tests and end-to-end tests.
