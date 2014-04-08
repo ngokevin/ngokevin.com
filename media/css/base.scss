@@ -277,7 +277,10 @@ html[xmlns] .c {
     right: 2px;
 
     > a {
-        float: none;
+        margin-right: 2px;
+    }
+    iframe {
+        border: 0;
     }
 }
 #bottom-share {
