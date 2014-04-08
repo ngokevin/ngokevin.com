@@ -1,12 +1,36 @@
 title: "ng-okevin's Angular ch.1 - AngularJS"
 type: blog
 category: blog
-date: 2014-04-03
+date: 2014-04-07
 slug: angular-1
 tags: [code, angularjs]
 
 weight: 1
 ---
+
+Welcome to my five-part introduction to AngularJS! Because I was dissatisfied
+with the official AngularJS docs. The docs were nowhere near coherent, like an
+conglomeration of input from all sorts of developers but not writers. Thus I
+started writing this AngularJS "book" during my senior year in college. But
+since starting full-time at Mozilla, my motivation and energy waned. So I am
+publishing it on my blog for the good of The Web!
+
+This introduction comes complete with live demos and [open-sourced
+examples](http://github.com/ngokevin/angularbook).
+
+---
+
+## Table of Contents
+
+- [ch.1 - AngularJS](/blog/angular-1)
+- [ch.2 - Scopes](/blog/angular-2)
+- [ch.3 - Controllers](/blog/angular-3)
+- [ch.4 - Templates](/blog/angular-4)
+- [ch.5 - Forms](/blog/angular-5)
+- [Directives](/blog/angularslider)
+- [Unit Testing](/blog/angular-unit-testing)
+
+## AngularJS
 
 AngularJS, or Angular, is a **model-view-controller** (MVC) client-side
 Javascript (JS) application framework that features two-way data binding and

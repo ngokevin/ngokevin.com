@@ -37,7 +37,9 @@ a {
         color: $link-color-hover;
     }
 }
-p a, span a {
+p a,
+span a,
+li a, {
     color: $link-color-hover;
 }
 
