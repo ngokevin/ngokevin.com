@@ -9,10 +9,9 @@ weight: 1
 ---
 
 Welcome to my five-part introduction to AngularJS! Because I was dissatisfied
-with the official AngularJS docs. The docs were nowhere near coherent, like an
-conglomeration of input from all sorts of developers but not writers. Thus I
-started writing this AngularJS "book" during my senior year in college. But
-since starting full-time at Mozilla, my motivation and energy waned. So I am
+with the incoherency of the official AngularJS docs. I started writing this
+AngularJS guide on weekends during my senior year in college. But since
+starting full-time at Mozilla, my motivation and energy waned. So I am
 publishing it on my blog for the good of The Web!
 
 This introduction comes complete with live demos and [open-sourced
