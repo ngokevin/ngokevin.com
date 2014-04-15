@@ -40,7 +40,7 @@ A bit about the backend. Angular forms and inputs are instances of
 directives contain a handful of useful properties that represent form state.
 
 - ```$pristine```: True if the user has not yet interacted with the form
-- ```$dirty```: opposite of ```$dirty```
+- ```$dirty```: opposite of ```$pristine```
 - ```$valid```: True if all of containing forms and controls are valid
 - ```$invalid```: opposite of ```$valid```
 - ```$error```: a JS object referencing invalid forms or a mapping of error
