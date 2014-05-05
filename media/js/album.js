@@ -165,17 +165,12 @@ window.AlbumView = Backbone.View.extend({
         img.addClass('thumb-img');
 
         var self = this;
-        if (PAGE_WIDTH > 768) {
-            // On desktop, expand image on hover.
-            img.mouseenter({'view': this}, this.expandImg);
-        } else {
-            // If mobile, no expand-on-hover. Just clicks.
-            img.click(function() {
-                self.showImage.apply(
-                    self.images.getBySrc(src)[0], [{data: {view: self}}]
-                );
-            });
-        }
+        // If mobile, no expand-on-hover. Just clicks.
+        img.click(function() {
+            self.showImage.apply(
+                self.images.getBySrc(src)[0], [{data: {view: self}}]
+            );
+        });
         return img;
     },
 
@@ -270,44 +265,6 @@ window.AlbumView = Backbone.View.extend({
         if (scrollBot / documentHeight >= 0.5 || scrollTop == documentHeight) {
             this.insertRows();
         }
-    },
-
-    expandImg: function(event) {
-        /* Create img on top of mouseovered thumb and expand size. */
-
-        var position = $(this).offset();
-
-        // Create new img on directly top of hovered image.
-        var img = $('<img />');
-        img.attr('src', this.src)
-        .attr('class', 'expand')
-        .width(this.width)
-        .height(this.height)
-        .css('position', 'absolute').css(position)
-        .mouseleave(function() {
-            $('.expand').remove();
-        }).click({'view': event.data.view}, function() {
-            // Show image on overlay on click.
-            var view = event.data.view;
-            view.showImage.apply(
-                view.images.getBySrc(img.attr('src'))[0], [event]
-            );
-        });
-        event.data.view.$el.append(img);
-
-        var self = this;
-        setTimeout(function(){
-            // Add image border, adjust image position for border width.
-            var position = img.offset();
-            img.addClass('expanded');
-            img.css('left', position.left - 7);
-            img.css('top', position.top - 7);
-
-            // Replace with full src. If user hovers this long, they want moar.
-            var src = event.data.view.images.getBySrc(img.attr('src'))[0].get('src');
-            img.attr('src', src);
-            $(self).attr('src', src);
-        }, 400);
     },
 
     initOverlay: function() {
