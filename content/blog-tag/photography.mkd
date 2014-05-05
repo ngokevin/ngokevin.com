@@ -1,4 +1,4 @@
-title: Photography
+title: Shoot
 category: blog-tag
 type: blog-index
 weight: 2

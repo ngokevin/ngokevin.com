@@ -10,8 +10,11 @@
 }
 
 
-@media all and (max-width: 48em) {
-    // 768px.
+@media all and (max-width: 53em) {
+    // 860px.
+    #wrap {
+      width: 85%;
+    }
     header {
         margin-bottom: 78px;
 
@@ -30,6 +33,7 @@
                 border-radius: 3px;
                 margin: 0 2px;
                 padding: 13px 7px;
+
                 &:hover {
                     background: darken($light-gray, 10%);
                     top: 0;
