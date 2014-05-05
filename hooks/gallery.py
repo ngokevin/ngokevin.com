@@ -214,6 +214,10 @@ class Flickr(object):
                     image['src'] = size['source']
                     image['width'] = size['width']
                     image['height'] = size['height']
+            if not image.get('src'):
+                image['src'] = image['thumb_src']
+                image['width'] = image['thumb_width']
+                image['height'] = image['thumb_height']
             images.append(image)
         return images
 

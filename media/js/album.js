@@ -296,7 +296,7 @@ window.AlbumView = Backbone.View.extend({
         imgGroup.css('width', d[0]);
         imgGroup.css('height', d[1]);
         imgThumb.attr('src', image.get('thumbSrc'));
-        imgLarge.attr('src', image.get('src'));
+        imgLarge.attr('src', image.get('src') || image.get('thumbSrc'));
 
         // Switch to prev/next image on click.
         // Hide the overlay images, prepare to view the next one.
