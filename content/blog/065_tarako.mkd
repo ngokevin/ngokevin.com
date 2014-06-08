@@ -112,4 +112,7 @@ Since Mozilla is open and all, you can even check out our bug trackers:
 - [Version 1.1](https://bugzilla.mozilla.org/show_bug.cgi?id=1011012)
 
 In the end, we enjoyed some ice cream cake, and waited for the millions to
-pick up the phone. It's not bad.
+pick up the phone. Funny thing is, I didn't even have the phone to develop
+on until I was done with the project!
+
+![](http://i.imgur.com/3NNTjGK.png)
