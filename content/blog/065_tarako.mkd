@@ -34,9 +34,8 @@ in an iframe within a packaged app. The decision around using an iframe was to:
   be installed on that domain
 - Instant updates
 
-However, the iframe method can be slow. Although we use app cache, users now
-and then, at least on first launch of the app, have to download assets (our JS,
-CSS, templates, and data) over the air.
+However, the iframe method can be slow. Users at least on first launch of the
+app, have to download assets (our JS, CSS, templates, and data) over the air.
 
 Since then, we have worked around all of the issues blocking us from
 "packaging" the Marketplace. In a packaged app, assets are pre-loaded into the
