@@ -1,0 +1,13 @@
+title: Florida
+slug: florida
+category: photography
+type: album
+
+source: flickr
+album-id: 72157644832180539
+
+date: 2014-06-18
+
+---
+
+Escape the heat through the viewfinder.
