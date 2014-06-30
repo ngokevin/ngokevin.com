@@ -8,8 +8,7 @@ image:
     where: top
 ---
 
-Hey, I'm Kevin, a web developer for Mozilla, constantly breaking the [Firefox
-Marketplace](https://marketplace.firefox.com). I am a native to Portland, OR.
-You'll most often catch me building throwaway webapps, donking at the hometown
-poker club, bricking basketballs, taking B&W pictures of lawn chairs,
-polymerizing letters to summon words, or watching my Blazers.
+Hey, I'm Kevin, a web developer for Mozilla, continual breaker the [Firefox
+Marketplace](https://marketplace.firefox.com), and from Portland.  You'll most
+often catch me building disposable webapps, donking at the local poker club,
+bricking basketballs, snapping B&W pictures of lawn chairs, or writing stuff.
