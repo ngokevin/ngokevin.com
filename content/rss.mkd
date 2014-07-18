@@ -1,5 +1,6 @@
 title: RSS
 type: rss
 slug: rss
+url: /rss
 rss_category: blog
 ---
