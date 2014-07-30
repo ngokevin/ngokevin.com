@@ -1,0 +1,128 @@
+title: "Angular, Require, Grunt? React, Browserify, Gulp."
+type: blog
+category: blog
+date: 2014-07-30
+slug: gulp-browserify
+tags: [code]
+---
+
+The JS world moves quickly. New web tools are adopted faster than new
+Spidermans (men?) are produced. One second, it's *AngularJS/RequireJS/Grunt*.
+The next, it's *React/Browserify/Gulp*. Who knows, by tomorrow we could have
+some new shiny thing called *McRib/Modulus/Chug*. But the new workflows that
+come along never fail to keep development interesting and never fail to make
+our lives easier. Kay, it's time to freshen up. Let us answer: what is so
+streets-ahead about these new web technologies?
+
+---
+
+AngularJS/RequireJS/Grunt may be aging, but what does aging mean?  I don't mean
+becoming obsolete. They're still fantastic tools that won't be going away any
+time soon. It just means these new technologies are becoming more ubiquitous
+and favored in modern projects by the community. A brief intro:
+
+- AngularJS is a JS framework from Google that features two-way data binding
+  with an expressive and declarative templating. I previously wrote a [multi-part guide
+  to AngularJS](http://ngokevin/blog/angular-1).
+- RequireJS is a JS module loader that manages dependencies. *Very* rough idea
+  would be like throwing in library ```imports``` into JS.
+- Grunt is a JS task runner. A common use is the automation of builds of
+  frontend codebases (i.e., JS minification, bundling, CSS pre-compilation).
+  Very rough idea would be like a JS Makefile.
+
+With these getting their swagger jacked, we'll explore what the new kids on the
+block are kicking around.
+
+## Why React?
+
+React is a JS framework from Facebook that also features two-way data binding.
+I can't really act as a super authority on React yet, but this [comparison on
+Quora](http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look)
+makes React focus more on modularity, less opinionated, with less code.
+
+Though I do know some Angular. I can say the documentation isn't hot, it has a
+the learning curve consequently steepens, and it could use less boilerplate
+code.
+
+The author of the post above says *"if you like Angular, we think you'll love
+React because reactive updates are so easy and composable components are a
+simple and powerful abstraction for large and small applications."*
+
+## Why Browserify?
+
+To pull in a third-party dependency in RequireJS, one must venture out into the
+internet and curl/wget/download/whatever the file into their project. Then they
+can ```require```d. Any deisred updates will have to be refetched manually
+Repeat this with multiple dependencies for multiple projects, and it becomes
+a nuisance. Having to optimize RequireJS projects in another step is rotten
+cherry on top.
+
+Browserify piggybacks ```npm```. Dependencies such as jQuery, Underscore.js,
+React, AngularJS with Browserify support can be hosted on ```npm```, specified
+and listed all in ```package.json```, and Browserify will handle the bundling
+of these dependencies with your source code into a single file for you!
+Browserify even creates a dependency tree to figure out which modules need and
+not need to be included in the bundle. Smart lad.
+
+## Why Gulp?
+
+Gulp consist more of code whereas Grunt are structured more towards
+configuration. It can be a matter of preference, though many are starting to
+Gulp. Gulp makes pipelines, or streams, a prominent feature such that
+intermediary data or files are not needed.
+
+Grunt is well-fleshed with its hundreds of plugins from the community. However,
+Gulp is getting there. In the short dip I've taken, Gulp had all the plugins I
+needed. Either way, you'll be well supported.
+
+Here's my project's gulpfile. It uses ```reactify``` to precompile React JSX
+files into normal JS files which is then pipelined to ```browserify``` for
+bundling with dependencies. It compiles Stylus files to CSS. And everything's
+nicely set up to watch directories and rebuild when needed. I'm pretty giddy.
+
+    ::js
+    var gulp = require('gulp');
+
+    var browserify = require('browserify');
+    var del = require('del');
+    var reactify = require('reactify');
+    var source = require('vinyl-source-stream');
+    var stylus = require('gulp-stylus');
+
+    var paths = {
+        css: ['src/css/**/*.styl'],
+        index_js: ['./src/js/index.jsx'],
+        js: ['src/js/*.js'],
+    };
+
+    gulp.task('clean', function(cb) {
+        del(['build'], cb);
+    });
+
+    gulp.task('css', ['clean'], function() {
+        return gulp.src(paths.css)
+            .pipe(stylus())
+            .pipe(gulp.dest('./src/css'));
+    });
+
+    gulp.task('js', ['clean'], function() {
+        // Browserify/bundle the JS.
+        browserify(paths.index_js)
+            .transform(reactify)
+            .bundle()
+            .pipe(source('bundle.js'))
+            .pipe(gulp.dest('./src/'));
+    });
+
+    // Rerun the task when a file changes
+    gulp.task('watch', function() {
+        gulp.watch(paths.css, ['css']);
+        gulp.watch(paths.js, ['js']);
+    });
+
+    // The default task (called when you run `gulp` from cli)
+    gulp.task('default', ['watch', 'css', 'js']);
+
+It's finally nice to get outside. Away from the codebase of work. Into the
+virtual world. Smell the aromas of fresh technologies. I've grown two years
+younger, and with an extra kick in my step. Expect more about React.
