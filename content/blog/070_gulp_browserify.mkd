@@ -2,7 +2,7 @@ title: "Angular, Require, Grunt? React, Browserify, Gulp."
 type: blog
 category: blog
 date: 2014-07-30
-slug: gulp-browserify
+slug: react-browserify-gulp
 tags: [code]
 ---
 
