@@ -16,10 +16,7 @@ streets-ahead about these new web technologies?
 
 ---
 
-AngularJS/RequireJS/Grunt may be aging, but what does aging mean?  I don't mean
-becoming obsolete. They're still fantastic tools that won't be going away any
-time soon. It just means these new technologies are becoming more ubiquitous
-and favored in modern projects by the community. A brief intro:
+A brief intro to some previously hyped web technologies:
 
 - AngularJS is a JS framework from Google that features two-way data binding
   with an expressive and declarative templating. I previously wrote a [multi-part guide
@@ -39,9 +36,8 @@ React is a JS library for building reusuable components. It is an alternative
 to using Angular's directives. The difference is that React does not require
 the developer to manually set up a linking function or data binding, you simply
 have to call ```render```, and React will diff the DOM to make performantly
-render. Although React can actually be used in conjunction with Angular, React
-is just more agnostic as it's meant to serve as a library rather than a
-framework.
+render. Though note Angular is a full MVC framework whereas React handles only
+view rendering.
 
 Pete Hunt did a [comparison against Angular on
 Quora](http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look)
