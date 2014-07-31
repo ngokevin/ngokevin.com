@@ -35,19 +35,19 @@ block are kicking around.
 
 ## Why React?
 
-React is a JS library for building reusuable components. I can't really act as
-a super authority on React yet, but this [comparison on
-Quora](http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look)
-makes React seem more reusable and less opinionated. Compared to Angular's
-directives (it's own version of components), React can work well with other
-frameworks, and requires less framework-specific concepts to learn.
+React is a JS library for building reusuable components. It is an alternative
+to using Angular's directives. The difference is that React does not require
+the developer to manually set up a linking function or data binding, you simply
+have to call ```render```, and React will diff the DOM to make performantly
+render. Although React can actually be used in conjunction with Angular, React
+is just more agnostic as it's meant to serve as a library rather than a
+framework.
 
-Though I do know some Angular. I can say the documentation isn't hot.  And it
-requires learning a lot of Angular-specific concepts, but it at least handles
-the entire MVC. The author of the post above says *"if you like Angular, we
-think you'll love React because reactive updates are so easy and composable
-components are a simple and powerful abstraction for large and small
-applications."*
+Pete Hunt did a [comparison against Angular on
+Quora](http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look)
+The author of the post above says *"if you like Angular, we think you'll love
+React because reactive updates are so easy and composable components are a
+simple and powerful abstraction for large and small applications."*
 
 ## Why Browserify?
 
