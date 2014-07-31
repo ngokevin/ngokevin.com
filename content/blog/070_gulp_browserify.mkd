@@ -35,18 +35,19 @@ block are kicking around.
 
 ## Why React?
 
-React is a JS framework from Facebook that also features two-way data binding.
-I can't really act as a super authority on React yet, but this [comparison on
+React is a JS library for building reusuable components. I can't really act as
+a super authority on React yet, but this [comparison on
 Quora](http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look)
-makes React focus more on modularity, less opinionated, with less code.
+makes React seem more reusable and less opinionated. Compared to Angular's
+directives (it's own version of components), React can work well with other
+frameworks, and requires less framework-specific concepts to learn.
 
-Though I do know some Angular. I can say the documentation isn't hot, it has a
-the learning curve consequently steepens, and it could use less boilerplate
-code.
-
-The author of the post above says *"if you like Angular, we think you'll love
-React because reactive updates are so easy and composable components are a
-simple and powerful abstraction for large and small applications."*
+Though I do know some Angular. I can say the documentation isn't hot.  And it
+requires learning a lot of Angular-specific concepts, but it at least handles
+the entire MVC. The author of the post above says *"if you like Angular, we
+think you'll love React because reactive updates are so easy and composable
+components are a simple and powerful abstraction for large and small
+applications."*
 
 ## Why Browserify?
 
