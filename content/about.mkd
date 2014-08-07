@@ -8,7 +8,8 @@ image:
     where: top
 ---
 
-Hey, I'm Kevin, a web developer for Mozilla, continual breaker the [Firefox
-Marketplace](https://marketplace.firefox.com), and from Portland.  You'll most
-often catch me building disposable webapps, donking at the local poker club,
-bricking basketballs, snapping B&W pictures of lawn chairs, or writing stuff.
+Hey, I'm Kevin, a web developer at Mozilla. I work on the [Firefox
+Marketplace](https://marketplace.firefox.com), the FirefoxOS app store. I'm
+from Portland, and there you'll find me building webapps, taking photographs,
+playing live tournament poker, shooting basketballs, reading sci-fi novels, and
+writing blog posts.
