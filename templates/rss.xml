@@ -9,15 +9,16 @@
     <language>en-us</language>
     <pubDate>{{ site.datetime.strftime(datefmt) }}</pubDate>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-    {% for item in site.categories[page.rss_category]|sort(attribute='datetime')|reverse %}
-      {% if loop.index0 < 10 %}
+    {% for item in site.categories[page.rss_category]|sort(attribute='datetime')|reverse if
+           'poker' not in item.tags %}
+      {% if loop.index0 < 5 %}
         <item>
           <title>{{ item.title }}</title>
           <link>{{ site.base_url }}{{ item.url }}</link>
           <pubDate>{{ item.datetime.strftime(datefmt) }}</pubDate>
           <description>
             {% if item.image %}
-              <![CDATA[<img align="left" hspace="5" src="{{ item.image.url }}"/>{{ item.image.caption }}]]>
+              <![CDATA[<img align="left" hspace="5" width="320" src="{{ item.image.url }}"/>{{ item.image.caption }}]]>
             {% endif %}
             {{ item.content|e }}
           </description>
