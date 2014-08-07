@@ -27,7 +27,7 @@ IMGUR_HEADERS = {'Authorization': 'Client-ID {0}'.format(
                  cfg.IMGUR_CLIENT_ID)}
 IMGUR_ALBUM_CACHE = {}
 IMGUR_ALBUM_URL = 'https://api.imgur.com/3/album/{0}/'
-THUMB_SIZE = 'm'  # (see http://api.imgur.com/models/image)
+THUMB_SIZE = 'l'  # (see http://api.imgur.com/models/image)
 
 # Flickr.
 flickr.API_KEY = cfg.FLICKR_CLIENT_ID
@@ -174,10 +174,7 @@ class Imgur(object):
 
         return map(
             make_image,
-            sorted(
-                self._get_imgur_album(page.meta['album-id'])['data']['images'],
-                key=lambda img: img['datetime']
-            )
+            self._get_imgur_album(page.meta['album-id'])['data']['images'],
         )
 
     def _get_imgur_album(self, album_id):

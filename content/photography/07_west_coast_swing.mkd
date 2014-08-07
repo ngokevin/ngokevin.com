@@ -3,8 +3,8 @@ slug: west-coast-swing
 category: photography
 type: album
 
-source: flickr
-album-id: 72157641398395784
+source: imgur
+album-id: W9m1T
 
 date: 2013-12-19
 

@@ -3,10 +3,10 @@ slug: oahu
 category: photography
 type: album
 
-source: flickr
-album-id: 72157635968425745
+source: imgur
+album-id: 75W1G
 
-datetime: 2013-09-28 01:00:00
+date: 2013-09-28
 
 ---
 

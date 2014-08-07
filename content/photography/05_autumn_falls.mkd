@@ -3,10 +3,10 @@ slug: autumn-falls
 category: photography
 type: album
 
-source: flickr
-album-id: 72157636612528833
+source: imgur
+album-id: ybzcZ
 
-datetime: 2013-10-16 01:00:00
+date: 2013-10-16
 
 ---
 

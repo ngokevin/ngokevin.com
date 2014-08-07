@@ -3,8 +3,8 @@ slug: alaska
 category: photography
 type: album
 
-source: flickr
-album-id: 72157643442323915
+source: imgur
+album-id: 4suG2
 
 date: 2014-03-30
 

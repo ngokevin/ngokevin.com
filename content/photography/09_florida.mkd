@@ -3,8 +3,8 @@ slug: florida
 category: photography
 type: album
 
-source: flickr
-album-id: 72157644832180539
+source: imgur
+album-id: 1Is4g
 
 date: 2014-06-18
 

@@ -3,8 +3,8 @@ slug: winter-sets
 category: photography
 type: album
 
-source: flickr
-album-id: 72157641292815084
+source: imgur
+album-id: sPmqm
 
 date: 2013-12-15
 
