@@ -1,0 +1,13 @@
+title: Oregon Coast
+slug: oregon-coast
+category: photography
+type: album
+
+source: imgur
+album-id: a6X97
+
+date: 2014-09-09
+
+---
+
+An alien world.
