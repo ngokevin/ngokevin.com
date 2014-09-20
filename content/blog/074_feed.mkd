@@ -1,0 +1,83 @@
+title: "Building the Marketplace Feed"
+type: blog
+category: blog
+date: 2014-09-20
+slug: feed
+tags: [code]
+
+image:
+    url: http://i.imgur.com/qS4jHbm.png
+    caption: New front page of the Firefox Marketplace.
+---
+
+The "Feed", the new feature I spent the last three months grinding out for the
+[Firefox Marketplace](http://marketplace.firefox.com). The Feed transforms the
+FirefoxOS app store to provide an engaging and customized app discovery
+experience by presenting fresh user-tailored content on every visit.  [The
+concept was invented by Liu Liu][feed], a Mozilla design intern I briefly hung
+out with last year. Well, it quickly gained traction by getting [featured on
+Engadget][engadget], presented at the Mozilla Summit, and shown off on
+prototypes at Mobile World Congress. With more traction came more pressure to
+ship. We built that ship, and it sailed on time.
+
+## Planning Phase
+
+The whole concept had a large scope so we broke it into four versions. For the
+first version, we focused on getting initial content pushing into the Feed. We
+planned to build a **curation tool** for our editorial team to control the
+content of the Feed, with the ability to tailor different content for different
+countries. Users would then be able to see fresh and new content on the
+homepage every day, thus increasing engagement.
+
+![Curation Tools](imgur.com/LGW9nXn.jpg)
+<div class="page-caption"><span>
+The final product for the Curation Tool, used by the editorial team to feature
+content and tailor different content for different countries.
+</span></div>
+
+Some time was spent on the feature requirements and specifications as well as
+the visual design. We mainly had three engineers: [myself][myself],
+[Chuck][chuck], and [Davor][davor]. It was a slow start. Chuck started early on
+the technical architecture, building out some APIs and documentation. A few
+months later, I started work on the curation tool. My initial work was actually
+done off-the-grid [in an RV in the middle of
+Alaska](http://imgur.com/LGW9nXn.jpg).
+
+But then the project to [optimize the app for the $25 FirefoxOS
+smartphone](/blog/fxos-25-phone/) took over. Once the air cleared, we all
+gathered for a work week hosted at Davor's place in Fort Myers, FL (since I was
+already in FL for a vacation).
+
+## Building Phase
+
+In early June, we had a solid start during the work week with each of the three
+of us on working on separate components: Chuck on the backend API, Davor on the
+Feed visuals, me on the curation tools. The face-to-face over remote working
+was nice. I could ask any question that came to mind about unclear
+requirements, quickly ask for an API endpoint to be whipped up, or check on how
+the visuals were looking.
+
+After the foundations were in place, I transitioned to working on all parts of
+the feature from ElasticSearch, the API, the JS powering the curation tools and
+the Feed, to the CSS for the newer layout of the site. It was a fun grind for a
+couple of months just writing and refactoring tons of code, getting dirty with
+ElasticSearch, optimizing the backend.
+
+The launch date was set for late August. A couple of weeks out, the feature was
+there, but there were some bugs to iron out and tons of polish to be done. The
+most sketchy part was having no design mocks for desktop-sized screens so I had
+to improvise. The last week and a half was a sprint. I split my day up into 6
+hours, a break to play some tournament poker at the poker club, and then 2
+hours at night. Throw in a late Friday, and we made it to the finish line.
+
+The first version of the Feed was well-received with positive feedback and
+increased engagement from users.
+
+## Technical Bits
+
+
+[feed]:https://blog.mozilla.org/ux/2013/08/firefox-marketplace-in-the-future-customized-app-store-experience/
+[engadget]: http://www.engadget.com/2013/08/29/mozilla-marketplace-prototype/
+[myself]: https://github.com/ngokevin
+[chuck]: https://github.com/chuckharmston
+[davor]: https://github.com/spasovski
