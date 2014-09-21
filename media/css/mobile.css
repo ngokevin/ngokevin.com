@@ -1,8 +1,17 @@
 @media all and (max-width: 540px) {
   #wrap {
     margin: 0 auto;
-    width: 90%; } }
-@media all and (max-width: 48em) {
+    width: 90%; }
+
+  .logos .social a i {
+    font-size: 21px; }
+
+  #logo {
+    font-size: 1.5rem; } }
+@media all and (max-width: 53em) {
+  #wrap {
+    width: 85%; }
+
   header {
     margin-bottom: 78px; }
     header .logos {

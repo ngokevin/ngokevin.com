@@ -173,7 +173,6 @@ nav {
 
 .base-image {
     img {
-        @include def-box-shadow();
         border-radius: 1px;
         max-height: 480px;
         max-width: 100%;

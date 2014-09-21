@@ -46,7 +46,6 @@
 }
 
 img {
-    @include def-box-shadow();
     display: block;
     margin: 56px auto;
     max-width: 100%;
