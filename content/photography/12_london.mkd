@@ -1,0 +1,13 @@
+title: London
+slug: london
+category: photography
+type: album
+
+source: imgur
+album-id: N2xHX
+
+date: 2014-10-25
+
+---
+
+Pretty much the same. Except everyone speaks funny.
