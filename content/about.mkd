@@ -11,5 +11,5 @@ image:
 Hey, I'm Kevin, a web developer at Mozilla. I work on the [Firefox
 Marketplace](https://marketplace.firefox.com), the FirefoxOS app store. I'm
 from Portland, and there you'll find me building webapps, taking photographs,
-playing live tournament poker, shooting basketballs, reading sci-fi novels, and
+playing live tournament poker, shooting basketballs, reading sci-fi novels, or
 writing blog posts.
