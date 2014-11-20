@@ -1,0 +1,71 @@
+title: "The Need to Push Hybrid Mobile Apps to the Forefront"
+type: blog
+category: blog
+date: 2014-11-23
+slug: mozfest
+tags: [code, life]
+
+image:
+    url: http://i.imgur.com/2IGaM6P.jpg
+    caption: Mozilla Festival 2014 was held in London in October.
+---
+
+At [Mozilla Festival 2014](http://2014.mozillafestival.org), I facilitated a
+session on **Pushing Hybrid Mobile Apps to the Forefront**. In the oncoming
+month, I had been building a poker app to keep track of my poker winning
+statistics, record notes on opponents, and crunch poker math. I used the
+web as a platform, but having an iPhone, wanted this app to be on iOS. Thus,
+the solution was **hybrid mobile apps**, apps written in HTML5 technologies that
+are wrapped to run "natively" on all platforms (e.g., iOS, Android, FirefoxOS).
+
+I stumbled upon the [Ionic hybrid mobile app
+framework](http://http://ionicframework.com/). This made app development
+*so* easy, and fulfills the promise of the web: write once, run everywhere. In
+my three years of being a web developer at Mozilla (in various forms), how come
+I've heard so little hype for hybrid mobile apps? I believe hybrid mobile apps
+are the way to convert native developers to the cult of the web, but hybrid
+mobile apps aren't getting the ad-time they need.
+
+---
+
+## The Current Lack of Exposure for Hybrid Mobile Apps
+
+In all of the [Mozilla
+Developer Network](https://developer.mozilla.org) (MDN), there are around two
+articles on hybrid mobile apps, which aren't really fully fleshed and in need
+of technical review. I found there's been a bit of work from [James
+Longster](http://jlongster.com) in the form of [Cordova Firefox OS
+support](http://http://mozilla-cordova.github.io/). That's severely lacking.
+
+There's a big opportunity missed to attract developers to the web. In MDN's
+[main article on Open Web Apps](https://developer.mozilla.org/Apps/Quickstart/Build/Intro_to_open_web_apps),
+there's a list of advantages on open web apps. I reference this article well
+since Mozilla champions the web, and it is the entry point to webapp ecosystem,
+it represents well what parts of the web are highlighted. The ones that are
+listed shouldn't really be considered advantages relative to native apps:
+
+- *Local installation and offline storage: to a developer*, these should be
+inherent to an app, not an explicit advantage. Apps are *expected* to be
+installable and have offline storage.
+- *Hardware access*: also should be inherent to an app and not an explicit
+advantage. Apps are *expected* to be able to communicate with its device APIs.
+- *Breaking the walled gardens*: there are no "walls" being broken if these
+web apps only run in the browser and FirefoxOS. They should be able to live
+inside the App Store and Play Store to really have any effect.
+- *Open Web App stores*: well, that is prety cool actually. I built a personal
+app that I didn't want to be distributed except with me and antoher. So I
+simply built a page that had the ability to install the app.
+
+What's missing here is the biggest advantage of all! **Being able to run
+cross-platform**. That's the promise the web, and that's what attracts any
+developer to the web in the first place. They can write it once, have it
+run anywhere, no need to port between languages or frameworks. It saves time
+and maintenance.
+
+Besides this article, there are plenty of references to the mobile
+cross-platform capability of the web, and that's may be common knowledge. But
+there are very few resources on **how** to actually achieve that
+cross-platform-ness. For mobile apps, the web doesn't just magically run
+at full potential on every device. There's work to be done in being able to
+access device APIs. And there're not enough resources to explain or assist in
+how that work is done.
