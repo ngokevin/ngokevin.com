@@ -12,6 +12,8 @@ plug the SD card into your Mac's card reader, upload the shots, and then unplug
 it. I've seen the error on my K30 and K3. Though, it's not an issue with the
 camera or the card.
 
+---
+
 The issue is with unplugging it. With some SD cards on OSX, the SD card has to
 be **properly ejected** rather than straight-up unplugging it. Or else it'll be
 in some sort of weirdly formatted state. That may be obvious, but I never ran
