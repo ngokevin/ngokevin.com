@@ -1,8 +1,10 @@
 @import "_lib";
 
-
 .page {
-    p:first-child, h2, h3, h4 {
+    p:first-child {
+      margin: 26px 0 32px;
+    }
+    h2, h3, h4 {
       margin: 26px 0;
     }
     h2 {

@@ -1,4 +1,6 @@
-.page p:first-child, .page h2, .page h3, .page h4 {
+.page p:first-child {
+  margin: 26px 0 32px; }
+.page h2, .page h3, .page h4 {
   margin: 26px 0; }
 .page h2 {
   border-bottom: 1px solid silver;
@@ -27,9 +29,6 @@
       margin-bottom: 52px; }
 
 img {
-  -moz-box-shadow: 0 0 1px #32323c;
-  -webkit-box-shadow: 0 0 1px #32323c;
-  box-shadow: 0 0 1px #32323c;
   display: block;
   margin: 56px auto;
   max-width: 100%; }
@@ -62,3 +61,10 @@ ul {
 .blog h1 {
   font-size: 28px;
   font-weight: bold; }
+
+iframe {
+  border: 1px solid silver;
+  display: block;
+  margin: 0 auto;
+  width: 98%;
+  height: 500px; }
