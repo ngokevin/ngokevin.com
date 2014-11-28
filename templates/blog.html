@@ -2,6 +2,10 @@
 
 {% block extrahead %}
   <link rel="stylesheet" type="text/css" href="/css/page.css" />
+  {% if page.image %}
+    <meta property="og:image" content="{{ page.image.url }}"/>
+  {% endif %}
+  <meta property="og:description" content="{{ page.content|striptags }}"/>
 {% endblock %}
 
 {% block page_header %}
