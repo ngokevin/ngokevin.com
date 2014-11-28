@@ -15,7 +15,7 @@ girlfriend for our anniversary. It binds photos, writing, music, and animation
 together into an experential walk down memory lane. I named it
 [Adelheid](http://github.com/ngokevin/adelheid), a long-form version of my
 girlfriend's name. And it took me about a month of my after-work free time
-whenever she wasn't around. Adelheid is an almagation of my thoughts as it
+whenever she wasn't around. Adelheid is an amalgamation of my thoughts as it
 molds my joy of photography, writing, and web development
 into an elegantly-bound package.
 
