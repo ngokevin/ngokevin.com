@@ -5,7 +5,7 @@
   {% if page.image %}
     <meta property="og:image" content="{{ page.image.url }}"/>
   {% endif %}
-  <meta property="og:description" content="{{ page.content|striptags }}"/>
+  <meta property="og:description" content="{{ page.content|striptags|e }}"/>
 {% endblock %}
 
 {% block page_header %}
