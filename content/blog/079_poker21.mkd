@@ -6,7 +6,7 @@ slug: poker21
 tags: [poker]
 
 image:
-    url: http://i.imgur.com/GX2UKnG.jpg
+    url: http://i.imgur.com/GX2UKnGl.jpg
     caption: Thrift Shoppin' at the Mozilla Work Week.
 ---
 
@@ -17,6 +17,8 @@ Club. Since the socializing over swanky dinners went late into the nights, I
 didn't have the time commitment to register for any tournaments. I had been
 planning on giving cash games a serious shot. With its sit-and-go nature,
 I played several sessions of $1/$2.
+
+---
 
 I went up +$545 the first session. There was an old Asian gambler at the table
 that I keyed into all night, I had value bet my hands mercilessly. I have never
