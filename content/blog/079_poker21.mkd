@@ -7,7 +7,7 @@ tags: [poker]
 
 image:
     url: http://i.imgur.com/GX2UKnGl.jpg
-    caption: Thrift Shoppin' at the Mozilla Work Week.
+    caption: Make the money, don't let the money make you. Change the game, don't let the game change you.
 ---
 
 Launch all Mozillians to PDX for Mozlandia, an all-hands work week. A bit weird
