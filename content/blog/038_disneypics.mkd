@@ -13,7 +13,7 @@ image:
 
 **Update: an easier way to do this is open up Chrome's inspector and switch to
 the network tab. As you click through your Photopass, you should be able to see
-your images appear. Change the 4x6 to 8x10 in the URLs.**
+your images appear.**
 
 A little bit of dirty digging can shovel you some decent rewards. I went to
 Disneyland on New Year's Eve with my girlfriend where we had our pictures taken
