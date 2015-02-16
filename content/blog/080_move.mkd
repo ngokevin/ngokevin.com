@@ -1,12 +1,12 @@
 title: "Bay Area Apartment Hunting by Sun Tzu"
 type: blog
 category: blog
-date: 2015-2-12
+date: 2015-02-12
 slug: move
 tags: [life]
 
 image:
-    url: http://i.imgur.com/GX2UKnGl.jpg
+    url: http://i.imgur.com/EhTEC8o.jpg
     caption: Malm the Bed says hello.
 ---
 
@@ -16,6 +16,8 @@ for living space against the antagonist anonymous Padmappers. We surged upon
 open listings on the day they appeared yet we were always outflanked by a
 faster hunter who snatched them up within hours. But alas the end was in sight.
 for we believed we had finally found home in a hopeless place.
+
+---
 
 The humble place was an oasis on the warfront.  A small studio nestled within a
 quiet community. Walking in, I overheard a small kid asking his mom whether or
