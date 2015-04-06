@@ -1,0 +1,13 @@
+title: Oregon Gorge
+slug: gorge
+category: photography
+type: album
+
+source: imgur
+album-id: mLwdG
+
+date: 2015-04-06
+
+---
+
+Colombia River Gorge, steep cliffs carved out by Ice Age's watery scalpel.
