@@ -10,3 +10,7 @@ output
 config.py
 THUMB_*
 _output
+
+build/
+node_modules/
+*.css
