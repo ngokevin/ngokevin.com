@@ -7,7 +7,7 @@ var uglify = require('gulp-uglify');
 
 
 gulp.task('css', function() {
-    gulp.src(['media/css/**/*.scss'])
+    gulp.src(['media/css/**/*.scss', 'media/css/lib/*.css'])
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(concat('bundle.css'))
