@@ -1,7 +1,7 @@
 title: "Poker Sess.23 - Easy Button"
 type: blog
 category: blog
-date: 2014-05-14
+date: 2015-05-14
 slug: poker23
 tags: [poker]
 
