@@ -8,7 +8,10 @@ image:
     where: top
 ---
 
-Hey, I'm Kevin, a proud web developer at Mozilla (recruiters, stay away). I'm
-from Portland, but currently living in the Bay Area. I'm an amateur poker
-player, hobby photographer, webapp builder, short basketball player, and
-skater. And I enjoy sci-fi novels and hitting around tennis balls.
+Hey, I'm Kevin, a proud web developer at
+[Mozilla](https://marketplace.firefox.com) (recruiters, stay away). I'm from
+Portland, but currently living in the Bay Area. I'm an [amateur poker
+player](https://ngokevin/com/blog/tags/poker), [hobby
+photographer](https://ngokevin.com/photography), [webapp
+builder](https://github.com/ngokevin), short basketball player, and skater. And
+I enjoy sci-fi novels and hitting around tennis balls.
