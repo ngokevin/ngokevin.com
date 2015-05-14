@@ -8,8 +8,7 @@ image:
     where: top
 ---
 
-Hey, I'm Kevin, a web developer at Mozilla. I work on the [Firefox
-Marketplace](https://marketplace.firefox.com), the FirefoxOS app store. I'm
-from Portland, and there you'll find me building webapps, taking photographs,
-playing live tournament poker, shooting basketballs, reading sci-fi novels, or
-writing blog posts.
+Hey, I'm Kevin, a proud web developer at Mozilla (recruiters, stay away). I'm
+from Portland, but currently living in the Bay Area. I'm an amateur poker
+player, hobby photographer, webapp builder, short basketball player, and
+skater. And I enjoy sci-fi novels and hitting around tennis balls.
