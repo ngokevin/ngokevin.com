@@ -19,7 +19,7 @@ but having an iPhone, wanted this app to be on iOS. Thus, the solution was
 run "natively" on all platforms (e.g., iOS, Android, FirefoxOS).
 
 I stumbled upon the [Ionic hybrid mobile app
-framework](http://http://ionicframework.com/). This made app development
+framework](http://ionicframework.com/). This made app development
 so easy. IT fulfills the promise of the web: write once, run everywhere. In
 being with Mozilla for over two years, I've read so little hype for hybrid
 mobile apps. Hybrid mobile apps have potential to convert much more native
