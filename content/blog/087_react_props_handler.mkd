@@ -1,0 +1,50 @@
+title: "Access React Component Props from an Event Handler"
+type: blog
+category: blog
+date: 2015-06-09
+slug: react-props-handler
+tags: [code]
+
+---
+
+I got the green light to go trigger -happy on imagining a fresh codebase for
+future [Firefox Marketplace](https://marketplace.firefox.com) projects. So
+I threw in some React, ES6, Flux, and Browserify, and got a stew going.
+Although amidst all of the modern cutting-edge frameworks and tools, sometimes
+we forget the basics. I ran into a problem where I needed to access a
+component's ```props``` from an event handler (```onSubmit```), but had shortly
+stumbled on finding a reference.
+
+---
+
+    ::js
+    React.createClass({
+      onSubmit: e => {
+        // this is undefined.
+        this.props.flux.getActions('my-actions').go();
+      },
+      render() {
+        return <form onSubmit={this.onSubmit}/>
+      }
+    }
+
+For a brief second, this left me scratching my head on how to access the
+```flux``` instance. But **duh**, closures! Among the first things you learn
+about Javascript, a function has access to a snapshot of the parent scope from
+where it is declared.
+
+    ::js
+    React.createClass({
+      render() {
+        const onSubmit = e => {
+          // this.props is live!
+          this.props.flux.getActions('my-actions').go();
+        };
+        return <form onSubmit={onSubmit}/>
+      }
+    }
+
+Web development is entering a grand age, and I don't even know where to start
+talking. This topic is a bit lame compared to the tons of fresh patterns and
+cool ideas I've been stumbling all over. But despite being a shiny world,
+I'll always have the fundamentals on hand.
