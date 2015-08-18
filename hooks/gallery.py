@@ -3,7 +3,7 @@ import json
 import os
 import pprint
 
-import Image
+from PIL import Image
 import requests
 
 import config as cfg

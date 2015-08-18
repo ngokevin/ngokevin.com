@@ -1,6 +1,5 @@
 import thumbnail
 from gallery import Gallery
-from hooks import compile_sass
 
 
 gallery = Gallery()
