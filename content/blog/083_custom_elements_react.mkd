@@ -37,7 +37,7 @@ currently reigning Component king, [React](http://facebook.github.io/react/).
 
 [Custom
 Elements](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
-are still in working draft, but there is a nice [cocument.registerElement
+are still in working draft, but there is a nice [document.registerElement
 polyfill](https://github.com/WebReflection/document-register-element). Here
 is an extremely simple Custom Element that simple wraps a ```div``` and
 defines some interface on the element's prototype.
@@ -210,5 +210,4 @@ Custom Elements.
 
 However, it doesn't have to be one or the other either. Why not both? React can
 wrap Custom Elements if you want it to. As always, choose the best tools for
-the job. I'm always chasing and adopting the newest things like an excited dog
-going after the mailman, but despite that I can say React is a winner.
+the job.
