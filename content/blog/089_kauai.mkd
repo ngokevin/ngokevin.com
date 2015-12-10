@@ -1,0 +1,85 @@
+title: "The Kauaian - Bring Her Home"
+type: blog
+category: blog
+date: 2015-10-13
+slug: kauaian
+tags: [life, travel]
+
+image:
+  url:
+---
+
+In "The Martian", astronaut Mark Watney was abandoned with little hope on the
+red planet Mars. He was left to survive on his own, to await rescue. The
+following story goes not too differently. My wife (Heidi) and I geared up for
+our first (wilderness) backpacking trip over the weekend in Kauai, Hawaii.
+There, at the unfrequented bottom of the red Waimea Canyon, we crossed paths
+with an abandoned dog laying alone at the campsite, left to survive on her own,
+to await rescue. This is how we helped Wili up the 2,000 foot canyon over a
+steep 2.5 mile trail.
+
+## Preparation
+
+Heidi had Columbus Day off so we figuratively threw a dart on the spinning
+globe and landed on Kauai, the Garden Isle, the least commercially developed of
+the Hawaiian islands. Ironically, we were celebrating Columbus by visiting one
+of the two states whose native population was left unharmed by early European
+settlers. I believe we did it right as support grows among the states to
+replace the holiday with Indigenous Populations' Day. Having been doing lots of
+day hikes at National Parks in California, I decided to level us up to
+backpacking.
+
+In Kauai, the Na Pali Coast is *the* backpacking trail. Though I wanted
+time to explore more of the island first and couldn't get permits anyways. I
+decided on hiking and backpacking the lush Waimea Canyon, the Grand Canyon of
+the Pacific. The plan was a steep [6-mile out and back trail](awaawapuhi)
+followed by another steep 6-mile descent into the canyon to the [most distant
+hunter's camp](lonomea) neighboring a swimming hole.
+
+To do so, we needed knowledge and gear. Somewhat embarassingly, we gained
+rudimentary emergency survival knowledge through watching
+[Survivorman](survivorman) marathons. That along with actual research, we
+outfitted ourselves at the local REI and Amazon. We spent days choosing the
+[right backpacks for us](backpacks), and I ordered [hiking poles](hikingpoles),
+a [pocket knife](pocketknife), a [Lifestraw](lifestraw), a [camp
+stove](campstove), [sleeping pads](sleepingpads), and tons of other small
+items like the mandatory harmonica.
+
+## Arrival
+
+We just started the weekend doing the typical Hawaii stuff. Scenic drives
+playing Lilo & Stitch music, snorkeling with the fish and sea turtles, drinking
+from coconuts. Blah blah blah. We did attempt a quick hike on a 6-mile trail
+that night, but sunset ended the trek before it got good.
+
+We AirBNB'ed with a group of burners. I noticed the host also played poker with
+all of the poker books on his bookshelf, all of which I had read. We packed our
+backpacks to begin the hikes in the morning. To top everything off, we woke up
+to the host going WTF at yellow jackets swarming all over his hallway outside
+our room. Wishing godspeed to his battle against the swarm, we began driving to
+Waimea Canyon.
+
+## The Descent
+
+We pumped the [6-mile out and back trail](awaawapuhi) in the morning, with
+looming over my head the worries of not being able to make it to camp down
+the canyon by sundown. After half an hour enjoying the view, a 2,000 foot
+ascent return over 3 miles, and a short drive, we arrived it at the [canyon
+trailhead](kukui) just past noon. This time with our loaded backpacks, we
+were booked to hike another 5.5 hours with less than 6 hours to sundown. We
+challenged the Hawaiian sun to a race, it to the horizon against us to the
+canyon floor.
+
+It was a sharp decline down. Every step I took was one step I'd have to take
+back up. The hiking poles paid themselves off with our sweat. And the views of
+the canyon going down matched up against those of many national parks.
+
+[awaawapuhi]:http://www.unrealhawaii.com/2013/08/awaawapuhi-trail/
+[backpacks]:
+[campstove]:http://www.amazon.com/Etekcity-Ultralight-Portable-Backpacking-Compatible/dp/B00B4FY8YO
+[lifestraw]:http://www.buylifestraw.com/en/
+[lonomea]:http://www.alohafrom808.com/2013/07/backpacking-to-lonomea-waimea-canyon-kauai/
+[hikingpoles]:http://www.amazon.com/BAFX-Products%C2%AE-Hiking-Walking-Trekking/dp/B007YT854S/
+[pocketknife]:http://www.amazon.com/Victorinox-Swiss-Classic-Pocket-Purple/dp/B000FNDV8U
+[sleepingpads]:http://www.rei.com/product/829826/therm-a-rest-z-lite-sol-sleeping-pad
+[survivorman]:http://lesstroud.ca/survivorman
