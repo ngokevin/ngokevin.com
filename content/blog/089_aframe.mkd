@@ -331,7 +331,7 @@ working in 3D and VR has been immensely exciting. To catch up, I have had to
 read and take notes about design, brush up on my linear alegbra, and dive into
 the world of 3D rendering. [The Design of Everything Things][design],
 [Real-Time Rendering][rendering], [3D Math Primer][3d],
-[Rework][https://37signals.com/rework/] and [Virtual Reality Insider][insider]
+[Rework](https://37signals.com/rework/) and [Virtual Reality Insider][insider]
 were all books that came in handy.
 
 The hardest thing about developing on A-Frame was feeling out the target
