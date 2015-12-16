@@ -39,7 +39,7 @@ and finally scale the walls of integration with [React](https://facebook.github.
 At time of writing, to view the scenes in VR:
 
 - On desktop, get Firefox Developer Edition or Firefox Nightly, and install the
-  [WebVR Enabler Add-on](addon). To use with an Oculus Rift DK2, have the Oculus
+  [WebVR Enabler Add-on][addon]. To use with an Oculus Rift DK2, have the Oculus
   runtime installed (0.5.x for OS X).
 - On mobile, just open any A-Frame site using your phone browser (e.g., Firefox
   for iOS, Firefox for Android, Chrome for Android, Safari for iOS).
@@ -47,7 +47,7 @@ At time of writing, to view the scenes in VR:
 ## "Piece of Cake" Difficulty - Codepen
 
 For those that just want to play around with A-Frame immediately, check out the
-[example on Codepen](codepen). Codepen lets you edit code in the browser and
+[example on Codepen][codepen]. Codepen lets you edit code in the browser and
 immediately see the result. You'll see a scene that currenty looks something
 like this:
 
@@ -192,7 +192,7 @@ monster, the sky, a sound, lights. Components can be mixed and matched,
 composed and overridden. A-Frame comes with a bunch of components, and anyone
 can write their own components to have objects look however or do whatever
 they want. Check out all of the [shipped components](http://aframe.io/docs/components/),
-and check out some third-party custom components at [awesome-aframe](awesome-aframe).
+and check out some third-party custom components at [awesome-aframe][awesome-aframe].
 
 Let's start with a blank entity:
 
@@ -267,7 +267,7 @@ Why does React work so well with A-Frame?
   passing down components are extremely concise and can even be combined with component
   schemas to maintain composability.
 
-Here's an [example scene](react-scene) where clicking a spinning cube changes its color.
+Here's an [example scene][react-scene] where clicking a spinning cube changes its color.
 
     ::js
     class ExampleScene extends React.Component {
@@ -329,9 +329,9 @@ couple months, working on the core entity-component pieces of the system at
 smartphones having "fallen" and with my previous team as well as dissolved,
 working in 3D and VR has been immensely exciting. To catch up, I have had to
 read and take notes about design, brush up on my linear alegbra, and dive into
-the world of 3D rendering. [The Design of Everything Things](design),
-[Real-Time Rendering](rendering), [3D Math Primer](3d),
-[Rework](https://37signals.com/rework/) and [Virtual Reality Insider](insider)
+the world of 3D rendering. [The Design of Everything Things][design],
+[Real-Time Rendering][rendering], [3D Math Primer][3d],
+[Rework][https://37signals.com/rework/] and [Virtual Reality Insider][insider]
 were all books that came in handy.
 
 The hardest thing about developing on A-Frame was feeling out the target
@@ -359,7 +359,7 @@ Y'all remember bring your A-Frame.
 
 - Check out the [official docs](http://aframe.io/docs/).
 - Connect with us and the community on the [A-Frame Slack channel](http://aframevr.slack.com).
-- See a community-populated list of resources at [awesome-aframe](awesome-aframe).
+- See a community-populated list of resources at [awesome-aframe][awesome-aframe].
 
 [awesome-aframe]: http://github.com/aframevr/awesome-aframe
 [3d]: http://www.amazon.com/Primer-Graphics-Development-Wordware-Library/dp/1556229119
