@@ -367,7 +367,7 @@ Y'all remember bring your A-Frame.
 [aframe-react]: http://github.com/ngokevin/aframe-react
 [aframe-react-boilerplate]: http://github.com/ngokevin/aframe-react-boilerplate
 [design]: http://www.amazon.com/Design-Everyday-Things-Donald-Norman/dp/1452654123
-[codepen]: http://codepen.io/team/aframevr/pen/6e013bf4b446e85d8f268e937ee09143?editors=100
+[codepen]: http://codepen.io/team/mozvr/pen/BjygdO?editors=100
 [react-scene]: http://github.com/ngokevin/aframe-react-boilerplate/tree/master/src/js/app.js
 [rendering]: http://www.realtimerendering.com/
 [write-components]: http://aframe.io/docs/core/component.html
