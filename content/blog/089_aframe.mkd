@@ -248,8 +248,8 @@ limitations.
 
 React is a great fit with A-Frame now that React v0.14 accepts custom
 attributes.  I gave it a shot and within an hour, I developed a [library
-integrating A-Frame and React](aframe-react) and [a boilerplate featuring
-aframe-react and Webpack](aframe-react-boilerplate).
+integrating A-Frame and React][aframe-react] and [a boilerplate featuring
+aframe-react and Webpack][aframe-react-boilerplate].
 
 Why does React work so well with A-Frame?
 
