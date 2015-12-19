@@ -256,9 +256,8 @@ Why does React work so well with A-Frame?
   our A-Frame/React components.
 - `props` makes it easy to extend and compose A-Frame component data, making A-Frame
   mixins completely obsolete.
-- With Babel, a standard tool for transpiling React, and its object rest/spread properties,
-  passing down components are extremely concise and can even be combined with component
-  schemas to maintain composability.
+- With Babel, a standard tool for transpiling React, giving object rest/spread properties
+  and templating strings, passing down components are easy and concise.
 
 Here's an [example scene][react-scene] where clicking a spinning cube changes its color.
 
