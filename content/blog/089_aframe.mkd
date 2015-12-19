@@ -84,17 +84,17 @@ be downloaded as a ZIP package or forked on Github. Once you have the code on
 your machine, just modify it in your favorite text editor and fire it up in the
 browser.
 
-## "Come Get Some" Difficulty - Templates and Primitives
+## "Come Get Some" Difficulty - Primitives
 
 For those that want to start writing scenes from scratch in vanilla HTML, check
-out A-Frame's [pre-built primitive templates](https://aframe.io/docs/primitives/).
+out A-Frame's [pre-built primitive](https://aframe.io/docs/primitives/).
 
 A "primitive" in computer graphics is a basic building block like a cube or a
-sphere. Templates:
+sphere. They are:
 
 - Are pre-fabricated custom elements like `<a-cube>` or `<a-sphere>` that combine
   recipes of components to achieve the intended result.
-- Are a convenience wrapper on top of the underlying entity-component system.
+- Are a convenience and usability wrapper on top of the underlying entity-component system.
 - Are much cleaner in syntax but are less flexible and composable than using the
   entity-component system directly.
 
@@ -163,20 +163,13 @@ not just templates.
       </a-cube>
     </a-scene>
 
-### Caveats with Templates and Primitives
+### Caveats
 
 Templates *may* be subject to flux such as reimplementation or modularization
 into a different repository. From a technical standpoint, A-Frame templates and
-primitives are very immature and less flexible, but from a product standpoint,
-they are more usable and less exotic to newer users of A-Frame. Think of them
-as makeup that have been applied to the core to make it look prettier.
-
-Templates are very limited in power and composability, and only a few select
-sample templates ship out of the box. If we wanted to make a cube that emits
-light, that stares at the camera, that plays a sound, there is no easy way to
-do so without creating an entirely new template or cluttering up the current
-one. Advanced developers will either quickly outgrow this or skip it entirely
-and move on to the underlying core.
+primitives are somewhat immature and less flexible, but from a product standpoint,
+they are more usable and less exotic to newer users of A-Frame. For full flexbility,
+we have to dig deeper.
 
 ## "Damn I'm Good" Difficulty - Entity-Component System
 
@@ -228,7 +221,7 @@ Let's have it emit sound.
 
 There are all of these components that can customize our entities. And all
 these attributes that can customize our components. And anyone can [write their
-own components](write-components), having free reign to add any behavior they
+own components][write-components], having free reign to add any behavior they
 can imagine. Some components we might write include a layout component, a
 vibrate component, a cloner component, an explode component, a set-on-fire
 component. I am very excited to see what people come up with.
@@ -370,5 +363,5 @@ Y'all remember bring your A-Frame.
 [codepen]: http://codepen.io/team/mozvr/pen/BjygdO?editors=100
 [react-scene]: http://github.com/ngokevin/aframe-react-boilerplate/tree/master/src/js/app.js
 [rendering]: http://www.realtimerendering.com/
-[write-components]: http://aframe.io/docs/core/component.html
+[write-components]: http://github.com/ngokevin/aframe-component-boilerplate
 [insider]: http://www.amazon.com/Virtual-Reality-Insider-Guidebook-Industry/dp/0990999920
