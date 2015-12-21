@@ -10,6 +10,25 @@ image:
   caption: Rough diagram of the A-Frame entity-component system.
 ---
 
+[awesome]: https://github.com/aframevr/awesome-aframe
+[X3Dom]: http://www.x3dom.org
+[GLAM]: http://tparisi.github.io/glam
+[Unity]: https://unity3d.com
+[NPM]: https://npmjs.com
+[Slack]: https://aframevr-slack.herokuapp.com/
+[geometry]: https://aframe.io/docs/components/geometry.html
+[material]: https://aframe.io/docs/components/material.html
+[light]: https://aframe.io/docs/components/light.html
+[sound]: https://aframe.io/docs/components/sound.html
+[lifecycle]: https://aframe.io/docs/core/component.html#Component_Definition_and_Lifecycle
+[component-text]: https://github.com/ngokevin/aframe-text-component
+[component-layout]: https://github.com/ngokevin/aframe-layout-component
+[component-explode]: https://github.com/dmarcos/a-invaders/blob/master/js/components/explode.js
+[component-spawner]: https://github.com/dmarcos/a-invaders/blob/master/js/components/spawner.js
+[component-extrude]: https://github.com/JosePedroDias/aframe-extrude-and-lathe
+[boilerplate]: https://github.com/ngokevin/aframe-component-boilerplate
+[ecs]: https://aframe.io/docs/core/
+
 Upon first seeing A-Frame, branded as "building blocks for the web" displaying
 markup like `<a-cube>`, developers may conceive A-Frame as yet another 3DML (3D
 markup language) such as [X3Dom][X3Dom] or [GLAM][GLAM]. What A-Frame brings to
@@ -99,22 +118,3 @@ into, the previous use of the word "limitless" was quite literal.
 
 With other 3DML libraries, if they ship 50 different kinds of objects, then you
 get only get 50 different kinds of objects with fixed behavior.
-
-[awesome]: https://github.com/aframevr/awesome-aframe
-[X3Dom]: http://www.x3dom.org
-[GLAM]: http://tparisi.github.io/glam
-[Unity]: https://unity3d.com
-[NPM]: https://npmjs.com
-[Slack]: https://aframevr-slack.herokuapp.com/
-[geometry]: https://aframe.io/docs/components/geometry.html
-[material]: https://aframe.io/docs/components/material.html
-[light]: https://aframe.io/docs/components/light.html
-[sound]: https://aframe.io/docs/components/sound.html
-[lifecycle]: https://aframe.io/docs/core/component.html#Component_Definition_and_Lifecycle
-[component-text]: https://github.com/ngokevin/aframe-text-component
-[component-layout]: https://github.com/ngokevin/aframe-layout-component
-[component-explode]: https://github.com/dmarcos/a-invaders/blob/master/js/components/explode.js
-[component-spawner]: https://github.com/dmarcos/a-invaders/blob/master/js/components/spawner.js
-[component-extrude]: https://github.com/JosePedroDias/aframe-extrude-and-lathe
-[boilerplate]: https://github.com/ngokevin/aframe-component-boilerplate
-[ecs]: https://aframe.io/docs/core/
