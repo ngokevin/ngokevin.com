@@ -22,6 +22,8 @@ And A-Frame VR is extremely mindful of how to start a developer ecosystem.
 There are [tools, tutorials, guides, boilerplates, libraries][awesome] being
 built and knowledge being readily shared on [Slack][Slack].
 
+---
+
 ## Entity-Component System
 
 The [entity-component system][ecs] is a pattern in which every entity, or object, in a
