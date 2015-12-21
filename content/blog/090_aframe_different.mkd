@@ -10,13 +10,12 @@ image:
   caption: Rough diagram of the A-Frame entity-component system.
 ---
 
-Upon first seeing A-Frame, branded as "building blocks" with markup as
-`<a-cube>`, developers may think A-Frame is yet another 3DML (3D markup
-language) like [X3Dom][X3Dom] or [GLAM][GLAM]. What A-Frame brings to the game
-is that it is based off an [entity-component
-system][ecs], a pattern used
-by universal game engines like [Unity][Unity] which favors composability over
-inheritance.  As we'll see, this makes A-Frame extremely extendable.
+Upon first seeing A-Frame, branded as "building blocks for the web" displaying
+markup like `<a-cube>`, developers may conceive A-Frame as yet another 3DML (3D
+markup language) such as [X3Dom][X3Dom] or [GLAM][GLAM]. What A-Frame brings to
+the game is that it is based off an [entity-component system][ecs], a pattern
+used by universal game engines like [Unity][Unity] which favors composability
+over inheritance. As we'll see, this makes A-Frame extremely extendable.
 
 And A-Frame VR is extremely mindful of how to start a developer ecosystem.
 There are [tools, tutorials, guides, boilerplates, libraries][awesome] being
