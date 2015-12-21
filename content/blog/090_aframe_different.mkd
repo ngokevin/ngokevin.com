@@ -44,10 +44,11 @@ built and knowledge being readily shared on [Slack][Slack].
 
 ## Entity-Component System
 
-The [entity-component system][ecs] is a pattern in which every entity, or object, in a
-scene are general placeholders with a position. Then components are used to add
-appearance, behavior, and functionality. Components can be defined to just
-about do *anything*, and anyone can easily develop and share their components. To
+The [entity-component system][ecs] is a pattern in which every entity, or
+object, in a scene are general placeholders. Then components are used to add
+appearance, behavior, and functionality. They're bags of logic and data that
+can be applied to any entity, and they can be defined to just about do
+*anything*, and anyone can easily develop and share their components.  To
 imagine this visually, let's revisit this image:
 
 ![](http://i.imgur.com/kFLzzPC.png)
