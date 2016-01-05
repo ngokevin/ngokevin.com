@@ -228,18 +228,17 @@ the 360 image on their smartphone. They'd be able to move and rotate the phone
 to look around the image, and even use something like a [Google
 Cardboard][cardboard] holder.
 
-```html
-<html>
-  <head>
-    <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-sky src="360-image.jpg"></a-sky>
-    </a-scene>
-  </body>
-</html>
-```
+    ::html
+    <html>
+      <head>
+        <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+      </head>
+      <body>
+        <a-scene>
+          <a-sky src="360-image.jpg"></a-sky>
+        </a-scene>
+      </body>
+    </html>
 
 [Try it with one of my sample shots](http://ngokevin.com/~ngoke/360.html) in a
 small Japanese toy store in Mong Kok.
