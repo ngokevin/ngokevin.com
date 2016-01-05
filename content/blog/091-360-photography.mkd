@@ -29,7 +29,7 @@ world, here is what I learned about 360-degree shooting workflow and composition
 
 ---
 
-### About the Ricoh Theta S
+## About the Ricoh Theta S
 
 The Ricoh Theta S is the successor to the Ricoh Theta, featuring improvements
 across the board just crossing the line of producing usable images. Quick rundown of the
@@ -44,11 +44,11 @@ technical specs:
 It retails at $350. Given the specs, it is an expensive toy for enthusiasts and
 early adopters
 
-### Shooting Workflow
+## Shooting Workflow
 
 Here's what I learned about shooting the camera itself, the physical aspects.
 
-#### Remote Shutter is Mandatory
+### Remote Shutter is Mandatory
 
 If you handhold the camera, your hand will be very prominent on the lower half
 of the 360-degree image. The shutter button is situated underneath the lens,
@@ -61,7 +61,7 @@ connect to the camera via Wi-Fi (the password is on the bottom of the camera),
 and launch the app. You can get a (choppy) live view of the image from the app
 as well.
 
-#### Tripod is Mandatory
+### Tripod is Mandatory
 
 We can shooting remotely, but we need a tripod to hold the camera without
 filling up the shot. The Theta *can* stand up by itself, but placing it
@@ -80,7 +80,7 @@ For a tripod purely for walkaround street photography, I'd also consider
 the [Pedco Ultrapod II][tripod2], to be very discreet. Although it is less
 versatile than having a tripod that can go to full height.
 
-#### Exposure Settings
+### Exposure Settings
 
 The Theta has auto, shutter priority, ISO priority, and manual modes.
 The aperture is fixed at f2. I switch between shutter speed and ISO priority
@@ -96,7 +96,7 @@ Shooting shutter speed priority has bitten me. During the day, I tried to set
 what the minimum shutter speed is so using ISO priority at a low setting
 ensures getting that minimum shutter speed.
 
-#### Review Images Often
+### Review Images Often
 
 There is less instant feedback when shooting with the Theta since there is no
 LCD on the camera. Images must be transferred over Wi-Fi which can take several seconds.
@@ -108,7 +108,7 @@ exposure settings are correct. Especially when learning to use the camera, it
 also helps to check if the composition looks good. It can be surprising with
 the wide-angle lens how much it stretches perspective.
 
-#### Handling
+### Handling
 
 I found some tips on handling the Theta you will want to know about:
 
@@ -127,7 +127,7 @@ to be useful anyways.
 - Don't seriously use the video function. 30FPS at less-than-HD quality is
 pretty useless for consumption.
 
-#### Shooting Alongside a Regular Camera
+### Shooting Alongside a Regular Camera
 
 If you're out on a shoot, you will probably still want to pack your regular
 camera alongside the Theta. It will be difficult to wield your regular camera
@@ -145,11 +145,11 @@ quick-release plates, you can switch on the tripod between the Theta and
 regular camera rapidly without having to spend time screwing around (pun
 intended). I got a quick-release tripod ball head in Mong Kok for $40!
 
-### Composition
+## Composition
 
 Here's what I learned about shooting 360-degree photography overall, the mental aspects.
 
-#### What You See is What You Get
+### What You See is What You Get
 
 Traditionally with wide-angle lenses, the perspective is dramatically
 stretched. The foreground will appear very close, and the background will
@@ -161,7 +161,7 @@ sphere rather than displayed on a 2D plane, the perspective will appear like
 what you see with your own eyes in real life. Thus, what you see when you take
 a shot with the Theta is what you get.
 
-#### Height Level for Immersion
+### Height Level for Immersion
 
 Be mindful about how people will view your image. Mostly likely, they will
 either be standing up, or sitting down. For optimal immersion, the image would
@@ -173,7 +173,7 @@ Thus for general shots, take at head level for those standing up, or shoulder
 level for those sitting down. The height difference between the two shouldn't
 be terribly different.
 
-#### Sweet Spot
+### Sweet Spot
 
 The Theta has a sweet spot of five feet or less. Farther subjects and the
 background will have less resolution, giving a reason to bring subjects closer.
@@ -198,7 +198,7 @@ itself better to shooting in tighter scenes. I shot the Theta inside a small
 wooden model of an ancient Chinese building, and the image seemed like it was
 taken in a full-sized house.
 
-#### Limit your Presence
+### Limit your Presence
 
 Try to get out of the shot as much as possible. Since it takes an image in
 every direction, it can be difficult to hide. The best option is to get out of
@@ -212,7 +212,7 @@ This helps that when people view the photo, they would have to view directly
 down to see you. And your face would not be visible, only the top of your head,
 which is much more discreet.
 
-#### Being Discreet
+### Being Discreet
 
 The Theta is so small, and with 360-degree photography being something most
 people have no idea about, it is extremely easy to take candid or street shots.
@@ -227,7 +227,7 @@ Well, it does emit an annoying shutter sound that I don't know how to turn off.
 But even then, people won't know what that little thing is yet. Not until it
 becomes more popular.
 
-### Sharing Images
+## Sharing Images
 
 In an upcoming post, I'll talk more about how to easily share Theta images
 using A-Frame VR. It'd be a few lines of HTML, and then most people can view
