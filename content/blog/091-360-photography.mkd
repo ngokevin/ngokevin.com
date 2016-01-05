@@ -6,7 +6,7 @@ slug: 360-photography
 tags: [shoot]
 
 image:
-  url:
+  url: http://i.imgur.com/t5QKpki.jpg
   caption: Shoot with Theta, remote shutter with smartphone, view later in Google Cardboard.
 ---
 
