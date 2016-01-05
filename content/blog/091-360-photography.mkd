@@ -1,5 +1,6 @@
 title: "360-degree Photography Guide (Ricoh Theta S)"
-type: blog category: blog
+type: blog
+category: blog
 date: 2015-01-03
 slug: 360-photography
 tags: [shoot]
