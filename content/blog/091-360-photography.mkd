@@ -178,6 +178,13 @@ be terribly different.
 The Theta has a sweet spot of five feet or less. Farther subjects and the
 background will have less resolution, giving a reason to bring subjects closer.
 
+#### Keep it Level
+
+Keep the camera as level as possible with the horizon. If it is not straight,
+when people view your photo, they may get sick from not being straight in the
+photo despite being straight in real life. It would be possible to straigthen
+it afterwards, but you save a lot of work getting it right out of the camera.
+
 #### Fill the Frame
 
 Note that it is 360-degree photography. Since you are capturing the whole
