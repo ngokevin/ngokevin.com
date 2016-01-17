@@ -90,7 +90,23 @@ component to the DOM element, or entity, and `object3D` is the entity's
 components will be using the three.js API.
 
 So we see that components consist of a name and a definition, and then they can
-be registered to A-Frame.
+be registered to A-Frame. We saw the the position component definition defined
+a `schema` and an `update` handler. Here is the complete list of properties and
+methods of a component definition:
+
+| Definition Property | Description |
+| ------------------  | ----------- |
+| schema              | Names, types, and default values of the component property value(s).
+| init                | Called once when the component is initialized.
+| update              | Called both when the component is initialized and whenever the component's data changes (e.g, via `setAttribute`).
+| remove              | Called when the component detaches from the element (e.g., via `removeAttribute`).
+| tick                | Called on each render loop or tick of the scene.
+| pause               | Called whenever the scene or entity pauses to remove any background or dynamic behavior.
+| play                | Called whenever the scene or entity plays to add any background or dynamic behavior.
+
+## Schema
+
+## Lifecycle Methods
 
 ## Boilerplate
 
@@ -99,3 +115,9 @@ even hardcore tool junkies. The boilerplate contains a lot of tribal inside
 knowledge about A-Frame and is updated frequently to reflect new things landing
 on A-Frame. The boilerplate handles creating a stubbed component, build steps for both
 NPM and browser distribution files, and publishing to Github Pages.
+
+## Example: Layout Component
+
+## Example: Text Component
+
+## Example: Physics Component
