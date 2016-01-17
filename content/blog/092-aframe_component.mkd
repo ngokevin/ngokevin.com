@@ -1,0 +1,101 @@
+title: "How to Write an A-Frame VR Component"
+type: blog
+category: blog
+date: 2016-01-17
+slug: aframe-component
+tags: [code]
+
+image:
+  url:
+  caption:
+---
+
+[boilerplate]: https://github.com/ngokevin/aframe-component-boilerplate
+[changelog]: https://github.com/aframevr/aframe/blob/dev/CHANGELOG.md#dev
+[collide]: https://github.com/dmarcos/a-invaders/tree/master/js/components)
+[docs]: https://aframe.io/docs/core/
+[follow]: https://jsbin.com/dasefeh/edit?html,output
+[geometry]: https://aframe.io/docs/components/geometry.html
+[light]: https://aframe.io/docs/components/light.html
+[physics]: https://github.com/ngokevin/aframe-physics-components
+[position]: https://aframe.io/docs/components/position.html
+[three]: http://threejs.org/
+
+[A-Frame](/blog/aframe) is a WebVR framework that introduces the
+[entity-component system](/blog/aframe-vs-3dml) ([docs](docs)) to the DOM. The
+entity-component system treats every **entity** in the scene as a placeholder
+object which we apply and mix **components** to in order to add appearance,
+behavior, and functionality. A-Frame comes with some standard components out of
+the box like camera, geometry, material, light, or sound. However, people can
+write, publish, and register their own components to do **whatever** they want
+like have entities [collide/explode/spawn][collide] be controlled by
+[physics][physics], or [follow a path][follow]. Today, we'll be going through
+how we can write our own A-Frame components.
+
+> Note that this tutorial will be covering the upcoming release of [A-Frame
+0.2.0][changelog] which vastly improves the component API.
+
+---
+
+## What a Component Looks Like
+
+A component is a bucket of data in the form of properties. Let's first see what
+a component looks like from the DOM.
+
+For example, the [light component][light] has properties such as type, color,
+and intensity. In A-Frame, we register and configure a component to an entity
+using an HTML attribute and a style-like syntax:
+
+    ::html
+    <a-entity light="type: point; color: crimson; intensity: 2.5"></a-entity>
+
+This would give us a light in the scene. To demonstrate composability, we could
+give the light a spherical representation by mixing in the [geometry
+component][geometry].
+
+    ::html
+    <a-entity geometry="primitive: sphere; radius: 5"
+              light="type: point; color: crimson; intensity: 2.5"></a-entity>
+
+Or we can configure the position component to move the light sphere a bit to the right.
+
+    ::html
+    <a-entity geometry="primitive: sphere; radius: 5"
+              light="type: point; color: crimson; intensity: 2.5"
+              position="5 0 0"></a-entity>
+
+## What a Component Looks Like, Under the Hood
+
+Now let's see what a component looks like **under the hood**. A-Frame's most
+basic component is the [position component][position]:
+
+    ::js
+    AFRAME.registerComponent('position', {
+      schema: { type: 'vec3' },
+
+      update: function () {
+        var object3D = this.el.object3D;
+        var data = this.data;
+        object3D.position.set(data.x, data.y, data.z);
+      }
+    });
+
+The position component uses only a tiny subset of the component API, but what
+this does is register the component with the name "position", define a `schema`
+where the component's value with be parsed to an `{x, y, z}` object, and when
+the component initializes or the component's data updates, set the position of
+the entity with the `update` callback. `this.el` is a reference from the
+component to the DOM element, or entity, and `object3D` is the entity's
+[three.js][three]. Note that A-Frame is built on top of three.js so many
+components will be using the three.js API.
+
+So we see that components consist of a name and a definition, and then they can
+be registered to A-Frame.
+
+## Boilerplate
+
+I suggest that people start off with my [component boilerplate][boilerplate],
+even hardcore tool junkies. The boilerplate contains a lot of tribal inside
+knowledge about A-Frame and is updated frequently to reflect new things landing
+on A-Frame. The boilerplate handles creating a stubbed component, build steps for both
+NPM and browser distribution files, and publishing to Github Pages.
