@@ -19,7 +19,9 @@ image:
 [light]: https://aframe.io/docs/components/light.html
 [physics]: https://github.com/ngokevin/aframe-physics-components
 [position]: https://aframe.io/docs/components/position.html
+[rotation]: https://aframe.io/docs/components/rotation.html
 [three]: http://threejs.org/
+[visible]: https://aframe.io/docs/components/visible.html
 
 [A-Frame](/blog/aframe) is a WebVR framework that introduces the
 [entity-component system](/blog/aframe-vs-3dml) ([docs](docs)) to the DOM. The
@@ -91,8 +93,11 @@ components will be using the three.js API.
 
 So we see that components consist of a name and a definition, and then they can
 be registered to A-Frame. We saw the the position component definition defined
-a `schema` and an `update` handler. Here is the complete list of properties and
-methods of a component definition:
+a `schema` and an `update` handler. Components simply consist of the `schema`,
+which defines the shape of the data, and several handlers for the component to
+modify the entity in reaction to different types of events.
+
+Here is the complete list of properties and methods of a component definition:
 
 | Definition Property | Description |
 | ------------------  | ----------- |
@@ -105,6 +110,76 @@ methods of a component definition:
 | play                | Called whenever the scene or entity plays to add any background or dynamic behavior.
 
 ## Schema
+
+The component's schema defines what type of data it takes. A component can
+either be single-property or consist of multiple properties. And properties
+have *property types*. Note that single-property schemas and property types are
+being released in A-Frame `v0.2.0`.
+
+A property might look like:
+
+    ::js
+    { type: 'int', default: 5 }
+
+And a schema consisting of multiple properties might look like:
+
+    ::js
+    {
+      color: { default: '#FFF' },
+      target: { type: 'selector' },
+      uv: {
+        default: '1 1',
+        parse: function (value) {
+          return value.split(' ').map(parseFloat);
+        }
+      },
+    }
+
+### Property Types
+
+A-Frame comes with several built-in property types such as `boolean`, `int`,
+`number`, `selector`, `string`, or `vec3`. Every single property is assigned a
+type, whether explicitly through the `type` key or implictly via inferring the
+value. And each type is used to assign `parse` and `stringify` functions. The
+parser deserializes the incoming string value from the DOM to be put into the
+component's data object. The stringifier is used when using `setAttribute` to
+serialize back to the DOM.
+
+We can actually define and register our own property types:
+
+    ::js
+    AFRAME.registerPropertyType('radians', {
+      parse: function () {
+
+      }
+
+      // Default stringify is .toString().
+    });
+
+### Single-Property Schemas
+
+If a component has only one property, then it must either have a `type` or a
+`default` value. If the type is defined, then the type is used to parse and
+coerce the string retrieved from the DOM (e.g., `getAttribute`). Or if the
+default value is defined, the default value is used to infer the type.
+
+Take for instance the [visible component][visible]. The schema implicitly
+defines it as a boolean:
+
+    ::js
+    AFRAME.registerComponent('visible', {
+      schema: {
+        default: true
+      },
+
+      // ...
+    });
+
+Or the [rotation component][rotation] which explicitly defines the value as a `vec3`:
+
+    ::js
+    AFRAME.registerComponent('visibjk
+
 
 ## Lifecycle Methods
 
