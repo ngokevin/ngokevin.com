@@ -17,6 +17,8 @@ image:
 [follow]: https://jsbin.com/dasefeh/edit?html,output
 [geometry]: https://aframe.io/docs/components/geometry.html
 [light]: https://aframe.io/docs/components/light.html
+[look-at]: https://aframe.io/docs/components/look-at.html
+[look-controls]: https://aframe.io/docs/components/look-controls.html
 [physics]: https://github.com/ngokevin/aframe-physics-components
 [position]: https://aframe.io/docs/components/position.html
 [rotation]: https://aframe.io/docs/components/rotation.html
@@ -97,17 +99,22 @@ a `schema` and an `update` handler. Components simply consist of the `schema`,
 which defines the shape of the data, and several handlers for the component to
 modify the entity in reaction to different types of events.
 
-Here is the complete list of properties and methods of a component definition:
+Here is the current list of properties and methods of a component definition:
 
-| Definition Property | Description |
-| ------------------  | ----------- |
-| schema              | Names, types, and default values of the component property value(s).
-| init                | Called once when the component is initialized.
-| update              | Called both when the component is initialized and whenever the component's data changes (e.g, via `setAttribute`).
-| remove              | Called when the component detaches from the element (e.g., via `removeAttribute`).
-| tick                | Called on each render loop or tick of the scene.
-| pause               | Called whenever the scene or entity pauses to remove any background or dynamic behavior.
-| play                | Called whenever the scene or entity plays to add any background or dynamic behavior.
+| Property | Description |
+| -------- | ----------- |
+| data     | Data of the component derived from the schema default values, mixins, and the entity's attributes.
+| el       | Reference to the [entity](https://aframe.io/docs/core/entity.html) element.
+| schema   | Names, types, and default values of the component property value(s).
+
+| Method  | Description |
+| --------| ----------- |
+| init    | Called once when the component is initialized.
+| update  | Called both when the component is initialized and whenever the component's data changes (e.g, via `setAttribute`).
+| remove  | Called when the component detaches from the element (e.g., via `removeAttribute`).
+| tick    | Called on each render loop or tick of the scene.
+| pause   | Called whenever the scene or entity pauses to remove any background or dynamic behavior.
+| play    | Called whenever the scene or entity plays to add any background or dynamic behavior.
 
 ## Defining the Schema
 
@@ -237,13 +244,115 @@ throughout the component or to set up state. Though not every component will
 need to define an `init` handler. Sort of like the component-equivalent method
 to `createdCallback` or `React.ComponentDidMount`.
 
-### Do the Magic in Component.update()
+For example, the `look-at` component's `init` handler sets up some variables:
+
+    ::js
+    init: function () {
+      this.target3D = null;
+      this.vector = new THREE.Vector3();
+    },
+
+    // ...
+
+### Do the Magic in Component.update(oldData)
+
+The `update` handler is called both at the beginning of the component's
+lifecycle with the initial `this.data` *and* every time the component's data
+changes (generally during the entity's `attributeChangedCallback` like with a
+`setAttribute`). The update handler gets access to the previous state of the
+component data passed in through `oldData`. The previous state of the component
+can be used to tell exactly which properties changed to do more granular
+updates.
+
+The update handler uses `this.data` to modify the entity, usually interacting
+with three.js APIs. One of the simplest update handlers is the
+[visible][visible] component's:
+
+    ::js
+    update: function () {
+      this.el.object3D.visible = this.data;
+    }
+
+A slightly more complex update handler might be the [light][light] component's,
+which we'll show via abbreviated code:
+
+    ::js
+    update: function (oldData) {
+      var diffData = diff(data, oldData || {});
+
+      if (this.light && !('type' in diffData)) {
+        // If there is an existing light and the type hasn't changed, update light.
+        Object.keys(diffData).forEach(function (property) {
+          light[property] = diffData[property];
+        });
+      } else {
+        // No light exists yet or the type of light has changed, create a new light.
+        this.light = this.getLight(this.data));
+
+        // Register the object3D of type `light` to the entity.
+        this.el.setObject3D('light', this.light);
+      }
+    }
+
+The entity's `object3D` is a plain THREE.Object3D. Other three.js object types
+such as meshes, lights, and cameras can be set with `setObject3D` where they
+will be appeneded to the entity's `object3D`.
 
 ### Teardown in Component.remove()
 
-### Background Behavior in Component.tick()
+The `remove` handler is called when the component detaches from the entity such
+as with `removeAttribute`. This is generally used to remove all modifications,
+listeners, and behaviors to the entity that the component added.
+
+For example, when the [light component][light] detaches, it removes the light
+it previously attached from the entity and thus the scene:
+
+    ::js
+    remove: function () {
+      this.el.removeObject3D('light');
+    }
+
+### Background Behavior in Component.tick(time)
+
+The `tick` handler is called on every single tick or render loop of the scene.
+So expect it to run on the order of 60-120 times for second. The global uptime of
+the scene in seconds is passed into the tick handler.
+
+For example, the [look-at][look-at] component, which instructs an entity to
+look at another target entity, uses the tick handler to update the rotation in
+case the target entity changes its position:
+
+    ::js
+    tick: function (t) {
+      // target3D and vector are set from the update handler.
+      if (this.target3D) {
+        this.el.object3D.lookAt(this.vector.setFromMatrixPosition(target3D.matrixWorld));
+      }
+    }
 
 ### Freeze and Melt in Component.pause() and Component.play()
+
+To support pause and play, just as with a video game or to toggle entities for
+performance, components can implement `play` and `pause` handlers. These are
+invoked when the component's entity runs its `play` or `pause` method. When an
+entity plays or pauses, all of its child entities are also played or paused.
+
+Components should implement play or pause handlers if they register any
+dynamic, asynchronous, or background behavior such as animations, event
+listeners, or tick handlers.
+
+For example, the `look-controls` component simply removes its event listeners
+such that the camera does not move when the scene is paused, and it adds its
+event listeners when the scene starts playing or is resumed:
+
+    ::js
+    pause: function () {
+      this.removeEventListeners()
+    },
+
+    play: function () {
+      this.addEventListeners()
+    }
 
 ## Boilerplate
 
