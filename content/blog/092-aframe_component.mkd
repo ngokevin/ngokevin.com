@@ -101,6 +101,10 @@ Or we can configure the position component to move the light sphere a bit to the
               light="type: point; color: crimson; intensity: 2.5"
               position="5 0 0"></a-entity>
 
+Given the style-like syntax and that it modifies the appearance and behavior of
+DOM nodes, component properties can be thought of as a rough analog to CSS. In
+the near future, I can imagine component property stylesheets.
+
 ### Under the Hood
 
 Now let's see what a component looks like **under the hood**. A-Frame's most
