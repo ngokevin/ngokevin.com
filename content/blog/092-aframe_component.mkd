@@ -61,7 +61,7 @@ how we can write our own A-Frame components.
 - [Boilerplate](#boilerplate)
 - [Examples](#examples)
     - [Text Component](#text-component)
-    - [Physics Component](#physics-component)
+    - [Physics Components](#physics-components)
     - [Layout Component](#layout-component)
 
 ## What a Component Looks Like
