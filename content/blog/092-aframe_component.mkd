@@ -66,7 +66,14 @@ how we can write our own A-Frame components.
 
 ## What a Component Looks Like
 
-A component is a bucket of data in the form of properties.
+A component contains a bucket of data in the form of component properties. This
+data is used to modify the entity. For example, we might have an *engine*
+component. Possible properties might be *horsepower* or *cylinders*.
+
+![](http://thevrjump.com/assets/img/articles/aframe-system/aframe-system.jpg)
+<div class="page-caption"><span>
+Abstract representation of a component by @rubenmueller of thevrjump.com.
+</span></div>
 
 ### From the DOM
 
