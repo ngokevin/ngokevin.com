@@ -8,8 +8,9 @@ image:
     where: top
 ---
 
-Hey, I'm Kevin, a web developer at Mozilla. I'm from Portland, currently
-working in San Francisco. I'm a [webapp builder](https://github.com/ngokevin),
-[amateur poker player](http://ngokevin/com/blog/tags/poker), and [hobby
-photographer](http://ngokevin.com/photography). On the side, I play tennis,
-basketball, and hike tall things.
+I am a web developer at Mozilla. I'm from Portland, currently working from San
+Francisco. I [code](https://github.com/ngokevin), [play
+poker](http://ngokevin/com/blog/tags/poker), and [take
+pictures](http://ngokevin.com/photography). Other active hobbies include
+basketball and hiking. Among inactive hobbies include tennis, piano, and
+longboarding.
