@@ -16,12 +16,14 @@ image:
 [docs]: https://aframe.io/docs/core/
 [follow]: https://jsbin.com/dasefeh/edit?html,output
 [geometry]: https://aframe.io/docs/components/geometry.html
+[layout]: https://github.com/ngokevin/aframe-layout-component
 [light]: https://aframe.io/docs/components/light.html
 [look-at]: https://aframe.io/docs/components/look-at.html
 [look-controls]: https://aframe.io/docs/components/look-controls.html
 [physics]: https://github.com/ngokevin/aframe-physics-components
 [position]: https://aframe.io/docs/components/position.html
 [rotation]: https://aframe.io/docs/components/rotation.html
+[text]: https://github.com/ngokevin/aframe-text-component
 [three]: http://threejs.org/
 [visible]: https://aframe.io/docs/components/visible.html
 
@@ -41,10 +43,34 @@ how we can write our own A-Frame components.
 > Note that this tutorial will be covering the upcoming release of [A-Frame
 0.2.0][changelog] which vastly improves the component API.
 
+## Table of Contents
+
+- [What a Component Looks Like](#what-a-component-looks-like)
+    - [From the DOM](#from-the-dom)
+    - [Under the Hood](#under-the-hood)
+- [Defining the Schema](#defining-the-schema)
+    - [Property Types](#property-types)
+    - [Single-Property Schemas](#single-property-schemas)
+    - [Multiple-Property Schemas](#multiple-property-schemas)
+- [Defining the Lifecycle Methods](#defining-the-lifecycle-methods)
+    - [Component.init() - Set Up](#component-init-set-up)
+    - [Component.update(oldData) - Do the Magic](#component-update-olddata-do-the-magic)
+    - [Component.remove() - Tear Down](#component-remove-tear-down)
+    - [Component.tick() - Background Behavior](#component-tick-time-background-behavior)
+    - [Component.pause() and Component.play() - Stop and Go](#component-pause-and-component-play-stop-and-go)
+- [Boilerplate](#boilerplate)
+- [Examples](#examples)
+    - [Text Component](#text-component)
+    - [Physics Component](#physics-component)
+    - [Layout Component](#layout-component)
+
 ## What a Component Looks Like
 
-A component is a bucket of data in the form of properties. Let's first see what
-a component looks like from the DOM.
+A component is a bucket of data in the form of properties.
+
+### From the DOM
+
+Let's first see what a component looks like from the DOM.
 
 For example, the [light component][light] has properties such as type, color,
 and intensity. In A-Frame, we register and configure a component to an entity
@@ -68,7 +94,7 @@ Or we can configure the position component to move the light sphere a bit to the
               light="type: point; color: crimson; intensity: 2.5"
               position="5 0 0"></a-entity>
 
-## What a Component Looks Like, Under the Hood
+### Under the Hood
 
 Now let's see what a component looks like **under the hood**. A-Frame's most
 basic component is the [position component][position]:
@@ -268,7 +294,7 @@ multiple-propery schema is an object.
 
 ## Defining the Lifecycle Methods
 
-### Set Up with Component.init()
+### Component.init() - Set Up
 
 `init` is called once in the component's lifecycle when it is mounted to the
 entity. `init` is generally used to set up variables or members that may used
@@ -286,7 +312,7 @@ For example, the `look-at` component's `init` handler sets up some variables:
 
     // ...
 
-### Do the Magic in Component.update(oldData)
+### Component.update(oldData) - Do the Magic
 
 The `update` handler is called both at the beginning of the component's
 lifecycle with the initial `this.data` *and* every time the component's data
@@ -330,7 +356,7 @@ The entity's `object3D` is a plain THREE.Object3D. Other three.js object types
 such as meshes, lights, and cameras can be set with `setObject3D` where they
 will be appeneded to the entity's `object3D`.
 
-### Teardown in Component.remove()
+### Component.remove() - Tear Down
 
 The `remove` handler is called when the component detaches from the entity such
 as with `removeAttribute`. This is generally used to remove all modifications,
@@ -344,7 +370,7 @@ it previously attached from the entity and thus the scene:
       this.el.removeObject3D('light');
     }
 
-### Background Behavior in Component.tick(time)
+### Component.tick(time) - Background Behavior
 
 The `tick` handler is called on every single tick or render loop of the scene.
 So expect it to run on the order of 60-120 times for second. The global uptime of
@@ -362,7 +388,7 @@ case the target entity changes its position:
       }
     }
 
-### Freeze and Melt in Component.pause() and Component.play()
+### Component.pause() and Component.play() - Stop and Go
 
 To support pause and play, just as with a video game or to toggle entities for
 performance, components can implement `play` and `pause` handlers. These are
@@ -389,13 +415,31 @@ event listeners when the scene starts playing or is resumed:
 ## Boilerplate
 
 I suggest that people start off with my [component boilerplate][boilerplate],
-even hardcore tool junkies. The boilerplate contains a lot of tribal inside
-knowledge about A-Frame and is updated frequently to reflect new things landing
-on A-Frame. The boilerplate handles creating a stubbed component, build steps for both
-NPM and browser distribution files, and publishing to Github Pages.
+even hardcore tool junkies. This will get you straight into building a
+component and comes with everything you will need to publish your component
+into the wild. The boilerplate handles creating a stubbed component, build
+steps for both NPM and browser distribution files, and publishing to Github
+Pages.
 
-## Example: Layout Component
+Generally with boilerplates, it is better to start from scratch and build your
+own boilerplate, but the A-Frame component boilerplate contains a lot of tribal
+inside knowledge about A-Frame and is updated frequently to reflect new things
+landing on A-Frame. The only possibly opinionated pieces about the boilerplate
+is the development tools it internally uses that are hidden away by NPM
+scripts.
 
-## Example: Text Component
+## Examples
 
-## Example: Physics Component
+Under construction. Stay tuned!
+
+### Text Component
+
+[Text component][text]
+
+### Physics Components
+
+[Physics components][physics]
+
+### Layout Component
+
+[Layout component][layout]
