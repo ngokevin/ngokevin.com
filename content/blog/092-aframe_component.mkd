@@ -6,8 +6,8 @@ slug: aframe-component
 tags: [code]
 
 image:
-  url:
-  caption:
+  url: http://thevrjump.com/assets/img/articles/aframe-system/aframe-example.jpg
+  caption: Abstract representation of components by @rubenmueller of thevrjump.com.
 ---
 
 [boilerplate]: https://github.com/ngokevin/aframe-component-boilerplate
@@ -36,10 +36,10 @@ like have entities [collide/explode/spawn][collide] be controlled by
 [physics][physics], or [follow a path][follow]. Today, we'll be going through
 how we can write our own A-Frame components.
 
+---
+
 > Note that this tutorial will be covering the upcoming release of [A-Frame
 0.2.0][changelog] which vastly improves the component API.
-
----
 
 ## What a Component Looks Like
 
@@ -101,20 +101,52 @@ modify the entity in reaction to different types of events.
 
 Here is the current list of properties and methods of a component definition:
 
-| Property | Description |
-| -------- | ----------- |
-| data     | Data of the component derived from the schema default values, mixins, and the entity's attributes.
-| el       | Reference to the [entity](https://aframe.io/docs/core/entity.html) element.
-| schema   | Names, types, and default values of the component property value(s).
+<table class="pure-table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>Data of the component derived from the schema default values, mixins, and the entity's attributes.</td>
+  </tr>
+  <tr>
+    <td>el</td>
+    <td>Reference to the <a href="https://aframe.io/docs/core/entity.html">entity</a> element.</td>
+  </tr>
+  <tr>
+    <td>schema</td>
+    <td>Names, types, and default values of the component property value(s)</td>
+  </tr>
+</table>
 
-| Method  | Description |
-| --------| ----------- |
-| init    | Called once when the component is initialized.
-| update  | Called both when the component is initialized and whenever the component's data changes (e.g, via `setAttribute`).
-| remove  | Called when the component detaches from the element (e.g., via `removeAttribute`).
-| tick    | Called on each render loop or tick of the scene.
-| pause   | Called whenever the scene or entity pauses to remove any background or dynamic behavior.
-| play    | Called whenever the scene or entity plays to add any background or dynamic behavior.
+<table class="pure-table-striped">
+  <tr><th>Method</th><th>Description</th></tr>
+  <tr>
+    <td>init</td>
+    <td>Called once when the component is initialized.</td>
+  </tr>
+  <tr>
+    <td>update</td>
+    <td>Called both when the component is initialized and whenever the component's data changes (e.g, via <i>setAttribute</i>).</td>
+  </tr>
+  <tr>
+    <td>remove</td>
+    <td>Called when the component detaches from the element (e.g., via <i>removeAttribute</i>).</td>
+  </tr>
+  <tr>
+    <td>tick</td>
+    <td>Called on each render loop or tick of the scene.</td>
+  </tr>
+  <tr>
+    <td>play</td>
+    <td>Called whenever the scene or entity plays to add any background or dynamic behavior.</td>
+  </tr>
+  <tr>
+    <td>pause</td>
+    <td>Called whenever the scene or entity pauses to remove any background or dynamic behavior.</td>
+  </tr>
+</table>
 
 ## Defining the Schema
 

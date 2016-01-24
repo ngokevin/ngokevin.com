@@ -100,3 +100,15 @@ iframe {
     width: 98%;
     height: 500px;
 }
+
+.page table {
+  margin: 10px 0;
+  padding: 10px;
+
+  td {
+    padding: 0 5px;
+  }
+  th {
+    white-space: nowrap;
+  }
+}
