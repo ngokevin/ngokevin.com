@@ -86,6 +86,14 @@ ul {
     li {
         list-style: square;
     }
+
+    ul {
+      margin-top: 0;
+
+      li {
+          list-style: disc;
+      }
+    }
 }
 
 .blog h1 {
@@ -102,13 +110,23 @@ iframe {
 }
 
 .page table {
-  margin: 10px 0;
-  padding: 10px;
+  font-size: 18px;
 
   td {
-    padding: 0 5px;
+    padding: 0 10px;
   }
   th {
+    border-bottom: 1px solid $light-gray;
+    text-align: left;
+    padding: 5px 10px;
     white-space: nowrap;
   }
+}
+
+.page p + table {
+  margin-top: -10px;
+}
+
+.page table + table {
+  margin-top: 20px;
 }
