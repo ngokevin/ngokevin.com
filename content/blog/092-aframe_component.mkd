@@ -12,7 +12,7 @@ image:
 
 [boilerplate]: https://github.com/ngokevin/aframe-component-boilerplate
 [changelog]: https://github.com/aframevr/aframe/blob/dev/CHANGELOG.md#dev
-[collide]: https://github.com/dmarcos/a-invaders/tree/master/js/components)
+[collide]: https://github.com/dmarcos/a-invaders/tree/master/js/components
 [docs]: https://aframe.io/docs/core/
 [follow]: https://jsbin.com/dasefeh/edit?html,output
 [geometry]: https://aframe.io/docs/components/geometry.html
@@ -34,7 +34,7 @@ object which we apply and mix **components** to in order to add appearance,
 behavior, and functionality. A-Frame comes with some standard components out of
 the box like camera, geometry, material, light, or sound. However, people can
 write, publish, and register their own components to do **whatever** they want
-like have entities [collide/explode/spawn][collide] be controlled by
+like have entities [collide/explode/spawn][collide], be controlled by
 [physics][physics], or [follow a path][follow]. Today, we'll be going through
 how we can write our own A-Frame components.
 
