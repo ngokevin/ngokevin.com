@@ -229,6 +229,8 @@ becomes more popular.
 
 ## Sharing Images
 
+> You can now try out my project [threeschwifty](https://ngokevin.github.io/threeschwifty) to view and share your 360-degree images online!
+
 In an upcoming post, I'll talk more about how to easily share Theta images
 using A-Frame VR. It'd be a few lines of HTML, and then most people can view
 the 360 image on their smartphone. They'd be able to move and rotate the phone
