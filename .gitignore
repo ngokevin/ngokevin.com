@@ -13,5 +13,4 @@ _output
 
 build/
 node_modules/
-*.css
 venv
