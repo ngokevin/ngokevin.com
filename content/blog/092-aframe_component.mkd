@@ -138,52 +138,20 @@ modify the entity in reaction to different types of events.
 
 Here is the current list of properties and methods of a component definition:
 
-<table class="pure-table-striped">
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>Data of the component derived from the schema default values, mixins, and the entity's attributes.</td>
-  </tr>
-  <tr>
-    <td>el</td>
-    <td>Reference to the <a href="https://aframe.io/docs/core/entity.html">entity</a> element.</td>
-  </tr>
-  <tr>
-    <td>schema</td>
-    <td>Names, types, and default values of the component property value(s)</td>
-  </tr>
-</table>
+| Property | Description |
+| -------- | ----------- |
+| data     | Data of the component derived from the schema default values, mixins, and the entity's attributes. |
+| el       | Reference to the [entity](https://aframe.io/docs/core/entity.html) element. |
+| schema   | Names, types, and default values of the component property value(s). |
 
-<table class="pure-table-striped">
-  <tr><th>Method</th><th>Description</th></tr>
-  <tr>
-    <td>init</td>
-    <td>Called once when the component is initialized.</td>
-  </tr>
-  <tr>
-    <td>update</td>
-    <td>Called both when the component is initialized and whenever the component's data changes (e.g, via <i>setAttribute</i>).</td>
-  </tr>
-  <tr>
-    <td>remove</td>
-    <td>Called when the component detaches from the element (e.g., via <i>removeAttribute</i>).</td>
-  </tr>
-  <tr>
-    <td>tick</td>
-    <td>Called on each render loop or tick of the scene.</td>
-  </tr>
-  <tr>
-    <td>play</td>
-    <td>Called whenever the scene or entity plays to add any background or dynamic behavior.</td>
-  </tr>
-  <tr>
-    <td>pause</td>
-    <td>Called whenever the scene or entity pauses to remove any background or dynamic behavior.</td>
-  </tr>
-</table>
+| Method | Description |
+| ------ | ----------- |
+| init   | Called once when the component is initialized. |
+| update | Called both when the component is initialized and whenever the component's data changes (e.g, via *setAttribute*). |
+| remove | Called when the component detaches from the element (e.g., via *removeAttribute*). |
+| tick   | Called on each render loop or tick of the scene. |
+| play   | Called whenever the scene or entity plays to add any background or dynamic behavior. |
+| pause  | Called whenever the scene or entity pauses to remove any background or dynamic behavior. |
 
 ## Defining the Schema
 
@@ -323,6 +291,17 @@ For example, the `look-at` component's `init` handler sets up some variables:
 
     // ...
 
+Example uses of `init` by some of the standard A-Frame components:
+
+| Component     | Usage |
+| ---------     | ----- |
+| camera        | Create and set a THREE.PerspectiveCamera on the entity. |
+| cursor        | Attach event listeners. |
+| light         | Register light to the lighting system. |
+| look-at       | Create a helper vector. |
+| material      | Set up variables, mainly to visualize the state of the component. |
+| wasd-controls | Set up an object to keep track of pressed keys. Bind methods. |
+
 ### Component.update(oldData) - Do the Magic
 
 The `update` handler is called both at the beginning of the component's
@@ -367,6 +346,15 @@ The entity's `object3D` is a plain THREE.Object3D. Other three.js object types
 such as meshes, lights, and cameras can be set with `setObject3D` where they
 will be appeneded to the entity's `object3D`.
 
+Example uses of `update` by some of the standard A-Frame components:
+
+| Component     | Usage |
+| ---------     | ----- |
+| camera        | Set THREE.PerspectiveCamera object properties such as aspect ratio, fov, or near/far clipping planes. |
+| look-at       | Set or update target entity to track the position of.
+| material      | If component is just attaching, create a material. If shader has not changed, update material. If shader has changed, replace the material.
+| wasd-controls | Update the position based on the current velocity. Update the velocity based on the keys pressed.
+
 ### Component.remove() - Tear Down
 
 The `remove` handler is called when the component detaches from the entity such
@@ -380,6 +368,15 @@ it previously attached from the entity and thus the scene:
     remove: function () {
       this.el.removeObject3D('light');
     }
+
+Example uses of `remove` by some of the standard A-Frame components:
+
+| Component     | Usage |
+| ---------     | ----- |
+| camera        | Remove the THREE.PerspectiveCamera from the entity. |
+| geometry      | Set a plain THREE.Geometry on the mesh. |
+| material      | Set a default THREE.MeshBasicMaterial on the mesh and unregister material from the system. |
+| wasd-controls | Remove keydown and keyup listeners. |
 
 ### Component.tick(time) - Background Behavior
 
@@ -398,6 +395,14 @@ case the target entity changes its position:
         this.el.object3D.lookAt(this.vector.setFromMatrixPosition(target3D.matrixWorld));
       }
     }
+
+Example uses of `tick` by some of the standard A-Frame components:
+
+| Component     | Usage |
+| ---------     | ----- |
+| look-at       | Update rotation of entity to face towards tracked target, in case the target is moving.
+| physics       | Update the physics world simulation.
+| wasd-controls | Use current velocity to move the entity (generally the camera), update velocity if keys are pressed.
 
 ### Component.pause() and Component.play() - Stop and Go
 
@@ -422,6 +427,13 @@ event listeners when the scene starts playing or is resumed:
     play: function () {
       this.addEventListeners()
     }
+
+Example uses of `pause` and `play` by some of the standard A-Frame components:
+
+| Component     | Usage |
+| ---------     | ----- |
+| sound         | Pause/play sound.
+| wasd-controls | Remove/attach event listeners.
 
 ## Boilerplate
 
