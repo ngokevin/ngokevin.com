@@ -453,16 +453,76 @@ scripts.
 
 ## Examples
 
+### Line Component
+
+Let's go through building a basic complete component, a *line* component. This
+line component will simply render a line. We will make it the component
+flexible to be able to specify the vertices and color.
+
+#### Line Component - Skeleton
+
+Here is a high-level view of the skeleton of the component, without the meat.
+For this component, we'll need the `schema`, as all components require, the
+`update` handler, and the `remove` handler. The rest of the lifecycle method
+handlers aren't necessary.
+
+    ::js
+    var coordinates = AFRAME.utils.coordinates;
+
+    AFRAME.registerComponent('line', {
+      // Allow line component to accept vertices and color.
+      schema: {},
+
+      // Create or update the line geometry.
+      update: {},
+
+      // Remove the line geometry.
+      remove: {}
+    });
+
+#### Line Component -Schema
+
+Since we have two properties we want to accept, `color` and `path`, we will
+need a multi-property schema. The `color` property will just be a simple string
+that will be fed to `THREE.Color` which does a lot of work for us. The `path`
+property will need a custom property type to parse an array of `vec3`s. That
+property type does not exist as a built-in type yet, but we can define an
+inline parse and stringifier.
+
+    ::js
+      // Allow line component to accept vertices and color.
+      schema: {
+        color: { default: '#333' },
+
+        path: {
+          default: [
+            { x: -0.5, y: 0, z: 0 },
+            { x: 0.5, y: 0, z: 0 }
+          ],
+
+          // Deserialize path in the form of comma-separated vec3s: `0 0 0, 1 1 1, 2 0 3`.
+          parse: function (value) {
+            return value.split(',').map(coordinates.parse);
+          },
+
+          // Serialize array of vec3s in case someone does
+          // setAttribute('line', 'path', [...]).
+          stringify: function (data) {
+            return data.map(coordinates.stringify).join(',');
+          }
+        }
+      },
+
+      //...
+
+The component API is entirely up to us. If we wanted the path to take a
+different syntax or abstract it further such that it maybe only accepts a
+starting point and a length and handle the math for the developer, that is our
+perogative to permissionlessly implement.
+
+The schema will handle the shape of the data so by the time it gets to the
+lifecycle handlers, it will be in a nice data structure.
+
+#### Line Component - Update Handler
+
 Under construction. Stay tuned!
-
-### Text Component
-
-[Text component][text]
-
-### Physics Components
-
-[Physics components][physics]
-
-### Layout Component
-
-[Layout component][layout]
