@@ -6,4 +6,4 @@ docutils>=0.8.1
 pillow
 requests
 
--e git+https://github.com/ngokevin/wok.git@0110d6873736ccbc9128ef0b11a0733e6c625f66#egg=wok
+-e git+https://github.com/ngokevin/wok.git@d42e940#egg=wok
