@@ -60,9 +60,11 @@ how we can write our own A-Frame components.
     - [Component.pause() and Component.play() - Stop and Go](#component-pause-and-component-play-stop-and-go)
 - [Boilerplate](#boilerplate)
 - [Examples](#examples)
-    - [Text Component](#text-component)
-    - [Physics Components](#physics-components)
-    - [Layout Component](#layout-component)
+    - [Line Component](#line-component)
+        - [Line Component - Skeleton](#line-component-skeleton)
+        - [Line Component - Schema](#line-component-schema)
+        - [Line Component - Update](#line-component-update)
+        - [Line Component - Usage](#line-component-usage)
 
 ## What a Component Looks Like
 
@@ -459,6 +461,8 @@ Let's go through building a basic complete component, a *line* component. This
 line component will simply render a line. We will make it the component
 flexible to be able to specify the vertices and color.
 
+> Play with this [example line component in Codepen](https://codepen.io/team/mozvr/pen/yeEQNG).
+
 #### Line Component - Skeleton
 
 Here is a high-level view of the skeleton of the component, without the meat.
@@ -523,6 +527,78 @@ perogative to permissionlessly implement.
 The schema will handle the shape of the data so by the time it gets to the
 lifecycle handlers, it will be in a nice data structure.
 
-#### Line Component - Update Handler
+#### Line Component - Update
 
-Under construction. Stay tuned!
+The `update` handler is called both on component attach and on the entity's
+`attributeChangedCallback`. In the update for the line component, we want to
+reate a line geometry if it doesn't exist yet, or update it if it does. We can
+create a line in `three.js` by combining a `THREE.LineBasicMaterial` and
+`THREE.Geometry` and manually pushing vertices.
+
+    ::js
+    update: function (oldData) {
+      // Set color with material.
+      var material = new THREE.LineBasicMaterial({
+        color: this.data.color
+      });
+
+      // Add vertices to geometry.
+      var geometry = new THREE.Geometry();
+      this.data.path.forEach(function (vec3) {
+        geometry.vertices.push(
+          new THREE.Vector3(vec3.x, vec3.y, vec3.z)
+        );
+      });
+
+      // Apply mesh.
+      this.el.setObject3D('mesh', new THREE.Line(geometry, material));
+    },
+
+    // ...
+
+For simplicity, we can just update the line by completely replacing it. In
+other components, we might want to more granularly update objects for
+performance.
+
+When we set the object with `setObject3D`, we specify the object type. In this
+case, it is a `mesh`, which is a geometry combined with a material. Other
+object types might be `light` or `camera`. `setObject3D` just puts the object
+into a map and appends the object under the entity's scene graph
+(`THREE.Group`).
+
+#### Line Component - Remove
+
+For removal, we can just use `removeObject3D`:
+
+    ::js
+    remove: function () {
+      this.el.removeObject3D('mesh');
+    }
+
+This will remove the object from the entity's scene graph.
+
+#### Line Component - Usage
+
+Then we with the line component written and registered, we can use it in HTML:
+
+    ::html
+    <a-scene>
+      <a-assets>
+        <a-mixin id="red" line="color: #E20049"></a-mixin>
+      </a-assets>
+
+      <a-entity id="happy-face" position="0 2 -10">
+        <a-entity mixin="red" line="path: -1 1 0, -1 0.5 0, -1 0 0"></a-entity>
+        <a-entity mixin="red" line="path: 1 1 0, 1 0.5 0, 1 0 0"></a-entity>
+        <a-entity mixin="red" line="path: -2 -1 0, 0 -2 0, 2 -1"></a-entity>
+      </a-entity>
+
+      <a-sky color="#FFEED0"></a-sky>
+    </a-scene>
+
+And voila!
+
+![](http://i.imgur.com/icggby2.jpg)
+<div class="page-caption"><span>
+  Happy face with the line component! Play with it on [Codepen](http://codepen.io/team/mozvr/pen/yeEQNG).
+</span></div>
