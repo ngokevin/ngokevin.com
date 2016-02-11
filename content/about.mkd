@@ -8,7 +8,7 @@ image:
     where: top
 ---
 
-Hey I'm Kevin, web developer at [mozvr](http://mozvr.com) on
+Hey I'm Kevin, virtual reality developer at Mozilla working on
 [A-Frame](https://aframe.io). I'm from Portland, OR and currently working from
 San Francisco. I love to [code](https://github.com/ngokevin), [play
 poker](http://ngokevin/com/blog/tags/poker), and [take
