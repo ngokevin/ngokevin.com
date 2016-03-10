@@ -84,7 +84,7 @@ example third-party components that I and other people have written:
 
 Small components can be as little as a few lines of code. Under the hood, they
 either do three.js object or JavaScript DOM manipulations. I will go into more
-detail how to write a component at a later data, but to get started building a
+detail how to write a component at a later date, but to get started building a
 sharable component, check out the [component boilerplate][boilerplate].
 
 ## Comparison with Other 3DMLs
