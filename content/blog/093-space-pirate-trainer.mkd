@@ -10,6 +10,12 @@ image:
   caption: Ready Player One
 ---
 
+[cs]: http://blog.counter-strike.net/
+[ggo]: http://swordartonline.wikia.com/wiki/Gun_Gale_Online
+[htc]: https://www.htcvive.com/us/
+[mozvr]: http://mozvr.com/
+[spt]: http://www.i-illusions.com/home/space-pirate-trainer/
+
 Just one more quarter. So close to beating that high score. Being at the local
 arcade, spaced out in front of a blipping machine with a display of flashing
 lights. That's the feeling I get when I play [Space Pirate Trainer][spt]. But in this
@@ -79,9 +85,3 @@ gamers' skill translate?
 Competitive gaming might soon look like [Gun Gale arc of Sword Art Online][ggo]
 or slashing up baddies in the Metaverse with a samurai sword; there is no
 longer a distinction between the player and the avatar, you are the player.
-
-[cs]: http://blog.counter-strike.net/
-[ggo]: http://swordartonline.wikia.com/wiki/Gun_Gale_Online
-[htc]: https://www.htcvive.com/us/
-[mozvr]: http://mozvr.com/
-[spt]: http://www.i-illusions.com/home/space-pirate-trainer/
