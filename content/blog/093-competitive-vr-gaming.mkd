@@ -38,6 +38,8 @@ dodge bullets in slow-motion.
 It's great exercise well. I might play for 20 minutes at a time, though it's
 hard to tell how much time passes. And my heart is racing at the end of it.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2CVkwBoRczM" frameborder="0" allowfullscreen></iframe>
+
 ## Leaderboard
 
 I've been sort of a beta tester for the last couple months, having had a Vive
@@ -47,6 +49,8 @@ creator of Fantastic Contraption, with an insane score of 85K. He's damn
 accurate.  For comparison, my current personal record is 20K, and it takes
 about 25K to get onto the top ten (at time of writing).  Though once this game
 releases, I suspect it's about to get a lot more competitive.
+
+![Current Leaderboard](https://pbs.twimg.com/media/CfL_zfHUMAAp6rI.jpg)
 
 ## Tactics
 
