@@ -2,7 +2,7 @@ title: "A Glimpse into Competitive VR Gaming"
 type: blog
 category: blog
 date: 2016-04-04
-slug: space-pirate-trainer
+slug: competitive-vr-gaming
 tags: [code]
 
 image:
