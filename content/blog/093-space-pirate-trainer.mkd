@@ -45,14 +45,13 @@ hard to tell how much time passes. And my heart is racing at the end of it.
 
 ## Leaderboard
 
-I've been sort of a beta tester for the last month, having had a Vive DK1 and a
-Vive Pre at the [Mozilla VR][mozvr] lab. Though I'm not alone. It recently updated to
-include a global leaderboard. At the top is Colin Northway, creator of
-Fantastic Contraption, with an insane score of 85K. He has a video up of his
-gameplay, he's damn accurate. For comparison, my current personal record is
-20K, and it takes about 25K to get onto the top ten (at time of writing).
-Though once this game releases, I suspect it's about to get a lot more
-competitive.
+I've been sort of a beta tester for the last couple months, having had a Vive
+DK1 and a Vive Pre at the [Mozilla VR][mozvr] lab. Though I'm not alone. It
+recently updated to include a global leaderboard. At the top is Colin Northway,
+creator of Fantastic Contraption, with an insane score of 85K. He's damn
+accurate.  For comparison, my current personal record is 20K, and it takes
+about 25K to get onto the top ten (at time of writing).  Though once this game
+releases, I suspect it's about to get a lot more competitive.
 
 ## Tactics
 
@@ -77,11 +76,12 @@ futuristic laser-firin' Dirty Harry.
 
 [Counter-Strike][cs] has been the king of competitive shooting games since forever.
 Though the core gameplay hasn't changed too much; the most notable changes are
-in looks. It's easy to image games like Space Pirate Trainer might take
+in looks. It's easy to imagine games like Space Pirate Trainer taking
 competitive gaming to another level. No longer does success rely on hand-eye
 coordination, but on overall fitness and dexterity. Will existing competitive
 gamers' skill translate?
 
-Competitive gaming might soon look like [Gun Gale arc of Sword Art Online][ggo]
-or slashing up baddies in the Metaverse with a samurai sword; there is no
-longer a distinction between the player and the avatar, you are the player.
+Competitive gaming might start to look like [Gun Gale arc of Sword Art
+Online][ggo] or slashing up baddies in the Metaverse with a samurai sword.
+There is no longer a distinction between the player and the avatar, you are the
+player.
