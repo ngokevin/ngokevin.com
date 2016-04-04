@@ -26,7 +26,7 @@ to take a bit more skill.
 
 [Space Pirate Trainer][spt] is a game by I-llusions for the [HTC Vive][htc]
 featuring full room-scale and hand-tracked controllers. You are standing on a
-docking bay in space. Waves of robots surround you. In each of your hands is a
+docking bay in space. Waves of droids surround you. In each of your hands is a
 gun. The guns can be toggled to different modes (single, burst, auto, laser,
 and tickle beam), and you can reach behind your back to switch to a shield.
 
@@ -34,11 +34,6 @@ No more twitching with a mouse and clicking like you would Counter-Strike. You
 hold the controllers just as you would with a gun, pull the trigger just as you
 would with a gun. And you strafe, not with WASD, but with your entire body to
 dodge bullets in slow-motion.
-
-The biggest tip I can give is to **use your ears**. Robots will surround you,
-and you can tell which robots are about to attack from the noises they make.
-Paying attention to the spatial audio will let you know when and where you will
-need to evade.
 
 It's great exercise well. I might play for 20 minutes at a time, though it's
 hard to tell how much time passes. And my heart is racing at the end of it.
@@ -55,8 +50,18 @@ releases, I suspect it's about to get a lot more competitive.
 
 ## Tactics
 
-Between coding sessions, I take a break to blow up hunks of metal. I went
-through several tactics:
+Between coding sessions, I take a break to blow up hunks of metal.
+
+The biggest tip I can give is to **use your ears**. Droids will surround you,
+and you can tell which droids are about to attack from the noises they make.
+Paying attention to the spatial audio will let you know when and where you will
+need to evade.
+
+It also helps to try to focus and clear one side of the map at a time to reduce
+the surround enemies have on you. Once you hear droids attacking you from the
+other side, then you turn your attention.
+
+Arsenal-wise, I went through several tactics:
 
 - Dual-wielding autos: easy to use, but take too long to kill.
 - Dual-wielding laser pistols, firing from the hip: spray-and-pray can be
@@ -68,7 +73,7 @@ a time, while using the shield to protect your blind side.
 
 I've gotten farthest with **gripping a single laser pistol**. No second gun, no
 shield. Focusing on two hands is a bit of a distraction for me. I'm starting
-to develop a good trigger finger. When you take out several robots in a row
+to develop a good trigger finger. When you take out several droids in a row
 without a single miss, especially during a dodge or weave, you feel like a
 futuristic laser-firin' Dirty Harry.
 
