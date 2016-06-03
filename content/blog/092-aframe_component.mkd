@@ -10,6 +10,8 @@ image:
   caption: Abstract representation of components by @rubenmueller of thevrjump.com.
 ---
 
+> **Note**: This article is now part of the A-Frame documentation. View the most [up-to-date version](https://aframe.io/docs/master/core/component.html).
+
 [boilerplate]: https://github.com/ngokevin/aframe-component-boilerplate
 [changelog]: https://github.com/aframevr/aframe/blob/dev/CHANGELOG.md#dev
 [collide]: https://github.com/dmarcos/a-invaders/tree/master/js/components
