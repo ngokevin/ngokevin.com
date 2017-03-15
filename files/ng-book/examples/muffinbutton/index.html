@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="MuffinButtonApp">
+  <head>
+    <title>Muffin Button</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/shoehorn.css">
+  </head>
+  <style>
+    #muffinNum.ng-invalid ~ .form-actions button {
+        background: silver;
+    }
+    input.error {
+        border-color: red;
+    }
+    input.valid {
+        border-color: green;
+    }
+  </style>
+  <body>
+    <h1>Muffin Button<h1>
+
+    <form name="muffinForm" ng-submit="muffins = muffinNum">
+      <label for="muffinNum">How many muffins may you mind?</label>
+      <input id="muffinNum" type="number" name="muffinNumInput"`
+             ng-model="muffinNum" min="1" max="255"
+             ng-class="{'error': !muffinForm.$pristine && muffinForm.muffinNumInput.$invalid,
+                        'valid': !muffinForm.$pristine && !muffinForm.muffinNumInput.$invalid}"
+             englishMuffins>
+
+      <div class="form-actions">
+        <button class="btn-large btn-primary"
+                ng-disabled="muffinForm.muffinNumInput.$invalid">
+          Dispense Muffins
+        </button>
+      </div>
+
+      <span ng-show="muffinForm.muffinNumInput.$error.max">
+        Muffin Overload!
+      </span>
+
+      <img src="muffin.png" ng-repeat="i in [] | range: muffins">
+    </form>
+  </body>
+</html>

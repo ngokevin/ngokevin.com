@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhml"
+      xmlns:fb="http://ogp.me/ns/fb#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <title>ngokevin | Dumping syslog-ng Logs with MongoDB</title>
+    <link rel="stylesheet" type="text/css" href="/css/bundle.css" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=5"/>
+    <meta name="viewport" content="width=device-width">
+    
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
+  
+    <meta property="og:image" content="http://i.imgur.com/p7uUwTV.png"/>
+  
+  <meta property="og:description" content="In reference to the recent ycombinator post on why one shouldn&#39;t use MongoDB (EDIT: the HN post was a hoax), I thought I&#39;d give a chime-in why I went with MongoDB for one of my work projects, netshed, from a devops standpoint. Why I Went With MongoDB: flat schema: the purpose of my project was to dump syslog-ng logs, such as DHCP, NAPT, or VPN logs, into a database for some wicked querying speeds that you just don&#39;t get with a flat grep on a file. For this, I didn&#39;t need a relational database since the logs are standalone. With the flat schema, I am also able to add in an extra field to the &#34;schema&#34; whenever I wanted without having to go through a month-long migration of hundreds of millions of objects. mmm, json: from a developer standpoint, JSON is awesome. The dictionary, especially in Python, is my favorite data structure as it makes representing data so easy. It removes the obscurity behind throwing in fields that are referenced by a number and giving it a name. Unline MySQL when you do a standard query and you get back a plain array and have to know which order the fields are in, in Mongo, the fields have a name. The JSON allows for very rich query especially with the lovely PyMongo it&#39;s hip: I&#39;ll be honest, it&#39;s a shiny new toy that deviates from boring, old SQL, but I love playing with it, and initially it was extremely easy to set up Now...I encountered several problems while working with this project, but managed to overcome them with some sysadmin-flavored hot sauce. wtf, global write lock: yes, whenever there is a write operation sent to the database server, mongod locks down every collection and queues up the writes. I hear they are working on collection-level locking, but I haven&#39;t seen any of that yet. This is very bad; in production at work, it is extremely write-heavy, writing hundreds and thousands of logs per second (especially with PAT logs for the whole Oregon State University campus, that&#39;s 40,000 hosts). In about a week and a half, the database would be approaching 200 million objects. But I did find a workaround; I set up a master-slave replicated database between two boxes and had the slave be read-only. That way, it is free to be read and not to be bogged down with write-locks. This is my main gripe with MongoDB. indexing: well, it&#39;s not a good idea to put in indexing in a write-heavy non-relational database because we might as well use SQL. With hundreds of thousands of objects per collection, queries were taking about 20 seconds. I overcame this by putting in a manual index. The log parsers save the log files to the corresponding collection to the date of the logfile (e.g. dhcp-20111029). This way, there is no index tree needed to be updated and the collections are logically partioned. Now, queries are instant. Scalability for the win. MongoDB is a relatively new project, and 10gen has done a great job on responding to the claims from the ycombinator post and stating that they have never seen such a case like in the post. Hopefully in the future, these issues will be a ghost of the past."/>
+
+  </head>
+
+  <body>
+    <div id="wrap" class="c">
+      <header>
+        <div class="logos">
+          <h1 id="logo">
+            <a href='/'>ngo<strong>kevin</strong></a>
+            <span class="social">
+              <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+              <a href="http://twitter.com/andgokevin"><i class="fa fa-twitter-square"></i></a>
+              <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+              <a type="application/rss+xml" href="/rss"><i class="fa fa-rss-square"></i></a>
+            </span>
+          </h1>
+          <span id="sublogo">virtual reality developer at mozilla</span>
+          <ul class="blog-tags">
+            
+              <li>
+                <a href="/blog/tags/code/"
+                   >
+                  Code</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/life/"
+                   >
+                  Life</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/photography/"
+                   >
+                  Shoot</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/poker/"
+                   >
+                  Poker</a>
+              </li>
+            
+          </ul>
+        </div>
+
+        <nav>
+          
+            <a href="/about/">
+              <span>
+                About</span>
+            </a>
+          
+            <a href="/">
+              <span>
+                Write</span>
+            </a>
+          
+            <a href="/photography/">
+              <span>
+                Shoot</span>
+            </a>
+          
+        </nav>
+      </header>
+
+      <div class="main">
+        <div class="header-group">
+  <div class="blog">
+    <h1>Dumping syslog-ng Logs with MongoDB</h1>
+
+    <p class="metadata">
+      
+        Sunday November 06, 2011
+      
+    </p>
+  </div>
+
+  <div id="top-share" class="addthis_toolbox addthis_default_style">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+</div>
+
+        <div class="base-image">
+          
+            <div class="page_pic right">
+              <img src="http://i.imgur.com/p7uUwTV.png">
+              
+            </div>
+          
+        </div>
+
+        
+  <div class="page c">
+    <p>In reference to the recent <a href="http://news.ycombinator.com/item?id=3202081">ycombinator
+post</a> on why one shouldn't use
+MongoDB (<strong>EDIT</strong>: the HN post was a hoax), I thought I'd give a chime-in why I went
+with MongoDB for one of my work projects,
+<a href="http://github.com/ngokevin/netshed">netshed</a>, from a devops standpoint. Why I
+Went With MongoDB:</p>
+<ul>
+<li>
+<p><strong>flat schema</strong>: the purpose of my project was to dump syslog-ng logs, such
+  as DHCP, NAPT, or VPN logs, into a database for some wicked querying speeds
+that you just don't get with a flat grep on a file. For this, I didn't need a
+relational database since the logs are standalone. With the flat schema, I am
+also able to add in an extra field to the "schema" whenever I wanted without
+having to go through a month-long migration of hundreds of millions of objects.</p>
+</li>
+<li>
+<p><strong>mmm, json</strong>: from a developer standpoint, JSON is awesome. The dictionary,
+  especially in Python, is my favorite data structure as it makes representing
+data so easy. It removes the obscurity behind throwing in fields that are
+referenced by a number and giving it a name. Unline MySQL when you do a
+standard query and you get back a plain array and have to know which order the
+fields are in, in Mongo, the fields have a name. The JSON allows for very rich
+query especially with the lovely PyMongo</p>
+</li>
+<li>
+<p><strong>it's hip</strong>: I'll be honest, it's a shiny new toy that deviates from boring,
+  old SQL, but I love playing with it, and initially it was extremely easy
+to set up</p>
+</li>
+</ul>
+<p>Now...I encountered <strong>several problems</strong> while working with this project, but
+managed to overcome them with some sysadmin-flavored hot sauce.</p>
+<ul>
+<li>
+<p><strong>wtf, global write lock</strong>: yes, whenever there is a write operation sent to
+  the database server, mongod locks down every collection and queues up the
+writes. I hear they are working on collection-level locking, but I haven't seen
+any of that yet.  This is very bad; in production at work, it is <em>extremely</em>
+write-heavy, writing hundreds and thousands of logs per second (especially with
+PAT logs for the whole Oregon State University campus, that's 40,000 hosts). In
+about a week and a half, the database would be approaching <strong>200 million
+objects</strong>.  But I did find a workaround; I set up a master-slave replicated
+database between two boxes and had the slave be read-only. That way, it is free
+to be read and not to be bogged down with write-locks. This is my main gripe
+with MongoDB.</p>
+</li>
+<li>
+<p><strong>indexing</strong>: well, it's not a good idea to put in indexing in a write-heavy
+  non-relational database because we might as well use SQL. With hundreds of
+thousands of objects per collection, queries were taking about 20 seconds. I
+overcame this by putting in a manual index. The log parsers save the log files
+to the corresponding collection to the date of the logfile (e.g.
+dhcp-20111029). This way, there is no index tree needed to be updated and the
+collections are logically partioned. Now, queries are instant.  Scalability for
+the win.</p>
+</li>
+</ul>
+<p>MongoDB is a relatively new project, and 10gen has done a great job on
+responding to the claims from the ycombinator post and stating that they have
+never seen such a case like in the post. Hopefully in the future, these issues
+will be a ghost of the past.</p>
+  </div>
+
+  <p class="end-sect">&sect;</p>
+  <div id="bottom-share" class="addthis_toolbox addthis_default_style">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+   <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'ngokevin'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  <script src="https://cdn.jsdelivr.net/anchorjs/3.0.0/anchor.min.js"></script>
+  <script>anchors.add('h2, h3, h4, h5, h6');</script>
+
+      </div>
+    </div>
+
+    <div id="footer">
+      <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+      <a href="http://twitter.com/ngokevin_"><i class="fa fa-twitter-square"></i></a>
+      <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+      <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
+    </div>
+
+     <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29871909-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>

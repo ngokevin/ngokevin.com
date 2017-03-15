@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhml"
+      xmlns:fb="http://ogp.me/ns/fb#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <title>ngokevin | ng-okevin's Angular ch.3 - Controllers</title>
+    <link rel="stylesheet" type="text/css" href="/css/bundle.css" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=5"/>
+    <meta name="viewport" content="width=device-width">
+    
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
+  
+    <meta property="og:image" content="http://i.imgur.com/m3VNrQk.jpg"/>
+  
+  <meta property="og:description" content="Angular controllers help us initialize the initial state and add behavior to scope objects. Recall that controllers, in the classic MVC pattern, handle the business logic. They are the glue between the controller and the view. Controllers tell the view about changes to the model and manipulate the model when asked by from the view. In the ch.2 Scopes, we had briefly introduced controllers by necessity. Controllers are intertwined with scopes in the sense that controllers use scopes to expose their methods to the template to use in expressions. define methods that can modify properties on the scope. can register $watches on the model. Example In Sup, World, we will print &#34;Sup, world&#34; to demonstrate a more correct declaration of controllers that do not reside in the global JS scope. Rather, it is more correct to create an Angular module and use its controller factory function to register a controller to the view, to not pollute the global namespace. var app = anglar.module(&#39;SupWorldApp&#39;, []); app.controller(&#39;SupWorldCtrl&#39;, function($scope) { $scope.targetOfSalutation = &#39;World&#39;; }); module is a global place used to create and register Angular modules. Though we have not covered them yet, along with controllers, types of Angular modules include services, directives, and filters. We pass in the name of the controller along with the controller function with its dependencies it wants injected. To use our module, along with our registered SupWorldCtrl controller, we must pass the name of our module into the top-level ngApp directive. Again, we use the ngController directive to create the scope and associate our controller. &lt;!doctype html&gt; &lt;html ng-app=&#34;SupWorldApp&#34;&gt; &lt;body ng-controller=&#34;SupWorldCtrl&#34;&gt; &lt;h1&gt;Sup, {{ targetOfSalutation }}&lt;/h1&gt; &lt;/body&gt; &lt;/html&gt; The rest is just like before, this time with a greener global namespace. Dependency Injection We have already briefly trotted around dependency injection. Dependency injection a pattern of passing instance variables into an object rather than hard-coding the instance variables from within the object. Big term for a rather simple concept. Dependency injection is beneficial because it provides decoupling of code, thus improving testability and maintainability. Example The following two examples demonstrate functions getting a hold of their dependencies without dependency injection. These methods hard-code their depedencies, making it difficult to stub out or mock the dependency in tests. No dependency injection: create the dependency function SomeClass() { this.someDependency = new SomeDependency(); } No dependency injection: global dependency var someDependency = new SomeDependency(); function SomeClass() { this.someDependency = someDependency; } By not hard-coding the dependency, we can change them whenever, such as during testing. Dependency injection function SomeClass(someDependency) { this.someDependency = someDependency; } Dependency Injection in Controllers Earlier in Sup, World, we properly registered a controller to the view using an Angular module and its factory function, controller. There is yet a more correct method, involving dependency injection. Javascript minifiers and obfuscators renames parameters of functions. This would disable Angular&#39;s ability to infer a controller&#39;s dependencies by its parameter names. To get around this, we could either use the $inject method of controllers, or we can inject dependencies using an inline annotation. Example In Sup, World, we will again print &#34;Sup, World&#34; using a different method to demonstrate declaring controllers with proper dependency injection. // With better dependency injection. app.controller(&#39;SupWorldCtrl&#39;, [&#39;$scope&#39;, function(scope) { scope.targetOfSalutation = &#39;World&#39;; }]); In an array , we pass the names of the dependencies we want as strings. We then pass the controller constructor with its dependencies as its parameters in the same order. Note we can name the function parameters what we want as long as they are in the same order as we injected them. As well as controllers, dependency injection can be used in the other Angular factory methods for creating services, filters, and directives. Methods in the Controller We can set a method on the scope from within a controller and can call the method from the template in an expression. It is better practice to place presentational behavior in the controller, as to please MVC&#39;s separation of concerns. Defining behavior in the view would not only be incorrect but would also be more difficult as Angular expressions are inherently limited. Example In Jack in the Box, we will create a button that, on a random click, pop goes the weasel, to demonstrate using methods in the controller. app.controller(&#39;JackInTheBoxCtrl&#39;, [&#39;$scope&#39;, function($scope) { $scope.crank = function() { if (Math.random() &lt; 0.3) { $scope.pop = &#39;Pop Goes the Weasel!&#39;; } }; }]); We define a method in the controller as a property on the scope. We use Math.random() to set the value of pop on a random click, something we would not be able to do from the template. &lt;body ng-controller=&#34;JackInTheBoxCtrl&#34;&gt; &lt;h1&gt;Jack in the Box&lt;/h1&gt; &lt;div&gt;&lt;h2&gt;{{ pop }}&lt;/h2&gt;&lt;/div&gt; &lt;button ng-click=&#39;crank()&#39;&gt;Crank&lt;/button&gt; &lt;/body&gt; Then we can call it from the template by passing it to the ngClick directive, with parenthesis to indicate a function. We could even pass parameters to the function if we desired. Controller Inheritance Controller inheritance is based on scope inheritance. Just as scopes can inherit from other scopes, controllers can inherit from other controllers. Inner controllers contain their own scopes, while those scopes inherit from their outer controllers&#39; scopes. To create a child controller, declare it within the element of the parent controller with the ngController directive. Example In No Church in the Wild, we will use Kanye West&#39;s bar, &#34;What&#39;s a mob to a king? What&#39;s a king to a god? What&#39;s a god to a non-believer?&#34; to create a a little food chain heirarchy. &lt;body ng-init=&#34;alpha = &#39;Kevin&#39;&#34;&gt; &lt;h1&gt;No Church in the Wild&lt;h1&gt; &lt;div ng-controller=&#34;NonBelieverCtrl&#34;&gt; {{ alpha }} &lt;div ng-controller=&#34;GodCtrl&#34;&gt; {{ alpha }} &lt;div ng-controller=&#34;KingCtrl&#34;&gt; {{ alpha }} &lt;div ng-controller=&#34;MobCtrl&#34;&gt; {{ alpha }} The body element encompasses the root scope. For each ng- controller, another child controller is added to the heirarchy. The root scope&#39;s value for alpha is initialized to &#34;Kevin&#34;. When the NonBelieverCtrl child controller is created, a new scope is created that inherits from the root scope, therefore inheriting alpha&#39;s value of &#34;Kevin&#34;. But in the NonBelieverCtrl controller, we will override that initial value. app.controller(&#39;NonBelieverCtrl&#39;, [&#39;$scope&#39;, function($scope) { $scope.alpha = &#39;Non-Believer&#39;; }]); app.controller(&#39;GodCtrl&#39;, [&#39;$scope&#39;, function($scope) { $scope.alpha = &#39;God&#39;; }]); We can then continue going down the chain, overriding &#34;Non-Believer&#34; with &#34;God&#34; in GodCtrl, overriding &#34;God&#34; with &#34;King&#34;, then finally overriding &#34;King&#34; with &#34;Mob&#34;. Up Next Time to move onto the last component of MVC, the view. We have seen the role of the controller, how it interacts with the scope. Having exposed some capabilties of the controller, we now have more expressive power in the view. In ch.4 Templates, we will explore more about Angular templates, although having already been using them in our examples."/>
+
+  </head>
+
+  <body>
+    <div id="wrap" class="c">
+      <header>
+        <div class="logos">
+          <h1 id="logo">
+            <a href='/'>ngo<strong>kevin</strong></a>
+            <span class="social">
+              <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+              <a href="http://twitter.com/andgokevin"><i class="fa fa-twitter-square"></i></a>
+              <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+              <a type="application/rss+xml" href="/rss"><i class="fa fa-rss-square"></i></a>
+            </span>
+          </h1>
+          <span id="sublogo">virtual reality developer at mozilla</span>
+          <ul class="blog-tags">
+            
+              <li>
+                <a href="/blog/tags/code/"
+                   >
+                  Code</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/life/"
+                   >
+                  Life</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/photography/"
+                   >
+                  Shoot</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/poker/"
+                   >
+                  Poker</a>
+              </li>
+            
+          </ul>
+        </div>
+
+        <nav>
+          
+            <a href="/about/">
+              <span>
+                About</span>
+            </a>
+          
+            <a href="/">
+              <span>
+                Write</span>
+            </a>
+          
+            <a href="/photography/">
+              <span>
+                Shoot</span>
+            </a>
+          
+        </nav>
+      </header>
+
+      <div class="main">
+        <div class="header-group">
+  <div class="blog">
+    <h1>ng-okevin's Angular ch.3 - Controllers</h1>
+
+    <p class="metadata">
+      
+        Saturday April 05, 2014
+      
+    </p>
+  </div>
+
+  <div id="top-share" class="addthis_toolbox addthis_default_style">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+</div>
+
+        <div class="base-image">
+          
+            <div class="page_pic ">
+              <img class="captioned" src="http://i.imgur.com/m3VNrQk.jpg">
+              <div class="page-caption"><span>The controller is in your hands. Ready, player one?</span></div>
+            </div>
+          
+        </div>
+
+        
+  <div class="page c">
+    <p>Angular controllers help us initialize the initial state and add behavior to
+scope objects. Recall that controllers, in the classic MVC pattern, handle the
+business logic. They are the glue between the controller and the view.
+Controllers tell the view about changes to the model and manipulate the model
+when asked by from the view.</p>
+<p>In the <a href="/blog/angular-2">ch.2 Scopes</a>, we had briefly introduced
+controllers by necessity. Controllers are intertwined with scopes in the sense
+that controllers</p>
+<ul>
+<li>use scopes to expose their methods to the template to use in expressions.</li>
+<li>define methods that can modify properties on the scope.</li>
+<li>can register <code>$watches</code> on the model.</li>
+</ul>
+<h3 id="example">Example</h3>
+<p>In <em>Sup, World</em>, we will print "Sup, world" to demonstrate a more correct
+declaration of controllers that do not reside in the global JS scope.</p>
+<p>Rather, it is more correct to create an Angular <code>module</code> and use its
+<code>controller</code> factory function to register a controller to the view, to not
+pollute the global namespace.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">anglar</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;SupWorldApp&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;SupWorldCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">targetOfSalutation</span> <span class="o">=</span> <span class="s1">&#39;World&#39;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p><code>module</code> is a global place used to create and register Angular modules.
+Though we have not covered them yet, along with controllers, types of Angular
+modules include services, directives, and filters.</p>
+<p>We pass in the name of the controller along with the controller function with
+its dependencies it wants injected.</p>
+<p>To use our module, along with our registered <code>SupWorldCtrl</code> controller,
+we must pass the name of our module into the top-level <code>ngApp</code> directive.
+Again, we use the <code>ngController</code> directive to create the scope and
+associate our controller.</p>
+<div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;SupWorldApp&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;SupWorldCtrl&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Sup, {{ targetOfSalutation }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>The rest is just like before, this time with a greener global namespace.</p>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p>We have already briefly trotted around dependency injection. Dependency
+injection a pattern of passing instance variables into an object rather than
+hard-coding the instance variables from within the object. Big term for a
+rather simple concept.</p>
+<p>Dependency injection is beneficial because it provides decoupling of code, thus
+improving testability and maintainability.</p>
+<h3 id="example_1">Example</h3>
+<p>The following two examples demonstrate functions getting a hold of their
+dependencies without dependency injection. These methods hard-code their
+depedencies, making it difficult to stub out or mock the dependency in tests.</p>
+<p><em>No dependency injection: create the dependency</em></p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">SomeClass</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">someDependency</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SomeDependency</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><em>No dependency injection: global dependency</em></p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">someDependency</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SomeDependency</span><span class="p">();</span>
+<span class="kd">function</span> <span class="nx">SomeClass</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">someDependency</span> <span class="o">=</span> <span class="nx">someDependency</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>By not hard-coding the dependency, we can change them whenever, such as during
+testing.</p>
+<p><em>Dependency injection</em></p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">SomeClass</span><span class="p">(</span><span class="nx">someDependency</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">someDependency</span> <span class="o">=</span> <span class="nx">someDependency</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="dependency-injection-in-controllers">Dependency Injection in Controllers</h3>
+<p>Earlier in <em>Sup, World</em>, we properly registered a controller to the view using
+an Angular <code>module</code> and its factory function, <code>controller</code>. There is
+yet a more correct method, involving dependency injection.</p>
+<p>Javascript minifiers and obfuscators renames parameters of functions. This
+would disable Angular's ability to infer a controller's dependencies by its
+parameter names. To get around this, we could either use the <code>$inject</code>
+method of controllers, or we can inject dependencies using an inline
+annotation.</p>
+<h3 id="example_2">Example</h3>
+<p>In <em>Sup, World</em>, we will again print "Sup, World" using a different method
+to demonstrate declaring controllers with proper dependency injection.</p>
+<div class="highlight"><pre><span class="c1">// With better dependency injection.</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;SupWorldCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">scope</span><span class="p">.</span><span class="nx">targetOfSalutation</span> <span class="o">=</span> <span class="s1">&#39;World&#39;</span><span class="p">;</span>
+<span class="p">}]);</span>
+</pre></div>
+
+
+<p>In an array , we pass the names of the dependencies we want as strings. We then
+pass the controller constructor with its dependencies as its parameters in the
+same order. Note we can name the function parameters what we want as long as
+they are in the same order as we injected them.</p>
+<p>As well as controllers, dependency injection can be used in the other Angular
+factory methods for creating services, filters, and directives.</p>
+<h2 id="methods-in-the-controller">Methods in the Controller</h2>
+<p>We can set a method on the scope from within a controller and can call the
+method from the template in an expression. It is better practice to place
+presentational behavior in the controller, as to please MVC's separation of
+concerns. Defining behavior in the view would not only be incorrect but would
+also be more difficult as Angular expressions are inherently limited.</p>
+<h3 id="example_3">Example</h3>
+<p>In <em>Jack in the Box</em>, we will create a button that, on a random click, pop goes
+the weasel, to demonstrate using methods in the controller.</p>
+<div class="highlight"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;JackInTheBoxCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">crank</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$scope</span><span class="p">.</span><span class="nx">pop</span> <span class="o">=</span> <span class="s1">&#39;Pop Goes the Weasel!&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">}]);</span>
+</pre></div>
+
+
+<p>We define a method in the controller as a property on the scope. We use
+<code>Math.random()</code> to set the value of <code>pop</code> on a <em>random</em> click,
+something we would not be able to do from the template.</p>
+<div class="highlight"><pre><span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;JackInTheBoxCtrl&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Jack in the Box<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ pop }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&#39;crank()&#39;</span><span class="p">&gt;</span>Crank<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Then we can call it from the template by passing it to the <code>ngClick</code>
+directive, with parenthesis to indicate a function. We could even pass
+parameters to the function if we desired.</p>
+<iframe src="/files/ng-book/examples/jackinthebox/index.html"></iframe>
+
+<h2 id="controller-inheritance">Controller Inheritance</h2>
+<p>Controller inheritance is based on scope inheritance. Just as scopes can
+inherit from other scopes, controllers can inherit from other controllers.
+Inner controllers contain their own scopes, while those scopes inherit from
+their outer controllers' scopes.</p>
+<p>To create a child controller, declare it within the element of the parent
+controller with the <code>ngController</code> directive.</p>
+<h3 id="example_4">Example</h3>
+<p>In <em>No Church in the Wild</em>, we will use Kanye West's bar, "What's a mob to a
+king? What's a king to a god? What's a god to a non-believer?" to create a a
+little food chain heirarchy.</p>
+<div class="highlight"><pre><span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-init</span><span class="o">=</span><span class="s">&quot;alpha = &#39;Kevin&#39;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>No Church in the Wild<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;NonBelieverCtrl&quot;</span><span class="p">&gt;</span>
+    {{ alpha }}
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;GodCtrl&quot;</span><span class="p">&gt;</span>
+      {{ alpha }}
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;KingCtrl&quot;</span><span class="p">&gt;</span>
+        {{ alpha }}
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;MobCtrl&quot;</span><span class="p">&gt;</span>
+          {{ alpha }}
+</pre></div>
+
+
+<p>The <code>body</code> element encompasses the root scope. For each <code>ng-
+controller</code>, another child controller is added to the heirarchy. The root
+scope's value for <code>alpha</code> is initialized to "Kevin".</p>
+<p>When the <code>NonBelieverCtrl</code> child controller is created, a new scope is
+created that inherits from the root scope, therefore inheriting <code>alpha</code>'s
+value of "Kevin". But in the <code>NonBelieverCtrl</code> controller, we will override
+that initial value.</p>
+<div class="highlight"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;NonBelieverCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="s1">&#39;Non-Believer&#39;</span><span class="p">;</span>
+<span class="p">}]);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;GodCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="s1">&#39;God&#39;</span><span class="p">;</span>
+<span class="p">}]);</span>
+</pre></div>
+
+
+<p>We can then continue going down the chain, overriding "Non-Believer" with "God"
+in <code>GodCtrl</code>, overriding "God" with "King", then finally overriding "King"
+with "Mob".</p>
+<iframe src="/files/ng-book/examples/nochurchinthewild/index.html"></iframe>
+
+<h2 id="up-next">Up Next</h2>
+<p>Time to move onto the last component of <em>MVC</em>, the view. We have seen the role
+of the controller, how it interacts with the scope. Having exposed some
+capabilties of the controller, we now have more expressive power in the
+view. In <a href="/blog/angular-4">ch.4 Templates</a>, we will explore more about Angular
+templates, although having already been using them in our examples.</p>
+  </div>
+
+  <p class="end-sect">&sect;</p>
+  <div id="bottom-share" class="addthis_toolbox addthis_default_style">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+   <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'ngokevin'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  <script src="https://cdn.jsdelivr.net/anchorjs/3.0.0/anchor.min.js"></script>
+  <script>anchors.add('h2, h3, h4, h5, h6');</script>
+
+      </div>
+    </div>
+
+    <div id="footer">
+      <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+      <a href="http://twitter.com/ngokevin_"><i class="fa fa-twitter-square"></i></a>
+      <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+      <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
+    </div>
+
+     <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29871909-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>

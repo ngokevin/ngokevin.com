@@ -1,0 +1,46 @@
+@import "_lib.scss";
+
+#gallery {
+    .album-preview {
+        display: inline;
+        float: left;
+        margin-right: 13px;
+        width: 220px;
+    }
+    a {
+        @include def-box-shadow();
+        background: url("/img/textures/accent.png") repeat scroll 0 0 transparent;
+        border: 7px double $light-gray;
+        cursor: pointer;
+        float: left;
+        height: 210px;
+        margin-right: 10px;
+        overflow: hidden;
+        position: relative;
+        width: 210px;
+        z-index: 1;
+        img {
+            float: left;
+            min-height: 210px;
+            min-width: 210px;
+            position: absolute;
+        }
+    }
+    img:hover {
+        -moz-opacity: .75;
+        filter: alpha(opacity = 75);
+        opacity: .75;
+    }
+    h3 span {
+        background: rgba(10, 10, 20, .85);
+        border-radius: 2px;
+        bottom: 60px;
+        color: $white;
+        font: bold 16px / 37px Helvetica, Sans-Serif;
+        left: 7px;
+        letter-spacing: -1px;
+        padding: 10px;
+        position: relative;
+        z-index: 1001;
+    }
+}

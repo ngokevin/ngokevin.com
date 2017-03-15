@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="../../js/angular.min.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css"></style>
+    <link rel="stylesheet" href="../../css/shoehorn.css"></style>
+    <title>Gentleman</title>
+    <style>
+      img {
+          display: block;
+          margin-bottom: 13px;
+          max-width: 75%;
+          opacity: 0;
+          -moz-transition: opacity .45s;
+          -ms-transition: opacity .45s;
+          -o-transition: opacity .45s;
+          -webkit-transition: opacity .45s;
+          transition: opacity .45s;
+      }
+      img.show {
+          opacity: 1;
+      }
+    </style>
+  </head>
+  <body ng-controller="GentlemanCtrl">
+    <h1>Gentleman</h1>
+    <img class="img-circle" src="gentleman.png">
+    <label for="mother" class="checkbox inline">
+      <input id="mother" type="checkbox" ng-model="mother">Mother
+    </label>
+    <label for="father" class="checkbox inline">
+      <input id="father" type="checkbox" ng-model="father">Father
+    </label>
+  </body>
+</html>

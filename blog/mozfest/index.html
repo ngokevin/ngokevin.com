@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhml"
+      xmlns:fb="http://ogp.me/ns/fb#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <title>ngokevin | Pushing Hybrid Mobile Apps to the Forefront</title>
+    <link rel="stylesheet" type="text/css" href="/css/bundle.css" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=5"/>
+    <meta name="viewport" content="width=device-width">
+    
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
+  
+    <meta property="og:image" content="http://i.imgur.com/2IGaM6Pl.jpg"/>
+  
+  <meta property="og:description" content="At Mozilla Festival 2014, I facilitated a session on Pushing Hybrid Mobile Apps to the Forefront. Before, I had been building a poker app to keep track of my poker winning statistics, record notes on opponents, and crunch poker math. I used the web as a platform, but having an iPhone, wanted this app to be on iOS. Thus, the solution was hybrid mobile apps, apps written in HTML5 technologies that are wrapped to run &#34;natively&#34; on all platforms (e.g., iOS, Android, FirefoxOS). I stumbled upon the Ionic hybrid mobile app framework. This made app development so easy. IT fulfills the promise of the web: write once, run everywhere. In being with Mozilla for over two years, I&#39;ve read so little hype for hybrid mobile apps. Hybrid mobile apps have potential to convert much more native developers over to the web platform, but hybrid mobile apps aren&#39;t getting the ad-time they deserve. What is a Hybrid Mobile App? Hybrid mobile apps, well explained in this article from Telerik, are apps written in HTML5 technologies that are enabled to run within a native container. They use the device&#39;s browser engine to render the app. And then web-to-native polyfill can be injected, prominently Cordova, in order to access device APIs. The Current Lack of Exposure for Hybrid Mobile Apps In all of the Mozilla Developer Network (MDN), there are around three articles on hybrid mobile apps, which aren&#39;t really fully fleshed and in need of technical review. There&#39;s been a good amount of work from James Longster in the form of Cordova Firefox OS support. There could be more to be done on the documentation side. Cross-platform capability on mobile should be flaunted more. In MDN&#39;s main article on Open Web Apps, there&#39;s a list of advantages on open web apps. This article is important since it is a good entry point to into developing web apps. The advantages listed shouldn&#39;t really be considered advantages relative to native apps: Local installation and offline storage: to a developer, these should be inherent to an app, not an explicit advantage. Apps are expected to be installable and have offline storage. Hardware access: also should be inherent to an app and not an explicit advantage. Apps are expected to be able to communicate with its device APIs. Breaking the walled gardens: there are no &#34;walls&#34; being broken if these web apps only run in the browser and FirefoxOS. They should be able to live inside the App Store and Play Store to really have any effect. Open Web App stores: well, that is prety cool actually. I built a personal app that I didn&#39;t want to be distributed except with me and antoher. So I simply built a page that had the ability to install the app. However, pure web apps alone can&#39;t be submitted it to App Store or Play Store so that should be addressed first. What&#39;s missing here is the biggest advantage of all: being able to run cross-platform (e.g., iOS, Android, FirefoxOS, Windows). That&#39;s the promise the web, and that&#39;s what attracts most developers to the web in the first place. Write it once, run anywhere, no need to port between languages or frameworks, and still be able to submit to the App Store/Play Store duopoly for to gain the most users. For many developers, the web is an appropriate platform, saving time and maintenance. Additionally, most developers also prefer the traditional idea of apps, that they are packaged up and uploaded to the storefront, rather than self-hosted on a server. On the Firefox Marketplace, the majority of apps are packaged over hosted (4800 to 4100). There&#39;s plenty of bark touting the cross-platform capability of the web, but there&#39;s little bite on how to actually achieve that on mobile. Hybrid mobile apps have huge potential to attact more developers to the web platform. But with its lack of exposure, it&#39;s wasted potential. So what can we do? The presence of hybrid mobile apps on MDN could be buffed. I&#39;ve talked to Chris Mills of the MDN team at Mozfest, and he mentioned it was a goal for 2015. FirefoxOS Cordova plugins may welcome contributors. And I think the biggest way would be to help add official FirefoxOS support to Ionic, a popular hybrid mobile app framework which currently has over 11k stars. They&#39;ve mentioned they have FirefoxOS on the roadmap. Building with Ionic Ionic Framework is a hybrid mobile app framework It has a beautifully designed set of native-like icons and CSS components, pretty UI transitions, web components (through Angular directives for now), build tools, and an easy-to-use command-line interface. With Ionic, I built my poker app I initially mentioned. It installs on my phone, and I can use it at the tables: Poker app built with Ionic. For the Mozfest session, I generated a sample app with Ionic (that simply just makes use of the camera), and put it on Github with instructions. To get started with a hybrid mobile app: npm install -g ionic cordova ionic start myApp tabs - creates a template app cordova plugin add org.apache.cordova.camera - installs the Cordova camera plugin (there are many to choose from) ionic platform add &lt;PLATFORM&gt; - where could be ios, android, or firefoxos. This enables the platforms ionic platform build &lt;PLATFORM&gt; - builds the project To emulate it for iOS or Android: ionic emulate &lt;PLATFORM&gt; - will open the app in XCode for ios or adbtools for android To simulate it for FirefoxOS, open the project with WebIDE inside platforms/firefoxos/www. How the Mozfest Session Went It was difficult to plan since Mozfest is more of a hands-on unconference, where everything is meant to be hands-on and accessible. Mozfest wasn&#39;t a deeply technical conference so I tried to cater to those who don&#39;t have much development experience and to those who don&#39;t bring a laptop. Thus I set up three laptops: my Macbook, a Thinkpad, and a Vaio. And had three devices: my iPhone, a Nexus 7, and a FirefoxOS Flame. My Macbook would help to demonstrate the iOS side. Whereas the other machines had Linux Mint within a VirtualBox. These VMs had adbtools and Firefox with WebIDE set up. All the mobile devices had the demo apps pre-installed so people could try it out. I was prepared as a boy scout. Well, until my iPhone was pickpocketed in London, stripping me of the iOS demonstration. Lugging around three laptops in my bag that probably amounted to 20 pounds back and forth between the hotel, subway, and venue wasn&#39;t fun. I didn&#39;t even know what day I was going to present at Mozfest. Then I didn&#39;t even use those meticulously prepared laptops at the session. Everyone who showed up was pretty knowledgable, had a laptop, and had an internet connection. The session went well nonetheless. After a bit of speech about pushing hybrid mobile apps to the forefront, my Nexus 7 and Flame were passed around to demo the sample hybrid mobile app running. It just had a simple camera button. That morning, everyone had received a free Firefox Flame for attending Mozfest so it turned more into WebIDE session on how to get an app on the Flame. My coworker who attended was able to get the accelerometer working with a &#34;Shake Me / I was shaken.&#34; app, and I was able to get geolocation working with an app that displays longitude and latitude coordinates with the GPS. What I Thought About Mozfest There was a lot of energy in the building. Unfortunately, the energy didn&#39;t reach me, especially since I was heavily aircraft-latencied. Maybe conferences aren&#39;t my thing. The place was hectic. Hard to find out what was where. I tried to go to a session that was labeled as &#34;The 6th Floor Hub&#34;, which turned out to be a small area of a big open room labelled with a hard-to-spot sign that said &#34;The Hub&#34;. When I got there, there was no session being held despite the schedule saying so as the facilitator was MIA. The sessions didn&#39;t connect with me. Perhaps I wanted something more technical and concrete that I could takeaway and use, but most sessions were abstract. There was a big push for Mozilla Webmaker and Appmaker, though those aren&#39;t something I use often. They&#39;re great teaching tools, but I usually direct to Codecademy for those who want to learn to build stuff. There was a lot of what I call &#34;the web kool-aid&#34;. Don&#39;t get me wrong, I love the web, I&#39;ve drank a lot of the kool-aid, but there was a lot of championing of the web in the keynotes. I guess &#34;agency&#34; is the new buzzword now. Promoting the web is great, though I&#39;ve just heard it all before. However, I was glad to add value to those who found it more inspiring and motivating than me. I believe my session went well and attendees took away something hard and practical. As for me, I was just happy to get back home after a long day of travel and go replace my phone."/>
+
+  </head>
+
+  <body>
+    <div id="wrap" class="c">
+      <header>
+        <div class="logos">
+          <h1 id="logo">
+            <a href='/'>ngo<strong>kevin</strong></a>
+            <span class="social">
+              <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+              <a href="http://twitter.com/andgokevin"><i class="fa fa-twitter-square"></i></a>
+              <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+              <a type="application/rss+xml" href="/rss"><i class="fa fa-rss-square"></i></a>
+            </span>
+          </h1>
+          <span id="sublogo">virtual reality developer at mozilla</span>
+          <ul class="blog-tags">
+            
+              <li>
+                <a href="/blog/tags/code/"
+                   >
+                  Code</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/life/"
+                   >
+                  Life</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/photography/"
+                   >
+                  Shoot</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/poker/"
+                   >
+                  Poker</a>
+              </li>
+            
+          </ul>
+        </div>
+
+        <nav>
+          
+            <a href="/about/">
+              <span>
+                About</span>
+            </a>
+          
+            <a href="/">
+              <span>
+                Write</span>
+            </a>
+          
+            <a href="/photography/">
+              <span>
+                Shoot</span>
+            </a>
+          
+        </nav>
+      </header>
+
+      <div class="main">
+        <div class="header-group">
+  <div class="blog">
+    <h1>Pushing Hybrid Mobile Apps to the Forefront</h1>
+
+    <p class="metadata">
+      
+        Sunday November 23, 2014
+      
+    </p>
+  </div>
+
+  <div id="top-share" class="addthis_toolbox addthis_default_style">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+</div>
+
+        <div class="base-image">
+          
+            <div class="page_pic ">
+              <img class="captioned" src="http://i.imgur.com/2IGaM6Pl.jpg">
+              <div class="page-caption"><span>Mozilla Festival 2014 was held in London in October.</span></div>
+            </div>
+          
+        </div>
+
+        
+  <div class="page c">
+    <p>At <a href="http://2014.mozillafestival.org">Mozilla Festival 2014</a>, I facilitated a
+session on <strong>Pushing Hybrid Mobile Apps to the Forefront</strong>. Before,
+I had been building a poker app to keep track of my poker winning statistics,
+record notes on opponents, and crunch poker math. I used the web as a platform,
+but having an iPhone, wanted this app to be on iOS. Thus, the solution was
+<strong>hybrid mobile apps</strong>, apps written in HTML5 technologies that are wrapped to
+run "natively" on all platforms (e.g., iOS, Android, FirefoxOS).</p>
+<p>I stumbled upon the <a href="http://ionicframework.com/">Ionic hybrid mobile app
+framework</a>. This made app development
+so easy. IT fulfills the promise of the web: write once, run everywhere. In
+being with Mozilla for over two years, I've read so little hype for hybrid
+mobile apps. Hybrid mobile apps have potential to convert much more native
+developers over to the web platform, but hybrid mobile apps aren't getting the
+ad-time they deserve.</p>
+<h2 id="what-is-a-hybrid-mobile-app">What is a Hybrid Mobile App?</h2>
+<p>Hybrid mobile apps, well explained in
+<a href="http://blogs.telerik.com/appbuilder/posts/12-06-14/what-is-a-hybrid-mobile-app-">this article from
+Telerik</a>,
+are apps written in HTML5 technologies that are enabled to run within a native
+container. They use the device's browser engine to render the app. And then
+web-to-native polyfill can be injected, prominently
+<a href="http://cordova.apache.org/">Cordova</a>, in order to access device APIs.</p>
+<h2 id="the-current-lack-of-exposure-for-hybrid-mobile-apps">The Current Lack of Exposure for Hybrid Mobile Apps</h2>
+<p>In all of the <a href="https://developer.mozilla.org">Mozilla
+Developer Network</a> (MDN), there are around three
+articles on hybrid mobile apps, which aren't really fully fleshed and in need
+of technical review. There's been a good amount of work from <a href="http://jlongster.com">James
+Longster</a> in the form of <a href="http://http://mozilla-cordova.github.io/">Cordova Firefox OS
+support</a>. There could be more to be
+done on the documentation side.</p>
+<p>Cross-platform capability on mobile should be flaunted more. In MDN's
+<a href="https://developer.mozilla.org/Apps/Quickstart/Build/Intro_to_open_web_apps">main article on Open Web Apps</a>,
+there's a list of advantages on open web apps. This article is important since
+it is a good entry point to into developing web apps. The advantages listed
+shouldn't really be considered advantages relative to native apps:</p>
+<ul>
+<li><em>Local installation and offline storage</em>: to a developer, these should be
+inherent to an app, not an explicit advantage. Apps are expected to be
+installable and have offline storage.</li>
+<li><em>Hardware access</em>: also should be inherent to an app and not an explicit
+advantage. Apps are expected to be able to communicate with its device APIs.</li>
+<li><em>Breaking the walled gardens</em>: there are no "walls" being broken if these
+web apps only run in the browser and FirefoxOS. They should be able to live
+inside the App Store and Play Store to really have any effect.</li>
+<li><em>Open Web App stores</em>: well, that is prety cool actually. I built a personal
+app that I didn't want to be distributed except with me and antoher. So I
+simply built a page that had the ability to install the app. However, pure web
+apps alone can't be submitted it to App Store or Play Store so that should
+be addressed first.</li>
+</ul>
+<p>What's missing here is the biggest advantage of all: <strong>being able to run
+cross-platform</strong> (e.g., iOS, Android, FirefoxOS, Windows). That's the promise
+the web, and that's what attracts most developers to the web in the first
+place. Write it once, run anywhere, no need to port between languages or
+frameworks, and still be able to submit to the App Store/Play Store duopoly for
+to gain the most users. For many developers, the web is an appropriate
+platform, saving time and maintenance.</p>
+<p>Additionally, most developers also prefer the traditional idea of apps, that they are
+<a href="https://developer.mozilla.org/Marketplace/Options/Packaged_apps">packaged</a> up
+and uploaded to the storefront, rather than self-hosted on a server.  On the
+<a href="https://marketplace.firefox.com">Firefox Marketplace</a>, the majority of apps
+are packaged over hosted (4800 to 4100).</p>
+<p>There's plenty of bark touting the cross-platform capability of the web, but
+there's little bite on how to actually achieve that on mobile. Hybrid mobile
+apps have huge potential to attact more developers to the web platform. But
+with its lack of exposure, it's wasted potential.</p>
+<p>So what can we do? The presence of hybrid mobile apps on MDN could be buffed.
+I've talked to Chris Mills of the MDN team at Mozfest, and he mentioned it was
+a goal for 2015. <a href="http://mozilla-cordova.github.io/">FirefoxOS Cordova plugins</a>
+may welcome contributors. And I think the biggest way would be to help <strong>add
+official FirefoxOS support to <a href="https://github.com/driftyco/ionic">Ionic</a></strong>, a
+popular hybrid mobile app framework which currently has over 11k stars. They've
+mentioned they have FirefoxOS on the roadmap.</p>
+<h2 id="building-with-ionic">Building with Ionic</h2>
+<p><a href="http://ionicframework.com/">Ionic Framework</a> is a hybrid mobile app framework
+It has a beautifully designed set of native-like icons and CSS components,
+pretty UI transitions, web components (through Angular directives for now),
+build tools, and an easy-to-use command-line interface.</p>
+<p>With Ionic, I built my poker app I initially mentioned. It installs on my
+phone, and I can use it at the tables:</p>
+<p><img alt="Poker app" src="http://i.imgur.com/IoI7nyol.png" />
+<div class="page-caption"><span>
+  Poker app built with Ionic.
+</span></div></p>
+<p>For the Mozfest session, I generated a sample app with Ionic (that simply just
+makes use of the camera), and <a href="https://github.com/ngokevin/mozfest2014/tree/master/mozfestApp">put it on
+Github</a> with
+instructions. To get started with a hybrid mobile app:</p>
+<ul>
+<li><code>npm install -g ionic cordova</code></li>
+<li><code>ionic start myApp tabs</code> - creates a template app</li>
+<li><code>cordova plugin add org.apache.cordova.camera</code> - installs the Cordova
+  camera plugin (there are <a href="http://plugins.cordova.io/">many to choose from</a>)</li>
+<li><code>ionic platform add &lt;PLATFORM&gt;</code> - where <PLATFORM> could be ios, android,
+  or firefoxos. This enables the platforms</li>
+<li><code>ionic platform build &lt;PLATFORM&gt;</code> - builds the project</li>
+</ul>
+<p>To emulate it for iOS or Android:</p>
+<ul>
+<li><code>ionic emulate &lt;PLATFORM&gt;</code> - will open the app in XCode for ios or
+  adbtools for android</li>
+</ul>
+<p>To simulate it for FirefoxOS, open the project with WebIDE inside
+<code>platforms/firefoxos/www</code>.</p>
+<h2 id="how-the-mozfest-session-went">How the Mozfest Session Went</h2>
+<p>It was difficult to plan since Mozfest is more of a hands-on unconference,
+where everything is meant to be hands-on and accessible. Mozfest wasn't a
+deeply technical conference so I tried to cater to those who don't have much
+development experience and to those who don't bring a laptop.</p>
+<p>Thus I set up three laptops: my Macbook, a Thinkpad, and a Vaio. And had
+three devices: my iPhone, a Nexus 7, and a FirefoxOS Flame. My Macbook would
+help to demonstrate the iOS side. Whereas the other machines had Linux Mint
+within a VirtualBox. These VMs had adbtools and Firefox with WebIDE set up.
+All the mobile devices had the demo apps pre-installed so people could try it
+out.</p>
+<p>I was prepared as a boy scout. Well, until my iPhone was pickpocketed in
+London, stripping me of the iOS demonstration. Lugging around three laptops
+in my bag that probably amounted to 20 pounds back and forth between the hotel,
+subway, and venue wasn't fun. I didn't even know what day I was going to
+present at Mozfest. Then I didn't even use those meticulously prepared laptops
+at the session. Everyone who showed up was pretty knowledgable, had a
+laptop, and had an internet connection.</p>
+<p>The session went well nonetheless. After a bit of speech about
+pushing hybrid mobile apps to the forefront, my Nexus 7 and Flame were passed
+around to demo the sample hybrid mobile app running. It just had a simple
+camera button. That morning, everyone had received a free Firefox Flame for
+attending Mozfest so it turned more into WebIDE session on how to get an app on
+the Flame. <a href="http://muffinresearch.co.uk/">My coworker who attended</a> was
+able to get the accelerometer working with a "Shake Me / I was shaken." app,
+and I was able to get geolocation working with an app that displays longitude
+and latitude coordinates with the GPS.</p>
+<h2 id="what-i-thought-about-mozfest">What I Thought About Mozfest</h2>
+<p>There was a lot of energy in the building. Unfortunately, the energy didn't
+reach me, especially since I was heavily aircraft-latencied. Maybe conferences
+aren't my thing. The place was hectic. Hard to find out what was where. I tried
+to go to a session that was labeled as "The 6th Floor Hub", which turned out to
+be a small area of a big open room labelled with a hard-to-spot sign that said
+"The Hub". When I got there, there was no session being held despite the
+schedule saying so as the facilitator was MIA.</p>
+<p>The sessions didn't connect with me. Perhaps I wanted something more technical
+and concrete that I could takeaway and use, but most sessions were abstract.
+There was a big push for Mozilla Webmaker and Appmaker, though those aren't
+something I use often. They're great teaching tools, but I usually direct to
+Codecademy for those who want to learn to build stuff.</p>
+<p>There was a lot of what I call "the web kool-aid". Don't get me wrong, I love
+the web, I've drank a lot of the kool-aid, but there was a lot of championing
+of the web in the keynotes. I guess "agency" is the new buzzword now. Promoting
+the web is great, though I've just heard it all before.</p>
+<p>However, I was glad to add value to those who found it more inspiring and
+motivating than me. I believe my session went well and attendees took away
+something hard and practical. As for me, I was just happy to get back home
+after a long day of travel and go replace my phone.</p>
+  </div>
+
+  <p class="end-sect">&sect;</p>
+  <div id="bottom-share" class="addthis_toolbox addthis_default_style">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513af3cd5e69b4ae"></script>
+   <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'ngokevin'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  <script src="https://cdn.jsdelivr.net/anchorjs/3.0.0/anchor.min.js"></script>
+  <script>anchors.add('h2, h3, h4, h5, h6');</script>
+
+      </div>
+    </div>
+
+    <div id="footer">
+      <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+      <a href="http://twitter.com/ngokevin_"><i class="fa fa-twitter-square"></i></a>
+      <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+      <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
+    </div>
+
+     <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29871909-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>

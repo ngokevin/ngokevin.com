@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="JackInTheBoxApp">
+  <head>
+    <title>Jack in the Box</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/shoehorn.css">
+    <style>
+      div {
+          background: red;
+          border: 1px solid silver;
+          border-radius: 2px;
+          height: 300px;
+          margin: 0 auto;
+          width: 300px;
+      }
+      h2 {
+          color: rgb(240, 240, 240);
+      }
+    </style>
+  </head>
+  <body ng-controller="JackInTheBoxCtrl">
+    <h1>Jack in the Box<h1>
+    <div><h2>{{ pop }}</h2></div>
+    <button class="btn" ng-click='crank()'>Crank</button>
+  </body>
+</html>

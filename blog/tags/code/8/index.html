@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhml"
+      xmlns:fb="http://ogp.me/ns/fb#"
+      xml:lang="en" lang="en">
+
+  <head>
+    <title>ngokevin | Code</title>
+    <link rel="stylesheet" type="text/css" href="/css/bundle.css" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=5"/>
+    <meta name="viewport" content="width=device-width">
+    
+  </head>
+
+  <body>
+    <div id="wrap" class="c">
+      <header>
+        <div class="logos">
+          <h1 id="logo">
+            <a href='/'>ngo<strong>kevin</strong></a>
+            <span class="social">
+              <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+              <a href="http://twitter.com/andgokevin"><i class="fa fa-twitter-square"></i></a>
+              <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+              <a type="application/rss+xml" href="/rss"><i class="fa fa-rss-square"></i></a>
+            </span>
+          </h1>
+          <span id="sublogo">virtual reality developer at mozilla</span>
+          <ul class="blog-tags">
+            
+              <li>
+                <a href="/blog/tags/code/"
+                   >
+                  Code</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/life/"
+                   >
+                  Life</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/photography/"
+                   >
+                  Shoot</a>
+              </li>
+            
+              <li>
+                <a href="/blog/tags/poker/"
+                   >
+                  Poker</a>
+              </li>
+            
+          </ul>
+        </div>
+
+        <nav>
+          
+            <a href="/about/">
+              <span>
+                About</span>
+            </a>
+          
+            <a href="/">
+              <span class="active">
+                Write</span>
+            </a>
+          
+            <a href="/photography/">
+              <span>
+                Shoot</span>
+            </a>
+          
+        </nav>
+      </header>
+
+      <div class="main">
+        <div class="header-group"></div>
+
+        <div class="base-image">
+          
+        </div>
+
+        
+  <div class="list-view">
+    
+      <!-- List item. -->
+      <div class="item c">
+        <div class="header-group">
+          <h2 class="title"><a href="/blog/youtube-audio/">Extracting Sound from Youtube Videos with youtube-dl</a></h2>
+          <p class="metadata">
+            
+              Thursday December 22, 2011
+            
+          </p>
+        </div>
+
+        <img src="http://writingdegreezero.com/wp-content/uploads/2011/05/youtube.png">
+
+        <div class="preview">
+          <span>
+            
+              <p>One of my first programming pet projects was a set of <a href="http://github.com/ngokevin/mp3-Suite">wrapper
+scripts</a> for youtube-dl with interfaces
+to Rapidshare and Reddit. Then, I didn't recall youtube-dl having an option to
+extract audio out of videos though previously I did contact the maintainer and
+requested it. Eventually, I ended up getting a <a href="/blog/20111116-youtube-dl/">pull
+request</a> into youtube-dl for Soundcloud
+functionality. Looking at youtube-dl now, it has very many useful options
+including the previously mentioned audio extraction as well as some of what I
+implemented (batch processing).</p>
+<p>To extract audio from a YouTube:</p>
+<p><strong>youtube-dl --extract-audio --audio-format mp3 -o %(title)s [youtube-link]</strong></p>
+            
+            </pre></code>
+          </span>
+          <a class="more-link" href="/blog/youtube-audio/">&raquo;</a>
+        </div>
+      </div>
+      <!-- End list item. -->
+    
+      <!-- List item. -->
+      <div class="item c">
+        <div class="header-group">
+          <h2 class="title"><a href="/blog/beets/">Beets - CLI Media Library Management for OCD Geeks</a></h2>
+          <p class="metadata">
+            
+              Tuesday December 20, 2011
+            
+          </p>
+        </div>
+
+        <img src="http://beets.radbox.org/beets.png">
+
+        <div class="preview">
+          <span>
+            
+              <p>Ever since my very first iPod back in high school, I had been glued to heavy
+media library manangement systems such as iTunes or Banshee. They let me import
+music to a consolidated library folder, edit ID3 tags and update the file, and
+fetch album art. However, managing it through a GUI very quickly became
+tedious.</p>
+<p>My <a href="http://github.com/ngokevin/mp3-Suite">bot</a> that fetched music from
+<a href="reddit.com/r/listentothis">/r/listentothis</a> was grabbing anywhere from 20 to
+30 songs a day on a cron. Since they were being fetched from YouTube via
+youtube-dl, the songs were untagged. After a while, the songs build up, and I
+get hundreds or even thousands of songs that are left sitting in my library
+untagged. I only wanted to tag songs that I liked which entailed sifting
+through them. Ideally, I would want to be able to listen to my music
+library from anywhere (e.g. work) and slowly tag or delete songs remotely.</p>
+            
+            </pre></code>
+          </span>
+          <a class="more-link" href="/blog/beets/">&raquo;</a>
+        </div>
+      </div>
+      <!-- End list item. -->
+    
+      <!-- List item. -->
+      <div class="item c">
+        <div class="header-group">
+          <h2 class="title"><a href="/blog/beautiful-soup/">Beautiful Soup is Beautiful</a></h2>
+          <p class="metadata">
+            
+              Thursday December 15, 2011
+            
+          </p>
+        </div>
+
+        <img src="http://www.crummy.com/software/BeautifulSoup/10.1.jpg">
+
+        <div class="preview">
+          <span>
+            
+              <p>Earlier, I wrote a <a href="http://ngokevin.com/blog/20111215-sqlalchemy/">post</a> about
+having to populate a table with contact information for network administrators
+for secure VLANs. I had to do some housekeeping on our crusty database schema
+using SQLAlchemy to accomodate a couple of new tables. Now, it was time to
+populate the new firewall contact information table. A lot of the contact
+information could be found on an intranet site in a nice, neat, and most
+importantly scrapable table. Previously, I had been using either flat regex or
+lxml to scrape web pages, but now it was time to play it smart and have a slurp
+of some <a href="www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a>, a Python HTML
+parser for screen-scraping.</p>
+            
+            </pre></code>
+          </span>
+          <a class="more-link" href="/blog/beautiful-soup/">&raquo;</a>
+        </div>
+      </div>
+      <!-- End list item. -->
+    
+      <!-- List item. -->
+      <div class="item c">
+        <div class="header-group">
+          <h2 class="title"><a href="/blog/trim-media/">An Easy Way to Trim Media Files</a></h2>
+          <p class="metadata">
+            
+              Thursday December 15, 2011
+            
+          </p>
+        </div>
+
+        
+
+        <div class="preview">
+          <span>
+            
+              <p>While working on extracting entertaining video clips from a feature-length home
+movie I compiled a couple of years back, I learned of a way to trim media files
+given timestamps from the command line. <a href="http://ffmpeg.org">ffmpeg</a> is a large
+library for working with media files, and I have also been using it in my
+<a href="http://github.com/ngokevin/mp3-Suite">mp3-Suite</a>. The -ss option specifies the
+starting timestamp of the trim and the -t option specifies the desired
+duration.</p>
+<p>ffmpeg -ss 00:00:15.00 -i input-file.mpg -t 30 -acodec copy -vcodec copy
+output-file.mpg</p>
+            
+            </pre></code>
+          </span>
+          <a class="more-link" href="/blog/trim-media/">&raquo;</a>
+        </div>
+      </div>
+      <!-- End list item. -->
+    
+      <!-- List item. -->
+      <div class="item c">
+        <div class="header-group">
+          <h2 class="title"><a href="/blog/sqlalchemy/">SQLAlchemy is Sorcery</a></h2>
+          <p class="metadata">
+            
+              Thursday December 15, 2011
+            
+          </p>
+        </div>
+
+        <img src="http://www.sqlalchemy.org/img/sqla-logo6.gif">
+
+        <div class="preview">
+          <span>
+            
+              <p>Recently at work, I had to populate a database table with contact information
+of network admins of secure VLANs behind firewall contexts. The information
+would be able to be viewed from Maintain, Oregon State's DNS/DHCP management
+web application. I first had to point Maintain towards a new table containing
+VLAN and firewall context pairings that was being populated programmatically
+whereas the current table containing VLAN information was populated manually.</p>
+<p>There was an issue. A subnet table was pointing to the current VLAN table by
+referencing its database ID. <em>cue facepalm</em>. The decade-old moldy codebase
+started to smell yet again. In order to point Maintain to the new table, I had
+to port the subnet table to point towards the VLAN ID rather than a database
+ID. I dread being a data entry monkey, so I set off to write a script to port
+the data. Since it involved handling a database, I figured this would be a good
+of a time as any to play with <a href="http://sqlalchemy.org">SQLAlchemy</a>, an SQL ORM
+package for Python.</p>
+<p>How SQLAlchemy differs from the familiar Django ORM is SQLAlchemy's
+over-overwhelming amount of documentation and its concept of ...
+            
+            </pre></code>
+          </span>
+          <a class="more-link" href="/blog/sqlalchemy/">&raquo;</a>
+        </div>
+      </div>
+      <!-- End list item. -->
+    
+  </div>
+
+  <div class="pagination c">
+    
+      
+        <a class="prev btn" href="/blog/tags/code/9/" title="View Older Posts">
+          &laquo; Dustier</a>
+      
+      
+        <a class="next btn" href="/blog/tags/code/7/" title="View Newer Posts">
+          Fresher &raquo;</a>
+      
+    
+  </div>
+
+      </div>
+    </div>
+
+    <div id="footer">
+      <a href="mailto:me@ngokevin.com"><i class="fa fa-envelope"></i></a>
+      <a href="http://twitter.com/ngokevin_"><i class="fa fa-twitter-square"></i></a>
+      <a href="http://github.com/ngokevin"><i class="fa fa-github-square"></i></a>
+      <a type="application/rss+xml" href="/rss/index.xml"><i class="fa fa-rss-square"></i></a>
+    </div>
+
+     <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29871909-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>
