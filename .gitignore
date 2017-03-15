@@ -15,4 +15,4 @@ build/
 node_modules/
 venv
 
-bundle.css
+src/
