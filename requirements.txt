@@ -1,9 +1,0 @@
-Jinja2>=2.6
-Markdown>=2.6.5
-PyYAML>=3.10
-Pygments>=2.1
-docutils>=0.8.1
-pillow
-requests
-
--e git+https://github.com/ngokevin/wok.git@c869e0b367569a106ca6e9eb05be53ca3149580a#egg=wok
