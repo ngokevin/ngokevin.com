@@ -13,10 +13,12 @@ image:
 weight: 6
 ---
 
+{% raw %}
 <div ng-app="demo" class="demo" style="margin-bottom: 26px;">
   <b>Value:</b> <span>{{ sliderVal || 9001 }}</span>
   <div slider class="slider" min="0" max="9001" step="10"><span></span></div>
 </div>
+{% endraw %}
 
 For a five-part introduction to AngularJS, check out [ng-okevin's
 Angular](/blog/angular-1).

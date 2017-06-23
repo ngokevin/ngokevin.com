@@ -69,3 +69,13 @@ theme: ngokevin
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: false
+  smartLists: true
+  smartypants: true
+  modifyAnchors: 1   # Lowercased anchors.

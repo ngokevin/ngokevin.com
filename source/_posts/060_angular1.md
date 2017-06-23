@@ -140,7 +140,7 @@ canonical name for directives in Angular is spelled with camel case (e.g.
 
 Now back to the example, the input will read *human* by default if
 ```mySpecies``` is not set. We accomplish this with an Angular **expression**
-in the variable placeholder, ```{{ mySpecies || 'human' }}```. An expression is
+in the variable placeholder, {% raw %}{{ mySpecies || 'human' }}{% endraw %}An expression is
 like inline code in the template that Angular evaluates.
 
 Say we type "cyberman" into the input box. ```species```'s value in the
