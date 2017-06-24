@@ -1,7 +1,7 @@
 ---
 title: "Beautiful Soup is Beautiful"
 type: blog
-category: blog
+layout: blog
 date: 2011-12-15
 id: beautiful-soup
 tags: code

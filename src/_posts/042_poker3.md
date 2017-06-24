@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #3 - First and First"
 type: blog
-category: blog
+layout: blog
 date: 2014-01-25
 id: poker3
 tags: poker

@@ -1,7 +1,7 @@
 ---
 title: "Taking Control of Personal Finances and Investment Portfolio"
 type: blog
-category: blog
+layout: blog
 date: 2015-07-10
 id: investing
 tags: [life]
@@ -58,7 +58,7 @@ back to the Citi Double Cash for every other purchase.
 
 The [Discover card](http://discovercard.com) is the same as the Chase Freedom,
 although it also offers 5% cashback on quarterly select categories. So I can
-use this card if a purchases is within the category, else use the Chase Freedom
+use this card if a purchases is within the layout:, else use the Chase Freedom
 if a purchases is within its categories, else use the Citi Double Cash. It also
 has some permanent 5% cashback categories such as Century Cinema theaters and
 Six Flags, which is nice.

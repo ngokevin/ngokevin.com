@@ -1,7 +1,7 @@
 ---
 title: "Open, HTML 5, Minimalist"
 type: blog
-category: blog
+layout: blog
 date: 2012-07-08
 id: minimalist
 tags: code

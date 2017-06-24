@@ -1,7 +1,7 @@
 ---
 title: "Beets - CLI Media Library Management for OCD Geeks"
 type: blog
-category: blog
+layout: blog
 date: 2011-12-20
 id: beets
 tags: code

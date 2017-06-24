@@ -1,7 +1,7 @@
 ---
 title: "A Glimpse into Competitive VR Gaming"
 type: blog
-category: blog
+layout: blog
 date: 2016-04-04
 id: competitive-vr-gaming
 tags: [code]

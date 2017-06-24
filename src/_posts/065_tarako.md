@@ -1,7 +1,7 @@
 ---
 title: "Building a Faster App Store for the FirefoxOS $25 Smartphone"
 type: blog
-category: blog
+layout: blog
 date: 2014-06-07
 id: fxos-25-phone
 tags: [code]

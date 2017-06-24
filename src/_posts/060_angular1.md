@@ -1,7 +1,7 @@
 ---
 title: "ng-okevin's Angular ch.1 - AngularJS"
 type: blog
-category: blog
+layout: blog
 date: 2014-04-07
 id: angular-1
 tags: [code, angularjs]

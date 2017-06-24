@@ -1,7 +1,7 @@
 ---
 title: Scraping for Free Disney Photopass Pictures
 type: blog
-category: blog
+layout: blog
 date: 2014-01-03
 id: "disney-photo"
 tags: code

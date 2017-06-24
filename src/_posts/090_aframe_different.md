@@ -1,7 +1,7 @@
 ---
 title: "How A-Frame VR is Different from Other 3D Markup Languages"
 type: blog
-category: blog
+layout: blog
 date: 2015-12-21
 id: aframe-vs-3dml
 tags: [code]

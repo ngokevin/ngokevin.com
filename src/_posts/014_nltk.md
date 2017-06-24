@@ -1,7 +1,7 @@
 ---
 title: "Language Processing for Improving Prose and Diction"
 type: blog
-category: blog
+layout: blog
 date: 2012-03-09
 id: nltk
 tags: code

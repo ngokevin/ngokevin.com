@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #5 - The Second Coming of the Great Chicago Fire"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-01
 id: poker5
 tags: poker

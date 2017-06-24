@@ -1,7 +1,7 @@
 ---
 title: "Books Got Back"
 type: blog
-category: blog
+layout: blog
 date: 2014-08-07
 id: books-got-back
 tags: [life]

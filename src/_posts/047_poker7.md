@@ -1,7 +1,7 @@
 ---
 title: "Poker Sessions #7/8/9 - So I'm Not Immortal"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-17
 id: poker7
 tags: poker

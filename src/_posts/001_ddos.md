@@ -1,7 +1,7 @@
 ---
 title: "Fending Off a Home Server DDoS"
 type: blog
-category: blog
+layout: blog
 date: 2011-11-05
 id: ddos
 tags: code

@@ -1,7 +1,7 @@
 ---
 title: "Browserify and Gulp Workflow for React"
 type: blog
-category: blog
+layout: blog
 date: 2014-07-30
 id: react-browserify-gulp
 tags: [code]

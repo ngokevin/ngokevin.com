@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #1: My First Live Cash"
 type: blog
-category: blog
+layout: blog
 date: 2013-11-22
 id: "poker-live"
 tags: poker

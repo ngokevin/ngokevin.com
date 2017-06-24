@@ -1,7 +1,7 @@
 ---
 title: "Grandbox, a Javascript Physics Sandbox"
 type: blog
-category: blog
+layout: blog
 date: 2012-08-15
 id: grandbox
 tags: code

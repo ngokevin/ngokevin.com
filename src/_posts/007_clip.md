@@ -1,7 +1,7 @@
 ---
 title: "An Easy Way to Trim Media Files"
 type: blog
-category: blog
+layout: blog
 date: 2011-12-15
 id: trim-media
 tags: code

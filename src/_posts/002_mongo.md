@@ -1,7 +1,7 @@
 ---
 title: "Dumping syslog-ng Logs with MongoDB"
 type: blog
-category: blog
+layout: blog
 date: 2011-11-06
 id: syslog-mongo
 tags: code

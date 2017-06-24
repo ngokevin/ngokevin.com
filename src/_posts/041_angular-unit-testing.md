@@ -1,7 +1,7 @@
 ---
 title: "Mock Unit Testing a AngularJS Local Storage Service with Karma and Jasmine"
 type: blog
-category: blog
+layout: blog
 date: 2014-01-21
 id: angular-unit-testing
 tags: [code, angularjs]

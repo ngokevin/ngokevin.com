@@ -1,7 +1,7 @@
 ---
 title: "Scrape the Internet! Our Python Soundcloud API"
 type: blog
-category: blog
+layout: blog
 date: 2011-11-06
 id: soundcloud-api
 tags: code

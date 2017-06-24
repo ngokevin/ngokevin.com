@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #4 - My First Tourney Bust, Cash Game Redemption"
 type: blog
-category: blog
+layout: blog
 date: 2014-01-31
 id: poker4
 tags: poker

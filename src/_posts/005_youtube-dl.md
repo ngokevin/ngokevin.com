@@ -1,7 +1,7 @@
 ---
 title: "youtube-dl: My Soundcloud Pull Request Merged!"
 type: blog
-category: blog
+layout: blog
 date: 2011-11-16
 id: youtube-dl
 tags: code

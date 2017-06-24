@@ -1,7 +1,7 @@
 ---
 title: "Using react-router with redux"
 type: blog
-category: blog
+layout: blog
 date: 2015-08-18
 id: redux-react-router
 tags: [code]

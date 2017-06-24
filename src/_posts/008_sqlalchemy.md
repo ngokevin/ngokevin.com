@@ -1,7 +1,7 @@
 ---
 title: "SQLAlchemy is Sorcery"
 type: blog
-category: blog
+layout: blog
 date: 2011-12-15
 id: sqlalchemy
 tags: code

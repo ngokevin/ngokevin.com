@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #2 - 663% ROI"
 type: blog
-category: blog
+layout: blog
 date: 2014-01-15
 id: "poker2"
 tags: poker

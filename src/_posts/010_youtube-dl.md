@@ -1,7 +1,7 @@
 ---
 title: "Extracting Sound from Youtube Videos with youtube-dl"
 type: blog
-category: blog
+layout: blog
 date: 2011-12-22
 id: youtube-audio
 tags: code

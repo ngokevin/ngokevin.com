@@ -1,7 +1,7 @@
 ---
 title: "Building a Statistics Dashboard for Mozilla Marketplace"
 type: blog
-category: blog
+layout: blog
 date: 2012-06-21
 id: mkt-stats
 tags: [life, code]

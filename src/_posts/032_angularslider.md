@@ -1,7 +1,7 @@
 ---
 title: "AngularJS Directive for Mobile Sliders"
 type: blog
-category: blog
+layout: blog
 date: 2013-04-11
 id: angularslider
 tags: [code, angularjs]

@@ -1,7 +1,7 @@
 ---
 title: "ng-okevin's Angular ch.3 - Controllers"
 type: blog
-category: blog
+layout: blog
 date: 2014-04-05
 id: angular-3
 tags: [code, angularjs]

@@ -1,7 +1,7 @@
 ---
 title: "Testing Project Browserify Modules in Karma Test Runner with Gulp"
 type: blog
-category: blog
+layout: blog
 date: 2014-08-31
 id: requiring-browserify-in-karma
 tags: [code]

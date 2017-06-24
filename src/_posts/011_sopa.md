@@ -1,7 +1,7 @@
 ---
 title: "Why SOPA Sucks: The People, The Problem, The Solution"
 type: blog
-category: blog
+layout: blog
 date: 2012-01-12
 id: sopa
 tags: life

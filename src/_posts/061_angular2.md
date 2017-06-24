@@ -1,7 +1,7 @@
 ---
 title: "ng-okevin's Angular ch.2 - Scopes"
 type: blog
-category: blog
+layout: blog
 date: 2014-04-06
 id: angular-2
 tags: [code, angularjs]

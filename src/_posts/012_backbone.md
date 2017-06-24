@@ -1,7 +1,7 @@
 ---
 title: "Trek Into Backbone.js"
 type: blog
-category: blog
+layout: blog
 date: 2012-03-08
 id: backbone
 tags: code

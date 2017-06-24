@@ -1,7 +1,7 @@
 ---
 title: "How to Get Onto the Internet, Courtesy of Google Street"
 type: blog
-category: blog
+layout: blog
 date: 2012-07-09
 id: googlecar
 tags: life

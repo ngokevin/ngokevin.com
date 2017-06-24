@@ -1,7 +1,7 @@
 ---
 title: "Building the Marketplace Feed"
 type: blog
-category: blog
+layout: blog
 date: 2014-09-20
 id: feed
 tags: [code]
@@ -92,7 +92,7 @@ ElasticSearch under-the-hood. We had three indices to relate:
 collection of apps that can contain accompanying descriptions or images.
 Many-to-many relationship with Apps.
 - Feed Items - a wrapper around Feed Elements containing metadata (region,
-category, carrier) that helps determine to whom the Feed Element should be
+layout:, carrier) that helps determine to whom the Feed Element should be
 displayed to. Many-to-many relationship with Feed Elements.
 
 This meant [three ES queries overall][threequery] (and 0 database queries). I

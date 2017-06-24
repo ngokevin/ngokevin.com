@@ -1,7 +1,7 @@
 ---
 title: "More Happiness for Your Buck"
 type: blog
-category: blog
+layout: blog
 date: 2014-07-17
 id: happy-money
 tags: [life]

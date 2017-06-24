@@ -1,7 +1,7 @@
 ---
 title: "Cache Manifest 'Download Failed' on Firefox Marketplace"
 type: blog
-category: blog
+layout: blog
 date: 2014-01-20
 id: "fxos-cache"
 tags: code

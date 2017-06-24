@@ -1,7 +1,7 @@
 ---
 title: "Adelheid, an Interactive Photocentric Storybook"
 type: blog
-category: blog
+layout: blog
 date: 2014-11-28
 id: adelheid
 tags: [code, life, shoot]

@@ -1,7 +1,7 @@
 ---
 title: Capturing Bridgetown
 type: blog
-category: blog
+layout: blog
 date: 2013-10-01
 id: bridgetown
 tags: photography

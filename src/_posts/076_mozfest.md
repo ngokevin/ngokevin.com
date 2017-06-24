@@ -1,7 +1,7 @@
 ---
 title: "Pushing Hybrid Mobile Apps to the Forefront"
 type: blog
-category: blog
+layout: blog
 date: 2014-11-23
 id: mozfest
 tags: [code, life]

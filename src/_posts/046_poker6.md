@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #6 - Russell Westbrook Played Here Yesterday"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-11
 id: poker6
 tags: poker

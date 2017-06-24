@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #10 - Asian Guy from 'The Internship'"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-18
 id: poker8
 tags: poker

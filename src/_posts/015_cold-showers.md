@@ -1,7 +1,7 @@
 ---
 title: "Taking Cold Showers and the Zen State"
 type: blog
-category: blog
+layout: blog
 date: 2012-03-10
 id: cold-showers
 tags: life

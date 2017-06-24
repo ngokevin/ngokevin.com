@@ -1,7 +1,7 @@
 ---
 title: "Content Ratings on the Firefox Marketplace (Rated E for Everyone)"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-08
 id: iarc
 tags: code

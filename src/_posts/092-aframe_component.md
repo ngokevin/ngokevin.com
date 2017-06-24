@@ -1,7 +1,7 @@
 ---
 title: "How to Write an A-Frame VR Component"
 type: blog
-category: blog
+layout: blog
 date: 2016-01-17
 id: aframe-component
 tags: [code]

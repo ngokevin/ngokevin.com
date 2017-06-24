@@ -1,7 +1,7 @@
 ---
 title: "Poker for Beginners"
 type: blog
-category: blog
+layout: blog
 date: 2014-03-07
 id: beginning-poker
 tags: poker

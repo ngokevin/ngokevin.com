@@ -1,7 +1,7 @@
 ---
 title: Attaining the Clandestine T-Mobile $30 5GB Plan
 type: blog
-category: blog
+layout: blog
 date: 2013-11-20
 id: tmobile
 tags: life

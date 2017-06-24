@@ -1,7 +1,7 @@
 ---
 title: "Primed for Alaska with New Lens Kit"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-19
 id: primes
 tags: [photography, life]

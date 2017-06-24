@@ -1,7 +1,7 @@
 ---
 title: "Bay Area Apartment Hunting by Sun Tzu"
 type: blog
-category: blog
+layout: blog
 date: 2015-02-12
 id: move
 tags: [life]

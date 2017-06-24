@@ -1,7 +1,7 @@
 ---
 title: "Web Design Heuristics"
 type: blog
-category: blog
+layout: blog
 date: 2012-11-13
 id: webdesignhacks
 tags: code

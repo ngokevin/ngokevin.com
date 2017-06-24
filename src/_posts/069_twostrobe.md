@@ -1,7 +1,7 @@
 ---
 title: "Off-Camera Lighting with Two Strobes"
 type: blog
-category: blog
+layout: blog
 date: 2014-07-28
 id: two-strobes
 tags: [photography]

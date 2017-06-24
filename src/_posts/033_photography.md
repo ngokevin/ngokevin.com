@@ -1,7 +1,7 @@
 ---
 title: My Foray Onto Photography
 type: blog
-category: blog
+layout: blog
 date: 2013-09-26
 id: photography
 tags: photography

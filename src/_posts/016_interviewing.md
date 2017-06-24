@@ -1,7 +1,7 @@
 ---
 title: "Being on Both Sides of the Interview Table"
 type: blog
-category: blog
+layout: blog
 date: 2012-03-21
 id: "interviewing"
 tags: life

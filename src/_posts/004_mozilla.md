@@ -1,7 +1,7 @@
 ---
 title: "Nabbing an Internship at Mozilla"
 type: blog
-category: blog
+layout: blog
 date: 2011-11-09
 id: moz-intern
 tags: life

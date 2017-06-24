@@ -1,7 +1,7 @@
 ---
 title: "EV Calculation for JJ Facing a 3bet Shove"
 type: blog
-category: blog
+layout: blog
 date: 2014-08-24
 id: pokerhand1
 tags: [poker]

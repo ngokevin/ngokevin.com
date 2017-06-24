@@ -1,7 +1,7 @@
 ---
 title: "Gogh, a Simple Painting Generator"
 type: blog
-category: blog
+layout: blog
 date: 2012-11-06
 id: gogh
 tags: code

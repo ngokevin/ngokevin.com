@@ -1,7 +1,7 @@
 ---
 title: "Dropdown Component Using Custom Elements (vs. React)"
 type: blog
-category: blog
+layout: blog
 date: 2015-05-14
 id: custom-elements-react
 tags: [code]

@@ -1,7 +1,7 @@
 ---
 title: "I Think I Just Mobilefied Myself"
 type: blog
-category: blog
+layout: blog
 date: 2013-03-10
 id: mobilefy
 tags: code

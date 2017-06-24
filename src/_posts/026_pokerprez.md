@@ -1,7 +1,7 @@
 ---
 title: "The Theory of Poker and Hold'em Strategy"
 type: blog
-category: blog
+layout: blog
 date: 2012-10-15
 id: poker
 tags: poker

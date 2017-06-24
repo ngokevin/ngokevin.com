@@ -1,7 +1,7 @@
 ---
 title: "ng-okevin's Angular ch.5 - Forms"
 type: blog
-category: blog
+layout: blog
 date: 2014-04-03
 id: angular-5
 tags: [code, angularjs]

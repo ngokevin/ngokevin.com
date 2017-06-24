@@ -1,7 +1,7 @@
 ---
 title: "'Card Not Formatted' Error on Pentax Cameras with Mac OSX Card Reader"
 type: blog
-category: blog
+layout: blog
 date: 2014-11-22
 id: pentax-card
 tags: [shoot]

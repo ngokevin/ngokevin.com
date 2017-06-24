@@ -1,7 +1,7 @@
 ---
 title: Summit Up Mozilla
 type: blog
-category: blog
+layout: blog
 date: 2013-10-09
 id: moz-summit
 tags: life

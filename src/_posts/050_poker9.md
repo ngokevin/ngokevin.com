@@ -1,7 +1,7 @@
 ---
 title: "Poker Session #11 - New Acquaintances"
 type: blog
-category: blog
+layout: blog
 date: 2014-02-21
 id: poker9
 tags: poker

@@ -1,7 +1,7 @@
 ---
 title: "A-Frame - Virtual Reality on the Web Simplified"
 type: blog
-category: blog
+layout: blog
 date: 2015-12-16
 id: aframe
 tags: [code]
