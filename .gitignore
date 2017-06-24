@@ -15,6 +15,5 @@ build/
 node_modules/
 venv
 
-src/
 npm-debug.log
 public/

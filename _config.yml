@@ -3,22 +3,22 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
+title: kevin ngo
+subtitle: virtual reality web developer
+description: co-creator of A-Frame
 author: Kevin Ngo
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://ngokevin.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: blog/:id
 permalink_defaults:
 
 # Directory
-source_dir: source
+source_dir: src
 public_dir: public
 tag_dir: tags
 archive_dir: archives

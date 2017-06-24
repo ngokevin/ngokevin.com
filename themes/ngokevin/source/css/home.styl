@@ -1,0 +1,73 @@
+@import 'settings'
+
+body
+  align-items center
+  display flex
+  flex-direction column
+
+.about
+  align-items center
+  display flex
+  flex-direction column
+  margin-bottom 10px
+  +desktop()
+    align-items flex-start
+    flex-direction row
+    justify-content flex-start
+    margin-bottom 20px
+
+.profile
+  height 150px
+  margin-bottom 20px
+  margin-right 20px
+  width 150px
+  +desktop()
+    margin-bottom 0
+
+.profile img
+  border-radius 100px
+  height 150px
+  width 150px
+
+.basicInfo
+  display flex
+  flex-direction column
+
+  h1, h2, h3
+    margin-top 0
+    text-align center
+    +desktop()
+      text-align left
+
+.posts
+  list-style none
+  padding-left 0
+  width 100%
+  +desktop()
+    width auto
+
+.postListing
+  padding-bottom 5px
+  padding-top 5px
+  &:first-child
+    padding-top 0
+  +desktop()
+    padding-bottom 0
+    padding-top 0
+
+.postDate
+  display none
+  +desktop()
+    display inline-block
+    text-align right
+    vertical-align bottom
+    width 160px
+
+.postLink
+  ellipsis()
+  display inline-block
+  vertical-align bottom
+  width 100%
+  +desktop()
+    margin-left 10px
+    width auto

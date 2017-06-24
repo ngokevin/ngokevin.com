@@ -1,0 +1,21 @@
+<div class="about">
+  <div class="profile">
+    <img src="/img/kevinpiano.jpg">
+  </div>
+  <div class="basicInfo">
+    <h1>kevin ngo</h1>
+    <h2>virtual reality web developer</h2>
+    <h3>co-creator of <a class="aframeLink" href="https://aframe.io">A-Frame</a></h3>
+  </div>
+</div>
+
+<ul class="posts">
+  {% for post in site.posts.data | sort(true, true, 'date') %}
+    {% if loop.index0 < 3 %}
+      <li class="postListing">
+        <span class="postDate" >{{ date(post.date) }}</span>
+        <a class="postLink" href="{{ post.path }}">{{ post.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
