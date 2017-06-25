@@ -43,33 +43,34 @@ polyfill](https://github.com/WebReflection/document-register-element). Here
 is an extremely simple Custom Element that simple wraps a ```div``` and
 defines some interface on the element's prototype.
 
-    ::js
-    document.registerElement('input-wrapper', {
-        prototype: Object.create(HTMLElement.prototype, {
-            createdCallback: {
-                value: function () {
-                    // Called after the component is "mounted" onto the DOM.
-                    this.appendChild(document.createElement('input'));
-                }
-            },
-            input: {
-                get: function() {
-                    return this.querySelector('input');
-                }
-            },
-            value: {
-                get: function() {
-                    return this.input.value;
-                },
-                set: function(val) {
-                    this.input.value = val;
-                }
+```js
+document.registerElement('input-wrapper', {
+    prototype: Object.create(HTMLElement.prototype, {
+        createdCallback: {
+            value: function () {
+                // Called after the component is "mounted" onto the DOM.
+                this.appendChild(document.createElement('input'));
             }
-        })
-    });
+        },
+        input: {
+            get: function() {
+                return this.querySelector('input');
+            }
+        },
+        value: {
+            get: function() {
+                return this.input.value;
+            },
+            set: function(val) {
+                this.input.value = val;
+            }
+        }
+    })
+});
 
-    var inputWrapper = document.createElement('input-wrapper');
-    document.body.appendChild(inputWrapper);
+var inputWrapper = document.createElement('input-wrapper');
+document.body.appendChild(inputWrapper);
+```
 
 We define the interface using Javascript's ```Object.create```, extending the
 basic ```HTMLElement```. The element simply wraps an input, and provides a
@@ -86,18 +87,19 @@ create a custom dropdown by extending the native ```<select>``` element.
 
 Here's an example of how our element will be used in the HTML:
 
-    ::html
-    <custom-select name="my-select">
-      <custom-selected>
-        The current selected option is <custom-selected-text></custom-selected-text>
-      </custom-selected>
-      <optgroup>
-        <option value="1">First value</option>
-        <option value="2">Second value</option>
-        <option value="3">Third value</option>
-        <option value="4">Fourth value</option>
-      </optgroup>
-    </mkt-select>
+```html
+<custom-select name="my-select">
+  <custom-selected>
+    The current selected option is <custom-selected-text></custom-selected-text>
+  </custom-selected>
+  <optgroup>
+    <option value="1">First value</option>
+    <option value="2">Second value</option>
+    <option value="3">Third value</option>
+    <option value="4">Fourth value</option>
+  </optgroup>
+</mkt-select>
+```
 
 What we'll do in the ```createdCallback``` is, if you check the source code,
 create an actual internal hidden select element, copying the attributes
@@ -105,59 +107,61 @@ defined on ```<custom-select>```. Then we'll create ```<custom-options>```,
 copying the original options into the hidden select. We extend the custom
 select's interface to have an attribute pointing to the hidden select like so:
 
-    ::js
-    select: {
-        // Actual <select> element to proxy to, steal its interface.
-        // Value set in the createdCallback.
-        get: function() {
-            return this._select;
-        },
-        set: function(select) {
-            copyAttrs(select, this);
-            this._select = select;
-        }
+```js
+select: {
+    // Actual <select> element to proxy to, steal its interface.
+    // Value set in the createdCallback.
+    get: function() {
+        return this._select;
     },
+    set: function(select) {
+        copyAttrs(select, this);
+        this._select = select;
+    }
+},
+```
 
 This will allow our custom element to *absorb* the functionality of the
 native select element. All we have to do is implement the entire interface of
 the select element by routing to the internal select element.
 
-    ::js
-    function proxyInterface(destObj, properties, methods, key) {
-        // Proxies destObj.<properties> and destObj.<methods>() to
-        // destObj.<key>.
-        properties.forEach(function(prop) {
-            if (Object.getOwnPropertyDescriptor(destObj, prop)) {
-                // Already defined.
-                return;
+```js
+function proxyInterface(destObj, properties, methods, key) {
+    // Proxies destObj.<properties> and destObj.<methods>() to
+    // destObj.<key>.
+    properties.forEach(function(prop) {
+        if (Object.getOwnPropertyDescriptor(destObj, prop)) {
+            // Already defined.
+            return;
+        }
+        // Set a property.
+        Object.defineProperty(destObj, prop, {
+            get: function() {
+                return this[key][prop];
             }
-            // Set a property.
-            Object.defineProperty(destObj, prop, {
-                get: function() {
-                    return this[key][prop];
-                }
-            });
         });
+    });
 
-        methods.forEach(function(method) {
-            // Set a method.
-            Object.defineProperty(destObj, method, {
-                value: function() {
-                    return this[key][method].call(arguments);
-                }
-            });
+    methods.forEach(function(method) {
+        // Set a method.
+        Object.defineProperty(destObj, method, {
+            value: function() {
+                return this[key][method].call(arguments);
+            }
         });
-    }
+    });
+}
 
-    proxyInterface(CustomSelectElement.prototype,
-        ['autofocus', 'disabled', 'form', 'labels', 'length', 'multiple',
-         'name', 'onchange', 'options', 'required', 'selectedIndex', 'size',
-         'type', 'validationMessage', 'validity', 'willValidate'],
+proxyInterface(CustomSelectElement.prototype,
+    ['autofocus', 'disabled', 'form', 'labels', 'length', 'multiple',
+     'name', 'onchange', 'options', 'required', 'selectedIndex', 'size',
+     'type', 'validationMessage', 'validity', 'willValidate'],
 
-        ['add', 'blur', 'checkValidity', 'focus', 'item', 'namedItem',
-         'remove', 'setCustomValidity'],
+    ['add', 'blur', 'checkValidity', 'focus', 'item', 'namedItem',
+     'remove', 'setCustomValidity'],
 
-        'select');
+    'select');
+```
 
 ```proxyInterface``` will "route" the property lookups (the first array), and
 method calls (the second array) from the custom select element to the internal

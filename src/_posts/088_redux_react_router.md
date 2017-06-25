@@ -45,23 +45,24 @@ I won't go into detail here. But I will note that we are using
 conveniently makes availalbe react-router state inside of our Redux store, and
 features action creators for react-router.
 
-    ::javascript
-    import React from 'react';
-    import {Provider} from 'react-redux';
-    import {Route, Router} from 'react-router';
-    import {history} from 'react-router/lib/BrowserHistory';
-    import {combineReducers, createStore} from 'redux';
-    import {reduxRouteComponent,
-            routerStateReducer as router} from 'redux-react-router';
+```javascript
+import React from 'react';
+import {Provider} from 'react-redux';
+import {Route, Router} from 'react-router';
+import {history} from 'react-router/lib/BrowserHistory';
+import {combineReducers, createStore} from 'redux';
+import {reduxRouteComponent,
+        routerStateReducer as router} from 'redux-react-router';
 
-    import App from './components/App';
+import App from './components/App';
 
 
-    const reducer = combineReducers({
-      router: routerStateReducer,
-      // ...other reducers.
-    });
-    const store = createStore(reducer);
+const reducer = combineReducers({
+  router: routerStateReducer,
+  // ...other reducers.
+});
+const store = createStore(reducer);
+```
 
 Next, imagine that ```App``` is our root-level handler component. We're going
 to need to wrap it with a Redux Provider such that it has access to the Redux
@@ -74,25 +75,27 @@ this feature. ```react@0.14``` will do parent-based context so this will work
 in the future without need for wrapping. Owner-based context is also why we
 wrap our component in a function inside the Provider.
 
-    ::javascript
-    class ReduxApp extends React.Component {
-      render() {
-        return <Provider store={store}>
-          {() => <App {...this.props}/>}
-        </Provider>
-      }
-    }
+```javascript
+class ReduxApp extends React.Component {
+  render() {
+    return <Provider store={store}>
+      {() => <App {...this.props}/>}
+    </Provider>
+  }
+}
+```
 
 Now let's build our Router and start the render:
 
-    ::javascript
-    React.render(<Router history={history}>
-      <Route component={reduxRouteComponent(store)}>
-        <Route name="app" path="/" component={ReduxApp}>
-          // ...other routes.
-        </Route>
-      </Route>
-    </Router>, document.querySelector('.app'));
+```javascript
+React.render(<Router history={history}>
+  <Route component={reduxRouteComponent(store)}>
+    <Route name="app" path="/" component={ReduxApp}>
+      // ...other routes.
+    </Route>
+  </Route>
+</Router>, document.querySelector('.app'));
+```
 
 ### components/App.js
 
@@ -101,32 +104,33 @@ Although, it is usually better practice to react-redux's ```connect``` to
 only expose a subset of the store. Let's see what the ```App``` component
 might look like:
 
-    ::javascript
-    import {bindActionCreators} from 'redux';
-    import React from 'react';
-    import {connect} from 'react-redux';
+```javascript
+import {bindActionCreators} from 'redux';
+import React from 'react';
+import {connect} from 'react-redux';
 
-    import {someApiFetch} from '../actions/someApi';
+import {someApiFetch} from '../actions/someApi';
 
 
-    @connect(
-      state => ({user: state.user}),
-      dispatch => bindActionCreators({someApiFetch}, dispatch)
-    )
-    export default class App extends React.Component {
-      constructor(props, context) {
-        super(props, context);
+@connect(
+  state => ({user: state.user}),
+  dispatch => bindActionCreators({someApiFetch}, dispatch)
+)
+export default class App extends React.Component {
+  constructor(props, context) {
+    super(props, context);
 
-        if (this.props.user.loggedIn) {
-          this.props.someApiFetch();
-        }
-      }
-      render() {
-        return <div>
-          <p>Logged in as {this.props.user.name}!</p>
-        </div>
-      }
+    if (this.props.user.loggedIn) {
+      this.props.someApiFetch();
     }
+  }
+  render() {
+    return <div>
+      <p>Logged in as {this.props.user.name}!</p>
+    </div>
+  }
+}
+```
 
 But that's out of the scope of this post. You can read more about implementing
 higher-level Redux components at

@@ -25,17 +25,18 @@ can be resolved.
 
 Here is the Gulp task in our ```gulpfile.js```:
 
-    ::js
-    var browserify = require('browserify');
-    var glob = require('glob');  // You'll have to install this too.
+```js
+var browserify = require('browserify');
+var glob = require('glob');  // You'll have to install this too.
 
-    gulp.task('tests', function() {
-        // Bundle a test JS bundle and put it on our project JS root path.
-        var testFiles = glob.sync('./tests/**/*.js');  // Bundle all our tests.
-        return browserify(testFiles).bundle({debug: true})
-            .pipe(source('tests.js'))  // The bundle name.
-            .pipe(gulp.dest('./www/js'));  // The JS root path.
-    });
+gulp.task('tests', function() {
+    // Bundle a test JS bundle and put it on our project JS root path.
+    var testFiles = glob.sync('./tests/**/*.js');  // Bundle all our tests.
+    return browserify(testFiles).bundle({debug: true})
+        .pipe(source('tests.js'))  // The bundle name.
+        .pipe(gulp.dest('./www/js'));  // The JS root path.
+});
+```
 
 A test bundle, containing all our test files, will be spit out on our JS root
 path. Now when we do ```require('myAppFolder/someJSFile')```, Browserify will
@@ -44,16 +45,18 @@ easily be able to find the module.
 But we also have to tell Karma where our new test bundle is. Do so in our
 ```karma.config.js``` file:
 
-    ::js
-    files: [
-        {pattern: 'www/js/tests.js', included: true}
-    ]
+```js
+files: [
+    {pattern: 'www/js/tests.js', included: true}
+]
+```
 
 We'll also want to tell Gulp to re-bundle our tests every time the tests are
 touched. This can be annoying if you have Gulp set up to watch your JS path,
 since the tests will spit out a bundle on the JS path
 
-    ::js
-    gulp.watch('./tests/**/*.js', ['tests']);
+```js
+gulp.watch('./tests/**/*.js', ['tests']);
+```
 
 Run your tests and try requiring one of your project files. It should work!

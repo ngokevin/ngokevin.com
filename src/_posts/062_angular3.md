@@ -38,12 +38,13 @@ Rather, it is more correct to create an Angular ```module``` and use its
 ```controller``` factory function to register a controller to the view, to not
 pollute the global namespace.
 
-    ::js
-    var app = anglar.module('SupWorldApp', []);
+```js
+var app = anglar.module('SupWorldApp', []);
 
-    app.controller('SupWorldCtrl', function($scope) {
-        $scope.targetOfSalutation = 'World';
-    });
+app.controller('SupWorldCtrl', function($scope) {
+    $scope.targetOfSalutation = 'World';
+});
+```
 
 ```module``` is a global place used to create and register Angular modules.
 Though we have not covered them yet, along with controllers, types of Angular
@@ -57,13 +58,14 @@ we must pass the name of our module into the top-level ```ngApp``` directive.
 Again, we use the ```ngController``` directive to create the scope and
 associate our controller.
 
-    ::html
-    <!doctype html>
-    <html ng-app="SupWorldApp">
-      <body ng-controller="SupWorldCtrl">
-        <h1>Sup, {{ targetOfSalutation }}</h1>
-      </body>
-    </html>
+```html
+<!doctype html>
+<html ng-app="SupWorldApp">
+  <body ng-controller="SupWorldCtrl">
+    <h1>Sup, {{ targetOfSalutation }}</h1>
+  </body>
+</html>
+```
 
 The rest is just like before, this time with a greener global namespace.
 
@@ -85,28 +87,31 @@ depedencies, making it difficult to stub out or mock the dependency in tests.
 
 *No dependency injection: create the dependency*
 
-    ::js
-    function SomeClass() {
-        this.someDependency = new SomeDependency();
-    }
+```js
+function SomeClass() {
+    this.someDependency = new SomeDependency();
+}
+```
 
 *No dependency injection: global dependency*
 
-    ::js
-    var someDependency = new SomeDependency();
-    function SomeClass() {
-        this.someDependency = someDependency;
-    }
+```js
+var someDependency = new SomeDependency();
+function SomeClass() {
+    this.someDependency = someDependency;
+}
+```
 
 By not hard-coding the dependency, we can change them whenever, such as during
 testing.
 
 *Dependency injection*
 
-    ::js
-    function SomeClass(someDependency) {
-        this.someDependency = someDependency;
-    }
+```js
+function SomeClass(someDependency) {
+    this.someDependency = someDependency;
+}
+```
 
 ### Dependency Injection in Controllers
 
@@ -125,11 +130,12 @@ annotation.
 In *Sup, World*, we will again print "Sup, World" using a different method
 to demonstrate declaring controllers with proper dependency injection.
 
-    ::js
-    // With better dependency injection.
-    app.controller('SupWorldCtrl', ['$scope', function(scope) {
-        scope.targetOfSalutation = 'World';
-    }]);
+```js
+// With better dependency injection.
+app.controller('SupWorldCtrl', ['$scope', function(scope) {
+    scope.targetOfSalutation = 'World';
+}]);
+```
 
 In an array , we pass the names of the dependencies we want as strings. We then
 pass the controller constructor with its dependencies as its parameters in the
@@ -152,25 +158,27 @@ also be more difficult as Angular expressions are inherently limited.
 In *Jack in the Box*, we will create a button that, on a random click, pop goes
 the weasel, to demonstrate using methods in the controller.
 
-    ::js
-    app.controller('JackInTheBoxCtrl', ['$scope', function($scope) {
-        $scope.crank = function() {
-            if (Math.random() < 0.3) {
-                $scope.pop = 'Pop Goes the Weasel!';
-            }
-        };
-    }]);
+```js
+app.controller('JackInTheBoxCtrl', ['$scope', function($scope) {
+    $scope.crank = function() {
+        if (Math.random() < 0.3) {
+            $scope.pop = 'Pop Goes the Weasel!';
+        }
+    };
+}]);
+```
 
 We define a method in the controller as a property on the scope. We use
 ```Math.random()``` to set the value of ```pop``` on a *random* click,
 something we would not be able to do from the template.
 
-    ::html
-    <body ng-controller="JackInTheBoxCtrl">
-      <h1>Jack in the Box</h1>
-      <div><h2>{{ pop }}</h2></div>
-      <button ng-click='crank()'>Crank</button>
-    </body>
+```html
+<body ng-controller="JackInTheBoxCtrl">
+  <h1>Jack in the Box</h1>
+  <div><h2>{{ pop }}</h2></div>
+  <button ng-click='crank()'>Crank</button>
+</body>
+```
 
 Then we can call it from the template by passing it to the ```ngClick```
 directive, with parenthesis to indicate a function. We could even pass
@@ -194,17 +202,18 @@ In *No Church in the Wild*, we will use Kanye West's bar, "What's a mob to a
 king? What's a king to a god? What's a god to a non-believer?" to create a a
 little food chain heirarchy.
 
-    ::html
-    <body ng-init="alpha = 'Kevin'">
-      <h1>No Church in the Wild<h1>
-      <div ng-controller="NonBelieverCtrl">
+```html
+<body ng-init="alpha = 'Kevin'">
+  <h1>No Church in the Wild<h1>
+  <div ng-controller="NonBelieverCtrl">
+    {{ alpha }}
+    <div ng-controller="GodCtrl">
+      {{ alpha }}
+      <div ng-controller="KingCtrl">
         {{ alpha }}
-        <div ng-controller="GodCtrl">
+        <div ng-controller="MobCtrl">
           {{ alpha }}
-          <div ng-controller="KingCtrl">
-            {{ alpha }}
-            <div ng-controller="MobCtrl">
-              {{ alpha }}
+```
 
 The ```body``` element encompasses the root scope. For each ```ng-
 controller```, another child controller is added to the heirarchy. The root
@@ -215,14 +224,15 @@ created that inherits from the root scope, therefore inheriting ```alpha```'s
 value of "Kevin". But in the ```NonBelieverCtrl``` controller, we will override
 that initial value.
 
-    ::js
-    app.controller('NonBelieverCtrl', ['$scope', function($scope) {
-        $scope.alpha = 'Non-Believer';
-    }]);
+```js
+app.controller('NonBelieverCtrl', ['$scope', function($scope) {
+    $scope.alpha = 'Non-Believer';
+}]);
 
-    app.controller('GodCtrl', ['$scope', function($scope) {
-        $scope.alpha = 'God';
-    }]);
+app.controller('GodCtrl', ['$scope', function($scope) {
+    $scope.alpha = 'God';
+}]);
+```
 
 We can then continue going down the chain, overriding "Non-Believer" with "God"
 in ```GodCtrl```, overriding "God" with "King", then finally overriding "King"

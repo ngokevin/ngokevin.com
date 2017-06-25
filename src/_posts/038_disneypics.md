@@ -46,9 +46,10 @@ So I jumped into Firebug/Web Inspector. I dove deeper than the depths of the
 Mariana Trench and dug through layers and layers of DOM until I reached Middle
 Earth. And there it was, the Holy Grail.
 
-    ::html
-    <td id="greyedImg"
-        style="background: url("/api/photostore/previewEdits.pix?quality=80&ImageId=<XXX>...&cropAspectRatio=4x6...&Orientation=Landscape...&width=400");"...>
+```html
+<td id="greyedImg"
+    style="background: url("/api/photostore/previewEdits.pix?quality=80&ImageId=<XXX>...&cropAspectRatio=4x6...&Orientation=Landscape...&width=400");"...>
+```
 
 Turns out Disney was pulling in their photos through an API. Through the GET
 query parameters, they limited the quality to 80 and width to 400 to decrease
@@ -62,8 +63,9 @@ height in```CropAspectRatio``` (e.g. 600x400 to 400x600). Finally, I added the
 
 ### The Resulting URL
 
-    ::html
-    http://www.disneyphotopass.com/api/photostore/previewEdits.pix?quality=100&ImageId=XXX&cropX=0.0025&cropY=0&cropWidth=0.995&cropOrientation=Landscape&cropAspectRatio=4x6&overlayAssetId=null&width=1000&Rotation=None&BlackAndWhite=false*
+```html
+http://www.disneyphotopass.com/api/photostore/previewEdits.pix?quality=100&ImageId=XXX&cropX=0.0025&cropY=0&cropWidth=0.995&cropOrientation=Landscape&cropAspectRatio=4x6&overlayAssetId=null&width=1000&Rotation=None&BlackAndWhite=false*
+```
 
 Just replace the XXX in ImageID with the one found in the Web Inspector.
 

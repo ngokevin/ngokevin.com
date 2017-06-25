@@ -72,15 +72,16 @@ distinctions between the two. Angular
 In *An NBA Poem*, we will write a poem involving some basketball memes to
 demonstrate Angular expressions.
 
-    ::html
-    <body ng-init="theDeludedOne = 'monta'; lebronRings = 0; bromance = true;">
-    Not {{ lebronRings + 1 }}. Not {{ lebronRings + 2 }}. Not {{ lebronRings + 3 }}.
+```html
+<body ng-init="theDeludedOne = 'monta'; lebronRings = 0; bromance = true;">
+Not {{ lebronRings + 1 }}. Not {{ lebronRings + 2 }}. Not {{ lebronRings + 3 }}.
 
-    Because {{ theDeludedOne }} have it all.
+Because {{ theDeludedOne }} have it all.
 
-    {{ chris || 'Cliff' }} and {{ cliff || 'Chris' }} Paul, hoping for the championship.
+{{ chris || 'Cliff' }} and {{ cliff || 'Chris' }} Paul, hoping for the championship.
 
-    While {{ bromance && 'Parsons' || 'Basketball' }} and Lin, a most delicate relationship.
+While {{ bromance && 'Parsons' || 'Basketball' }} and Lin, a most delicate relationship.
+```
 
 With the scope property ```lebronRings``` initialized to "0", we can perform
 simple addition such as in ```{{ lebronRings + 1 }}}``` to yield "1".
@@ -89,13 +90,14 @@ Or we can simply output properties, as is, as a string. Such is the case where
 ```{{ theDeludedOne }}``` evaluates to "monta".
 
 Because expressions are forgiving, even though  ```chris``` has not been
-defined, ```{{ chris || 'Cliff' }}``` still evaluates to "Cliff". Attempting to
-evaluate this expression in JS would raise a "ReferenceError: chris is not
-defined", on the other hand.
+defined, {% raw %}{{ chris || 'Cliff' }}{% endraw %} still evaluates to
+"Cliff". Attempting to evaluate this expression in JS would raise a
+"ReferenceError: chris is not defined", on the other hand.
 
-The expression ```{{ chris || 'Cliff' }}``` also demonstrates the use of
-boolean logic to accomplish a simple conditional without any control flow
-constructs. It evaluates ```chris``` if it exists, else it evalutes to "Cliff".
+The expression {% raw %}{{ chris || 'Cliff' }}{% endraw %} also demonstrates
+the use of boolean logic to accomplish a simple conditional without any control
+flow constructs. It evaluates ```chris``` if it exists, else it evalutes to
+"Cliff".
 
 #### Ternary Operations in Expressions
 
@@ -103,22 +105,24 @@ Often in templates, an ```if then else``` kind of evaluation is useful. Angular
 expressions do not contain any control flow constructs, however. Traditionally
 in JS, we could use an ```if then else``` flow.
 
-    ::js
-    if (a) {
-        return b;
-    } else {
-        return c;
-    }
+```js
+if (a) {
+    return b;
+} else {
+    return c;
+}
+```
 
 JS contains the ternary operator, to make it more succinct
 
-    ::js
-    return a ? b : c;
+```js
+return a ? b : c;
+```
 
 Angular expressions do not contain the ternary operator. Equivalently, we can
 use boolean logic to achieve the same control. In *An NBA Poem*, the expression
-```{{ bromance && 'Parsons' || 'Basketball }}``` demonstrates an
-```if then else``` evaluation. If ```bromance``` is not falsy, then the
+{% raw %}{{ bromance && 'Parsons' || 'Basketball' }}{% endraw %} demonstrates
+an ```if then else``` evaluation. If ```bromance``` is not falsy, then the
 expression evaluates to "Parsons", else it evaluates to "Basketball".
 
 ## Built-in Directives
@@ -158,22 +162,24 @@ for annotation purposes. Expressions should **not** actually be surrounded in
 brackets, unless we are passing a map which are coincidentally surrounded by
 brackets.
 
-    ::html
-    <ANY ng-class="{expression}">
-      ...
-    </ANY>
+```html
+<ANY ng-class="{expression}">
+  ...
+</ANY>
+```
 
 #### Example
 
 In *Transformer*, we will create checkboxes that will set classes to transform
 an HTML element to demonstrate ```ngClass```.
 
-    ::html
-    <div class="box" ng-class="{'border': border, 'circle': circle, 'red': red,
-                                'rotate': rotate, 'scale': scale}"></div>
-    <label for="rotate">
-      <input id="rotate" type="checkbox" ng-model="rotate">Rotate
-    </label>
+```html
+<div class="box" ng-class="{'border': border, 'circle': circle, 'red': red,
+                            'rotate': rotate, 'scale': scale}"></div>
+<label for="rotate">
+  <input id="rotate" type="checkbox" ng-model="rotate">Rotate
+</label>
+```
 
 We pass a mapping of classes to expressions. If the expressions are truthy,
 then the class is set. For example, enabling the ```#rotate``` input will set
@@ -189,10 +195,11 @@ property with ```ngClass```. In *Transfomer*, pretend ```rotate```'s possible
 values are "rotateSmall", "rotateMed", and "rotateLarge". For each, we wish to
 set different classes.
 
-    ::html
-    <div class="box" ng-class="{rotateSmall: 'rotateSmall red',
-                                rotateMed: 'rotateMed green'
-                                rotateLarge: 'rotateLarge blue'}[rotate]"></div>
+```html
+<div class="box" ng-class="{rotateSmall: 'rotateSmall red',
+                            rotateMed: 'rotateMed green'
+                            rotateLarge: 'rotateLarge blue'}[rotate]"></div>
+```
 
 Instead mapping from class names to boolean values, we can map from
 property values to class names. We use the scope property to fish the desired
@@ -208,35 +215,38 @@ to temporary variables in context of the loop (e.g. ```$index```, ```$first```,
 ```$last```). Often, ```ngRepeat``` is used to generate some sort of list
 view.
 
-    ::html
-    <ANY ng-repeat="{repeatExpression}">
-      ...
-    </ANY>
+```html
+<ANY ng-repeat="{repeatExpression}">
+  ...
+</ANY>
+```
 
 #### Example
 
 In *Gym Leaders*, we will present a list of Pokemon gym leaders and their
 respective Pokemon to demonstrate ```ngRepeat```.
 
-    ::js
-    $scope.gymLeaders = [
-        {name: 'Brock', pokemon: ['Geodude', 'Onyx']},
-        {name: 'Misty', pokemon: ['Staryu', 'Starmie']},
-        {name: 'Lt. Surge', pokemon: ['Voltorb', 'Magnemite', 'Raichu']},
-        // ...
-    ];
+```js
+$scope.gymLeaders = [
+    {name: 'Brock', pokemon: ['Geodude', 'Onyx']},
+    {name: 'Misty', pokemon: ['Staryu', 'Starmie']},
+    {name: 'Lt. Surge', pokemon: ['Voltorb', 'Magnemite', 'Raichu']},
+    // ...
+];
+```
 
 The ```gymLeaders``` data structure is an array of objects which we iterate
 through in the template. Note if ```gymLeaders``` is changed, Angular will
 ```$apply``` the changes, updating the template.
 
-    ::html
-    <div ng-repeat="gymLeader in gymLeaders">
-      <h2>{{ gymLeader.name }}</h2>
-      <span class="ngRepeat: pokemon in gymLeader.pokemon">
-        {{ pokemon }}
-      </span>
-    </div>
+```html
+<div ng-repeat="gymLeader in gymLeaders">
+  <h2>{{ gymLeader.name }}</h2>
+  <span class="ngRepeat: pokemon in gymLeader.pokemon">
+    {{ pokemon }}
+  </span>
+</div>
+```
 
 We iterate over ```gymLeaders```. In a nested loop, we also iterate through
 their ```pokemon```. Each iteration copies the element with the ```ngRepeat```
@@ -244,36 +254,39 @@ directive along with whatever is within.
 
 *Template generated by an iteration of ng-repeat*
 
-    ::html
-    <div ng-repeat="gymLeader in gymLeaders" class="ng-scope">
-      <h2 class="ng-binding">Brock</h2>
-      <!-- ngRepeat: pokemon in gymLeader.pokemon -->
-      <span class="ngRepeat: pokemon in gymLeader.pokemon ng-scope ng-binding">
-        Geodude
-      </span>
-      <span class="ngRepeat: pokemon in gymLeader.pokemon ng-scope ng-binding">
-        Onyx
-      </span>
-    </div>
+```html
+<div ng-repeat="gymLeader in gymLeaders" class="ng-scope">
+  <h2 class="ng-binding">Brock</h2>
+  <!-- ngRepeat: pokemon in gymLeader.pokemon -->
+  <span class="ngRepeat: pokemon in gymLeader.pokemon ng-scope ng-binding">
+    Geodude
+  </span>
+  <span class="ngRepeat: pokemon in gymLeader.pokemon ng-scope ng-binding">
+    Onyx
+  </span>
+</div>
+```
 
 ```ngRepeat``` can also iterate over JS objects, unpacking the keys and
 values. We could have defined ```gymLeaders``` using names of the gym leaders
 as keys.
 
-    ::js
-    $scope.gymLeaders = {
-        'Brock': ['Geodude', 'Onyx'],
-        'Misty': ['Staryu', 'Starmie'],
-        'Lt. Surge': ['Voltorb', 'Magnemite', 'Raichu'],
-        // ...
-    };
+```js
+$scope.gymLeaders = {
+    'Brock': ['Geodude', 'Onyx'],
+    'Misty': ['Staryu', 'Starmie'],
+    'Lt. Surge': ['Voltorb', 'Magnemite', 'Raichu'],
+    // ...
+};
+```
 
 We could then iterate with ```ngRepeat```, although the order in which we
 defined the gym leaders would not be preserved.
 
-    ::html
-    <div ng-repeat="(gymLeader, pokemon) in gymLeaders">
-        // ...
+```html
+<div ng-repeat="(gymLeader, pokemon) in gymLeaders">
+    // ...
+```
 
 <iframe src="/files/ng-book/examples/gymleaders/index.html"></iframe>
 
@@ -284,10 +297,11 @@ fragment or template. This inherits and creates a new scope. Often, we use
 ```ngInclude``` to include HTML that we have abstracted into a **partial**, a
 separate HTML template, for encapsulation or reusability.
 
-    ::html
-    <ANY ng-include="{srcString}">
-      ...
-    </ANY>
+```html
+<ANY ng-include="{srcString}">
+  ...
+</ANY>
+```
 
 Since we are often including our own partial, ```srcString``` is usually a
 relative path to the partial file. Note **cross-origin resource sharing**
@@ -299,20 +313,22 @@ within the same domain.
 In *Gym Leaders*, we will recycle our previous example and create a small
 partial to use within ```ng-repeat``` to demonstrate ```ng-include```.
 
-    ::html
-    <h2>{{ gymLeader.name }}</h2>
-    <span class="ngRepeat: pokemon in gymLeader.pokemon">
-      {{ pokemon }}
-    </span>
+```html
+<h2>{{ gymLeader.name }}</h2>
+<span class="ngRepeat: pokemon in gymLeader.pokemon">
+  {{ pokemon }}
+</span>
+```
 
 We abstract the HTML from within our earlier ```ngRepeat``` loop into its
 own partial. When we include the partial, it inherit the scope so the data
 bindings will still evaluate properly.
 
-    ::html
-    <div ng-repeat="gymLeader in gymLeaders">
-      <div ng-include="'partials/gym_leader.html'"></div>
-    </div>
+```html
+<div ng-repeat="gymLeader in gymLeaders">
+  <div ng-include="'partials/gym_leader.html'"></div>
+</div>
+```
 
 Then we simply include our partial. The compiled HTML is identical to had we
 not used a partial. Though now the main HTML file is somewhat cleaner, and we
@@ -323,8 +339,9 @@ could reuse our partial in other parts of the app if needed.
 Angular filters format or prettify data for display to the user. They can take
 colon-delimited arguments and can also be chained.
 
-    ::js
-    {{ expression | firstFilter | secondFilter:arg1:arg2 }}
+```js
+{{ expression | firstFilter | secondFilter:arg1:arg2 }}
+```
 
 Angular comes with a handful of handy filters built-in, all of which can be
 found in the official Angular API reference.
@@ -334,10 +351,11 @@ found in the official Angular API reference.
 In *Hot Chat Phone Bill*, we will create a fake phone bill to demonstrate some
 built-in Angular filters.
 
-    ::html
-    <dt>ID</dt> <dd>{{ 'oskpmknz' | uppercase }}</dd>
-    <dt>Date</dt> <dd>{{ billDate | date:'medium' }}</dd>
-    <dt>Charge Amount</dt> <dd>{{ 199.98 | currency }}</dd>
+```html
+<dt>ID</dt> <dd>{{ 'oskpmknz' | uppercase }}</dd>
+<dt>Date</dt> <dd>{{ billDate | date:'medium' }}</dd>
+<dt>Charge Amount</dt> <dd>{{ 199.98 | currency }}</dd>
+```
 
 These filters highlight basic use. The ```uppercase``` filter simply transforms
 a string to uppercase representation, no strings attached.
@@ -346,19 +364,20 @@ Filters can also take argments. The ```date``` demonstrates such, taking a
 string format describing how we want the date to be represented. "medium" is
 a built-in choice by Angular.
 
-    ::html
-    <thead>
-      <tr>
-        <th ng-click="orderby = 'operator'; reverse = false"><a>Operator</a></th>
-        <th ng-click="orderby = 'minutes'; reverse = true"><a>Minutes</a></th>
-      </tr>
-    </thead>
-    <tbody ng-init="orderby = 'minutes'; reverse = true">
-      <tr ng-repeat="call in calls | orderBy:(orderby):reverse">
-        <td>{{ call.operator }}</td>
-        <td>{{ call.minutes }}</td>
-      </tr>
-    </tbody>
+```html
+<thead>
+  <tr>
+    <th ng-click="orderby = 'operator'; reverse = false"><a>Operator</a></th>
+    <th ng-click="orderby = 'minutes'; reverse = true"><a>Minutes</a></th>
+  </tr>
+</thead>
+<tbody ng-init="orderby = 'minutes'; reverse = true">
+  <tr ng-repeat="call in calls | orderBy:(orderby):reverse">
+    <td>{{ call.operator }}</td>
+    <td>{{ call.minutes }}</td>
+  </tr>
+</tbody>
+```
 
 Some filters operate on arrays. ```orderBy``` sorts an array and can take in
 multiple arguments. These arguments include what object properties to order by
@@ -380,13 +399,14 @@ To take arguments, the parameter function should return the filter function.
 The filter function should take the input as the first argument. Additional
 arguments can also be passed to the function.
 
-    ::js
-    angular.module('myModule', []).filter('myFilter', function() {
-        return function(input, arg) {
-            // Do something with input.
-            return input;
-        }
-    });
+```js
+angular.module('myModule', []).filter('myFilter', function() {
+    return function(input, arg) {
+        // Do something with input.
+        return input;
+    }
+});
+```
 
 The filter can now be called in the template. Sorry, no hot chat examples for
 custom filters.

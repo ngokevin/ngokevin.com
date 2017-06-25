@@ -105,92 +105,13 @@ The [Jasmine docs](http://pivotal.github.io/jasmine/) should be your primary
 source for learning what the tests look like, but here is an excerpt from my
 own.
 
-    ::js
-    describe('ItemService', function() {
-        var store = {};
-        var ls = function() {
-            return JSON.parse(store.storage);
-        };
-
-        beforeEach(function() {
-            // setUp.
-            module('MinimalistApp');
-
-            // LocalStorage mock.
-            spyOn(localStorage, 'getItem').andCallFake(function(key) {
-                return store[key];
-            });
-            Object.defineProperty(sessionStorage, "setItem", { writable: true });
-            spyOn(localStorage, 'setItem').andCallFake(function(key, value) {
-                store[key] = value;
-            });
-        });
-
-        afterEach(function () {
-            store = {};
-        });
-
-        it('migrate from legacy to version 0.', function() {
-            store = {
-                lastViewedList: 0,
-                lists: ['sample', 'sample_two'],
-                sample: {
-                    id: 0,
-                    list: [
-                        {
-                            id: 1,
-                            items: ['item1', 'item2'],
-                            rank: 2
-                        },
-                        {
-                            id: 2,
-                            items: ['item3', 'item4'],
-                            rank: 1
-                        }
-                    ]
-                },
-                sample_two: {
-                    id: 1,
-                    list: [
-                        {
-                            id: 1,
-                            items: ['item5'],
-                            rank: 1,
-                        }
-                    ]
-                },
-
-            };
-            localStorage.setItem('storage', JSON.stringify(store));
-
-            inject(function(ItemService) {
-                var sample = ItemService.getList(0);
-                expect(sample.itemIndex.length, 2);
-                expect(sample.items[0].text).toEqual('item3\nitem4');
-                expect(sample.items[1].text).toEqual('item1\nitem2');
-
-                sample = ItemService.getLists()[1];
-                expect(sample.itemIndex.length, 1);
-                expect(sample.items[0].text).toEqual('item5');
-            });
-        });
-    });
-
-### Initializing a Jasmine Test Suite
-
-I'll describe portions of the code starting from the top.
-
-    ::js
-    describe('ItemService', function() {
-        // ...
-    });
-
-### Setup and Mocking LocalStorage
-
-This initializes our test suite for our module.
-
-    ::js
+```js
+describe('ItemService', function() {
     var store = {};
+    var ls = function() {
+        return JSON.parse(store.storage);
+    };
+
     beforeEach(function() {
         // setUp.
         module('MinimalistApp');
@@ -204,6 +125,88 @@ This initializes our test suite for our module.
             store[key] = value;
         });
     });
+
+    afterEach(function () {
+        store = {};
+    });
+
+    it('migrate from legacy to version 0.', function() {
+        store = {
+            lastViewedList: 0,
+            lists: ['sample', 'sample_two'],
+            sample: {
+                id: 0,
+                list: [
+                    {
+                        id: 1,
+                        items: ['item1', 'item2'],
+                        rank: 2
+                    },
+                    {
+                        id: 2,
+                        items: ['item3', 'item4'],
+                        rank: 1
+                    }
+                ]
+            },
+            sample_two: {
+                id: 1,
+                list: [
+                    {
+                        id: 1,
+                        items: ['item5'],
+                        rank: 1,
+                    }
+                ]
+            },
+
+        };
+        localStorage.setItem('storage', JSON.stringify(store));
+
+        inject(function(ItemService) {
+            var sample = ItemService.getList(0);
+            expect(sample.itemIndex.length, 2);
+            expect(sample.items[0].text).toEqual('item3\nitem4');
+            expect(sample.items[1].text).toEqual('item1\nitem2');
+
+            sample = ItemService.getLists()[1];
+            expect(sample.itemIndex.length, 1);
+            expect(sample.items[0].text).toEqual('item5');
+        });
+    });
+});
+```
+
+### Initializing a Jasmine Test Suite
+
+I'll describe portions of the code starting from the top.
+
+```js
+describe('ItemService', function() {
+    // ...
+});
+```
+
+### Setup and Mocking LocalStorage
+
+This initializes our test suite for our module.
+
+```js
+var store = {};
+beforeEach(function() {
+    // setUp.
+    module('MinimalistApp');
+
+    // LocalStorage mock.
+    spyOn(localStorage, 'getItem').andCallFake(function(key) {
+        return store[key];
+    });
+    Object.defineProperty(sessionStorage, "setItem", { writable: true });
+    spyOn(localStorage, 'setItem').andCallFake(function(key, value) {
+        store[key] = value;
+    });
+});
+```
 
 The setup called before each test case for initialization. We mock out our app
 with Angular Mock's ```module``` to allow us to inject, or import, the modules or
@@ -219,20 +222,22 @@ Javascript object, making infinitely easier to test. Everything is under our
 control. If you wish to mock Local Storage as well, definitely steal this code
 snippet.
 
-    ::js
-    afterEach(function () {
-        store = {};
-    });
+```js
+afterEach(function () {
+    store = {};
+});
+```
 
 ### Jasmine Test Cases
 
 The teardown called after each test case to reset the state. Here, we basically
 clear our Local Storage.
 
-    ::js
-    it('migrate from legacy to version 0.', function() {
-        // ...
-    });
+```js
+it('migrate from legacy to version 0.', function() {
+    // ...
+});
+```
 
 ### Injecting Angular Modules
 

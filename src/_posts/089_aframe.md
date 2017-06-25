@@ -101,52 +101,55 @@ sphere. They are:
 
 For example, rather than having:
 
-    ::html
-    <a-scene>
-      <a-entity>
-        <a-entity camera look-controls wasd-controls></a-entity>
-      </a-entity>
-      <a-entity geometry="primitive: box; depth: 1; height: 1; width: 1" material="color: red">
-      </a-entity>
-    </a-scene>
+```html
+<a-scene>
+  <a-entity>
+    <a-entity camera look-controls wasd-controls></a-entity>
+  </a-entity>
+  <a-entity geometry="primitive: box; depth: 1; height: 1; width: 1" material="color: red">
+  </a-entity>
+</a-scene>
+```
 
 Templates wrap the entity into something more concise:
 
-    ::html
-    <a-scene>
-      <a-cube color="red" depth="1" height="1" width="1"></a-cube>
-    </a-scene>
+```html
+<a-scene>
+  <a-cube color="red" depth="1" height="1" width="1"></a-cube>
+</a-scene>
+```
 
 Anyone can create their own templates since they are just defined in HTML.
 Let's reveal the definition of `<a-cube>`:
 
-    ::html
-    <template is="a-template"
-              element="a-cube"
-              width="1.5"
-              height="1.5"
-              depth="1.5"
-              translate="0 0 0"
-              color="gray"
-              opacity="1.0"
-              shader="standard"
-              transparent="true"
-              metalness="0.0"
-              roughness="0.5"
-              src="">
-      <a-entity geometry="primitive: box;
-                          width: ${width};
-                          height: ${height};
-                          depth: ${depth};
-                          translate: ${translate}"
-                material="color: ${color};
-                          opacity: ${opacity};
-                          shader: ${shader};
-                          transparent: ${transparent};
-                          metalness: ${metalness};
-                          roughness: ${roughness};
-                          src: url(${src})"></a-entity>
-    </template>
+```html
+<template is="a-template"
+          element="a-cube"
+          width="1.5"
+          height="1.5"
+          depth="1.5"
+          translate="0 0 0"
+          color="gray"
+          opacity="1.0"
+          shader="standard"
+          transparent="true"
+          metalness="0.0"
+          roughness="0.5"
+          src="">
+  <a-entity geometry="primitive: box;
+                      width: ${width};
+                      height: ${height};
+                      depth: ${depth};
+                      translate: ${translate}"
+            material="color: ${color};
+                      opacity: ${opacity};
+                      shader: ${shader};
+                      transparent: ${transparent};
+                      metalness: ${metalness};
+                      roughness: ${roughness};
+                      src: url(${src})"></a-entity>
+</template>
+```
 
 `<a-cube>` wraps a single entity (with the `geometry.primitive=box`) and
 exposes a few component attributes as HTML attributes. Don't worry about the
@@ -157,12 +160,13 @@ A-Frame also has [an animation system](http://aframe.io/docs/core/animation.html
 makng the cube rotate indefinitely. The animation system also works with the core system,
 not just templates.
 
-    ::html
-    <a-scene>
-      <a-cube color="red" depth="1" height="1" width="1">
-        <a-animation attribute="rotation" repeat="indefinite" to="0 360 360"></a-animation>
-      </a-cube>
-    </a-scene>
+```html
+<a-scene>
+  <a-cube color="red" depth="1" height="1" width="1">
+    <a-animation attribute="rotation" repeat="indefinite" to="0 360 360"></a-animation>
+  </a-cube>
+</a-scene>
+```
 
 ### Caveats
 
@@ -190,35 +194,40 @@ and check out some third-party custom components at [awesome-aframe][awesome-afr
 
 Let's start with a blank entity:
 
-    ::html
-    <a-entity></a-entity>
+```html
+<a-entity></a-entity>
+```
 
 By default, this lonely entity inherently only has a position, rotation, and
 scale in the scene. Without any other components, nothing will render on the
 scene. Let's change that, giving it a geometry (shape) and material (appearance).
 
-    ::html
-    <a-entity geometry="primitive: sphere" material="color: red"></a-entity>
+```html
+<a-entity geometry="primitive: sphere" material="color: red"></a-entity>
+```
 
 Now we should be seeing something. But why stop there? Let's make it emit light on other
 entities.
 
-    ::html
-    <a-entity geometry="primitive: sphere" material="color: red"
-              light="type: point; intensity: 2"></a-entity>
+```html
+<a-entity geometry="primitive: sphere" material="color: red"
+          light="type: point; intensity: 2"></a-entity>
+```
 
 Let's have it stare at the camera.
 
-    ::html
-    <a-entity geometry="primitive: sphere" material="color: red"
-              light="type: point; intensity: 2" look-at="[camera]"></a-entity>
+```html
+<a-entity geometry="primitive: sphere" material="color: red"
+          light="type: point; intensity: 2" look-at="[camera]"></a-entity>
+```
 
 Let's have it emit sound.
 
-    ::html
-    <a-entity geometry="primitive: sphere" material="color: red"
-              light="type: point; intensity: 2" look-at="[camera]"
-              sound="src: squeak.mp3"></a-entity>
+```html
+<a-entity geometry="primitive: sphere" material="color: red"
+          light="type: point; intensity: 2" look-at="[camera]"
+          sound="src: squeak.mp3"></a-entity>
+```
 
 There are all of these components that can customize our entities. And all
 these attributes that can customize our components. And anyone can [write their
@@ -262,42 +271,43 @@ Why does React work so well with A-Frame?
 
 Here's an [example scene][react-scene] where clicking a spinning cube changes its color.
 
-    ::js
-    class ExampleScene extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          color: 'red'
-        }
-      }
-
-      changeColor = () => {
-        const colors = ['red', 'orange', 'yellow', 'green', 'blue'];
-        this.setState({
-          color: colors[Math.floor(Math.random() * colors.length)],
-        });
-      }
-
-      render () {
-        return (
-          <Scene>
-            <Camera><Cursor/></Camera>
-
-            <Sky/>
-
-            <Light type="ambient" color="#888"/>
-            <Light type="directional" intensity="0.5" position="-1 1 0"/>
-            <Light type="directional" intensity="1" position="1 1 0"/>
-
-            <Entity geometry="primitive: box" material={{color: this.state.color}}
-                    onClick={this.changeColor}
-                    position="0 0 -5">
-              <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
-            </Entity>
-          </Scene>
-        );
-      }
+```js
+class ExampleScene extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: 'red'
     }
+  }
+
+  changeColor = () => {
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+    this.setState({
+      color: colors[Math.floor(Math.random() * colors.length)],
+    });
+  }
+
+  render () {
+    return (
+      <Scene>
+        <Camera><Cursor/></Camera>
+
+        <Sky/>
+
+        <Light type="ambient" color="#888"/>
+        <Light type="directional" intensity="0.5" position="-1 1 0"/>
+        <Light type="directional" intensity="1" position="1 1 0"/>
+
+        <Entity geometry="primitive: box" material={{color: this.state.color}}
+                onClick={this.changeColor}
+                position="0 0 -5">
+          <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
+        </Entity>
+      </Scene>
+    );
+  }
+}
+```
 
 Using React provides the best of all the worlds. The conciseness of A-Frame
 templates, the power of the A-Frame core system, and the ecosystem of NPM. The
@@ -306,10 +316,11 @@ scene here is pretty concise and easy to read.
 To demonstrate how easy it is to create React components, here is the definition
 for a dumb `<Light>` using a stateless React component:
 
-    ::js
-    export default const Light = props => {
-      return <Entity light={...props}></Entity>;
-    };
+```js
+export default const Light = props => {
+  return <Entity light={...props}></Entity>;
+};
+```
 
 I imagine, with the current state of web development, that people will enjoy
 this. I know I will.

@@ -40,18 +40,20 @@ First things first. Make sure to have a meta tag telling mobile browsers to
 not lie about their width as do people lie about their age. Otherwise, our
 media queries will be sorrowfully rejected.
 
-    ::html
-    <meta name="viewport" content="width=device-width">
+```html
+<meta name="viewport" content="width=device-width">
+```
 
 Now we start slapping on some width-wary CSS.
 
-    ::scss
-    @media all and (max-width: 61.25em) {
-        /* CSS when the window width < 980px. */
-        #wrap {
-            width: 90%;
-        }
+```scss
+@media all and (max-width: 61.25em) {
+    /* CSS when the window width < 980px. */
+    #wrap {
+        width: 90%;
     }
+}
+```
 
 Following my process earlier, I noticed I had a fixed width page at 940px. When
 shrinking the browser below that, the content did not reflow. Thus when past
@@ -62,21 +64,22 @@ RWD process**. I shrink my browser some more until the content starts
 imploding. The breakpoint this time was 768px, or for my blog, 48em. Time for
 another media query.
 
-    ::scss
-    @media all and (max-width: 48em) {
-        #header {
-            margin-bottom: 78px;
-            .logos {
-                position: static;
-                text-align: center;
-            }
-            #navigation {
-                position: static;
-                padding-top: 26px;
-                text-align: center;
-            }
+```scss
+@media all and (max-width: 48em) {
+    #header {
+        margin-bottom: 78px;
+        .logos {
+            position: static;
+            text-align: center;
+        }
+        #navigation {
+            position: static;
+            padding-top: 26px;
+            text-align: center;
         }
     }
+}
+```
 
 The navigation was now having a spat with my blog header. Here is another
 snippet that de-inlines my header elements and puts my navigation block on

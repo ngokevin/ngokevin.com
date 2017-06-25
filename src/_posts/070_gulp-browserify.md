@@ -71,48 +71,49 @@ files into normal JS files which is then pipelined to ```browserify``` for
 bundling with dependencies. It compiles Stylus files to CSS. And everything's
 nicely set up to watch directories and rebuild when needed. I'm pretty giddy.
 
-    ::js
-    var gulp = require('gulp');
+```js
+var gulp = require('gulp');
 
-    var browserify = require('browserify');
-    var del = require('del');
-    var reactify = require('reactify');
-    var source = require('vinyl-source-stream');
-    var stylus = require('gulp-stylus');
+var browserify = require('browserify');
+var del = require('del');
+var reactify = require('reactify');
+var source = require('vinyl-source-stream');
+var stylus = require('gulp-stylus');
 
-    var paths = {
-        css: ['src/css/**/*.styl'],
-        index_js: ['./src/js/index.jsx'],
-        js: ['src/js/*.js'],
-    };
+var paths = {
+    css: ['src/css/**/*.styl'],
+    index_js: ['./src/js/index.jsx'],
+    js: ['src/js/*.js'],
+};
 
-    gulp.task('clean', function(cb) {
-        del(['build'], cb);
-    });
+gulp.task('clean', function(cb) {
+    del(['build'], cb);
+});
 
-    gulp.task('css', ['clean'], function() {
-        return gulp.src(paths.css)
-            .pipe(stylus())
-            .pipe(gulp.dest('./src/css'));
-    });
+gulp.task('css', ['clean'], function() {
+    return gulp.src(paths.css)
+        .pipe(stylus())
+        .pipe(gulp.dest('./src/css'));
+});
 
-    gulp.task('js', ['clean'], function() {
-        // Browserify/bundle the JS.
-        browserify(paths.index_js)
-            .transform(reactify)
-            .bundle()
-            .pipe(source('bundle.js'))
-            .pipe(gulp.dest('./src/'));
-    });
+gulp.task('js', ['clean'], function() {
+    // Browserify/bundle the JS.
+    browserify(paths.index_js)
+        .transform(reactify)
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('./src/'));
+});
 
-    // Rerun the task when a file changes
-    gulp.task('watch', function() {
-        gulp.watch(paths.css, ['css']);
-        gulp.watch(paths.js, ['js']);
-    });
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+    gulp.watch(paths.css, ['css']);
+    gulp.watch(paths.js, ['js']);
+});
 
-    // The default task (called when you run `gulp` from cli)
-    gulp.task('default', ['watch', 'css', 'js']);
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['watch', 'css', 'js']);
+```
 
 It's finally nice to get outside. Away from the codebase of work. Into the
 virtual world. Smell the aromas of fresh technologies. I've grown two years

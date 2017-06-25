@@ -85,23 +85,26 @@ For example, the [light component][light] has properties such as type, color,
 and intensity. In A-Frame, we register and configure a component to an entity
 using an HTML attribute and a style-like syntax:
 
-    ::html
-    <a-entity light="type: point; color: crimson; intensity: 2.5"></a-entity>
+```html
+<a-entity light="type: point; color: crimson; intensity: 2.5"></a-entity>
+```
 
 This would give us a light in the scene. To demonstrate composability, we could
 give the light a spherical representation by mixing in the [geometry
 component][geometry].
 
-    ::html
-    <a-entity geometry="primitive: sphere; radius: 5"
-              light="type: point; color: crimson; intensity: 2.5"></a-entity>
+```html
+<a-entity geometry="primitive: sphere; radius: 5"
+          light="type: point; color: crimson; intensity: 2.5"></a-entity>
+```
 
 Or we can configure the position component to move the light sphere a bit to the right.
 
-    ::html
-    <a-entity geometry="primitive: sphere; radius: 5"
-              light="type: point; color: crimson; intensity: 2.5"
-              position="5 0 0"></a-entity>
+```html
+<a-entity geometry="primitive: sphere; radius: 5"
+          light="type: point; color: crimson; intensity: 2.5"
+          position="5 0 0"></a-entity>
+```
 
 Given the style-like syntax and that it modifies the appearance and behavior of
 DOM nodes, component properties can be thought of as a rough analog to CSS. In
@@ -112,16 +115,17 @@ the near future, I can imagine component property stylesheets.
 Now let's see what a component looks like **under the hood**. A-Frame's most
 basic component is the [position component][position]:
 
-    ::js
-    AFRAME.registerComponent('position', {
-      schema: { type: 'vec3' },
+```js
+AFRAME.registerComponent('position', {
+  schema: { type: 'vec3' },
 
-      update: function () {
-        var object3D = this.el.object3D;
-        var data = this.data;
-        object3D.position.set(data.x, data.y, data.z);
-      }
-    });
+  update: function () {
+    var object3D = this.el.object3D;
+    var data = this.data;
+    object3D.position.set(data.x, data.y, data.z);
+  }
+});
+```
 
 The position component uses only a tiny subset of the component API, but what
 this does is register the component with the name "position", define a `schema`
@@ -164,22 +168,24 @@ being released in A-Frame `v0.2.0`.
 
 A property might look like:
 
-    ::js
-    { type: 'int', default: 5 }
+```js
+{ type: 'int', default: 5 }
+```
 
 And a schema consisting of multiple properties might look like:
 
-    ::js
-    {
-      color: { default: '#FFF' },
-      target: { type: 'selector' },
-      uv: {
-        default: '1 1',
-        parse: function (value) {
-          return value.split(' ').map(parseFloat);
-        }
-      },
+```js
+{
+  color: { default: '#FFF' },
+  target: { type: 'selector' },
+  uv: {
+    default: '1 1',
+    parse: function (value) {
+      return value.split(' ').map(parseFloat);
     }
+  },
+}
+```
 
 Since components in the entity-component system are just buckets of data that
 are used to affect the appearance or behavior of the entity, the schema plays a
@@ -197,14 +203,15 @@ serialize back to the DOM.
 
 We can actually define and register our own property types:
 
-    ::js
-    AFRAME.registerPropertyType('radians', {
-      parse: function () {
+```js
+AFRAME.registerPropertyType('radians', {
+  parse: function () {
 
-      }
+  }
 
-      // Default stringify is .toString().
-    });
+  // Default stringify is .toString().
+});
+```
 
 ### Single-Property Schemas
 
@@ -216,27 +223,29 @@ default value is defined, the default value is used to infer the type.
 Take for instance the [visible component][visible]. The schema property
 definition implicitly defines it as a boolean:
 
-    ::js
-    AFRAME.registerComponent('visible', {
-      schema: {
-        // Type will be inferred to be boolean.
-        default: true
-      },
+```js
+AFRAME.registerComponent('visible', {
+  schema: {
+    // Type will be inferred to be boolean.
+    default: true
+  },
 
-      // ...
-    });
+  // ...
+});
+```
 
 Or the [rotation component][rotation] which explicitly defines the value as a `vec3`:
 
-    ::js
-    AFRAME.registerComponent('rotation', {
-      schema: {
-        // Default value will be 0, 0, 0 as defined by the vec3 property type.
-        type: 'vec3'
-      }
+```js
+AFRAME.registerComponent('rotation', {
+  schema: {
+    // Default value will be 0, 0, 0 as defined by the vec3 property type.
+    type: 'vec3'
+  }
 
-      // ...
-    });
+  // ...
+});
+```
 
 Using these defined property types, schemas are processed by
 `registerComponent` to inject default values, parsers, and stringifiers for
@@ -249,21 +258,22 @@ If a component has multiple properties (or one named property), then it consists
 one or more property definitions, in the form described above, in an object keyed by
 property name. For instance, a physics body component might define a schema:
 
-    ::js
-    AFRAME.registerComponent('physics-body', {
-      schema: {
-        boundingBox: {
-          type: 'vec3',
-          default: { x: 1, y: 1, z: 1 }
-        },
-        mass: {
-          default: 0
-        },
-        velocity: {
-          type: 'vec3'
-        }
-      }
+```js
+AFRAME.registerComponent('physics-body', {
+  schema: {
+    boundingBox: {
+      type: 'vec3',
+      default: { x: 1, y: 1, z: 1 }
+    },
+    mass: {
+      default: 0
+    },
+    velocity: {
+      type: 'vec3'
     }
+  }
+}
+```
 
 Having multiple properties is what makes the component take the syntax in the
 form of `physics="mass: 2; velocity: 1 1 1"`.
@@ -285,13 +295,14 @@ to `createdCallback` or `React.ComponentDidMount`.
 
 For example, the `look-at` component's `init` handler sets up some variables:
 
-    ::js
-    init: function () {
-      this.target3D = null;
-      this.vector = new THREE.Vector3();
-    },
+```js
+init: function () {
+  this.target3D = null;
+  this.vector = new THREE.Vector3();
+},
 
-    // ...
+// ...
+```
 
 Example uses of `init` by some of the standard A-Frame components:
 
@@ -318,31 +329,33 @@ The update handler uses `this.data` to modify the entity, usually interacting
 with three.js APIs. One of the simplest update handlers is the
 [visible][visible] component's:
 
-    ::js
-    update: function () {
-      this.el.object3D.visible = this.data;
-    }
+```js
+update: function () {
+  this.el.object3D.visible = this.data;
+}
+```
 
 A slightly more complex update handler might be the [light][light] component's,
 which we'll show via abbreviated code:
 
-    ::js
-    update: function (oldData) {
-      var diffData = diff(data, oldData || {});
+```js
+update: function (oldData) {
+  var diffData = diff(data, oldData || {});
 
-      if (this.light && !('type' in diffData)) {
-        // If there is an existing light and the type hasn't changed, update light.
-        Object.keys(diffData).forEach(function (property) {
-          light[property] = diffData[property];
-        });
-      } else {
-        // No light exists yet or the type of light has changed, create a new light.
-        this.light = this.getLight(this.data));
+  if (this.light && !('type' in diffData)) {
+    // If there is an existing light and the type hasn't changed, update light.
+    Object.keys(diffData).forEach(function (property) {
+      light[property] = diffData[property];
+    });
+  } else {
+    // No light exists yet or the type of light has changed, create a new light.
+    this.light = this.getLight(this.data));
 
-        // Register the object3D of type `light` to the entity.
-        this.el.setObject3D('light', this.light);
-      }
-    }
+    // Register the object3D of type `light` to the entity.
+    this.el.setObject3D('light', this.light);
+  }
+}
+```
 
 The entity's `object3D` is a plain THREE.Object3D. Other three.js object types
 such as meshes, lights, and cameras can be set with `setObject3D` where they
@@ -366,10 +379,11 @@ listeners, and behaviors to the entity that the component added.
 For example, when the [light component][light] detaches, it removes the light
 it previously attached from the entity and thus the scene:
 
-    ::js
-    remove: function () {
-      this.el.removeObject3D('light');
-    }
+```js
+remove: function () {
+  this.el.removeObject3D('light');
+}
+```
 
 Example uses of `remove` by some of the standard A-Frame components:
 
@@ -390,13 +404,14 @@ For example, the [look-at][look-at] component, which instructs an entity to
 look at another target entity, uses the tick handler to update the rotation in
 case the target entity changes its position:
 
-    ::js
-    tick: function (t) {
-      // target3D and vector are set from the update handler.
-      if (this.target3D) {
-        this.el.object3D.lookAt(this.vector.setFromMatrixPosition(target3D.matrixWorld));
-      }
-    }
+```js
+tick: function (t) {
+  // target3D and vector are set from the update handler.
+  if (this.target3D) {
+    this.el.object3D.lookAt(this.vector.setFromMatrixPosition(target3D.matrixWorld));
+  }
+}
+```
 
 Example uses of `tick` by some of the standard A-Frame components:
 
@@ -421,14 +436,15 @@ For example, the `look-controls` component simply removes its event listeners
 such that the camera does not move when the scene is paused, and it adds its
 event listeners when the scene starts playing or is resumed:
 
-    ::js
-    pause: function () {
-      this.removeEventListeners()
-    },
+```js
+pause: function () {
+  this.removeEventListeners()
+},
 
-    play: function () {
-      this.addEventListeners()
-    }
+play: function () {
+  this.addEventListeners()
+}
+```
 
 Example uses of `pause` and `play` by some of the standard A-Frame components:
 
@@ -470,19 +486,20 @@ For this component, we'll need the `schema`, as all components require, the
 `update` handler, and the `remove` handler. The rest of the lifecycle method
 handlers aren't necessary.
 
-    ::js
-    var coordinates = AFRAME.utils.coordinates;
+```js
+var coordinates = AFRAME.utils.coordinates;
 
-    AFRAME.registerComponent('line', {
-      // Allow line component to accept vertices and color.
-      schema: {},
+AFRAME.registerComponent('line', {
+  // Allow line component to accept vertices and color.
+  schema: {},
 
-      // Create or update the line geometry.
-      update: {},
+  // Create or update the line geometry.
+  update: {},
 
-      // Remove the line geometry.
-      remove: {}
-    });
+  // Remove the line geometry.
+  remove: {}
+});
+```
 
 #### Line Component -Schema
 
@@ -493,31 +510,32 @@ property will need a custom property type to parse an array of `vec3`s. That
 property type does not exist as a built-in type yet, but we can define an
 inline parse and stringifier.
 
-    ::js
-      // Allow line component to accept vertices and color.
-      schema: {
-        color: { default: '#333' },
+```js
+  // Allow line component to accept vertices and color.
+  schema: {
+    color: { default: '#333' },
 
-        path: {
-          default: [
-            { x: -0.5, y: 0, z: 0 },
-            { x: 0.5, y: 0, z: 0 }
-          ],
+    path: {
+      default: [
+        { x: -0.5, y: 0, z: 0 },
+        { x: 0.5, y: 0, z: 0 }
+      ],
 
-          // Deserialize path in the form of comma-separated vec3s: `0 0 0, 1 1 1, 2 0 3`.
-          parse: function (value) {
-            return value.split(',').map(coordinates.parse);
-          },
-
-          // Serialize array of vec3s in case someone does
-          // setAttribute('line', 'path', [...]).
-          stringify: function (data) {
-            return data.map(coordinates.stringify).join(',');
-          }
-        }
+      // Deserialize path in the form of comma-separated vec3s: `0 0 0, 1 1 1, 2 0 3`.
+      parse: function (value) {
+        return value.split(',').map(coordinates.parse);
       },
 
-      //...
+      // Serialize array of vec3s in case someone does
+      // setAttribute('line', 'path', [...]).
+      stringify: function (data) {
+        return data.map(coordinates.stringify).join(',');
+      }
+    }
+  },
+
+  //...
+```
 
 The component API is entirely up to us. If we wanted the path to take a
 different syntax or abstract it further such that it maybe only accepts a
@@ -535,26 +553,27 @@ reate a line geometry if it doesn't exist yet, or update it if it does. We can
 create a line in `three.js` by combining a `THREE.LineBasicMaterial` and
 `THREE.Geometry` and manually pushing vertices.
 
-    ::js
-    update: function (oldData) {
-      // Set color with material.
-      var material = new THREE.LineBasicMaterial({
-        color: this.data.color
-      });
+```js
+update: function (oldData) {
+  // Set color with material.
+  var material = new THREE.LineBasicMaterial({
+    color: this.data.color
+  });
 
-      // Add vertices to geometry.
-      var geometry = new THREE.Geometry();
-      this.data.path.forEach(function (vec3) {
-        geometry.vertices.push(
-          new THREE.Vector3(vec3.x, vec3.y, vec3.z)
-        );
-      });
+  // Add vertices to geometry.
+  var geometry = new THREE.Geometry();
+  this.data.path.forEach(function (vec3) {
+    geometry.vertices.push(
+      new THREE.Vector3(vec3.x, vec3.y, vec3.z)
+    );
+  });
 
-      // Apply mesh.
-      this.el.setObject3D('mesh', new THREE.Line(geometry, material));
-    },
+  // Apply mesh.
+  this.el.setObject3D('mesh', new THREE.Line(geometry, material));
+},
 
-    // ...
+// ...
+```
 
 For simplicity, we can just update the line by completely replacing it. In
 other components, we might want to more granularly update objects for
@@ -570,10 +589,11 @@ into a map and appends the object under the entity's scene graph
 
 For removal, we can just use `removeObject3D`:
 
-    ::js
-    remove: function () {
-      this.el.removeObject3D('mesh');
-    }
+```js
+remove: function () {
+  this.el.removeObject3D('mesh');
+}
+```
 
 This will remove the object from the entity's scene graph.
 
@@ -581,20 +601,21 @@ This will remove the object from the entity's scene graph.
 
 Then we with the line component written and registered, we can use it in HTML:
 
-    ::html
-    <a-scene>
-      <a-assets>
-        <a-mixin id="red" line="color: #E20049"></a-mixin>
-      </a-assets>
+```html
+<a-scene>
+  <a-assets>
+    <a-mixin id="red" line="color: #E20049"></a-mixin>
+  </a-assets>
 
-      <a-entity id="happy-face" position="0 2 -10">
-        <a-entity mixin="red" line="path: -1 1 0, -1 0.5 0, -1 0 0"></a-entity>
-        <a-entity mixin="red" line="path: 1 1 0, 1 0.5 0, 1 0 0"></a-entity>
-        <a-entity mixin="red" line="path: -2 -1 0, 0 -2 0, 2 -1"></a-entity>
-      </a-entity>
+  <a-entity id="happy-face" position="0 2 -10">
+    <a-entity mixin="red" line="path: -1 1 0, -1 0.5 0, -1 0 0"></a-entity>
+    <a-entity mixin="red" line="path: 1 1 0, 1 0.5 0, 1 0 0"></a-entity>
+    <a-entity mixin="red" line="path: -2 -1 0, 0 -2 0, 2 -1"></a-entity>
+  </a-entity>
 
-      <a-sky color="#FFEED0"></a-sky>
-    </a-scene>
+  <a-sky color="#FFEED0"></a-sky>
+</a-scene>
+```
 
 And voila!
 

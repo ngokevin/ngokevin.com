@@ -110,22 +110,23 @@ way data bindings and event handlers. In our next example
 In *Invitation to Angular*, we will sync an HTML text input element with a
 ```p``` element to demonstrate two-way data binding.
 
-    ::html
-    <!doctype html>
-    <html ng-app>
-      <head>
-        <script src="../lib/js/angular.min.js"></script>
-      </head>
-      <body>
-        <h1>Invitation to Angular</h1>
-        <input type="text" ng-model="mySpecies" placeholder="What is your species?">
-        <p>
-          It is a great honor to bask
-          in the presence of a {{ mySpecies || 'human' }}.
-        </p>
-        <p>Angular humbly welcomes you.</p>
-      </body>
-    </html>
+```html
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="../lib/js/angular.min.js"></script>
+  </head>
+  <body>
+    <h1>Invitation to Angular</h1>
+    <input type="text" ng-model="mySpecies" placeholder="What is your species?">
+    <p>
+      It is a great honor to bask
+      in the presence of a {{ mySpecies || 'human' }}.
+    </p>
+    <p>Angular humbly welcomes you.</p>
+  </body>
+</html>
+```
 
 ```ngApp``` bootstraps the our document to Angular, and we have the input
 binded to a model variable species via the ```ngModel``` **directive**.

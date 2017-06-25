@@ -26,10 +26,11 @@ against which expressions are evaluated, scopes allow us to:
 Each Angular application has exactly one **root scope**, which can have child
 scopes that inherit from it.
 
-    ::js
-    $rootScope.color = 'black';
-    childScope = $rootScope.$new();  // Child scope's color is 'black'.
-    childScope.color = 'yellow';  // Child scope's color is 'yellow'.
+```js
+$rootScope.color = 'black';
+childScope = $rootScope.$new();  // Child scope's color is 'black'.
+childScope.color = 'yellow';  // Child scope's color is 'yellow'.
+```
 
 We can assign properties to the scope to update the model, as seen above.
 Though, we can implicitly use the scope from the template to manipulate the
@@ -41,11 +42,12 @@ In *Black and Yellow*, we will create two buttons that toggle the color of a
 circle between two colors, black and yellow, to demonstrate basic use of the
 scope.
 
-    ::html
-    <h1>Black and Yellow</h1>
-    <div style="background: {{ color }}" ng-init="color = 'white'"></div>
-    <button ng-click="color= 'black'">Black</button>
-    <button ng-click="color= 'yellow'">Yellow</button>
+```html
+<h1>Black and Yellow</h1>
+<div style="background: {{ color }}" ng-init="color = 'white'"></div>
+<button ng-click="color= 'black'">Black</button>
+<button ng-click="color= 'yellow'">Yellow</button>
+```
 
 We instantiate the ```color``` attribute on the root scope with the
 ```ngInit``` directive. We have the ```div``` watch for changes to ```color```
@@ -81,15 +83,16 @@ In *Gentleman*, we will blink an image when both of two checkboxes are checked,
 but to stop blinking when either of the two checkboxes are unchecked, to
 demonstrate ```$watch```.
 
-    ::html
-    <body ng-controller="GentlemanCtrl">
-      <h1>Gentleman</h1>
-      <img src="gentleman.png">
-      <input type="checkbox" ng-model="mother">
-      <label>Mother</label>
-      <input type="checkbox" ng-model="father">
-      <label>Father</label>
-    </body>
+```html
+<body ng-controller="GentlemanCtrl">
+  <h1>Gentleman</h1>
+  <img src="gentleman.png">
+  <input type="checkbox" ng-model="mother">
+  <label>Mother</label>
+  <input type="checkbox" ng-model="father">
+  <label>Father</label>
+</body>
+```
 
 This example is slightly more complex; we need to be able to conditionally set
 intervals and clear stored timeouts. This is difficult to do with Angular
@@ -109,34 +112,35 @@ root scope.
 We pass in the name of our controller, ```GentlemanCtrl``` to associate it with
 our new scope.
 
-    ::js
-    function GentlemanCtrl($scope) {
-        var timeout;
+```js
+function GentlemanCtrl($scope) {
+    var timeout;
 
-        $scope.$watch('mother', function(newVal, oldVal) {
-            if (newVal && $scope.father) {
-                // 'Mother' and 'Father' checked.
-                motherfather();
-            } else if (!newVal) {
-                // 'Mother' unchecked.
-                clearTimeout(timeout);
-            }
-        });
-
-        $scope.$watch('father', function(newVal, oldVal) {
-            if (newVal && $scope.mother) {
-                motherfather();
-            } else if (!newVal) {
-                clearTimeout(timeout);
-            }
-        });
-
-        function motherfather() {
-            timeout = setInterval(function() {
-                $('img').toggleClass('show');
-            }, 500);
+    $scope.$watch('mother', function(newVal, oldVal) {
+        if (newVal && $scope.father) {
+            // 'Mother' and 'Father' checked.
+            motherfather();
+        } else if (!newVal) {
+            // 'Mother' unchecked.
+            clearTimeout(timeout);
         }
+    });
+
+    $scope.$watch('father', function(newVal, oldVal) {
+        if (newVal && $scope.mother) {
+            motherfather();
+        } else if (!newVal) {
+            clearTimeout(timeout);
+        }
+    });
+
+    function motherfather() {
+        timeout = setInterval(function() {
+            $('img').toggleClass('show');
+        }, 500);
     }
+}
+```
 
 In the controller, we can ask Angular for the ```$scope``` object by asking for
 it as a parameter. Angular will then supply the ```$scope``` through
@@ -191,16 +195,17 @@ list no longer detects any changes.
 In *HL3 Countdown*, we will create a countdown timer with ```setInterval```
 alongside Angular to demonstrate ```$apply```.
 
-    ::js
-    function HL3CountdownCtrl($rootScope, $scope) {
-        $rootScope.countdown = 9999;
+```js
+function HL3CountdownCtrl($rootScope, $scope) {
+    $rootScope.countdown = 9999;
 
-        setInterval(function() {
-            $rootScope.$apply(function() {
-                $rootScope.countdown--;
-            });
-        }, 1000);
-    }
+    setInterval(function() {
+        $rootScope.$apply(function() {
+            $rootScope.countdown--;
+        });
+    }, 1000);
+}
+```
 
 For variety, we are using ```$rootScope``` to demonstrate more of dependency
 injection. We ask for ```$rootScope```, Angular will recognize the name and
@@ -219,9 +224,10 @@ Note we put counter-decrementing code within the function passed into
 ```$apply```. We could just as well call ```$apply``` on its own to achieve
 the same effect.
 
-    ::js
-    $rootScope.countdown--;
-    $rootScope.$apply();
+```js
+$rootScope.countdown--;
+$rootScope.$apply();
+```
 
 ## Up Next
 

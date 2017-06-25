@@ -51,15 +51,17 @@ directives contain a handful of useful properties that represent form state.
 attribute from a *form's* ```FormController```, it will be a reference to invalid
 form controls.
 
-    ::js
-    {"required": [{}], "max": false}
+```js
+{"required": [{}], "max": false}
+```
 
 Else if getting the ```$error``` attribute from an *input's*
 ```FormController```, it will be a mapping of error names to booleans (with
 "true" indicating an error).
 
-    ::js
-    {"required": false, "max": true}
+```js
+{"required": false, "max": true}
+```
 
 To reference all these properties though, the form and input directives need to
 be given a ```name``` attribute to register it into scope. We can then use
@@ -70,21 +72,22 @@ these properties to drive form interaction and behavior.
 In *Muffin Button*, we will create a button that dispenses a number of muffins
 to demonstrate form states.
 
-    ::html
-    <form name="muffinForm" ng-submit="muffins = muffinNum">
-      <input id="muffinNum" type="number" name="muffinNumInput"
-             ng-model="muffinNum" min="1" max="255">
+```html
+<form name="muffinForm" ng-submit="muffins = muffinNum">
+  <input id="muffinNum" type="number" name="muffinNumInput"
+         ng-model="muffinNum" min="1" max="255">
 
-      <button ng-disabled="muffinForm.muffinNumInput.$invalid">
-        Dispense Muffins
-      </button>
+  <button ng-disabled="muffinForm.muffinNumInput.$invalid">
+    Dispense Muffins
+  </button>
 
-      <span ng-show="muffinForm.muffinNumInput.$error.max">
-        Muffin Overload!
-      </span>
+  <span ng-show="muffinForm.muffinNumInput.$error.max">
+    Muffin Overload!
+  </span>
 
-      <img src="muffin.png" ng-repeat="i in [] | range: muffins">
-    </form>
+  <img src="muffin.png" ng-repeat="i in [] | range: muffins">
+</form>
+```
 
 *Muffin Button* contains a number input field. Given a number, it dispenses or
 displays a respective number of muffins when pressing the muffin button. We use
@@ -120,11 +123,12 @@ As a side thriller, we use ```$pristine``` to not apply these classes when the
 form has not been touched. The border color would then initially default to
 gray.
 
-    ::html
-    <input id="muffinNum" type="number" name="muffinNumInput"
-           ng-model="muffinNum" min="1" max="255"
-           ng-class="{'error': !muffinForm.$pristine && muffinForm.muffinNumInput.$invalid,
-                      'valid': !muffinForm.$pristine && !muffinForm.muffinNumInput.$invalid}">
+```html
+<input id="muffinNum" type="number" name="muffinNumInput"
+       ng-model="muffinNum" min="1" max="255"
+       ng-class="{'error': !muffinForm.$pristine && muffinForm.muffinNumInput.$invalid,
+                  'valid': !muffinForm.$pristine && !muffinForm.muffinNumInput.$invalid}">
+```
 
 ## Up Next
 
