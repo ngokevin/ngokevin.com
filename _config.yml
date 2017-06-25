@@ -38,10 +38,8 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace:
+  enable: false
+  line_number: false
 
 # Category & Tag
 default_category: uncategorized
@@ -79,3 +77,8 @@ marked:
   smartLists: true
   smartypants: true
   modifyAnchors: 1   # Lowercased anchors.
+
+prism_plugin:
+  mode: 'preprocess'
+  theme: 'tomorrow'
+  line_number: true
