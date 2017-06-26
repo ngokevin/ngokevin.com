@@ -6,27 +6,7 @@
     <h1>kevin ngo</h1>
     <h2>virtual reality web developer</h2>
     <h3>co-creator of <a class="aframeLink" href="https://aframe.io">A-Frame</a></h3>
-    <div class="social">
-      <a href="https://github.com/ngokevin/">{{ icon('github-alt') }}</a>
-      <a href="https://twitter.com/andgokevin/">{{ icon('twitter') }}</a>
-      <a href="https://instagram.com/andgokevin/">{{ icon('instagram') }}</a>
-    </div>
   </div>
-</div>
-
-<div class="section sectionPosts">
-  <h2 class="emojiHeading">{{ icon('pencil') }}</h2>
-  <ul class="posts">
-    {% for post in site.posts.data | sort(true, true, 'date') %}
-      {% if loop.index0 < 3 %}
-        <li class="postListing">
-          <span class="postDate" >{{ date(post.date) }}</span>
-          <a class="postLink" href="{{ post.path }}">{{ post.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-  <p class="more"><a href="/blog">more</a></p>
 </div>
 
 <div class="section sectionProjects">
@@ -38,6 +18,21 @@
       </li>
     {% endfor %}
   </ul>
+</div>
+
+<div class="section sectionPosts">
+  <h2 class="emojiHeading">{{ icon('pencil') }}</h2>
+  <ul class="posts">
+    {% for post in site.posts.data | sort(true, true, 'date') %}
+      {% if loop.index0 < 3 %}
+        <li class="postListing">
+          <span class="postDate" >{{ date(post.date) }}</span>
+          <a class="postLink" href="/{{ post.path }}">{{ post.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <p class="more"><a href="/blog">more</a></p>
 </div>
 
 <div class="section sectionPhotos">

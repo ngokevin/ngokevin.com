@@ -11,6 +11,12 @@
   <body>
     {{ body }}
 
+    <div class="social">
+      <a href="https://github.com/ngokevin/">{{ icon('github-alt') }}</a>
+      <a href="https://twitter.com/andgokevin/">{{ icon('twitter') }}</a>
+      <a href="https://instagram.com/andgokevin/">{{ icon('instagram') }}</a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
     <script>new Blazy({selector: '.lazyload'});</script>
   </body>

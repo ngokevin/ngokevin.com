@@ -1,0 +1,13 @@
+{% if page.path != 'index.html' %}
+  <a href="/">&laquo; Kevin Ngo</a>
+{% endif %}
+
+<h2>{{ icon('pencil') }}</h2>
+<ul class="posts">
+  {% for post in site.posts.data | sort(true, true, 'date') %}
+    <li class="postListing">
+      <span class="postDate" >{{ date(post.date) }}</span>
+      <a class="postLink" href="/{{ post.path }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

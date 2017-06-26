@@ -2,12 +2,12 @@ projects:
 - name: A-Frame
   url: https://aframe.io
   image: aframe.jpg
-- name: A-Frame
-  url: https://aframe.io
-  image: aframe.jpg
-- name: A-Frame
-  url: https://aframe.io
-  image: aframe.jpg
-- name: A-Frame
-  url: https://aframe.io
-  image: aframe.jpg
+- name: Lights
+  url: https://aframevr.github.io/aframe/examples/showcase/dynamic-lights/
+  image: lights.jpg
+- name: Gogh
+  url: https://ngokevin.github.io/gogh/
+  image: gogh.jpg
+- name: A-Frame Model
+  url: https://ngokevin.github.io/kframe/scenes/aframe/
+  image: aframemodel.jpg
