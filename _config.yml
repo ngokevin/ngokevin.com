@@ -66,7 +66,9 @@ theme: ngokevin
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: git@github.com:ngokevin/ngokevin.com.git
+  branch: gh-pages
 
 marked:
   gfm: true
