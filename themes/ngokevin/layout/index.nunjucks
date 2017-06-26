@@ -13,7 +13,7 @@
   <h2 class="emojiHeading">{{ icon('code') }}</h2>
   <ul class="projects">
     {% for project in site.data.projects.projects %}
-      <li style="background-image: url(/img/projects/{{ project.image }})">
+      <li class="lazyload" data-src="/img/projects/{{ project.image }}">
         <a href="{{ project.url }}" title="{{ project.name }}"></a>
       </li>
     {% endfor %}

@@ -21,6 +21,14 @@ a
 html body pre[class] code[class]
   font-family monospace
 
+.lazyload {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  &.b-loaded {
+    opacity: 1;
+  }
+}
+
 .social
   display flex
   justify-content center
