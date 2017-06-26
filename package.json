@@ -22,6 +22,7 @@
   },
   "scripts": {
     "clean": "hexo clean",
+    "deploy": "hexo deploy",
     "generate": "hexo generate",
     "deploy": "hexo deploy",
     "start": "hexo server"
