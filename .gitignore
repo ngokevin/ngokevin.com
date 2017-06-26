@@ -18,3 +18,4 @@ venv
 npm-debug.log
 public/
 db.json
+.deploy_git
