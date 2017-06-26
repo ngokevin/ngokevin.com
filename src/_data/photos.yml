@@ -9,5 +9,21 @@ photos:
   image: waimea.jpg
 - name: 'Clouds, Haleakala'
   image: haleakala.jpg
+- name: 'Torii, Fushimi Inari'
+  image: torii.jpg
 - name: 'Badwater Flats, Death Valley'
   image: deathvalley.jpg
+- name: 'Sea Wall, Dry Tortugas'
+  image: tortugas.jpg
+- name: 'Anhinga, Everglades'
+  image: anhinga.jpg
+- name: 'California Condor, Pinnacles'
+  image: condor.jpg
+- name: 'Snowfall, Tulelake'
+  image: tulelake.jpg
+- name: 'Fox, Alaska'
+  image: fox.jpg
+- name: 'Blue Eye, London'
+  image: london.jpg
+- name: 'City, Nanjing'
+  image: nanjing.jpg
