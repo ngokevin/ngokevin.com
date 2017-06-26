@@ -14,20 +14,17 @@ body
 a
   color #EF2D5E
   transition all .1s
-
   &:hover
     color #FF3D6E
 
 html body pre[class] code[class]
   font-family monospace
 
-.lazyload {
-  opacity: 0;
-  transition: opacity 500ms ease-in-out;
-  &.b-loaded {
-    opacity: 1;
-  }
-}
+.lazyload
+  opacity 0
+  transition opacity 500ms ease-in-out
+  &.b-loaded
+    opacity 1
 
 .social
   display flex
@@ -69,3 +66,61 @@ html body pre[class] code[class]
   +desktop()
     margin-left 10px
     width auto
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+  empty-cells: show
+  margin-bottom 10px
+  border 1px solid #cbcbcb
+
+table td,
+table th
+  border-left 1px solid #cbcbcb/*  inner column border */
+  border-width 0 0 0 1px
+  font-size inherit
+  margin 0
+  overflow visible /*to make ths where the title is really long work*/
+  padding 0.5em 1em /* cell padding */
+
+/* Consider removing this next declaration block, as it causes problems when
+there's a rowspan on the first cell. Case added to the tests. issue#432 */
+table td:first-child,
+table th:first-child
+  border-left-width 0
+
+table thead
+  background-color #e0e0e0
+  color #000
+  text-align left
+  vertical-align bottom
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+table td
+  background-color transparent
+
+table-odd td
+  background-color #f2f2f2
+
+/* nth-child selector for modern browsers */
+table-striped tr:nth-child(2n-1) td
+  background-color #f2f2f2
+
+/* BORDERED TABLES */
+table-bordered td
+  border-bottom 1px solid #cbcbcb
+
+table-bordered tbody > tr:last-child > td
+  border-bottom-width 0
+
+
+blockquote
+  margin-top 10px
+  margin-bottom 10px
+  margin-left 0
+  padding-left 15px
+  border-left 3px solid #CCC
