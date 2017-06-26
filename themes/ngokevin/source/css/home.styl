@@ -99,8 +99,8 @@ body
   display inline-block
   margin 0
 
-.projects,
-.photography
+.photos,
+.projects
   list-style none
   padding-left 0
 
@@ -108,10 +108,25 @@ body
     background-size cover
     cursor pointer
     display inline-block
-    height 140px
-    width 140px
 
   a
     display inline-block
+    height 100%
+    width 100%
+
+.projects li
+  height 140px
+  width 140px
+
+.photos
+  li
+    height 50%
+    margin-bottom 10px
+    width 100%
+    +px700()
+      height 200px
+      margin-bottom 0
+      width 288px
+  img
     height 100%
     width 100%

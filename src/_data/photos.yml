@@ -1,0 +1,13 @@
+photos:
+- name: 'Black Sand, Iceland'
+  image: iceland.jpg
+- name: 'Eureka Dunes, Death Valley'
+  image: dunes.jpg
+- name: 'Badwater Flats, Death Valley'
+  image: deathvalley.jpg
+- name: 'Quirang, Scotland'
+  image: quirang.jpg
+- name: 'Clouds, Haleakala'
+  image: haleakala.jpg
+- name: 'Grand Canyon of the Pacific, Kauai'
+  image: waimea.jpg

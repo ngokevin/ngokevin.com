@@ -7,15 +7,15 @@
     <h2>virtual reality web developer</h2>
     <h3>co-creator of <a class="aframeLink" href="https://aframe.io">A-Frame</a></h3>
     <div class="social">
-      <a href="https://github.com/ngokevin/">{{ github_emoji('octocat') }}</a>
-      <a href="https://twitter.com/andgokevin/">{{ github_emoji('bird') }}</a>
-      <a href="https://instagram.com/andgokevin/">{{ github_emoji('camera') }}</a>
+      <a href="https://github.com/ngokevin/">{{ icon('github-alt') }}</a>
+      <a href="https://twitter.com/andgokevin/">{{ icon('twitter') }}</a>
+      <a href="https://instagram.com/andgokevin/">{{ icon('instagram') }}</a>
     </div>
   </div>
 </div>
 
 <div class="section sectionPosts">
-  <h2 class="emojiHeading">{{ github_emoji('pencil2') }}</h2>
+  <h2 class="emojiHeading">{{ icon('pencil') }}</h2>
   <ul class="posts">
     {% for post in site.posts.data | sort(true, true, 'date') %}
       {% if loop.index0 < 3 %}
@@ -30,7 +30,7 @@
 </div>
 
 <div class="section sectionProjects">
-  <h2 class="emojiHeading">{{ github_emoji('computer') }}</h2>
+  <h2 class="emojiHeading">{{ icon('code') }}</h2>
   <ul class="projects">
     {% for project in site.data.projects.projects %}
       <li style="background-image: url(/img/projects/{{ project.image }})">
@@ -41,12 +41,10 @@
 </div>
 
 <div class="section sectionPhotos">
-  <h2 class="emojiHeading">{{ github_emoji('camera') }}</h2>
+  <h2 class="emojiHeading">{{ icon('camera-retro') }}</h2>
   <ul class="photos">
-    {% for photo in site.data.photography.photos %}
-      <li>
-        <img src="/img/photos/{{ photo.image }}" alt="{{ photo.name }}" title="{{ photo.name }}">
-      </li>
+    {% for photo in site.data.photos.photos %}
+      <li class="lazyload" data-src="/img/photos/{{ photo.image }}" title="{{ photo.name }}"></li>
     {% endfor %}
   </ul>
 </div>

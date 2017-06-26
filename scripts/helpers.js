@@ -7,3 +7,7 @@ hexo.extend.helper.register('date', function (date) {
 hexo.extend.helper.register('print', function (obj) {
   return Object.keys(obj);
 });
+
+hexo.extend.helper.register('icon', function (name) {
+  return `<i class="fa fa-${name}" aria-hidden="true"></i>`;
+});

@@ -6,8 +6,12 @@
     {{ css('css/base') }}
     {% if page.path == 'index.html' %} {{ css('css/home') }} {% endif %}
     {% if page.layout == 'blog' %} {{ css('css/post') }} {% endif %}
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
   </head>
   <body>
     {{ body }}
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
   </body>
 </html>
