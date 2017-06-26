@@ -81,4 +81,10 @@ marked:
 prism_plugin:
   mode: 'preprocess'
   theme: 'tomorrow'
-  line_number: true
+  line_number: false
+
+githubEmojis:
+  enable: true
+  className: github-emoji
+  unicode: false
+  localEmojis:
