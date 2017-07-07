@@ -1,0 +1,149 @@
+html {
+  background: url("/img/bg.png");
+}
+html,
+body {
+  color: #111;
+  font-family: monospace;
+  padding: 5px;
+}
+@media (min-width: 600px) {
+  html,
+  body {
+    padding: 10px;
+  }
+}
+a {
+  color: #ef2d5e;
+  transition: all 0.1s;
+}
+a:hover {
+  color: #ff3d6e;
+}
+html body pre[class] code[class] {
+  font-family: monospace;
+}
+.lazyload {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+.lazyload.b-loaded {
+  opacity: 1;
+}
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
+}
+.social a {
+  padding-right: 15px;
+}
+.posts {
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .posts {
+    width: auto;
+  }
+}
+.postListing {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.postListing:first-child {
+  padding-top: 0;
+}
+@media (min-width: 600px) {
+  .postListing {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+.postDate {
+  display: none;
+}
+@media (min-width: 600px) {
+  .postDate {
+    display: inline-block;
+    text-align: right;
+    vertical-align: bottom;
+    width: 200px;
+  }
+}
+.postLink {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .postLink {
+    margin-left: 10px;
+    width: auto;
+  }
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  margin-bottom: 10px;
+  border: 1px solid #cbcbcb;
+}
+table td,
+table th {
+  border-left: 1px solid #cbcbcb /*  inner column border */;
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible /*to make ths where the title is really long work*/;
+  padding: 0.5em 1em /* cell padding */;
+}
+/* Consider removing this next declaration block, as it causes problems when
+there's a rowspan on the first cell. Case added to the tests. issue#432 */
+table td:first-child,
+table th:first-child {
+  border-left-width: 0;
+}
+table thead {
+  background-color: #e0e0e0;
+  color: #000;
+  text-align: left;
+  vertical-align: bottom;
+}
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+table td {
+  background-color: transparent;
+}
+table-odd td {
+  background-color: #f2f2f2;
+}
+/* nth-child selector for modern browsers */
+table-striped tr:nth-child(2n-1) td {
+  background-color: #f2f2f2;
+}
+/* BORDERED TABLES */
+table-bordered td {
+  border-bottom: 1px solid #cbcbcb;
+}
+table-bordered tbody > tr:last-child > td {
+  border-bottom-width: 0;
+}
+blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}

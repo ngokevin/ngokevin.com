@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>How A-Frame VR is Different from Other 3D Markup Languages</h1>
+  <p>21 Dec 2015</p>
+
+  
+    <img src="http://i.imgur.com/kFLzzPC.png">
+  
+
+  <p>Upon first seeing A-Frame, branded as “building blocks for the web” displaying
+markup like <code>&lt;a-cube&gt;</code>, developers may conceive A-Frame as yet another 3DML (3D
+markup language) such as <a href="http://www.x3dom.org" target="_blank" rel="external">X3Dom</a> or <a href="http://tparisi.github.io/glam" target="_blank" rel="external">GLAM</a>. What A-Frame brings to
+the game is that it is based off an <a href="https://aframe.io/docs/core/" target="_blank" rel="external">entity-component system</a>, a pattern
+used by universal game engines like <a href="https://unity3d.com" target="_blank" rel="external">Unity</a> which favors composability
+over inheritance. As we’ll see, this makes A-Frame extremely extendable.</p>
+<p>And A-Frame VR is extremely mindful of how to start a developer ecosystem.
+There are <a href="https://github.com/aframevr/awesome-aframe" target="_blank" rel="external">tools, tutorials, guides, boilerplates, libraries</a> being
+built and knowledge being readily shared on <a href="https://aframevr-slack.herokuapp.com/" target="_blank" rel="external">Slack</a>.</p>
+<hr>
+<h2 id="entity-component-system"><a href="#entity-component-system" class="headerlink" title="Entity-Component System"></a>Entity-Component System</h2><p>The <a href="https://aframe.io/docs/core/" target="_blank" rel="external">entity-component system</a> is a pattern in which every entity, or
+object, in a scene are general placeholders. Then components are used to add
+appearance, behavior, and functionality. They’re bags of logic and data that
+can be applied to any entity, and they can be defined to just about do
+<em>anything</em>, and anyone can easily develop and share their components.  To
+imagine this visually, let’s revisit this image:</p>
+<p><img src="http://i.imgur.com/kFLzzPC.png" alt=""></p>
+<div class="page-caption"><span>
+A good diagram for imagining what an entity looks like.
+</span></div>
+
+<p>An entity, by itself without components, doesn’t render or do anything. A-Frame
+ships with over 15 basic components. We can add a <a href="https://aframe.io/docs/components/geometry.html" target="_blank" rel="external">geometry
+component</a> to give it shape, a <a href="https://aframe.io/docs/components/material.html" target="_blank" rel="external">material component</a> to give
+it appearance, or a <a href="https://aframe.io/docs/components/light.html" target="_blank" rel="external">light component</a> and <a href="https://aframe.io/docs/components/sound.html" target="_blank" rel="external">sound component</a> to
+have it emit light or sound.</p>
+<p>Each component has properties that further defines how it modifies the entity.
+And components can be mixed and matched at will, hence the “composable” word
+root of “component”. In traditional terms, they can be thought of as plugins.
+And anyone can write them to do anything, even <em>explode</em> an entity. They are
+expected to become an integral part of the workflow of building advanced
+scenes.</p>
+<h3 id="writing-and-sharing-components"><a href="#writing-and-sharing-components" class="headerlink" title="Writing and Sharing Components"></a>Writing and Sharing Components</h3><p>So at what point does the promise of the ecosystem come in? A component is
+simply <strong>a plain JavaScript object</strong> that defines several <a href="https://aframe.io/docs/core/component.html#Component_Definition_and_Lifecycle" target="_blank" rel="external">lifecycle
+handlers</a> that manages the component’s data. Here are some
+example third-party components that I and other people have written:</p>
+<ul>
+<li><a href="https://github.com/ngokevin/aframe-text-component" target="_blank" rel="external">Text component</a></li>
+<li><a href="https://github.com/ngokevin/aframe-layout-component" target="_blank" rel="external">Layout component</a></li>
+<li><a href="https://github.com/dmarcos/a-invaders/blob/master/js/components/explode.js" target="_blank" rel="external">Explode component</a></li>
+<li><a href="https://github.com/dmarcos/a-invaders/blob/master/js/components/spawner.js" target="_blank" rel="external">Spawner component</a></li>
+<li><a href="https://github.com/JosePedroDias/aframe-extrude-and-lathe" target="_blank" rel="external">Extrude and lathe component</a></li>
+</ul>
+<p>Small components can be as little as a few lines of code. Under the hood, they
+either do three.js object or JavaScript DOM manipulations. I will go into more
+detail how to write a component at a later date, but to get started building a
+sharable component, check out the <a href="https://github.com/ngokevin/aframe-component-boilerplate" target="_blank" rel="external">component boilerplate</a>.</p>
+<h2 id="comparison-with-other-3dmls"><a href="#comparison-with-other-3dmls" class="headerlink" title="Comparison with Other 3DMLs"></a>Comparison with Other 3DMLs</h2><p>Other 3DMLs, or any markup languages at all for that matter, are based on an
+inheritance pattern. This is sort of the default pattern to go towards given
+the heirarchichal nature of HTML and XML. Even A-Frame was initially built in
+this way. The problem is that this lacks composability. Customizing objects to
+do something more than basic becomes difficult, both to the user and to the
+library developer.</p>
+<p><img src="http://i.imgur.com/A98j4uM.png" alt=""></p>
+<div class="page-caption"><span>
+Difficulty of extending traditional objects in 3DML.
+</span></div>
+
+<p>The functionality of the language then becomes dependent on how many features
+the maintainers and the library add. With A-Frame however, composability brings
+about limitless functionality:</p>
+<p><img src="http://i.imgur.com/5SYtEZS.jpg" alt=""></p>
+<div class="page-caption"><span>
+Composability makes it easy to extend objects in A-Frame.
+</span></div>
+
+<p>Putting it logically, the different kinds of functionality you can squeeze out
+of an object is the permutation of the number of components you have. With the
+basic 16 components that A-Frame comes with, that’s 65536 different sets of
+components that could be used. Add in the fact that components can be further
+customized with properties, and that there is an ecosystem of components to tap
+into, the previous use of the word “limitless” was quite literal.</p>
+<p>With other 3DML libraries, if they ship 50 different kinds of objects, then you
+get only get 50 different kinds of objects with fixed behavior.</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

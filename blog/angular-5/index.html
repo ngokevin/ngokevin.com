@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>ng-okevin's Angular ch.5 - Forms</h1>
+  <p>3 Apr 2014</p>
+
+  
+    <img src="http://i.imgur.com/FaQEtTM.jpg">
+  
+
+  <p>The form, input, select, and textarea elements are augmented (as directives) in
+Angular for added sauce. Angular forms have a built-in awareness of their
+state, such as whether data has been inputted or whether the forms are valid.
+Angular forms provide</p>
+<ul>
+<li>two-way data binding with the model.</li>
+<li>form state.</li>
+</ul>
+<hr>
+<p>We have covered the two-way data binding in <a href="/blog/angular-1">ch.1 AngularJS</a>.
+Form state, however, can be used to conditionally</p>
+<ul>
+<li>enable or disable form controls (e.g. buttons).</li>
+<li>style the form.</li>
+</ul>
+<p>With directives though, we can also achieve</p>
+<ul>
+<li>custom form validation.</li>
+<li>custom form controls.</li>
+</ul>
+<h2 id="form-state"><a href="#form-state" class="headerlink" title="Form State"></a>Form State</h2><p>A bit about the backend. Angular forms and inputs are instances of
+<code>FormController</code>. As instances of <code>FormController</code>, form and input
+directives contain a handful of useful properties that represent form state.</p>
+<ul>
+<li><code>$pristine</code>: True if the user has not yet interacted with the form</li>
+<li><code>$dirty</code>: opposite of <code>$pristine</code></li>
+<li><code>$valid</code>: True if all of containing forms and controls are valid</li>
+<li><code>$invalid</code>: opposite of <code>$valid</code></li>
+<li><code>$error</code>: a JS object referencing invalid forms or a mapping of error
+names to booleans</li>
+</ul>
+<p><code>$error</code> is a bit confusing as it has two faces. If getting the <code>$error</code>
+attribute from a <em>form’s</em> <code>FormController</code>, it will be a reference to invalid
+form controls.</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span><span class="token string">"required"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"max"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span>
+</code></pre>
+<p>Else if getting the <code>$error</code> attribute from an <em>input’s</em>
+<code>FormController</code>, it will be a mapping of error names to booleans (with
+“true” indicating an error).</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span><span class="token string">"required"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">"max"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span>
+</code></pre>
+<p>To reference all these properties though, the form and input directives need to
+be given a <code>name</code> attribute to register it into scope. We can then use
+these properties to drive form interaction and behavior.</p>
+<h3 id="example"><a href="#example" class="headerlink" title="Example"></a>Example</h3><p>In <em>Muffin Button</em>, we will create a button that dispenses a number of muffins
+to demonstrate form states.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffinForm<span class="token punctuation">"</span></span> <span class="token attr-name">ng-submit</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffins <span class="token punctuation">=</span> muffinNum<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffinNum<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffinNumInput<span class="token punctuation">"</span></span>
+         <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffinNum<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>255<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">ng-disabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffinForm.muffinNumInput.$invalid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    Dispense Muffins
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-show</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffinForm.muffinNumInput.$error.max<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    Muffin Overload!
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>muffin.png<span class="token punctuation">"</span></span> <span class="token attr-name">ng-repeat</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>i in [] | range: muffins<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><em>Muffin Button</em> contains a number input field. Given a number, it dispenses or
+displays a respective number of muffins when pressing the muffin button. We use
+form states to disable the muffin button on invalid and non-number inputs, and
+we also use it to display a specific error message in the case that too many
+muffins are requested.</p>
+<p>We disabled the button with the <code>ng-disabled</code> directive when our
+HTML5 number input field is invalid. We give the input field the name
+<code>muffinNumInput</code>. That name can then be referenced from the
+<code>muffinForm</code> object in the scope as <code>muffinForm.muffinNumInput</code>. Our
+number field dictates whether the form is invalid. If the input is not a
+number, is under the min, or over the max,
+<code>muffinForm.muffinNumInput.$invalid</code> will be switched on.</p>
+<p>However, <code>$invalid</code> is general catch-all flag. If we want make use of more
+detailed form states, we can make use of the <code>$error</code> attribute to see
+specific error flags. In the example, we display an error message with the
+<code>ng-show</code> directive when the number input field contains too large of a
+number. In that case, the <code>max</code> flag will be set and can be referenced by</p>
+<pre class=" language-muffinForm.muffinNumInput.$error.max```."><code class="language-muffinForm.muffinNumInput.$error.max```.">
+<iframe src="/files/ng-book/examples/muffinbutton/index.html"></iframe>
+
+### Styling the Form Based on Form State
+
+We can style elements differently based on form states. It is nothing new, we
+simply use form states in conjunction with ```ng-class```. With that, we can
+give the number input element a red error border when the input is invalid and
+green when valid.
+
+As a side thriller, we use ```$pristine``` to not apply these classes when the
+form has not been touched. The border color would then initially default to
+gray.
+
+```html
+<input id="muffinNum" type="number" name="muffinNumInput"
+       ng-model="muffinNum" min="1" max="255"
+       ng-class="{'error': !muffinForm.$pristine && muffinForm.muffinNumInput.$invalid,
+                  'valid': !muffinForm.$pristine && !muffinForm.muffinNumInput.$invalid}">
+</code></pre>
+<h2 id="up-next"><a href="#up-next" class="headerlink" title="Up Next"></a>Up Next</h2><p>Scopes, controllers, and templates lay the foundation of the cake. Now we can
+start decorating with the frostiest part of Angular,
+<a href="/blog/angularslider">Directives</a>, where I demonstrate hands-on how to build a
+mobile slider.</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

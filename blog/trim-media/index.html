@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>An Easy Way to Trim Media Files</h1>
+  <p>15 Dec 2011</p>
+
+  
+
+  <p>While working on extracting entertaining video clips from a feature-length home
+movie I compiled a couple of years back, I learned of a way to trim media files
+given timestamps from the command line. <a href="http://ffmpeg.org" target="_blank" rel="external">ffmpeg</a> is a large
+library for working with media files, and I have also been using it in my
+<a href="http://github.com/ngokevin/mp3-Suite" target="_blank" rel="external">mp3-Suite</a>. The -ss option specifies the
+starting timestamp of the trim and the -t option specifies the desired
+duration.</p>
+<p>ffmpeg -ss 00:00:15.00 -i input-file.mpg -t 30 -acodec copy -vcodec copy
+output-file.mpg</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

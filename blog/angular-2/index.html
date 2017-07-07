@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>ng-okevin's Angular ch.2 - Scopes</h1>
+  <p>6 Apr 2014</p>
+
+  
+    <img src="http://i.imgur.com/PSGGxhQ.jpg">
+  
+
+  <p>Angular <strong>scopes</strong> are objects that gives us access to the model. Remember the
+model holds the data and state of an MVC application. Besides applying context
+against which expressions are evaluated, scopes allow us to:</p>
+<ul>
+<li>access and manipulate the model.</li>
+<li>set event listeners to watch for whenever the model changes.</li>
+<li>enlighten Angular about asynchronous changes to the model.</li>
+</ul>
+<hr>
+<p>Each Angular application has exactly one <strong>root scope</strong>, which can have child
+scopes that inherit from it.</p>
+<pre class=" language-js"><code class="language-js">$rootScope<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'black'</span><span class="token punctuation">;</span>
+childScope <span class="token operator">=</span> $rootScope<span class="token punctuation">.</span>$<span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Child scope's color is 'black'.</span>
+childScope<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'yellow'</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Child scope's color is 'yellow'.</span>
+</code></pre>
+<p>We can assign properties to the scope to update the model, as seen above.
+Though, we can implicitly use the scope from the template to manipulate the
+model. For now, we will be working with the root scope for simplicity.</p>
+<h3 id="example"><a href="#example" class="headerlink" title="Example"></a>Example</h3><p>In <em>Black and Yellow</em>, we will create two buttons that toggle the color of a
+circle between two colors, black and yellow, to demonstrate basic use of the
+scope.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Black and Yellow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token selector">background: </span><span class="token punctuation">{</span><span class="token punctuation">{</span> color <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">"</span></span> <span class="token attr-name">ng-init</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color <span class="token punctuation">=</span> <span class="token punctuation">'</span>white<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">ng-click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color<span class="token punctuation">=</span> <span class="token punctuation">'</span>black<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Black<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">ng-click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color<span class="token punctuation">=</span> <span class="token punctuation">'</span>yellow<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Yellow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>We instantiate the <code>color</code> attribute on the root scope with the
+<code>ngInit</code> directive. We have the <code>div</code> watch for changes to <code>color</code>
+with the placeholder. Whenever <code>color</code> changes, the background of the
+<code>div</code> changes as well.</p>
+<p>To register this behavior with the buttons, we use the <code>ngClick</code> directive
+which attaches an event handler to the DOM element. For the yellow button, we
+attach the expression, <code>color = &#39;yellow&#39;</code>, which will set the attribute of
+the scope to be “yellow”.</p>
+<iframe src="/files/ng-book/examples/blackandyellow/index.html"></iframe>
+
+<h2 id="watching-the-model"><a href="#watching-the-model" class="headerlink" title="$watching the Model"></a><em>$watch</em>ing the Model</h2><p>Sometimes, we want to observe the model for changes. The <code>scope</code> object
+exposes an application programming interface (API), a handful abstracted useful
+functions. Among these functions is <code>$watch</code>, which observes an attribute
+on the scope and runs a callback function whenever that attribute changes.</p>
+<p>Explicitly using <code>$watch</code> allows us to run additional logic that consists
+of more than simply updating the view. Though in the previous example <em>Black
+and Yellow</em>, a <code>$watch</code> was still being implicitly set on <code></code>. Whenever <code>color</code> changed, <code>$watch</code> automatically updated the
+DOM.</p>
+<p>Aside, it is worth noting that Angular prefixes the names of its objects and
+attributes with <code>$</code> to avoid accidental namespace collisions.</p>
+<h3 id="example-1"><a href="#example-1" class="headerlink" title="Example"></a>Example</h3><p>In <em>Gentleman</em>, we will blink an image when both of two checkboxes are checked,
+but to stop blinking when either of the two checkboxes are unchecked, to
+demonstrate <code>$watch</code>.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">ng-controller</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GentlemanCtrl<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Gentleman<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gentleman.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mother<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>Mother<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>father<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>Father<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This example is slightly more complex; we need to be able to conditionally set
+intervals and clear stored timeouts. This is difficult to do with Angular
+expressions alone in the template.</p>
+<p>Thus, we will be making use of a <strong>controller</strong>. Controllers allow us set up
+the initial state and add behavior to scope objects, from the Javascript side.
+The controller will give us a scope object. We can then use its <code>$watch</code>
+function to observe the checkboxes.</p>
+<p>A child scope of the root scope is created under the <code>ngController</code>
+directive. As we see, this is one way to create child scopes. We have also been
+creating the root scope in the template as well. The <code>ngApp</code> directive we
+have been using to bootstrap our Angular applications has been creating the
+root scope.</p>
+<p>We pass in the name of our controller, <code>GentlemanCtrl</code> to associate it with
+our new scope.</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">GentlemanCtrl</span><span class="token punctuation">(</span>$scope<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> timeout<span class="token punctuation">;</span>
+
+    $scope<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span><span class="token string">'mother'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>newVal<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>newVal <span class="token operator">&amp;&amp;</span> $scope<span class="token punctuation">.</span>father<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 'Mother' and 'Father' checked.</span>
+            <span class="token function">motherfather</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 'Mother' unchecked.</span>
+            <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    $scope<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span><span class="token string">'father'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>newVal<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>newVal <span class="token operator">&amp;&amp;</span> $scope<span class="token punctuation">.</span>mother<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">motherfather</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">motherfather</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        timeout <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toggleClass</span><span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In the controller, we can ask Angular for the <code>$scope</code> object by asking for
+it as a parameter. Angular will then supply the <code>$scope</code> through
+<strong>dependency injection</strong>. Dependency injection is a method of removing hard-
+coded dependencies and making it possible to change them at run-time or
+compile-time.</p>
+<p>There are better ways of creating controllers that uses a better pattern of
+dependency injection and does not involve polluting the global namespace, ways
+which will be discussed in <a href="/blog/angular-3">ch.3 Controllers</a>,</p>
+<p>We set a <code>$watch</code> on the scope on <code>mother</code> and <code>father</code>. When
+either attribute changes value, the supplied callback function will execute.</p>
+<iframe src="/files/ng-book/examples/gentleman/index.html"></iframe>
+
+<h2 id="applying-changes-from-non-angular-runtime"><a href="#applying-changes-from-non-angular-runtime" class="headerlink" title="$applying Changes from Non-Angular Runtime"></a><em>$apply</em>ing Changes from Non-Angular Runtime</h2><p>Scopes let us notify Angular about model changes that occur outside of Angular.
+Angular splits the browser-event loop into two separate <strong>runtimes</strong>, or
+execution contexts, into classical and Angular runtimes. Only operations that
+happen within Angular runtime will propagate to, or update, the view.</p>
+<p>Instances of non-Angular runtimes include:</p>
+<ul>
+<li>browser DOM events.</li>
+<li>setTimeout or setInterval.</li>
+<li>asynchronous XMLHttpRequests (XHR or AJAX).</li>
+<li>third-party libraries such as Socket.IO.</li>
+</ul>
+<p>When the model changes through these events, we need to call <code>$apply</code> if we
+want to refresh the data-binding from the model to the view. Though in most
+cases, <code>$apply</code> is called for you automatically. Calling <code>$apply</code> does
+several things on the backend:</p>
+<ul>
+<li>enters Angular runtime.</li>
+<li>executes a function within that runtime if supplied.</li>
+<li>calls <code>$digest</code> which processes the scope’s <code>$watch</code> list</li>
+</ul>
+<p>When calling <code>$digest</code>, Angular enters the <strong>digest loop</strong>. <code>$digest</code>
+iterates over <code>$watch</code> list, which contain watchers that may then change
+the model even further. This would cause <code>$digest</code> to then be called again.
+This digest loop continues until the model stabilizes, when the <code>$watch</code>
+list no longer detects any changes.</p>
+<p><em>Depiction of Angular Runtime (docs.angularjs.org)</em></p>
+<p><img src="/files/ng-book/img/runtime.png" alt="runtime"></p>
+<h3 id="example-2"><a href="#example-2" class="headerlink" title="Example"></a>Example</h3><p>In <em>HL3 Countdown</em>, we will create a countdown timer with <code>setInterval</code>
+alongside Angular to demonstrate <code>$apply</code>.</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">HL3CountdownCtrl</span><span class="token punctuation">(</span>$rootScope<span class="token punctuation">,</span> $scope<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    $rootScope<span class="token punctuation">.</span>countdown <span class="token operator">=</span> <span class="token number">9999</span><span class="token punctuation">;</span>
+
+    <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        $rootScope<span class="token punctuation">.</span><span class="token function">$apply</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            $rootScope<span class="token punctuation">.</span>countdown<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>For variety, we are using <code>$rootScope</code> to demonstrate more of dependency
+injection. We ask for <code>$rootScope</code>, Angular will recognize the name and
+supply it to us. Since dependencies are not hard-coded, we can ask for
+dependencies in any particular order.</p>
+<p>Since <code>$rootScope.countdown--</code> takes place within a setInterval, it runs
+outside of Angular runtime. If we were to not use <code>$apply</code>, <code>countdown</code>
+would not be updated to the view, and the countdown would not run. Since we do
+call <code>$apply</code>, the data-binding is effectively refreshed, and the countdown
+runs.</p>
+<iframe src="/files/ng-book/examples/hl3countdown/index.html"></iframe>
+
+<p>Note we put counter-decrementing code within the function passed into
+<code>$apply</code>. We could just as well call <code>$apply</code> on its own to achieve
+the same effect.</p>
+<pre class=" language-js"><code class="language-js">$rootScope<span class="token punctuation">.</span>countdown<span class="token operator">--</span><span class="token punctuation">;</span>
+$rootScope<span class="token punctuation">.</span><span class="token function">$apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="up-next"><a href="#up-next" class="headerlink" title="Up Next"></a>Up Next</h2><p>Scopes cover the <em>M</em> in MVC. We will pass over the <em>V</em> for now and head
+directly for the <em>C</em>, the controllers. We have slowly been getting introduced
+to controllers during this chapter. And now we can naturally delve into the
+meatier portions of Angular in <a href="/blog/angular-3">ch.3 Controllers</a>.</p>
+<p>As a bonus, check out the full-blown example of <a href="http://gentleman.ngokevin.com" target="_blank" rel="external">Gentleman with
+audio</a>.</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>Testing Project Browserify Modules in Karma Test Runner with Gulp</h1>
+  <p>31 Aug 2014</p>
+
+  
+
+  <p>If you want to test local Browserify modules in your project with
+<a href="http://ngokevin.com/blog/angular-unit-testing/">Karma</a>, you’ll have to take an
+extra step. One solution is to use
+<a href="https://github.com/xdissent/karma-browserify" target="_blank" rel="external">karma-browserify</a> that bundles
+your modules with your tests, but it has <a href="https://github.com/xdissent/karma-browserify/issues/38" target="_blank" rel="external">downfalls requiring files that
+require other files</a>.
+That really sucks since we’ll often be unit testing local modules that depend
+on at least one other module, and thus it’d only be useful for like requiring
+simple NPM modules.</p>
+<p>Another solution uses <code>Gulp</code> to manually build a
+test bundle and put it on the project JS root path such that local modules
+can be resolved.</p>
+<hr>
+<p>Here is the Gulp task in our <code>gulpfile.js</code>:</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> browserify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'browserify'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> glob <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'glob'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// You'll have to install this too.</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'tests'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Bundle a test JS bundle and put it on our project JS root path.</span>
+    <span class="token keyword">var</span> testFiles <span class="token operator">=</span> glob<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span><span class="token string">'./tests/**/*.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Bundle all our tests.</span>
+    <span class="token keyword">return</span> <span class="token function">browserify</span><span class="token punctuation">(</span>testFiles<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bundle</span><span class="token punctuation">(</span><span class="token punctuation">{</span>debug<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token string">'tests.js'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// The bundle name.</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'./www/js'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// The JS root path.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>A test bundle, containing all our test files, will be spit out on our JS root
+path. Now when we do <code>require(&#39;myAppFolder/someJSFile&#39;)</code>, Browserify will
+easily be able to find the module.</p>
+<p>But we also have to tell Karma where our new test bundle is. Do so in our
+<code>karma.config.js</code> file:</p>
+<pre class=" language-js"><code class="language-js">files<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>pattern<span class="token punctuation">:</span> <span class="token string">'www/js/tests.js'</span><span class="token punctuation">,</span> included<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>We’ll also want to tell Gulp to re-bundle our tests every time the tests are
+touched. This can be annoying if you have Gulp set up to watch your JS path,
+since the tests will spit out a bundle on the JS path</p>
+<pre class=" language-js"><code class="language-js">gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">'./tests/**/*.js'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'tests'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Run your tests and try requiring one of your project files. It should work!</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

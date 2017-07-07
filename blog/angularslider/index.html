@@ -1,0 +1,292 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>AngularJS Directive for Mobile Sliders</h1>
+  <p>11 Apr 2013</p>
+
+  
+    <img src="http://i.imgur.com/JM0yS3I.jpg">
+  
+
+  
+<div ng-app="demo" class="demo" style="margin-bottom: 26px;">
+  <b>Value:</b> <span>{{ sliderVal || 9001 }}</span>
+  <div slider="" class="slider" min="0" max="9001" step="10"><span></span></div>
+</div>
+
+<p>For a five-part introduction to AngularJS, check out <a href="/blog/angular-1">ng-okevin’s
+Angular</a>.</p>
+<p>I ditched jQuery Mobile’s sliders for my growing AngularJS <a href="http://github.com/ngokevin/underthegun" target="_blank" rel="external">poker
+app</a>. It had served as the app’s poker
+bet slider. All I wanted was a simple slider widget from jQuery Mobile, but the
+UI framework wanted me to marry it in return. It had its way with my HTML
+markup, littering my DOM elements with selfish classes and attributes, like
+an open garbage truck on the freeway. My CSS rules felt oppressed like liberal
+college students as jQuery Mobile’s CSS files applied forceful rules my
+top-level <code>html</code> and <code>body</code> elements. The kicker? The slider quickly
+became deprecated, not working on newer versions of Firefox.  Never even saw it
+work on Chrome.</p>
+<hr>
+<h2 id="angularjs-directives"><a href="#angularjs-directives" class="headerlink" title="AngularJS Directives"></a>AngularJS Directives</h2><p>My disappointment digresses. The point is: I assembled my own customizable
+mobile slider that hooked into AngularJS in the form of a directive. Let us
+begin with the HTML, which AngularJS enhances with declarative two-way bindings.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slider</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slider<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>9001<span class="token punctuation">"</span></span> <span class="token attr-name">step</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Unfortunately, this is not the most exciting display of AngularJS’s abilities.
+Though by giving the element my <code>slider</code> attribute, I make the element a
+template for our AngularJS directive named <code>slider</code>, which is where all the
+magic will happen. There are other ways to syntactically bind the directive to
+the element through the <code>restrict</code> parameter, we even make it look like a
+<code>&lt;slider&gt;</code> tag. Note that the following Javascript code snippets are parts
+of a whole.</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> myApp <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'my-app'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'my-app.directives'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> directives <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'my-app.directives'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+directives<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'slider'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        link<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>scope<span class="token punctuation">,</span> element<span class="token punctuation">,</span> attrs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Linking function.</span>
+            <span class="token comment" spellcheck="true">// {{ initialize }}</span>
+            <span class="token comment" spellcheck="true">// {{ event handler }}</span>
+            <span class="token comment" spellcheck="true">// {{ scope updater }}</span>
+            <span class="token comment" spellcheck="true">// {{ scope watcher }}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Directives teach HTML new tricks, allowing us to write reusable components and
+widgets. The link function allows us to register event handlers and watches on
+the scope, all binded to our template. <code>link</code> supplies the AngularJS scope,
+the element acting as the directive template, and attributes of the element.</p>
+<p>##Initialize</p>
+<p>Let us get some initialization out of the way.</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Linking function.</span>
+<span class="token keyword">var</span> $element <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> $bar <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">,</span> $element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> step <span class="token operator">=</span> attrs<span class="token punctuation">.</span>step<span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> width<span class="token punctuation">;</span>
+<span class="token keyword">var</span> offset<span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> mouseDown <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mousedown touchstart'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mouseDown <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>width<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        width <span class="token operator">=</span> $element<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>offset<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        offset <span class="token operator">=</span> $bar<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+element<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mouseup touchend'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mouseDown <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This just allows us to determine whether the user is currently dragging the
+slider with a click or touch.</p>
+<p>##Event Handler</p>
+<p>Whenever the user drags the slider, we want to update its binded scope value.
+Vice-versa, whenever the binded scope value changes, we want to visually
+update the slider’s fill.</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Throttle function to 1 call per 25ms for performance.</span>
+element<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mousemove touchmove'</span><span class="token punctuation">,</span> _<span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mouseDown<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Don't drag the slider on mousemove hover, only on click-n-drag.</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Calculate distance of the cursor/finger from beginning of slider</span>
+    <span class="token keyword">var</span> diff<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>evt<span class="token punctuation">.</span>pageX<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        diff <span class="token operator">=</span> evt<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offset<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        diff <span class="token operator">=</span> evt<span class="token punctuation">.</span>originalEvent<span class="token punctuation">.</span>touches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>pageX <span class="token operator">-</span> offset<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>Above is the math driving the slider. We want to calculate how far the slider
+is dragged relative to the max value of the slider, in terms of a percentage.</p>
+<p>##Scope Updater</p>
+<p>We then take that percentage of the max value to attain the slider’s value.
+That value is then applied to the scope.</p>
+<pre class=" language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// Allow dragging past the limits of the slider, but impose min/max values.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>diff <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        scope<span class="token punctuation">.</span>sliderValue <span class="token operator">=</span> attrs<span class="token punctuation">.</span>min<span class="token punctuation">;</span>
+        $bar<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token string">'0%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>diff <span class="token operator">></span> width<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        scope<span class="token punctuation">.</span>sliderValue <span class="token operator">=</span> attrs<span class="token punctuation">.</span>max<span class="token punctuation">;</span>
+        $bar<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token string">'100%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Set the value to percentage of slider filled against a max value.</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> percent <span class="token operator">=</span> diff <span class="token operator">/</span> width<span class="token punctuation">;</span>
+        $bar<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span>percent <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        scope<span class="token punctuation">.</span>sliderValue <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>percent <span class="token operator">*</span> attrs<span class="token punctuation">.</span>max <span class="token operator">/</span> step<span class="token punctuation">)</span> <span class="token operator">*</span> step<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Let all the watchers know we have updated the slider value.</span>
+    scope<span class="token punctuation">.</span><span class="token function">$apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>We have enough to calculate the slider’s value. We set the width of the inner
+span to create the visual effect of the slider, and update the scope’s slider
+value.</p>
+<p>##Scope Watcher</p>
+<p>This accomplishes one-way data binding; if we change the slider, we
+change the slider’s value in the scope. But we also need to account for if the
+slider’s value in the scope is changed somewhere else, we need to visually
+update the slider. We accomplish this by registering a watcher on the scope.</p>
+<pre class=" language-js"><code class="language-js">scope<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span><span class="token string">'sliderValue'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>sliderValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    $bar<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span>sliderValue <span class="token operator">/</span> attrs<span class="token punctuation">.</span>max <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>When the slider’s value in the scope is updated somewhere else, the watcher
+will trigger our callback function. We change the slider’s fill percentage to
+respectively match the new slider value.</p>
+<p>##CSS</p>
+<p>Setting the width of the inner span changes the fill of the slider.</p>
+<pre class=" language-scss"><code class="language-scss"><span class="token selector">.slider </span><span class="token punctuation">{</span>
+    <span class="token keyword">@include</span> <span class="token function">box-shadow</span><span class="token punctuation">(</span>inset <span class="token number">0</span> -<span class="token number">1</span>px <span class="token number">1</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">0.3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">10</span>, <span class="token number">10</span>, <span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token selector">> span </span><span class="token punctuation">{</span>
+        <span class="token keyword">@include</span> <span class="token function">gradient</span><span class="token punctuation">(</span><span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">43</span>,<span class="token number">194</span>,<span class="token number">83</span><span class="token punctuation">)</span> <span class="token number">37%</span>, <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">84</span>,<span class="token number">240</span>,<span class="token number">84</span><span class="token punctuation">)</span> <span class="token number">69%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">@include</span> <span class="token function">box-shadow</span><span class="token punctuation">(</span>
+            inset <span class="token number">0</span> <span class="token number">2</span>px <span class="token number">9</span>px  <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">0.3</span><span class="token punctuation">)</span>\,
+            inset <span class="token number">0</span> -<span class="token number">2</span>px <span class="token number">6</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0.4</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">43</span>,<span class="token number">194</span>,<span class="token number">83</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">20</span>px <span class="token number">8</span>px <span class="token number">8</span>px <span class="token number">20</span>px<span class="token punctuation">;</span>
+        <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>To view the code, inspect the code for this page as I inlined it in the HTML.</p>
+<h2 id="up-next"><a href="#up-next" class="headerlink" title="Up Next"></a>Up Next</h2><p>By now you might have started on your own sweet AngularJS app. But testing is
+an important part of development. How to test such an opinionated framework?
+Check out my post on <a href="/blog/angular-unit-testing">Mock Unit Testing AngularJS Services with Karma and
+Jasmine</a>.</p>
+<p><script src="http://code.jquery.com/jquery-1.9.1.min.js"></script></p>
+<p><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script></p>
+<p><script src="http://underscorejs.org/underscore-min.js"></script></p>
+<p><script type="text/javascript">
+    demo = angular.module(‘demo’,[‘demo.directives’]);
+    angular.module(‘demo.directives’, []).directive(‘slider’, function() {
+        return {
+            link: function(scope, element, attrs) {</p>
+<pre><code>            var $element = $(element);
+            var width = $element.width();
+            var $bar = $(&#39;span&#39;, $element);
+            var offset = $bar.offset().left;
+
+            var mouseDown = false;
+            element.on(&#39;mousedown touchstart&#39;, function(evt) {
+                mouseDown = true;
+            });
+
+            element.on(&#39;mouseup touchend&#39;, function(evt) {
+                mouseDown = false;
+            });
+
+            element.on(&#39;mousemove touchmove&#39;, _.throttle(function(evt) {
+                evt.preventDefault();
+                if (!mouseDown) {
+                    return;
+                }
+                var diff;
+                if (evt.pageX) {
+                    diff = evt.pageX - offset;
+                } else {
+                    diff = evt.originalEvent.touches[0].pageX - offset;
+                }
+
+                if (diff &lt; 0) {
+                    scope.sliderVal = attrs.min;
+                    $bar.width(&#39;0%&#39;);
+                } else if (diff &gt; width) {
+                    scope.sliderVal = attrs.max;
+                    $bar.width(&#39;100%&#39;);
+                } else {
+                    var percent = diff / width;
+                    $bar.width(percent * 100 + &#39;%&#39;);
+                    scope.sliderVal = (
+                        Math.round(percent * attrs.max / attrs.step) *
+                        attrs.step);
+                }
+                scope.$apply();
+            }, 25));
+
+            scope.$watch(&#39;sliderVal&#39;, function(sliderVal) {
+                $bar.width(sliderVal / attrs.max * 100 + &#39;%&#39;);
+            });
+        }
+    };
+});
+demo.run();
+</code></pre><p></script></p>
+<style>
+    .slider {
+        -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+        -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+        box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+        background: rgb(10, 10, 10);
+        border-radius: 5px;
+        height: 20px;
+        padding: 10px;
+        position: relative;
+    }
+    .slider > span {
+        background-color: #54f054 69%;
+        background-image: -webkit-gradient(linear, left bottom, left top, from(#2bc253 37%), to(#54f054 69%));
+        background-image: -webkit-linear-gradient(#2bc253 37%, #54f054 69%);
+        background-image: -moz-linear-gradient(#2bc253 37%, #54f054 69%);
+        background-image: -ms-linear-gradient(#2bc253 37%, #54f054 69%);
+        background-image: -o-linear-gradient(#2bc253 37%, #54f054 69%);
+        background-image: linear-gradient(#2bc253 37%, #54f054 69%);
+        -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3) \, inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3) \, inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+        box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3) \, inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+        background-color: #2bc253;
+        border-radius: 20px 8px 8px 20px;
+        font-weight: bold;
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+</style>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

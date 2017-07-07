@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>How to SSH</h1>
+  <p>23 Oct 2011</p>
+
+  
+
+  <p>SSH is a secure client-server network protocol that allows you to connect with
+another box (computer). With this, you can transfer files between your local
+computer and the remote host. Even better, you can even edit files or execute
+commands on the remote host. This guide will explain how to effectively use SSH
+to communicate with another box and how to set up an SSH server so you can SSH
+into <em>your</em> box.</p>
+<hr>
+<h2 id="basic-ssh"><a href="#basic-ssh" class="headerlink" title="Basic SSH"></a>Basic SSH</h2><p>If you are in Windows, download <a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe" target="_blank" rel="external">PuTTy</a>. To use it, simply type in the
+host you want to connect to (e.g shell.onid.oregonstate.edu) and open. Sadly,
+this will be the greatest extent of which you can harness the power of SSH in a
+Windows environment. You can use <a href="http://the.earth.li/~sgtatham/putty/latest/x86/pscp.exe" target="_blank" rel="external">PSCP</a> to transfer files, but your
+powers here are severly limited.</p>
+<p>If you are on an Android mobile device, install ConnectBot and follow the
+similar instructions above. Yup, mobile devices have SSH clients too, cool huh.</p>
+<p>Linux and Mac make it really easy for you by having SSH already baked in and
+offers much more flexibility (as usually the case when going with the command
+line).  Let’s try it out. Open up a terminal and SSH into a remote host that is
+currently running an SSH daemon (server) and which you have access to.</p>
+<pre><code>~$ ssh [username]@[remote host]:[destination path]
+</code></pre><p>OSU’s ONID shell server will serve as a good example. Check out the [OSU Network at
+your Disposal][resource] guide for more information on what other boxes you
+may have access to.</p>
+<pre><code>~$ ssh [username]@shell.onid.oregonstate.edu
+</code></pre><p>After authenticating, you should be dropped into a bash shell. Take a moment,
+breathe, and regain your bearings. Let’s try to execute a command.</p>
+<pre><code>[username]@shell:~$ ls
+</code></pre><p>You should now see all of your files and folders that you have in your home
+folder on that box. Pretty cool. Now go out and explore. Run wild. Make some
+folders and edit some files with [vim][].</p>
+<h2 id="basic-scp"><a href="#basic-scp" class="headerlink" title="Basic SCP"></a>Basic SCP</h2><p>SCP (Secure Copy) is a means of securely transferring files, using the SSH
+protocol, between two computers. You can transfer a file to a remote host, or
+even transfer a file <em>from</em> a remote host.</p>
+<p>To transfer a file <em>to</em> another box</p>
+<pre><code>~$ scp [file] [username]@[remote host]:[destination path]
+</code></pre><p>Let’s try it out by creating a file and shipping it to the ONID shell server.</p>
+<pre><code>~$ echo &quot;hello world!&quot; &gt; scp_test
+~$ scp scp_test [username]@shell.onid.oregonstate.edu:./made_it
+</code></pre><p>If you wish to know what that first line does, check out our [bash][] guide.
+Notice what we put in the destination path. The <code>./</code> means current directory,
+which will be your home folder, and <code>made_it</code> is what the name of the file will
+be once it gets there. Let’s see our little file made it safely.</p>
+<pre><code>~$ ssh [username]@shell.onid.oregonstate.edu
+~$ less made_it
+</code></pre><p>And like magic, we have successfully sent our file out into the world. Look at
+it, living on its own in its own box, all grown up. Just a moment ago, it was a
+tad little file. But we miss it so much, let’s get it back.</p>
+<p>To transfer a file <em>from</em> another box</p>
+<pre><code>~$ scp [username]@[remote host]:[file path] [destination path]
+</code></pre><p>Time to get our little boy back.</p>
+<pre><code>~$ scp [username]@shell.onid.oregonstate.edu:./made_it ~/Downloads/made_it_back
+~$ cd ~/Downloads
+~$ less made_it_back
+</code></pre><p>And ta-da. Notice how we mixed it up a bit and specified the destination path
+as our Downloads folder. When we send a file to and from a host, we choose
+where we want to drop it and specify where it is located respectively. So when
+transferring a file <em>from</em> another box, it helps to already know where that
+file is.</p>
+<h2 id="ssh-public-and-private-keys"><a href="#ssh-public-and-private-keys" class="headerlink" title="SSH Public and Private Keys"></a>SSH Public and Private Keys</h2><p>Are you tired of having to enter in your password every time you SSH into
+another host? Well, wake up! Public-key encryption is a system requiring two
+keys, one to encrypt plaintext and the other to decrypt plaintext. How
+authentication works with keys is that you can generate a public key (which
+everybody is allowed to know) and a private key (which is kept secret and
+should not be given to anybody). You then copy your public key to the other
+host.  When you try to connect, the server will verify the public key it is
+holding for you against a signature created by your private key. Without your
+private key, no one is able to pose as you, which why you never give away your
+private key.</p>
+<p>To generate a key pair (public and private key), navigate to your .ssh
+directory if you have one or create one with mkdir if you don’t.</p>
+<pre><code>~$ cd ~/.ssh
+~$ mkdir ~/.ssh
+</code></pre><p>Then we generate the keys:</p>
+<pre><code>~$ ssh-keygen -t dsa
+</code></pre><p>It will prompt you to do stuff. Simply press RETURN over and over until it
+stops bugging you.</p>
+<p>And copy over your public key to the remote host (again using shell as our
+example). This command simply appends your public key to your remote host’s
+list of authorized keys. An alternative method is to simply copy your key with
+gedit or vim, and paste the key into ~/.ssh/authorized_keys with vim. The
+command below makes it much easier however.</p>
+<pre><code>~$ cat id_dsa.pub | ssh [username]@shell.onid.oregonstate.edu &quot;cat &gt;&gt; ~/.ssh/authorized_keys&quot;
+</code></pre><p>Now let’s see if it worked! SSH into shell and it should not prompt you for a
+password since it knows who you are now. If it worked, great! If not, feel free
+to ask us in <a href="/guides/irc/index.html">IRC</a>.</p>
+<h2 id="ssh-x-forwarding"><a href="#ssh-x-forwarding" class="headerlink" title="SSH X Forwarding"></a>SSH X Forwarding</h2><p>Growing weary of only talking to another box throw the command line? Well,
+here’s a hit of caffiene! You can actually run programs like Firefox (GUI
+included) and use it as if you were running it on your own local computer.
+It’s fairly simple. Just add the -X option. We’ll continue to use our shell
+example.</p>
+<pre><code>~$ ssh -X [username]@shell.onid.oregonstate.edu
+</code></pre><p>Try running any program. I recommend running it in the background with <code>&amp;</code> so
+you can still use the command line while you click around your GUI.</p>
+<pre><code>~$ firefox &amp;
+</code></pre><h2 id="sshd-ssh-server"><a href="#sshd-ssh-server" class="headerlink" title="SSHD (SSH Server)"></a>SSHD (SSH Server)</h2><p>To set up an SSH server, first make sure sshd is installed. This is the daemon that listens for SSH requests. You can install via apt if you are on a Debian-based system and often it will come default.</p>
+<p>Once installed, the default port will be 22. If you want to change the port (in case you have multiple machines with sshd within one network), edit your /etc/ssh/sshd_config. Then when you SSH, just add the -p option with the port (ssh -p 2222 [host]).</p>
+<p>Try SSHing into your machine. If you are on a home network, get your current NAT IP with ipconfig and try SSHing into that (e.g. ~$ ssh 192.168.1.132). If you want to SSH from outside your network, you need to open up port 22 on your router firewall. This can be done from your router web interface (usually on 192.168.1.1 or 192.168.2.1). The setting for firewall is usually called virtual server, NAT/QoS/ applications and gaming, firewall, or something similar.</p>
+<p>I’m sure you are currently on the edge of your seat flailing your arms in
+epiphany.  For your sake, I will refrain from giving you any more information.
+Go, go out! SSH everywhere. The Internet is in an oyster in your hands!</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

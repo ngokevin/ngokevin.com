@@ -1,0 +1,334 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>Swan Dive! Into d3.js</h1>
+  <p>26 Mar 2012</p>
+
+  
+
+  <p>Today, I started experimenting with d3.js. A fortune-teller hinted to me that
+I would be doing a lot of data visualization work in the near-future and that
+d3.js would come in handy. Since my grades for last term just came out today,
+I figured graphing my GPA over the last three years would be a nice toy
+start. It would also be a nice visualization for me to reflect on the last
+three years since I’m done with school for the next six months.</p>
+<h2 id="what-is-d3-js"><a href="#what-is-d3-js" class="headerlink" title="What is d3.js?"></a>What is d3.js?</h2><p>d3.js is a small Javascript library for ‘manipulating documents based on
+data’. d3 stands for <em>data-driven documents</em>. More specifically, d3.js is
+used to bind data and apply <em>data-driven transformations</em> to DOM elements.
+However, it is not a visualization framework loaded with visualization
+functions. It is more of a tool that focuses on efficient manipulation of
+documents based on data. Because it’s simply a tool, it can be used to build
+whatever kind of data visualizations or graphs needed.</p>
+<hr>
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+
+<h2 id="let’s-draw-a-useless-circle"><a href="#let’s-draw-a-useless-circle" class="headerlink" title="Let’s draw a useless circle"></a>Let’s draw a useless circle</h2><p>d3 makes it easy to add SVG elements and manipulate them with its
+jQuery-esque method chaining. We’ll go through the usual most basic stuff.
+Let’s draw a pretty blue and orange circle.</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// create an SVG canvas, specifying its position and size</span>
+<span class="token keyword">var</span> demo <span class="token operator">=</span> d3<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token string">'#demo'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'svg:svg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'width'</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// draw a circle on the canvas specifying its color, radius, position</span>
+demo<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'svg:circle'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">style</span><span class="token punctuation">(</span><span class="token string">'stroke'</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">style</span><span class="token punctuation">(</span><span class="token string">'fill'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'cx'</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'cy'</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>And boom, a useless circle.</p>
+<p><div id="demo"></div></p>
+<script type="text/javascript">
+    var demo = d3.select('#demo').
+        append('svg:svg').
+        attr('x', 500).
+        attr('y', 500).
+        attr('width', 120).
+        attr('height', 120);
+
+    // draw a circle on the canvas specifying its color, radius, position
+    demo.append('svg:circle').
+        style('stroke', 'blue').
+        style('fill', 'orange').
+        attr('r', 40).
+        attr('cx', 50).
+        attr('cy', 50);
+</script>
+
+<p>We can make it do some useless stuff like event-driven (hover) CSS3
+transitions. We’ll have it expand and shrink on mouseover and mouseout
+respectively.</p>
+<pre class=" language-javascript"><code class="language-javascript">demo<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'svg:circle'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">style</span><span class="token punctuation">(</span><span class="token string">'stroke'</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">style</span><span class="token punctuation">(</span><span class="token string">'fill'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'cx'</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'cy'</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mouseover'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        d3<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+        <span class="token function">transition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+            <span class="token function">duration</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+            <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mouseout'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        d3<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+            <span class="token function">transition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+                <span class="token function">duration</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+                <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Try hovering over this baby.</p>
+<p><div id="demo2"></div></p>
+<script type="text/javascript">
+    var demo = d3.select('#demo2').
+        append('svg:svg').
+        attr('x', 500).
+        attr('y', 500).
+        attr('width', 120).
+        attr('height', 100);
+
+    demo.append('svg:circle').
+        style('stroke', 'blue').
+        style('fill', 'orange').
+        attr('r', 40).
+        attr('cx', 50).
+        attr('cy', 50).
+        on('mouseover', function(){
+            d3.select(this).
+            transition().
+                delay(100).
+                duration(1000).
+                attr('r', 10)
+        }).
+        on('mouseout', function() {
+            d3.select(this).
+                transition().
+                    delay(100).
+                    duration(1000).
+                    attr('r', 40)
+        });
+</script>
+
+<h2 id="working-with-data-a-simple-gpa-bar-chart"><a href="#working-with-data-a-simple-gpa-bar-chart" class="headerlink" title="Working with data, a simple GPA bar chart"></a>Working with data, a simple GPA bar chart</h2><p>d3.js without actual data is pretty pointless. The documentation explains
+everything in better detail, but for a ‘case study’ let’s build a simple GPA
+bar chart. First, we need to define our data.</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> gpa_term_data <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'F09'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.40</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'W10'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.32</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'S10'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.56</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'F10'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.32</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'W11'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.57</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'S11'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.71</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'F11'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.72</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">'term'</span><span class="token punctuation">:</span> <span class="token string">'W12'</span><span class="token punctuation">,</span> <span class="token string">'gpa'</span><span class="token punctuation">:</span> <span class="token number">3.92</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>In this case, we want GPA by term. So we create a list of objects holding the
+data. Next, we’ll set up the chart itself, its size, position, and scales.</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> barWidth <span class="token operator">=</span> <span class="token number">70</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> chartWidth <span class="token operator">=</span> <span class="token punctuation">(</span>barWidth <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">*</span> gpa_term_data<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token keyword">var</span> chartHeight <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> padding <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// scales</span>
+<span class="token keyword">var</span> xScale <span class="token operator">=</span> d3<span class="token punctuation">.</span>scale<span class="token punctuation">.</span><span class="token function">linear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">domain</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> gpa_term_data<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">range</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> chartWidth<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> yScale <span class="token operator">=</span> d3<span class="token punctuation">.</span>scale<span class="token punctuation">.</span><span class="token function">linear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">domain</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> d3<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>gpa_term_data<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>datum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> datum<span class="token punctuation">.</span>gpa<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">range</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> chartHeight<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>d3 has scale functions that return functions. In our definition, the domain
+is about the data, and the range is more about the number of pixels the data
+is mapped to. For X, the domain is are the terms and for Y, the domain is the
+GPA. We’ll only care about GPA over 3.0 so we set the minimum as such. We
+have the domain map to the range linearly, and we can use the returned
+function to help position data around the chart. Next we’ll create the actual
+bars.</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// create rectangle for each datum</span>
+chart<span class="token punctuation">.</span><span class="token function">selectAll</span><span class="token punctuation">(</span><span class="token string">'rect'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">data</span><span class="token punctuation">(</span>gpa_term_data<span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">enter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'svg:rect'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>datum<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// return x-offset pixels</span>
+        <span class="token keyword">return</span> <span class="token function">xScale</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>datum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// return y-offset pixels, subtract due to origin being in top left</span>
+        <span class="token keyword">return</span> chartHeight <span class="token operator">-</span> <span class="token function">yScale</span><span class="token punctuation">(</span>datum<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>datum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">yScale</span><span class="token punctuation">(</span>datum<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'width'</span><span class="token punctuation">,</span> barWidth<span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'fill'</span><span class="token punctuation">,</span> <span class="token string">'#2d578b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Here, we use a common pattern, <em>selectAll.data.enter.append</em>. selectAll
+selects all elements that match (like jQuery), here we select SVG rectangles,
+but we haven’t created any rectangles yet. Well if we use <em>data()</em> and pass in
+our data, we can create them on-the-fly. When we pass in data that don’t have
+any elements to bind to, the data is considered leftover and is stored in the
+<em>enter selection</em>. So the data isn’t binded yet, but if we call <em>enter()</em>,
+enter will take all the leftover data and automatically create elements out
+of them. We are thus effectively binding our data to rectangle elements,
+<strong>the heart of d3.js!</strong>. There is a function called <em>exit()</em> that does the
+opposite, remove elements that don’t have any data binded, but it isn’t used
+here. Finally, actually create and append the elements onto the chart.</p>
+<p>While we’re creating the rectangles, we specify their size and position. We
+make use of Javascript anonymous functions which d3 expects to take a <em>datum</em>
+and an optional <em>index</em> argument. The datum is the data binded to the element
+and the index is the, well, index among the data set. For the x-position, we
+call our scale function we created earlier to get the pixel offset. We do
+similar for y, but since the coordinate system features the origin on the
+top-left, we subtract it from the chartHeight. The height of the bar is set
+to be the GPA, and that’s the meat of it.</p>
+<p>We do similar things to position the axes and text (check the source of this
+page to see) except we have to pad the chart to make room for the axes. We
+eventually have the finished bar chart.
+<br>
+<br></p>
+<p><div id="chart"></div></p>
+<script type="text/javascript">
+// define data
+var gpa_term_data = [
+    {'term': 'F09', 'gpa': 3.40},
+    {'term': 'W10', 'gpa': 3.32},
+    {'term': 'S10', 'gpa': 3.56},
+
+    {'term': 'F10', 'gpa': 3.32},
+    {'term': 'W11', 'gpa': 3.57},
+    {'term': 'S11', 'gpa': 3.71},
+
+    {'term': 'F11', 'gpa': 3.72},
+    {'term': 'W12', 'gpa': 3.92},
+];
+
+var barWidth = 70;
+var chartWidth = (barWidth + 10) * gpa_term_data.length;
+var chartHeight = 200;
+var padding = 20;
+
+// scales
+var xScale = d3.scale.linear().
+    domain([0, gpa_term_data.length]).
+    range([0, chartWidth]);
+
+var yScale = d3.scale.linear().
+    domain([3, d3.max(gpa_term_data, function(datum) {
+        return datum.gpa;
+    })]).
+    range([0, chartHeight]);
+
+// create canvas
+var chart = d3.select('#chart').
+    append('svg:svg').
+    attr('width', chartWidth).
+    attr('height', chartHeight + padding);
+
+// create rectangle for each datum
+chart.selectAll('rect').
+    data(gpa_term_data).
+    enter().
+    append('svg:rect').
+    attr('x', function(datum, index) {
+        // return x-offset pixels
+        return xScale(index);
+    }).
+    attr('y', function(datum) {
+        // return y-offset pixels, subtract due to origin being in top left
+        return chartHeight - yScale(datum.gpa);
+    }).
+    attr('height', function(datum) {
+        return yScale(datum.gpa);
+    }).
+    attr('width', barWidth).
+    attr('fill', '#2d578b');
+
+// text
+chart.selectAll('text').
+    data(gpa_term_data).
+    enter().
+    append('svg:text').
+    text(function(datum) {
+        return datum.gpa;
+    }).
+    attr('x', function(datum, index) {
+        return xScale(index) + barWidth / 2;
+    }).
+    attr('y', function(datum) {
+        return chartHeight - yScale(datum.gpa);
+    }).
+    attr('dy', '1.2em'). // y padding
+    attr('text-anchor', 'middle').
+    attr('fill', 'white').
+    attr("style", "font-size: 12; font-family: Helvetica, sans-serif");
+
+// X axis text
+chart.selectAll('text.xAxis').
+    data(gpa_term_data).
+    enter().
+    append('svg:text').
+    attr('class', 'xAxis').
+    text(function(datum) {
+        return datum.term;
+    }).
+    attr('x', function(datum, index) {
+        return xScale(index) + barWidth / 2;
+    }).
+    attr('y', chartHeight + padding).
+    attr('text-anchor', 'middle').
+    attr("style", "font-size: 12; font-family: Helvetica, sans-serif");
+
+// chart label
+chart.append('svg:text').
+    attr('class', 'label').
+    text('GPA by Term').
+    attr('x', 0).
+    attr('y', 15);
+</script>
+
+<p><br>
+Over the next few days, I’ll be doing more things with d3.js. In the future,
+I hope to do data visualization work with
+<a href="http://github.com/uberj/cyder" target="_blank" rel="external">Cyder</a> and at Mozilla. It’s just so pretty
+and fun!</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

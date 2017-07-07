@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>EV Calculation for JJ Facing a 3bet Shove</h1>
+  <p>24 Aug 2014</p>
+
+  
+
+  <p>It’s the final table of the tournament. There are 8 players left. I have an
+above average size stack about 8 times the the size of the pot (M=8). I’m
+in early position, UTG+1, with JJ. I raise ~2.2x. It folds around to the BB.
+The BB is the chipleader, a southern guy who isn’t much of a thinker. I just
+saw him 3bet shove over a shortstack with 99, and raise/call with KQo. He 3bet
+shoves, putting me all in.</p>
+<p>After a few seconds of thinking, I called. I was getting <strong>2.2:1 odds on my
+call</strong> (call 34k to win 71k), and guessed that it was good. I was willing to
+take the variance hit in order to secure a chip lead to take down the
+tournament. Trying to learn how to risk a probable cash-out to make a go for
+first place (reduce the ITM% to increase the ROI%). I said that I guessed 2.2:1
+odds was good against his shoving range, so let’s do the math and see if that
+checks out.</p>
+<hr>
+<h2 id="tallying-up-combos"><a href="#tallying-up-combos" class="headerlink" title="Tallying up Combos"></a>Tallying up Combos</h2><p>First, we ask. What range is he shoving? Not much. I’d wager as a conservative
+estimate: <strong>{TT+, AQ+}</strong>. Let’s break the range down combinatorically:</p>
+<ul>
+<li>6 combos of TT</li>
+<li>1 combo of JJ</li>
+<li>6 combos of QQ</li>
+<li>6 combos of KK</li>
+<li>6 combos of AA</li>
+<li>16 combos of AQ</li>
+<li>16 combos of AK</li>
+</ul>
+<p>Let’s ignore JJ since there’s only 1 combo, and it won’t have much effect on
+our calculations. Let’s reduce the hand range to hands that we’re dominating,
+hands that we’re flipping with, and hands that crush us:</p>
+<ul>
+<li>6 combos of hands we crush (TT)</li>
+<li>32 combos of hands we’re flipping with (AQ, AK)</li>
+<li>18 combos of hands that crush us (QQ, KK, AA)</li>
+</ul>
+<h2 id="pair-combos-to-known-equities"><a href="#pair-combos-to-known-equities" class="headerlink" title="Pair Combos to Known Equities"></a>Pair Combos to Known Equities</h2><p>We can simplify by cancelling out hands that we crush, and hands that crush us,
+since they even out. Let’s get rid of TT and AA:</p>
+<ul>
+<li>32 combos of hands we’re flipping with (AQ, AK)</li>
+<li>12 combos of hands that crush us (QQ, KK)</li>
+</ul>
+<p>For hands that we’re flipping with, we’re a 1.2:1 favorite (55%). For hands
+that crush us, we’re a 4:1 dog (20%). In order to make this call profitable,
+our hand equity must be better than our pot equity (2.2:1).</p>
+<h2 id="combine-analysis"><a href="#combine-analysis" class="headerlink" title="Combine Analysis"></a>Combine Analysis</h2><p>Let’s calculate our hand equity. We do this by matching hands that we’re
+flipping with, with hands that we crush. If we estimate that our equity when
+we’re flipping is 50%, and our equity when we’re crushed is 0%, we can cancel
+those equities to average out to ~25-30%.</p>
+<ul>
+<li>12 combos of hands that have ~30% equity.</li>
+<li>20 combos of hands that have ~50% equity.</li>
+</ul>
+<p>Let’s rough up the math. A third of the time, we will win a third of the time.
+Two-thirds of the time, we will win half the time. So how often do we win
+overall? Let’s just average it out:</p>
+<ul>
+<li>(12 <em> .30) + (20 </em> .50) / 32</li>
+</ul>
+<p>This yields 42.5% equity, giving us <strong>2.35:1 odds on our money</strong>. Since we’re
+getting 2.2:1 odds on our call, <strong>calling is a profitable play</strong> in terms of
+pure chip equity, although we’re not too excited by it.</p>
+<h2 id="other-considerations"><a href="#other-considerations" class="headerlink" title="Other Considerations"></a>Other Considerations</h2><p>Although, there is the bubble factor. When we fold, we keep our percentage of
+the prize pool equity, and when we lose, we lose it all. But considering we
+were 3-4 spots away from small money, it might not be enough to sway our
+decision.</p>
+<p>There is also the skill factor. I had a large edge on the player pool, and I
+could have passed up this spot and look for a better one later. I only had 2.2x
+BB invested, although it was a seventh of my stack. That could have swayed my
+decision.</p>
+<p>He ended up showing QQ, which held.</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

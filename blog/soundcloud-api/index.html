@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>Scrape the Internet! Our Python Soundcloud API</h1>
+  <p>6 Nov 2011</p>
+
+  
+    <img src="http://i.imgur.com/LZ35KEe.gif">
+  
+
+  <p>It was a cold November evening in the bullpen at Oregon State University.
+<a href="http://uberj.com" target="_blank" rel="external">uberj</a> and ngoke were sipping tea and getting work done,
+when the idea of an impromptu <strong>hackthon</strong> came into our minds. At the strike
+of 5, we powered ourselves up into coding mode and set off to hack away at a
+<strong>Python Soundcloud API</strong> that would allow us to download music from the
+streams. Thus birthed <a href="http://github.com/ngokevin/soundcloud-dl" target="_blank" rel="external">soundcloud-dl</a>.</p>
+<hr>
+<p>We first attempted to use <a href="wwwsearch.sourceforge.net/mechanize/">Mechanize</a> to scrape the pages. uberj had
+previously used <a href="http://portswigger.net/proxy" target="_blank" rel="external">Burp</a> to monitor what requests
+the browser was sending to Soundcloud and found that it was passing a “stream
+token”, which was needed to request the stream, and the song’s “uid”. And we
+figured we needed to have a valid cookie as well. Security by obsurity much?</p>
+<p>We ran into a slight hitch. We were able to compose a valid URL with the stream
+token and the uid, but we weren’t able to print out the cookies. We had to
+enlist the help of <a href="http://github.com/thedjpetersen" target="_blank" rel="external">thedjpetersen</a>, the master
+screenscraper. It took him a bit to independently catch up to where we were (he
+found out on his own that we needed a stream token, but we already grabbed
+that).  After a bit of frustration on trying to check out what cookies we had
+with every CookieJar known to man, thedjpetersen proclaimed that he had
+successfully gotten the URL.</p>
+<p>We rushed to pull his commit and tried it on a Mord Fustang song…we had the script write the stream to a file, and we opened it in VLC…The song had a length! Except it wasn’t
+playing. We tried to play it on uberj’s machine…<strong>and it worked!</strong>. After a high-five
+session and a burst of gratitude to thedjpetersen, we went to look what he did. He
+found we had to request a page from a cross-domain, probably for cookies, and then
+scrape the stream. We went off to wrap everything into a neat package and add
+more functionality.</p>
+<p><strong>and thus soundcloud-dl was born</strong></p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>

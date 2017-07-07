@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>Kevin Ngo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/base.css">
+    
+     <link rel="stylesheet" href="/css/post.css"> 
+    <script src="https://use.fontawesome.com/5b235cd0cb.js"></script>
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  <body>
+    <div class="post">
+  
+    <a href="/">&laquo; Kevin Ngo</a>
+  
+
+  <h1>Fending Off a Home Server DDoS</h1>
+  <p>5 Nov 2011</p>
+
+  
+
+  <p>Give a nice welcome back to my web server. It has been a month since I found my
+web server at my apartment to be receiving <strong>anomalous traffic</strong> on port 80. I
+had noticed my network being slow, much in the way that cheetahs aren’t. I had
+an to idea to shut off my webserver and all of a sudden, my network speed
+jumped back up to normal (well, as normal as crappy Comcast is). To find out
+what was going on, I did a bunch of <strong>TCP dumps</strong> and opened it up in
+<a href="http://wireshark.org" target="_blank" rel="external">Wireshark</a> to see what was going on.</p>
+<p>Holy crap, <strong>thousands of packets</strong> in a span of a few seconds, coming from around
+the world in places like Singapore, Michigan, and the UK. I let it tcpdump,
+again and again. Once, I let it run for an hour and my webserver had used .5gB
+of bandwidth just getting pounded by empty packets. Can you say <em>half a million
+packets</em>…from a single source? I was in a frenzy trying to drop these IPs
+from my iptables, but like crazed ants, more and more just kept on coming. Even
+weirder, my webserver was responding and sending a lot of packets to Google.</p>
+<hr>
+<p>Was I some sort of high-profile target for a <em>DDoS</em> attack? Am I the future
+leader of humanity against the machine race and terminator web servers were
+sent back in time to try to kill my box?</p>
+<p>I installed <a href="http://fail2ban.org" target="_blank" rel="external">fail2ban</a> for apache, but it wasn’t doing the job (perhaps I
+didn’t configure it enough). I was going to try to do a MAC address clone on my
+router so that Comcast would lease me a new dynamic IP, but I grew weary and
+had little time.  I laid my webserver to sleep and left it under the kitchen
+table.</p>
+<p>And this weekend, I took my webserver home back to Portland! It was about time
+the Internet felt my presence. I reinstalled Debian on my webserver (in case it
+was somehow <strong>rooted</strong>), revamped the website from Django to Wok (borrowing
+elements from when I had worked on the <a href="http://lug.oregonstate.edu" target="_blank" rel="external">LUG website</a>), and put it back up.</p>
+<p>I will probably begin hosting my webserver at my home in Portland since the
+internet here is quite a bit faster, and the internet in my apartment is slow,
+like slow-like-56k slow. I’ll start to write more blog posts and transfer the
+blog posts I currently write for the LUG here.</p>
+<p>To <strong>mitigate future compromises</strong>, I put my webserver behind two firewalls
+(although it probably won’t help since port 80 is open), closed off services
+such as gnump3d and mediatomb, removed the ability to download documents over
+HTTP, and made access to the webserver via public key only (don’t allow
+password authentication). It helps that this site is static and therefore can’t
+be injected with anything.</p>
+<p>ngokevin.com is back!</p>
+
+</div>
+
+
+    <div class="social">
+      <a href="https://github.com/ngokevin/"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/andgokevin/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/andgokevin/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/blazy/1.8.2/blazy.min.js"></script>
+    <script>new Blazy({selector: '.lazyload'});</script>
+  </body>
+</html>
