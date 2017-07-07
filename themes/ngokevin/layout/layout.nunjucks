@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{ page.content|striptags|truncate(200) }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.content|striptags|truncate(200) }}">
+    <meta name="twitter:image" content="{{ page.image.url }}">
     {{ css('css/base') }}
     {% if page.path == 'index.html' %} {{ css('css/home') }} {% endif %}
     {% if page.layout == 'blog' %} {{ css('css/post') }} {% endif %}
