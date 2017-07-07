@@ -3,12 +3,12 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="If you are developing a FirefoxOS app but running into a Download Failed error when others try to install your app on the Firefox Marketplace, it may be due to a problem with your cache manifest if...">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="ngokevin.com">
     <meta name="twitter:creator" content="Kevin Ngo">
     <meta name="twitter:title" content="Cache Manifest 'Download Failed' on Firefox Marketplace">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="If you are developing a FirefoxOS app but running into a Download Failed error when others try to install your app on the Firefox Marketplace, it may be due to a problem with your cache manifest if...">
     <meta name="twitter:image" content="http://i.imgur.com/KqMbAV4.png">
     <link rel="stylesheet" href="/css/base.css">
     
@@ -28,7 +28,30 @@
     <img src="http://i.imgur.com/KqMbAV4.png">
   
 
-  
+  <p>If you are developing a
+<a href="https://developer.mozilla.org/Firefox_OS/Application_development" target="_blank" rel="external">FirefoxOS</a>
+app but running into a <strong>Download Failed</strong> error when others try to install
+your app on the <a href="http://marketplace.firefox.com" target="_blank" rel="external">Firefox Marketplace</a>, it may
+be due to a problem with your <a href="https://developer.mozilla.org//docs/HTML/Using_the_application_cache" target="_blank" rel="external">cache
+manifest</a>
+if you have implemented offline caching.</p>
+<p>This issue, which I have run into before, can be due to the device <strong>not being
+able to download an asset listed on the cache manifest</strong>, resulting in a failed
+installation. To fix this, go through every item in the cache manifest and make
+sure that:</p>
+<ul>
+<li>the paths are correct</li>
+<li>the files exist</li>
+<li>the files are reachable</li>
+</ul>
+<p>It should work once these issues are resolved. When releasing an update for an
+app, make sure that any deleted files are removed from the manifest and that
+newly added files have the correct path. There is currently a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=834521" target="_blank" rel="external">bug
+ticket</a> open for the
+Firefox Marketplace about caching these errors upon app submission.</p>
+<p>PS: a useful tool I sometimes use when I work with cache manifests is this
+<a href="http://appcache.rawkes.com/" target="_blank" rel="external">AppCache generator</a>.</p>
+
 </div>
 
 

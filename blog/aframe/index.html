@@ -3,12 +3,12 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Today, the Mozilla virtual reality team (MozVR) released an open-source library for beginners and developers alike to easily create WebVR experiences. It’s called A-Frame. A-Frame wraps three.js into...">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="ngokevin.com">
     <meta name="twitter:creator" content="Kevin Ngo">
     <meta name="twitter:title" content="A-Frame - Virtual Reality on the Web Simplified">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="Today, the Mozilla virtual reality team (MozVR) released an open-source library for beginners and developers alike to easily create WebVR experiences. It’s called A-Frame. A-Frame wraps three.js into...">
     <meta name="twitter:image" content="http://i.imgur.com/TyqA9Gwl.png">
     <link rel="stylesheet" href="/css/base.css">
     
@@ -28,7 +28,287 @@
     <img src="http://i.imgur.com/TyqA9Gwl.png">
   
 
-  
+  <p>Today, the Mozilla virtual reality team (<a href="http://mozvr.com" target="_blank" rel="external">MozVR</a>)
+released an open-source library for beginners and developers alike to easily
+create WebVR experiences. It’s called <a href="http://aframe.io" target="_blank" rel="external">A-Frame</a>. A-Frame
+wraps three.js into custom elements so the HTML and DOM manipulations that web
+developers are accustomed to can be used to create 3D VR scenes in the
+browser. Under the hood, A-Frame brings the <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank" rel="external">entity component
+system</a>, a pattern
+common in game development, to the DOM. It supports both desktop, if you got a
+Rift, or easier, you can even use a smartphone. This post serves as a
+speed-through introduction of A-Frame, refer the
+<a href="http://aframe.io/docs" target="_blank" rel="external">documentation</a> at any time for much more detail.</p>
+<hr>
+<p>A-Frame, like the video games that have influenced all of us, ships at a
+several difficulty levels. We’ll journey all the way from the comfortable bed
+of hierarchical HTML, through the jungles of the core entity-component system,
+and finally scale the walls of integration with <a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a>.</p>
+<p><img src="http://i.imgur.com/tf9DteR.png" alt=""></p>
+<div class="page-caption"><span>
+  Check out A-Frame stylin’ with the DevTools.
+</span></div>
+
+<h2 id="enabling-webvr"><a href="#enabling-webvr" class="headerlink" title="Enabling WebVR"></a>Enabling WebVR</h2><p>At time of writing, to view the scenes in VR:</p>
+<ul>
+<li>On desktop, get Firefox Developer Edition or Firefox Nightly, and install the
+<a href="https://addons.mozilla.org/en-US/firefox/addon/mozilla-webvr-enabler/" target="_blank" rel="external">WebVR Enabler Add-on</a>. To use with an Oculus Rift DK2, have the Oculus
+runtime installed (0.5.x for OS X).</li>
+<li>On mobile, just open any A-Frame site using your phone browser (e.g., Firefox
+for iOS, Firefox for Android, Chrome for Android, Safari for iOS).</li>
+</ul>
+<h2 id="“piece-of-cake”-difficulty-codepen"><a href="#“piece-of-cake”-difficulty-codepen" class="headerlink" title="“Piece of Cake” Difficulty - Codepen"></a>“Piece of Cake” Difficulty - Codepen</h2><p>For those that just want to play around with A-Frame immediately, check out the
+<a href="http://codepen.io/team/mozvr/pen/BjygdO?editors=100" target="_blank" rel="external">example on Codepen</a>. Codepen lets you edit code in the browser and
+immediately see the result. You’ll see a scene that currenty looks something
+like this:</p>
+<p><img src="http://i.imgur.com/4uSINKZ.png" alt="A-Frame Codepen"></p>
+<p>With the introductory Codepen examples, we are exposing a very high-level
+abstraction on top of A-Frame, using templated primitives, to ease developers
+into the entity-component system. So this should be fairly readable to most. Now
+what do we do with this?  Click on the Goggles icon to view in VR. And try
+modifying some values and see the scene change live.</p>
+<ul>
+<li>Try changing the color of the cube (e.g., <code>color=&quot;#748B9C&quot;</code> for a rainy day blue).</li>
+<li>Try changing the size of the sphere (e.g., <code>radius=&quot;0.25&quot;</code> to make it a little baby sphere).</li>
+<li>Try changing the position of the cylinder (e.g., <code>position=&quot;1 1 1&quot;</code> to raise the roof).</li>
+</ul>
+<p>As amazing as that was, a Codepen is still a pen. The ambitions of VR are not
+suitable for being fenced in. Like the Kool-Aid Man, we must break out of the
+confinements of a coding playground.</p>
+<h2 id="“let’s-rock”-difficulty-boilerplate"><a href="#“let’s-rock”-difficulty-boilerplate" class="headerlink" title="“Let’s Rock” Difficulty - Boilerplate"></a>“Let’s Rock” Difficulty - Boilerplate</h2><p>For beginners that want to start playing with some toy scenes locally and hacking away,
+check out the basic <a href="https://github.com/aframevr/aframe-boilerplate" target="_blank" rel="external">A-Frame boilerplate</a>.
+Boilerplate refers to pre-written reusable code that can be made your own with
+minimal modification.</p>
+<p>Note that I say this intended for beginners because it focuses on using the
+templated primitives abstraction and hides away the underlying engine. For
+developers that want to get their hands dirty, I would skip this and move
+directly to the entity-component system.</p>
+<p>The boilerplate provides the same code found in the Codepen above, but also can
+be downloaded as a ZIP package or forked on Github. Once you have the code on
+your machine, just modify it in your favorite text editor and fire it up in the
+browser.</p>
+<h2 id="“come-get-some”-difficulty-primitives"><a href="#“come-get-some”-difficulty-primitives" class="headerlink" title="“Come Get Some” Difficulty - Primitives"></a>“Come Get Some” Difficulty - Primitives</h2><p>For those that want to start writing scenes from scratch in vanilla HTML, check
+out A-Frame’s <a href="https://aframe.io/docs/primitives/" target="_blank" rel="external">pre-built primitive</a>.</p>
+<p>A “primitive” in computer graphics is a basic building block like a cube or a
+sphere. They are:</p>
+<ul>
+<li>Are pre-fabricated custom elements like <code>&lt;a-cube&gt;</code> or <code>&lt;a-sphere&gt;</code> that combine
+recipes of components to achieve the intended result.</li>
+<li>Are a convenience and usability wrapper on top of the underlying entity-component system.</li>
+<li>Are much cleaner in syntax but are less flexible and composable than using the
+entity-component system directly.</li>
+</ul>
+<p>For example, rather than having:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-scene</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">camera</span> <span class="token attr-name">look-controls</span> <span class="token attr-name">wasd-controls</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">geometry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primitive: box; depth: 1; height: 1; width: 1<span class="token punctuation">"</span></span> <span class="token attr-name">material</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-scene</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Templates wrap the entity into something more concise:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-scene</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-cube</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">depth</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-cube</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-scene</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Anyone can create their own templates since they are just defined in HTML.
+Let’s reveal the definition of <code>&lt;a-cube&gt;</code>:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a-template<span class="token punctuation">"</span></span>
+          <span class="token attr-name">element</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a-cube<span class="token punctuation">"</span></span>
+          <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.5<span class="token punctuation">"</span></span>
+          <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.5<span class="token punctuation">"</span></span>
+          <span class="token attr-name">depth</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.5<span class="token punctuation">"</span></span>
+          <span class="token attr-name">translate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0 0 0<span class="token punctuation">"</span></span>
+          <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gray<span class="token punctuation">"</span></span>
+          <span class="token attr-name">opacity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.0<span class="token punctuation">"</span></span>
+          <span class="token attr-name">shader</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>standard<span class="token punctuation">"</span></span>
+          <span class="token attr-name">transparent</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+          <span class="token attr-name">metalness</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0.0<span class="token punctuation">"</span></span>
+          <span class="token attr-name">roughness</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0.5<span class="token punctuation">"</span></span>
+          <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">geometry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primitive: box;
+                      width: ${width};
+                      height: ${height};
+                      depth: ${depth};
+                      translate: ${translate}<span class="token punctuation">"</span></span>
+            <span class="token attr-name">material</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: ${color};
+                      opacity: ${opacity};
+                      shader: ${shader};
+                      transparent: ${transparent};
+                      metalness: ${metalness};
+                      roughness: ${roughness};
+                      src: url(${src})<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>&lt;a-cube&gt;</code> wraps a single entity (with the <code>geometry.primitive=box</code>) and
+exposes a few component attributes as HTML attributes. Don’t worry about the
+attributes that seem unfamiliar, we will go over some of them later and point
+to the comprehensive documentation.</p>
+<p>A-Frame also has <a href="http://aframe.io/docs/core/animation.html" target="_blank" rel="external">an animation system</a>. Let’s try
+makng the cube rotate indefinitely. The animation system also works with the core system,
+not just templates.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-scene</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-cube</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">depth</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-animation</span> <span class="token attr-name">attribute</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rotation<span class="token punctuation">"</span></span> <span class="token attr-name">repeat</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>indefinite<span class="token punctuation">"</span></span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0 360 360<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-animation</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-cube</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-scene</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="caveats"><a href="#caveats" class="headerlink" title="Caveats"></a>Caveats</h3><p>Templates <em>may</em> be subject to flux such as reimplementation or modularization
+into a different repository. From a technical standpoint, A-Frame templates and
+primitives are somewhat immature and less flexible, but from a product standpoint,
+they are more usable and less exotic to newer users of A-Frame. For full flexbility,
+we have to dig deeper.</p>
+<h2 id="“damn-i’m-good”-difficulty-entity-component-system"><a href="#“damn-i’m-good”-difficulty-entity-component-system" class="headerlink" title="“Damn I’m Good” Difficulty - Entity-Component System"></a>“Damn I’m Good” Difficulty - Entity-Component System</h2><p>For those that want to be unleashed into the full promised power, flexibility,
+and composability of A-Frame, we can finally end the hand-waving and check out
+the <a href="http://aframe.io/docs/core/" target="_blank" rel="external">core entity-component system</a>.</p>
+<p>Despite having been abstracted away from the aforementioned templates, A-Frame is built on an
+entity-component system. Entities are general purpose placeholder objects.
+Components modify the appearance, behavior, or functionality of the entities.
+And every object in the scene is an entity whether it be the player, a tree, a
+monster, the sky, a sound, lights. Components can be mixed and matched,
+composed and overridden. A-Frame comes with a bunch of components, and anyone
+can write their own components to have objects look however or do whatever
+they want. Check out all of the <a href="http://aframe.io/docs/components/" target="_blank" rel="external">shipped components</a>,
+and check out some third-party custom components at <a href="http://github.com/aframevr/awesome-aframe" target="_blank" rel="external">awesome-aframe</a>.</p>
+<p>Let’s start with a blank entity:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>By default, this lonely entity inherently only has a position, rotation, and
+scale in the scene. Without any other components, nothing will render on the
+scene. Let’s change that, giving it a geometry (shape) and material (appearance).</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">geometry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primitive: sphere<span class="token punctuation">"</span></span> <span class="token attr-name">material</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Now we should be seeing something. But why stop there? Let’s make it emit light on other
+entities.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">geometry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primitive: sphere<span class="token punctuation">"</span></span> <span class="token attr-name">material</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: red<span class="token punctuation">"</span></span>
+          <span class="token attr-name">light</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>type: point; intensity: 2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Let’s have it stare at the camera.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">geometry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primitive: sphere<span class="token punctuation">"</span></span> <span class="token attr-name">material</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: red<span class="token punctuation">"</span></span>
+          <span class="token attr-name">light</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>type: point; intensity: 2<span class="token punctuation">"</span></span> <span class="token attr-name">look-at</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>[camera]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Let’s have it emit sound.</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-entity</span> <span class="token attr-name">geometry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primitive: sphere<span class="token punctuation">"</span></span> <span class="token attr-name">material</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: red<span class="token punctuation">"</span></span>
+          <span class="token attr-name">light</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>type: point; intensity: 2<span class="token punctuation">"</span></span> <span class="token attr-name">look-at</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>[camera]<span class="token punctuation">"</span></span>
+          <span class="token attr-name">sound</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src: squeak.mp3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-entity</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>There are all of these components that can customize our entities. And all
+these attributes that can customize our components. And anyone can <a href="http://github.com/ngokevin/aframe-component-boilerplate" target="_blank" rel="external">write their
+own components</a>, having free reign to add any behavior they
+can imagine. Some components we might write include a layout component, a
+vibrate component, a cloner component, an explode component, a set-on-fire
+component. I am very excited to see what people come up with.</p>
+<p>The raw entity-component system is what we consider low-level. But all
+low-level things are made to be abstracted. Bring on the hot trend of 2015,
+React.</p>
+<h2 id="“born-to-be-wild”-difficulty-react"><a href="#“born-to-be-wild”-difficulty-react" class="headerlink" title="“Born to be Wild” Difficulty - React"></a>“Born to be Wild” Difficulty - React</h2><p>Note that A-Frame + React integration is experimental and is currently my
+personal project. I haven’t yet stress-tested possible performance limitations
+that the Virtual DOM may introduce. <a href="https://github.com/Izzimach/react-three" target="_blank" rel="external">react-three</a>,
+another React library on top of three.js, had limitations because each object
+introduced its own <code>requestAnimationFrame</code>. React + A-Frame does not have those kinds of
+limitations.</p>
+<p>React is a great fit with A-Frame now that React v0.14 accepts custom
+attributes.  I gave it a shot and within an hour, I developed a <a href="http://github.com/ngokevin/aframe-react" target="_blank" rel="external">library
+integrating A-Frame and React</a> and <a href="http://github.com/ngokevin/aframe-react-boilerplate" target="_blank" rel="external">a boilerplate featuring
+aframe-react and Webpack</a>.</p>
+<p>Why does React work so well with A-Frame?</p>
+<ul>
+<li>A-Frame is already based on custom elements. It does not take much to wrap it with React.</li>
+<li>Reactive updates and data binding vastly reduces the amount of manual DOM manipulation.</li>
+<li>The React ecosystem with NPM provides a great way for sharing A-Frame templates, mixins,
+and components.</li>
+<li>Redux can then be layered on to provide statefulness to the application which will be
+great for editors and tooling.</li>
+<li>Event handling is easier as we can just set event handler functions as props on
+our A-Frame/React components.</li>
+<li><code>props</code> makes it easy to extend and compose A-Frame component data, making A-Frame
+mixins completely obsolete.</li>
+<li>With Babel, a standard tool for transpiling React, giving object rest/spread properties
+and templating strings, passing down components are easy and concise.</li>
+</ul>
+<p>Here’s an <a href="http://github.com/ngokevin/aframe-react-boilerplate/tree/master/src/js/app.js" target="_blank" rel="external">example scene</a> where clicking a spinning cube changes its color.</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">ExampleScene</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      color<span class="token punctuation">:</span> <span class="token string">'red'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  changeColor <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'red'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'yellow'</span><span class="token punctuation">,</span> <span class="token string">'green'</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      color<span class="token punctuation">:</span> colors<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> colors<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>Scene<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Camera<span class="token operator">></span><span class="token operator">&lt;</span>Cursor<span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Camera<span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>Sky<span class="token operator">/</span><span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>Light type<span class="token operator">=</span><span class="token string">"ambient"</span> color<span class="token operator">=</span><span class="token string">"#888"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>Light type<span class="token operator">=</span><span class="token string">"directional"</span> intensity<span class="token operator">=</span><span class="token string">"0.5"</span> position<span class="token operator">=</span><span class="token string">"-1 1 0"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>Light type<span class="token operator">=</span><span class="token string">"directional"</span> intensity<span class="token operator">=</span><span class="token string">"1"</span> position<span class="token operator">=</span><span class="token string">"1 1 0"</span><span class="token operator">/</span><span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>Entity geometry<span class="token operator">=</span><span class="token string">"primitive: box"</span> material<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>color<span class="token punctuation">}</span><span class="token punctuation">}</span>
+                onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>changeColor<span class="token punctuation">}</span>
+                position<span class="token operator">=</span><span class="token string">"0 0 -5"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>Animation attribute<span class="token operator">=</span><span class="token string">"rotation"</span> dur<span class="token operator">=</span><span class="token string">"5000"</span> repeat<span class="token operator">=</span><span class="token string">"indefinite"</span> to<span class="token operator">=</span><span class="token string">"0 360 360"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Entity<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Scene<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Using React provides the best of all the worlds. The conciseness of A-Frame
+templates, the power of the A-Frame core system, and the ecosystem of NPM. The
+scene here is pretty concise and easy to read.</p>
+<p>To demonstrate how easy it is to create React components, here is the definition
+for a dumb <code>&lt;Light&gt;</code> using a stateless React component:</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">const</span> Light <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>Entity light<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Entity<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>I imagine, with the current state of web development, that people will enjoy
+this. I know I will.</p>
+<h2 id="behind-the-scenes-developing-a-frame"><a href="#behind-the-scenes-developing-a-frame" class="headerlink" title="Behind the Scenes - Developing A-Frame"></a>Behind the Scenes - Developing A-Frame</h2><p>Getting more into personal notes, I have been contributing to MozVR and A-Frame over the last
+couple months, working on the core entity-component pieces of the system at
+<a href="http://github.com/aframevr/aframe-core" target="_blank" rel="external">A-Frame Core</a>. With Firefox OS
+smartphones having “fallen” and with my previous team as well as dissolved,
+working in 3D and VR has been immensely exciting. To catch up, I have had to
+read and take notes about design, brush up on my linear alegbra, and dive into
+the world of 3D rendering. <a href="http://www.amazon.com/Design-Everyday-Things-Donald-Norman/dp/1452654123" target="_blank" rel="external">The Design of Everything Things</a>,
+<a href="http://www.realtimerendering.com/" target="_blank" rel="external">Real-Time Rendering</a>, <a href="http://www.amazon.com/Primer-Graphics-Development-Wordware-Library/dp/1556229119" target="_blank" rel="external">3D Math Primer</a>,
+<a href="https://37signals.com/rework/" target="_blank" rel="external">Rework</a> and <a href="http://www.amazon.com/Virtual-Reality-Insider-Guidebook-Industry/dp/0990999920" target="_blank" rel="external">Virtual Reality Insider</a>
+were all books that came in handy.</p>
+<p>The hardest thing about developing on A-Frame was feeling out the target
+audience. Should this be for beginners, for everyone and their grandma, for
+novices, for seasoned developers? I still don’t feel it’s been quite resolved.
+It’s a question that has driven a lot of debates with the API design and
+messaging. One instance of contention was the naming of <code>&lt;a-entity&gt;</code> vs. the
+former <code>&lt;a-object&gt;</code>. Or whether or not to hide the entity-component system
+behind templates and primitives such that A-Frame does not seem too exotic.</p>
+<p>The most fun thing about developing on A-Frame was how much there was to learn
+and discover. I was just about to hit a ceiling on the Firefox Marketplace
+team; after taking the whole React and Redux journey and absorbing everything,
+I had well outgrown the project (well, especially since it was dying). Jumping
+into 3D and VR, I accumulated <a href="http://nattyornot.com/bodybuilding-basics-noob-gains-explained/" target="_blank" rel="external">noob
+gains</a> on 3D
+development, rendering, game development patterns, and API design. And working
+with a team in-person rather than remotely was refreshing</p>
+<p>And there’s more to discover like what standard VR interactions will form and
+what will VR web browsing look like? It’s imagining a future that hasn’t come.
+Y’all remember bring your A-Frame.</p>
+<h2 id="further-resources"><a href="#further-resources" class="headerlink" title="Further Resources"></a>Further Resources</h2><ul>
+<li>Check out the <a href="http://aframe.io/docs/" target="_blank" rel="external">official docs</a>.</li>
+<li>Connect with us and the community on the <a href="http://aframevr.slack.com" target="_blank" rel="external">A-Frame Slack channel</a>.</li>
+<li>See a community-populated list of resources at <a href="http://github.com/aframevr/awesome-aframe" target="_blank" rel="external">awesome-aframe</a>.</li>
+</ul>
+
 </div>
 
 

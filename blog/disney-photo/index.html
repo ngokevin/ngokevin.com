@@ -3,12 +3,12 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Update: an easier way to do this is open up Chrome’s inspector and switch to the network tab. As you click through your Photopass, you should be able to see your images appear. A little bit of dirty...">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="ngokevin.com">
     <meta name="twitter:creator" content="Kevin Ngo">
     <meta name="twitter:title" content="Scraping for Free Disney Photopass Pictures">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="Update: an easier way to do this is open up Chrome’s inspector and switch to the network tab. As you click through your Photopass, you should be able to see your images appear. A little bit of dirty...">
     <meta name="twitter:image" content="http://i.imgur.com/GNwD3OI.png">
     <link rel="stylesheet" href="/css/base.css">
     
@@ -28,7 +28,48 @@
     <img src="http://i.imgur.com/GNwD3OI.png">
   
 
-  
+  <p><strong>Update: an easier way to do this is open up Chrome’s inspector and switch to
+the network tab. As you click through your Photopass, you should be able to see
+your images appear.</strong></p>
+<p>A little bit of dirty digging can shovel you some decent rewards. I went to
+Disneyland on New Year’s Eve with my girlfriend where we had our pictures taken
+with Mickey Mouse by a Disney photographer. We were given a little
+<a href="http://i.imgur.com/PpXwGfR.jpg" target="_blank" rel="external">voucher</a> that contained a code which we could
+use to view our pictures on.</p>
+<h3 id="the-overcomeable-obstacle"><a href="#the-overcomeable-obstacle" class="headerlink" title="The Overcomeable Obstacle"></a>The Overcomeable Obstacle</h3><p><strong>Note:</strong> read the comments for updates on how to do this. The Disney site
+changes from time to time.</p>
+<p>After registering an account with the code, we browsed through our pictures. We
+were presented with cropped, pixelated photos. Disney wanted $15 for a download
+to our four photos. Not the most ludicrous of theme park deals, but I waited in
+line for an hour to see Mickey Donald-duckin’ Mouse for five seconds. I was
+able to just to screen-grab the pictures, but I could stand for more.</p>
+<p><em>right-click, Save Image As</em> didn’t pan out since the JS disabled
+right-clicking. Disabling JS entirely would not either since the images were
+being pulled in asynchronously. Either of these wouldn’t have worked well
+anyways since the images were pixelated and cropped.</p>
+<hr>
+<h3 id="discovering-disney’s-photo-api-url"><a href="#discovering-disney’s-photo-api-url" class="headerlink" title="Discovering Disney’s Photo API URL"></a>Discovering Disney’s Photo API URL</h3><p>So I jumped into Firebug/Web Inspector. I dove deeper than the depths of the
+Mariana Trench and dug through layers and layers of DOM until I reached Middle
+Earth. And there it was, the Holy Grail.</p>
+<pre class=" language-html"><code class="language-html">&lt;td id="greyedImg"
+    style="background: url("/api/photostore/previewEdits.pix?quality=80&amp;ImageId=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>XXX</span><span class="token punctuation">></span></span>...&amp;cropAspectRatio=4x6...&amp;Orientation=Landscape...&amp;width=400");"...>
+</code></pre>
+<p>Turns out Disney was pulling in their photos through an API. Through the GET
+query parameters, they limited the quality to 80 and width to 400 to decrease
+the image quality in order to get people to chuck over some bucks. <strong>dolan pls.</strong></p>
+<p>To grab an image with decent quality, I changed <code>quality</code> to 100 and
+<code>width</code> to 1000. If the image had a portrait orientation, I would change
+<code>orientation</code> from <code>landscape</code> to <code>portrait</code> and swap the width and
+height in<code>CropAspectRatio</code> (e.g. 600x400 to 400x600). Finally, I added the
+<code>http://www.disneyphotopass.com</code> root to the API URL.</p>
+<h3 id="the-resulting-url"><a href="#the-resulting-url" class="headerlink" title="The Resulting URL"></a>The Resulting URL</h3><pre class=" language-html"><code class="language-html">http://www.disneyphotopass.com/api/photostore/previewEdits.pix?quality=100&amp;ImageId=XXX&amp;cropX=0.0025&amp;cropY=0&amp;cropWidth=0.995&amp;cropOrientation=Landscape&amp;cropAspectRatio=4x6&amp;overlayAssetId=null&amp;width=1000&amp;Rotation=None&amp;BlackAndWhite=false*
+</code></pre>
+<p>Just replace the XXX in ImageID with the one found in the Web Inspector.</p>
+<p>Security through obscurity is not secure, although if I were Disney I wouldn’t
+care at all either for this case. Though there is something to be said about
+the small benefits you can reap when you know the web.</p>
+<p><a href="http://i.imgur.com/SkCHQIA.jpg" target="_blank" rel="external">My personal resulting image.</a></p>
+
 </div>
 
 

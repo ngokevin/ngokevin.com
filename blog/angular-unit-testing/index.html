@@ -3,12 +3,12 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="For a five-part introduction to AngularJS, check out my ng-okevin’s Angular. I recently migrated my AngularJS to-do list app to AngularJS, and I wanted to unit test my Angular service that had a Local...">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="ngokevin.com">
     <meta name="twitter:creator" content="Kevin Ngo">
     <meta name="twitter:title" content="Mock Unit Testing a AngularJS Local Storage Service with Karma and Jasmine">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="For a five-part introduction to AngularJS, check out my ng-okevin’s Angular. I recently migrated my AngularJS to-do list app to AngularJS, and I wanted to unit test my Angular service that had a Local...">
     <meta name="twitter:image" content="http://i.imgur.com/60Xnrfn.png">
     <link rel="stylesheet" href="/css/base.css">
     
@@ -28,7 +28,218 @@
     <img src="http://i.imgur.com/60Xnrfn.png">
   
 
-  
+  <p>For a five-part introduction to AngularJS, check out my <a href="/blog/angular-1">ng-okevin’s
+Angular</a>.</p>
+<p>I recently migrated my <a href="http://marketplace.firefox.com/app/minimalist" target="_blank" rel="external">AngularJS to-do list app</a>
+to <a href="http://angularjs.org" target="_blank" rel="external">AngularJS</a>, and I wanted
+to unit test my Angular service that had a Local Storage schema migration.
+My app had a
+<a href="https://github.com/ngokevin/minimalist/blob/060a3bbc082f10d8305ef97871911b20f073e472/media/js/services.js" target="_blank" rel="external">service</a>
+that abstracted all interactions with Local Storage and implemented an
+interface to my list “model”. In this service, I modified the
+Local Storage schema, making it backwards-incompatible, so I wrote a migration.
+To make sure it worked, I unit-tested the entire service.</p>
+<hr>
+<p>To unit-test Angular, I used:</p>
+<ul>
+<li><a href="http://karma-runner.github.io/0.10/index.html" target="_blank" rel="external">Karma</a> - a JS test runner</li>
+<li><a href="http://pivotal.github.io/jasmine/" target="_blank" rel="external">Jasmine</a> - a JS testing framework
+(setups, teardowns, assertions), automatically installed with Karma</li>
+<li><a href="https://raw2.github.com/angular/angular.js/master/src/ngMock/angular-mocks.js" target="_blank" rel="external">Angular Mocks</a> - to mock out our application</li>
+</ul>
+<h2 id="directory-structure"><a href="#directory-structure" class="headerlink" title="Directory Structure"></a>Directory Structure</h2><p>If you want to see for yourself my directory structure, check out
+<a href="https://github.com/ngokevin/minimalist/tree/060a3bbc082f10d8305ef97871911b20f073e472/tests/unit_tests" target="_blank" rel="external">the source code of my unit tests.</a></p>
+<p>I keep a folder within my app called <code>tests</code> that makes room for both unit
+tests and end-to-end tests.</p>
+<pre><code>.
+|-- tests
+|   |-- e2e_tests
+|   |   |-- conf.js
+|   |   |-- minimalist_spec.js
+|   |   `-- selenium
+|   |       |-- chromedriver
+|   |       |-- selenium-server-standalone-2.37.0.jar
+|   |       `-- start
+|   |-- node_modules
+|   |   |-- karma
+|   |-- package.json
+|   |-- services.tests.js
+|   `-- unit_tests
+|       |-- karma.config.js
+|       |-- lib
+|       |   `-- angular-mocks.js
+|       `-- services.tests.js
+`--
+</code></pre><h2 id="setting-up-the-karma-test-runner"><a href="#setting-up-the-karma-test-runner" class="headerlink" title="Setting Up the Karma Test Runner"></a>Setting Up the Karma Test Runner</h2><p>Install Karma.</p>
+<pre><code>npm install karma
+</code></pre><p>Go into your unit test directory and initialize a configuration file. This will
+lead you through an interactive shell.</p>
+<pre><code>karma init karma.config.js
+</code></pre><p>Look at your configuration file and make sure everything is correct. Things to
+double-check are <code>basePath</code>, <code>files</code>, <code>frameworks</code>, and
+<code>browser</code>. Here is my
+<a href="https://github.com/ngokevin/minimalist/blob/060a3bbc082f10d8305ef97871911b20f073e472/tests/unit_tests/karma.config.js" target="_blank" rel="external">Karma config</a></p>
+<ul>
+<li><code>basePath</code> - this will affect the paths in the <code>files</code> option. I recommend<pre><code>       setting it to root of your app to be able to include the required
+       angular.js which probably lies outside the test folder. I had it
+       set to ```../../```.
+</code></pre></li>
+<li><code>files</code> - this loads files into the browser when testing. Make sure all necessary files<pre><code>    are included. This option takes patterns with wildcards as well,
+    something like ```{pattern: &#39;tests/unit_tests/*.js&#39;, included: true}```.
+    Don&#39;t forget to include Angular Mocks.
+</code></pre></li>
+<li><code>frameworks</code> - set this to <code>jasmine</code>. Don’t know other frameworks, don’t care.</li>
+<li><code>browser</code> - since we’re unit testing, generally set this to <code>PhantomJS</code> so<pre><code>           it doesn&#39;t pop up a browser every run.
+</code></pre></li>
+</ul>
+<p>Then we can start the Karma runner to run our tests.</p>
+<pre><code>karma start karma.config.js
+</code></pre><h2 id="writing-jasmine-unit-tests"><a href="#writing-jasmine-unit-tests" class="headerlink" title="Writing Jasmine Unit Tests"></a>Writing Jasmine Unit Tests</h2><p>Jasmine unit tests, to me, are just like any other unit testing framework, but
+more designed to be read like English. In essence it is the same, there are
+test suites, test cases, setups, teardowns, and mocking. Here is
+<a href="https://github.com/ngokevin/minimalist/blob/060a3bbc082f10d8305ef97871911b20f073e472/tests/unit_tests/services.tests.js" target="_blank" rel="external">my entire unit test for reference.</a></p>
+<p>The <a href="http://pivotal.github.io/jasmine/" target="_blank" rel="external">Jasmine docs</a> should be your primary
+source for learning what the tests look like, but here is an excerpt from my
+own.</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'ItemService'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> store <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> ls <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>storage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// setUp.</span>
+        <span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'MinimalistApp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// LocalStorage mock.</span>
+        <span class="token function">spyOn</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">,</span> <span class="token string">'getItem'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andCallFake</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> store<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>sessionStorage<span class="token punctuation">,</span> <span class="token string">"setItem"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> writable<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">spyOn</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">,</span> <span class="token string">'setItem'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andCallFake</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            store<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        store <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'migrate from legacy to version 0.'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        store <span class="token operator">=</span> <span class="token punctuation">{</span>
+            lastViewedList<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            lists<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'sample'</span><span class="token punctuation">,</span> <span class="token string">'sample_two'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            sample<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                id<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                list<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                        items<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'item1'</span><span class="token punctuation">,</span> <span class="token string">'item2'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        rank<span class="token punctuation">:</span> <span class="token number">2</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                        id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                        items<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'item3'</span><span class="token punctuation">,</span> <span class="token string">'item4'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        rank<span class="token punctuation">:</span> <span class="token number">1</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            sample_two<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                list<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                        items<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'item5'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        rank<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'storage'</span><span class="token punctuation">,</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">inject</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>ItemService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> sample <span class="token operator">=</span> ItemService<span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">expect</span><span class="token punctuation">(</span>sample<span class="token punctuation">.</span>itemIndex<span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">expect</span><span class="token punctuation">(</span>sample<span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'item3\nitem4'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">expect</span><span class="token punctuation">(</span>sample<span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'item1\nitem2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            sample <span class="token operator">=</span> ItemService<span class="token punctuation">.</span><span class="token function">getLists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token function">expect</span><span class="token punctuation">(</span>sample<span class="token punctuation">.</span>itemIndex<span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">expect</span><span class="token punctuation">(</span>sample<span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'item5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="initializing-a-jasmine-test-suite"><a href="#initializing-a-jasmine-test-suite" class="headerlink" title="Initializing a Jasmine Test Suite"></a>Initializing a Jasmine Test Suite</h3><p>I’ll describe portions of the code starting from the top.</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'ItemService'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="setup-and-mocking-localstorage"><a href="#setup-and-mocking-localstorage" class="headerlink" title="Setup and Mocking LocalStorage"></a>Setup and Mocking LocalStorage</h3><p>This initializes our test suite for our module.</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> store <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// setUp.</span>
+    <span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'MinimalistApp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// LocalStorage mock.</span>
+    <span class="token function">spyOn</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">,</span> <span class="token string">'getItem'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andCallFake</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> store<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>sessionStorage<span class="token punctuation">,</span> <span class="token string">"setItem"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> writable<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">spyOn</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">,</span> <span class="token string">'setItem'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andCallFake</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        store<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The setup called before each test case for initialization. We mock out our app
+with Angular Mock’s <code>module</code> to allow us to inject, or import, the modules or
+pieces of our code that we wish to test.</p>
+<p>Then we set up our Local Storage mock. we use Jasmine’s <code>spyOn</code> to mock
+<code>localStorage.getItem</code> and <code>localStorage.setItem</code>. This watches for
+calls to these methods, and instead of calling the code it normally runs, it’ll
+instead call the function that we pass into <code>andCallFake</code>. Here, the
+functions we pass into <code>andCallFake</code> simply interact with a plain
+Javascript object, <code>store</code>. We have mocked our Local Storage with a
+Javascript object, making infinitely easier to test. Everything is under our
+control. If you wish to mock Local Storage as well, definitely steal this code
+snippet.</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    store <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="jasmine-test-cases"><a href="#jasmine-test-cases" class="headerlink" title="Jasmine Test Cases"></a>Jasmine Test Cases</h3><p>The teardown called after each test case to reset the state. Here, we basically
+clear our Local Storage.</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'migrate from legacy to version 0.'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="injecting-angular-modules"><a href="#injecting-angular-modules" class="headerlink" title="Injecting Angular Modules"></a>Injecting Angular Modules</h3><p>A single test case. The test case is created with <code>it</code> where we pass in  a
+string describing the behavior we are testing and the test case itself.</p>
+<pre><code>inject(function(ItemService) {
+    var sample = ItemService.getList(0);
+    expect(sample.itemIndex.length, 2);
+    expect(sample.items[0].text).toEqual(&#39;item3\nitem4&#39;);
+    expect(sample.items[1].text).toEqual(&#39;item1\nitem2&#39;);
+
+    sample = ItemService.getLists()[1];
+    expect(sample.itemIndex.length, 1);
+    expect(sample.items[0].text).toEqual(&#39;item5&#39;);
+});
+</code></pre><p>After some test case setup code, we finally get to the juicy test assertions.
+We call Angular Mock’s <code>inject</code> to import our service into the test case. I
+assume the Angular app module namespace is searched to pull out the module so
+make sure the parameter name matches what we want to import.</p>
+<h3 id="jasmine-assertions"><a href="#jasmine-assertions" class="headerlink" title="Jasmine Assertions"></a>Jasmine Assertions</h3><p>To run a basic assertion, we call Jasmine’s <code>expect</code>, passing in the first
+value, and then <code>toEqual</code> to assert that its value is equivalent to what we
+expect. Jasmine is interesting how everything is modeled after being an English
+sentence.</p>
+<p>That’s all. For additional resources, check out <a href="http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-
+and-jasmine/" target="_blank" rel="external">this
+guide</a> and <a href="http://github.com/ngokevin/minimalist" target="_blank" rel="external">my app’s source
+code</a>. I will soon be writing about
+how to write end-to-end (E2E) tests for Angular apps with Protractor.</p>
+
 </div>
 
 

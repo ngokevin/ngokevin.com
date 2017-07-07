@@ -3,12 +3,12 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Call me a mouse-atheist. I love vim; it lets me do everything on the keyboard. In the time it takes for one to reach for their mouse, highlight a line to copy and paste, and Ctrl+C/Ctrl+V to copy in...">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="ngokevin.com">
     <meta name="twitter:creator" content="Kevin Ngo">
     <meta name="twitter:title" content="Sublime Text is a Bodybagger">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="Call me a mouse-atheist. I love vim; it lets me do everything on the keyboard. In the time it takes for one to reach for their mouse, highlight a line to copy and paste, and Ctrl+C/Ctrl+V to copy in...">
     <meta name="twitter:image" content="http://i.imgur.com/VVAdK0t.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
@@ -28,7 +28,84 @@
     <img src="http://i.imgur.com/VVAdK0t.jpg">
   
 
-  
+  <p>Call me a mouse-atheist. I love vim; it lets me do everything on the
+keyboard. In the time it takes for one to reach for their mouse, highlight a
+line to copy and paste, and Ctrl+C/Ctrl+V to copy in Word, I could type “yyp”
+in vim.</p>
+<p>My whole desktop is vimified: workspace and window management hotkeys,
+<a href="https://addons.mozilla.org/en- us/firefox/addon/vimperator/" target="_blank" rel="external">Vimperator</a> on
+Firefox, <a href="http://lifehacker.com/5858676/the-best- terminal-
+emulator-for- linux" target="_blank" rel="external">Terminator</a> hotkeys, and vim itself. vim is good for text editing, but
+it ain’t good at some things that I have simply put up with for years. Two days
+ago, I tried out Sublime Text, and today I bought it. Here are five reasons why
+<a href="http://sublimetext.com" target="_blank" rel="external">Sublime Text</a> is just Frosted Flakes great.</p>
+<hr>
+<p>##5. vim compatability!</p>
+<p>Horray for filler items in list-based posts! Seriously, to replace vim, it must
+have vim. Sublime Text comes with <strong>Vintage mode</strong> that has most vim support. It
+combines vim’s command mode with Sublime Text’s. With a few tweaks, I was able
+to make it just like vim as far as I could tell, minus some :commands.</p>
+<p>To enable it, from your preferences, change</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"ignored_packages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Vintage"</span><span class="token punctuation">]</span>
+</code></pre>
+<p>to</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"ignored_packages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">""</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Some tweaks I had to make were having ctrl+f/ctrl+b going pageup/pagedown
+instead of search/building, making “u” be undo and not repeat/undo, and setting
+ctrl+r to be redo. How did I do that you say? Glance 100 pixels below.</p>
+<p>##4. Powerful Keybindings in JSON and Plugins in Python</p>
+<p><img src="http://imgur.com/ZPD6qYh.png"></p>
+<p>Set and overwrite keybindings for anything you want. The default settings
+openly lists all the keybindings, but you can write stronger ones. It is good
+practice to overwrite keybindings and preferences in your local Sublime Text
+configs.</p>
+<p>It satisfies all of my idiosyncratic keybinding needs such as alt+hjkl to
+navigate between panes, typing “jj” in insert mode exits insert mode, or
+hitting ctrl+shift+tab throwing in a pdb breakpoint.</p>
+<p>What’s awesome is that these configs and plugins are <strong>hot-loaded</strong>. Modifying
+a config or adding a plugin automatically takes effect on all of your open
+buffers.</p>
+<p>##3. Package Manager and the More Centralized Community</p>
+<p><img src="http://i.imgur.com/xxLmMrh.png"></p>
+<p>Install the <a href="http://wbond.net/sublime_packages/package_control/
+installation" target="_blank" rel="external">PackageControl</a> plugin with a one-line command into the console, and you can
+install all the good Sublime Text plugins within Sublime Text.</p>
+<p>My current plugin loadout:</p>
+<ul>
+<li><strong>PackageControl</strong>: so meta</li>
+<li><strong>Githubinator</strong>: opens the GitHub page of the current file</li>
+<li><strong>Git</strong>: git integration into the command palette and console</li>
+<li><strong>Emmett</strong>: can expand css selectors into HTML syntax</li>
+<li><strong>Origami</strong>: enhance pane splitting and allows me to set shortcuts to navigate
+ between them</li>
+<li><strong>Theme-Soda</strong>: popular Sublime Text theme</li>
+<li><strong>SidebarEnhancements</strong>: enhances the sidebar to allow all them file operations
+ on right-click</li>
+<li><strong>SublimeLinter</strong>: all-in-one code linter for popular languages</li>
+<li><strong>SublimeCodeIntel</strong>: can jump to symbol definitions, give function tooltips,
+ and autocomplete code within a whole project</li>
+<li><strong>LESS</strong>: LESS syntax</li>
+<li><strong>SCSS</strong>: SCSS syntax</li>
+</ul>
+<p>##2. Project Sessions</p>
+<p><img src="http://imgur.com/XDcPsSB.jpg"></p>
+<p>Close Sublime Text and open it again. All of your buffers and panes will be just
+as you left it. For multiple windows, they can be restored if you saved the
+project. Granted vim has .swp files, but how many times have I asked vim to
+“edit anyways”? And Terminator doesn’t remember the pane layouts and what
+exactly was on each pane when you closed it.</p>
+<p>Now I don’t mind my Ubuntu NVIDIA drivers crashing all the time as much.</p>
+<p>##1. Ctrl+P - GotoAnything</p>
+<p><img src="http://i.imgur.com/hSApzuX.jpg"></p>
+<p>An intelligent autocomplete search that lets you pull up any file within your
+project by specifying just a few letters. It is like
+<a href="http://www.omgubuntu.co.uk/2010/11/synapse-gnome-do-launcher-app-
+review-ubuntu" target="_blank" rel="external">Synapse</a> which autocompletes programs and files on your computer, or
+Firefox’s <strong>Awesomebar</strong> which can search through content of your browser
+history to pull navigation bar suggestions. It just knows what you want.</p>
+<p><em>kevba out</em></p>
+
 </div>
 
 

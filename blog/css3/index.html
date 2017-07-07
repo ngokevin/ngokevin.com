@@ -3,12 +3,12 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Today, I created CSS3 hover effects for my contact page. CSS3 comes with the ability to do transitions and transforms. Before, these effects would be done through Javascript. Being to be able to do...">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="ngokevin.com">
     <meta name="twitter:creator" content="Kevin Ngo">
     <meta name="twitter:title" content="Simple CSS3 - Transitions and Transforms">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="Today, I created CSS3 hover effects for my contact page. CSS3 comes with the ability to do transitions and transforms. Before, these effects would be done through Javascript. Being to be able to do...">
     <meta name="twitter:image" content="">
     <link rel="stylesheet" href="/css/base.css">
     
@@ -26,7 +26,78 @@
 
   
 
-  
+  <p>Today, I created CSS3 hover effects for my <a href="contact">contact</a> page. CSS3
+comes with the ability to do transitions and transforms. Before, these
+effects would be done through Javascript. Being to be able to do
+higher-level presentation logic where presentation logic should be really
+simplifies web design.</p>
+<p>CSS3 is rolled out amongst all modern browsers, although currently the
+experimental prefix tags (e.g -moz, -webkit) are required.</p>
+<hr>
+<p>###Transitions</p>
+<p>CSS3 transitions allow smooth and easily-specified transitions of CSS
+properties from one value to another. This could be done to fade or animate
+an element. Transitions can take four arguments.</p>
+<ul>
+<li>Transition-property: choose which properties to transition (can also
+select “all”)</li>
+<li>Transition-duration: duration of transition</li>
+<li>Transition-timing-function: what cubic bezier curve transition should
+follow (e.g. ease, linear, ease-in, ease-out, ease-in-out)</li>
+<li>Transition-delay: how long before the transition starts</li>
+</ul>
+<p>Below is a simple structure for transitioning an arbitrary property.</p>
+<p>myClass is initially has a value set for some property. A transition is
+defined for that property. If the property changes such as through an event
+(e.g. hover), the transition will handle the change. After the transition,
+element fires “transitioned” event which is accessible by Javascript (check
+for the specific event keyword which currently varies by browser).</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.myClass</span> </span><span class="token punctuation">{</span>
+    <span class="token selector">someProperty: </span><span class="token punctuation">{</span><span class="token punctuation">{</span>value before<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token selector">;
+    transition: someProperty </span><span class="token punctuation">{</span><span class="token punctuation">{</span>duration<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>timingFunction<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>delay<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.myClass</span><span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
+    <span class="token selector">someProperty: </span><span class="token punctuation">{</span><span class="token punctuation">{</span>value after<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>###Transforms</p>
+<p>In CSS3, there are a handful defined transform functions.</p>
+<ul>
+<li>rotate(angle)</li>
+<li>scale(x, [y])</li>
+<li>scaleX(x)</li>
+<li>scaleY(y)</li>
+<li>skew(angleX, angleY)</li>
+<li>translate(x, [y])</li>
+<li>translateX(x)</li>
+<li>translateY(y)</li>
+</ul>
+<p>For scale and translate, if only one argument is supplied, both x and y
+will be acted upon. CSS3 transforms are just like declaring any other
+property.</p>
+<pre class=" language-css"><code class="language-css"><span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Transforms work nicely with transitions. Say we want to make an element
+seem like it’s falling onto the page with scale and opacity when hovered
+over. We set the element to initially be very large and transparent, then
+we scale it down to make it seem like it’s falling and going away from the
+screen.</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector">element </span><span class="token punctuation">{</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> all <span class="token number">.3</span>s ease-in<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">element<span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And that’s all there is to it. This is the most basic of examples. To learn
+more about CSS3, MDN is one of the best places to go to for their
+references on <a href="https://developer.mozilla.org/en/CSS/CSS\_transitions" target="_blank" rel="external">transitions</a> and
+<a href="https://developer.mozilla.org/en/CSS/transform" target="_blank" rel="external">transforms</a>, or anything else related to the web in
+general.</p>
+
 </div>
 
 
