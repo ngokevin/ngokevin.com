@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="ng-okevin's Angular ch.1 - AngularJS">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://i.imgur.com/pg5I3l8.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,118 +28,7 @@
     <img src="http://i.imgur.com/pg5I3l8.jpg">
   
 
-  <p>Welcome to my five-part introduction to AngularJS! Because I was dissatisfied
-with the incoherency of the official AngularJS docs. I started writing this
-AngularJS guide on weekends during my senior year in college. But since
-starting full-time at Mozilla, my motivation and energy waned. So I am
-publishing it on my blog for the good of The Web!</p>
-<p>This introduction comes complete with live demos and <a href="http://github.com/ngokevin/angularbook" target="_blank" rel="external">open-sourced
-examples</a>.</p>
-<hr>
-<h2 id="table-of-contents"><a href="#table-of-contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="/blog/angular-1">ch.1 - AngularJS</a></li>
-<li><a href="/blog/angular-2">ch.2 - Scopes</a></li>
-<li><a href="/blog/angular-3">ch.3 - Controllers</a></li>
-<li><a href="/blog/angular-4">ch.4 - Templates</a></li>
-<li><a href="/blog/angular-5">ch.5 - Forms</a></li>
-<li><a href="/blog/angularslider">Directives</a></li>
-<li><a href="/blog/angular-unit-testing">Unit Testing</a></li>
-</ul>
-<h2 id="angularjs"><a href="#angularjs" class="headerlink" title="AngularJS"></a>AngularJS</h2><p>AngularJS, or Angular, is a <strong>model-view-controller</strong> (MVC) client-side
-Javascript (JS) application framework that features two-way data binding and
-enhances HTML to be more declarative, expressive, and dynamic-friendly. Let us
-get some prerequisite concepts out of the way before we dive into hello-
-worldish code.</p>
-<hr>
-<h2 id="mvc"><a href="#mvc" class="headerlink" title="MVC"></a>MVC</h2><p>MVC is a development pattern (or paradigm, if you will) that revolves around a
-separation of concerns. I will describe MVC and then apply its concepts to
-Angular.</p>
-<ul>
-<li>The <strong>model</strong> holds the data and state.</li>
-<li>The <strong>view</strong> is what the user sees.</li>
-<li>The <strong>controller</strong> is the glue between the model and view.</li>
-</ul>
-<p>They connect together. The model powers everything in the background with its
-data, though is aware of only itself. The view polls the model for its current
-state. Interactions in the view are recognized by the controller to update the
-model. An analogy might be a photographer holding a photoshoot with a
-supermodel.</p>
-<ul>
-<li>The supermodel’s pose is the current state.</li>
-<li>The photographer views the supermodel through the camera lens.</li>
-<li>The photographer directs the supermodel to change poses.</li>
-</ul>
-<p>Angular’s development pattern is MVC, and Angular strictly adheres to this
-separation of concerns. Though in Angular jargon, it is employed more like
-scope-template-controller. Worry not, these concepts will be explained once you
-are ready, young padawan. Until these concepts are presented properly, we will
-still refer to MVC components as model-view-controller.</p>
-<h2 id="two-way-data-binding"><a href="#two-way-data-binding" class="headerlink" title="Two-Way Data Binding"></a>Two-Way Data Binding</h2><p>Remember when I mentioned that the model’s state is pushed to the view. Well,
-Angular features <strong>two-way data binding</strong>. Not only does the view update
-whenever the model changes, but changes to the view automatically updates
-back to the model.</p>
-<p>This is powerful. It permits us to write less middleman code between the model
-and view. Instead we let the model and view go outside and play with each
-other, no supervision needed. Referring to our earlier analogy, it would be as
-if the photographer struck the same poses in sync with the supermodel.</p>
-<p>This saves a lot of trouble by eliminating manual DOM manipulation. I was once
-writing an non-Angular web app. It had an ugly function that synced my model
-with my view via large block of jQuery code. Every time the user interacted
-with the page, I had to call that expensive block of jQuery code to update the
-page. I was displeased by this. Thus, I turned to Angular for its two-way
-data binding.</p>
-<h2 id="client-side-templating"><a href="#client-side-templating" class="headerlink" title="Client-Side Templating"></a>Client-Side Templating</h2><p>Though, the two-way data binding does not happen without a little push. We need
-to hook things together from the client-side <strong>template</strong>. Client-side
-templates are usually HTML files that are augmented to be more dynamic. They
-are often sprinkled with traditional control structures such as loops and
-conditionals. And they contain placeholders that represent specified variables.</p>
-<p>If you are familiar with server-side web framework templating, it is just that
-but on the client and, in our case, manipulated via JS.</p>
-<p>Angular templates are a special flavor of templates. Along with control
-structures and variable placeholders, they are also capable of declaring two-
-way data bindings and event handlers. In our next example
-<em>Invitation to Angular</em>, we will get a first glimpse at some Angular.</p>
-<h3 id="example"><a href="#example" class="headerlink" title="Example"></a>Example</h3><p>In <em>Invitation to Angular</em>, we will sync an HTML text input element with a
-<code>p</code> element to demonstrate two-way data binding.</p>
-<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!doctype html></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">ng-app</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../lib/js/angular.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Invitation to Angular<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mySpecies<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>What is your species?<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
-      It is a great honor to bask
-      in the presence of a {{ mySpecies || 'human' }}.
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Angular humbly welcomes you.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre>
-<p><code>ngApp</code> bootstraps the our document to Angular, and we have the input
-binded to a model variable species via the <code>ngModel</code> <strong>directive</strong>.
-All we need to know about directives, for now, is that they allow us to
-register behavior to the document object model (DOM), the browser’s
-representation of HTML.</p>
-<p>Note when a directive’s name is used as an HTML attribute such as in <em>Baby
-Example</em>, it is spelled with a hyphen (e.g. <code>ng-app</code>). However, the
-canonical name for directives in Angular is spelled with camel case (e.g.
-<code>ngApp</code>).</p>
-<p>Now back to the example, the input will read <em>human</em> by default if
-<code>mySpecies</code> is not set. We accomplish this with an Angular <strong>expression</strong>
-in the variable placeholder, {{ mySpecies || 'human' }}An expression is
-like inline code in the template that Angular evaluates.</p>
-<p>Say we type “cyberman” into the input box. <code>species</code>‘s value in the
-backend will automatically update to “cyberman” as we type. Since we have
-<code>species</code> under two-way data binding, no <code>onchange</code> event handlers are
-required.</p>
-<iframe src="/files/ng-book/examples/invitationtoangular/index.html"></iframe>
-
-<h2 id="up-next"><a href="#up-next" class="headerlink" title="Up Next"></a>Up Next</h2><p>With some concepts on our belt and a sneak peek at Angular in action, we will
-take a deeper gander at the model side of Angular, the scope, in
-<a href="/blog/angular-2">ch.2 Scopes</a>.</p>
-
+  
 </div>
 
 

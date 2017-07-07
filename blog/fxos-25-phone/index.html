@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Building a Faster App Store for the FirefoxOS $25 Smartphone">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://i.imgur.com/VfiQKPr.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,88 +28,7 @@
     <img src="http://i.imgur.com/VfiQKPr.jpg">
   
 
-  <p>For the last month and a half, I worked in a small team of about three other
-developers and two engineering managers to make our FirefoxOS app store, the
-<a href="http://marketplace.firefox.com" target="_blank" rel="external">Firefox Marketplace</a>, fast and performant
-enough to run on our upcoming <a href="http://www.cnet.com/news/with-firefox-os-mozilla-begins-the-25-smartphone-push/" target="_blank" rel="external">$25
-smartphone</a>.
-We were targetting a phone that would run on slower 2G connections, on lower
-memory, and with lower CPU. After an initial lessons-learned prototype that we
-did not end up shipping due to deadline pushes, we ended up forking our current
-app store into a separate project,
-<a href="http://github.com/mozilla/yogafire" target="_blank" rel="external">Yogafire</a>. This is how we made it fast.</p>
-<hr>
-<h2 id="make-it-a-packaged-app"><a href="#make-it-a-packaged-app" class="headerlink" title="Make It a Packaged App"></a>Make It a Packaged App</h2><p>Our current Marketplace that is running on phones around the world simply runs
-in an iframe within a packaged app. The decision around using an iframe was to:</p>
-<ul>
-<li>Have working Persona login due to CSP restrictions</li>
-<li>Have working Google Analytics due to CSP restrictions</li>
-<li>Keep the <code>marketplace.firefox.com</code> domain for apps that specify they can only
-be installed on that domain</li>
-<li>Instant updates</li>
-</ul>
-<p>However, the iframe method can be slow. Users at least on first launch of the
-app, have to download assets (our JS, CSS, templates, and data) over the air.</p>
-<p>Since then, we have worked around all of the issues blocking us from
-“packaging” the Marketplace. In a packaged app, assets are pre-loaded into the
-app to be shipped with phones; users then do not have to go out to the Content
-Delivery Network (CDN) to download assets.</p>
-<h2 id="pre-loading-api-responses"><a href="#pre-loading-api-responses" class="headerlink" title="Pre-loading API Responses"></a>Pre-loading API Responses</h2><p>Normally the Marketplace would have to talk to our servers to get data such as
-apps to display on the storefront (actually, we cache API responses on the CDN
-too). But nevertheless, users still have to go out to the network to download
-necessary data.</p>
-<p>In the optimized app store, we have a <a href="https://github.com/mozilla/yogafire/tree/master/lib" target="_blank" rel="external">suite of
-programs</a> that download
-the API responses into JSON files that we package with the app to ship with the
-phones.  Upon launch, the data from the JSON files are requested and pulled
-into our cache in the background.</p>
-<h2 id="multi-layer-cache-with-asynchronous-updating"><a href="#multi-layer-cache-with-asynchronous-updating" class="headerlink" title="Multi-Layer Cache with Asynchronous Updating"></a>Multi-Layer Cache with Asynchronous Updating</h2><p>We implemented a <a href="https://github.com/mozilla/yogafire/blob/master/hearth/media/js/db.js" target="_blank" rel="external">multi-layer caching
-system</a>:</p>
-<ul>
-<li>Data from pre-loaded JSON files are pulled into the localStorage cache</li>
-<li>All data is then subsequently requested from the cache</li>
-<li>Data requested from the cache is pulled into memory for subsequent requests</li>
-<li>The cache is asynchronously updated with the API</li>
-</ul>
-<p>Initially, we looked at using IndexedDB due to the lack of a 5MB storage cap
-that localStorage otherwise would have. However for our smaller data set,
-localStorage was marginally faster, and 5MB would be more than enough. In case
-the 5MB cap is ever hit, we simply wipe the cache.</p>
-<p>Still, on the lower-performance phone, localStorage still was not fast enough.
-So data that is pulled from localStorage is also stored into memory (RAM) in
-case the data is asked for again. This way, we get to keep the persistence of
-localStorage alongside the faster speed of memory.</p>
-<p>With asynchronous updating from the API, we never have to block on API
-requests, which would otherwise a dealbreaker on EDGE networks.</p>
-<h2 id="image-deferring"><a href="#image-deferring" class="headerlink" title="Image Deferring"></a>Image Deferring</h2><p>Images, however, are by far the largest assets, which are mainly app icons and
-app screenshots. An average icon is about 4KB and an screenshot is about 20KB.
-These kilobytes add up.</p>
-<p>So we defer images. We have an <a href="https://github.com/mozilla/yogafire/blob/master/hearth/media/js/image-deferrer.js" target="_blank" rel="external">image
-deferrer</a>
-that constantly checks for images that scroll in the viewport, and if they do,
-only then do they load.  Images outside the viewport are not loaded, saving
-bandwidth. Until then, we display a nice little Rocketship that waits for its
-queen image to be faded in.</p>
-<p>Note, we tried out pre-loading app icons and app screenshots into the package,
-but that bloated up the package too much. It would mean on every update we
-wanted to push out, users would have to download nearly a whole megabyte. No
-can do. We keep the package down to 200KB.</p>
-<h2 id="conclusion"><a href="#conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>There were loads of other things we had to do such as implement a new design,
-optimize for languages such as Hindi and regions such as India, or improve
-offline usability. I entered the project about a fifth of the way through but
-quickly picked it up for a three-week sprint, Starting from Corvallis, Oregon
-and ending in Fort Myers, Florida.</p>
-<p>Since Mozilla is open and all, you can even check out our bug trackers:</p>
-<ul>
-<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=998811" target="_blank" rel="external">Version 0</a></li>
-<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1000301" target="_blank" rel="external">Version 1</a></li>
-<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1011012" target="_blank" rel="external">Version 1.1</a></li>
-</ul>
-<p>In the end, we enjoyed some ice cream cake, and waited for the millions to
-pick up the phone. Funny thing is, I didn’t even have the phone to develop
-on until I was done with the project!</p>
-<p><img src="http://i.imgur.com/3NNTjGK.png" alt=""></p>
-
+  
 </div>
 
 

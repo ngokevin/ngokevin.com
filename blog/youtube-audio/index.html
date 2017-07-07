@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Extracting Sound from Youtube Videos with youtube-dl">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://writingdegreezero.com/wp-content/uploads/2011/05/youtube.png">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,23 +28,7 @@
     <img src="http://writingdegreezero.com/wp-content/uploads/2011/05/youtube.png">
   
 
-  <p>One of my first programming pet projects was a set of <a href="http://github.com/ngokevin/mp3-Suite" target="_blank" rel="external">wrapper
-scripts</a> for youtube-dl with interfaces
-to Rapidshare and Reddit. Then, I didn’t recall youtube-dl having an option to
-extract audio out of videos though previously I did contact the maintainer and
-requested it. Eventually, I ended up getting a <a href="/blog/20111116-youtube-dl/">pull
-request</a> into youtube-dl for Soundcloud
-functionality. Looking at youtube-dl now, it has very many useful options
-including the previously mentioned audio extraction as well as some of what I
-implemented (batch processing).</p>
-<p>To extract audio from a YouTube:</p>
-<p><strong>youtube-dl –extract-audio –audio-format mp3 -o %(title)s [youtube-link]</strong></p>
-<hr>
-<p>The -o option lets you specify how you want the output file to be named. I
-prefer it as the literal title. It also supports simplified title with no
-spaces %(stitle)s.</p>
-<p>There you go, a clean one-liner for some Youtube harvesting goodness.</p>
-
+  
 </div>
 
 

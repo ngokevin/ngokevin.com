@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Open, HTML 5, Minimalist">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://i.imgur.com/FPcGZ.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,115 +28,7 @@
     <img src="http://i.imgur.com/FPcGZ.jpg">
   
 
-  <p>And the hacking goes on. The main event for today, Mozilla HTML 5 Webapps
-hackathon. The prize, glory and fame…and smartphones. I teamed up with <a href="http://sawyerhollenshead.com" target="_blank" rel="external">Sawyer
-Hollenshead</a>, another Mozilla intern, to create
-<a href="http://minimalist.ngokevin.com" target="_blank" rel="external">Minimalist</a>, a list-building app for noting
-down categorized thoughts such as ‘places I want to visit’ or ‘things I want to
-accomplish this year’. Spoilers, we took home smartphones. In this edition of
-the ngokevin Bi-weekly, I’ll describe how the hack day was, what it means for
-an app to be <strong>open</strong>, and some cool HTML 5 features we used.</p>
-<hr>
-<h2 id="hack-day"><a href="#hack-day" class="headerlink" title="Hack Day"></a>Hack Day</h2><p>Got up at early 8am. That was the second earliest time I’ve woken up thus far
-this summer. We got to the office for some bagels/cream cheese and orange
-juice. No time to lose, we started hacking. We basically split up with him
-taking mostly the frontend and me the backend. I got off to a quick start, but
-as expected I ran into a pitfall (trying to return from a jQuery .each loop).
-After spending half an hour on that, I began to rush myself. I wasn’t really
-thinking about my code, I was kinda just banging on my keyboard.</p>
-<p>Lunch time. Burritos and coffee.</p>
-<p>Now my mind was really mush. I couldn’t make out my rushed code and kept
-hacking on it to make it even more disgusting. It got bad enough that I wasn’t
-making too much progress in the last two hours. As time ticked down, I rushed
-even faster, but that didn’t do too much good. Before I knew it, time’s up.
-Damn, wish I had another hour.</p>
-<p>Demo the apps. We rolled the dice on demoing app cache, expecting it to fail,
-which it did. Ah, maybe we should’ve rehearsed this. Oh well, presentation went
-fairly well. Other apps featured an IRC bouncer/web client, a
-remake of Bugzilla, and an Instagram clone using shaders and a custom-patched
-Firefox. Up to the judges.</p>
-<p>Minimalist was good for 2nd behind Snappy, an Instagram clone. Ah, if I only I
-hadn’t cracked under the time. Oh well, <strong>constellation prize</strong> (which was also the
-grand prize), Samsung Galaxy S2s with Firefox OS installed. Later on I went
-home and regutted out my ugly code and made Minimalist a thing of beauty. After
-a long day, I’m proud of the results. See it in the Mozilla Marketplace in the
-future. Check it out!</p>
-<h2 id="open-web-apps"><a href="#open-web-apps" class="headerlink" title="Open Web Apps"></a>Open Web Apps</h2><p>The open web is a beautiful mission, and it’s difficult to describe. How I
-envision an open web is a web that is owned by nobody, but innovated by
-everybody. An open web is built upon web standards (HTML 5, CSS3, Javascript)
-and not proprietary locked-down drivel. It’s created with common languages that
-every developer can understand. There are no coporations imposing their
-proprietary ‘you are mine’ platforms in an attempt to lock in developers into
-their markets. If developers are slowed down and locked away, then less cool
-stuff gets to the users, and thus the web would begin to suck.</p>
-<p>Current app markets (iOS Store, Google Play) kinda suck. They house a lot of
-great apps, and they seem alright, but we’ve gotten complacent.</p>
-<ul>
-<li>Objective-C and Java are the power languages in the app market. It’s a cup of
-tea to some people, but they’re clunky by today’s standards. Web standard
-languages are a much lower barrier of entry to development.</li>
-<li>You need to grab their respective SDKs to develop on them, or even <em>pay</em> for
-them in Apple’s case.</li>
-<li>Developers are locked into either Apple or Google. It’s one or the other, you
-only get to develop for a subset of users. With the web though, it’s
-something most everyone can access. Develop on the web, have it run on
-everything.</li>
-</ul>
-<p>But wait, weren’t Apple’s first iPhone apps built on top of the web? Yes, but
-that was back when Javascript was very slow. The web was not ready then, but
-the web is ready now. People are starting to get bored of native applications.
-It’s a pretty mundane thing. Open web apps are the future, and it’s a bit of a
-self-pat, but Mozilla is paving this road to move the web forward. There is
-only one mission, make the Internet better for everyone.</p>
-<h2 id="html-5-features"><a href="#html-5-features" class="headerlink" title="HTML 5 Features"></a>HTML 5 Features</h2><p>Part of the limelight of the open web is the browser-adoption of HTML 5
-standards. With it being “open web app hack day”, we employed several cool HTML
-5 features to Minimalist. A requirement for Minimalist was that it had to work
-completely offline. It should be able to add items to a list and have it still
-be there upon refresh. It should also remember which list it was looking at
-last. Refreshing the page should not lose state. To do so, we employed
-HTML5’s local storage and app cache features.</p>
-<h3 id="local-storage"><a href="#local-storage" class="headerlink" title="Local Storage"></a>Local Storage</h3><p>It’s like your browser has its own cute little database. Local storage is a
-client-side key-value store that web apps can access. We can store items into
-local storage and pull them back out later without the need for fetching data
-from some server on the Internet. It’s ridiculously easy to access, with
-Javascript through the <strong>window.localStorage</strong> object. It mostly acts like a
-key-value store, except it stores everything as a string so remember to
-type-cast your values correctly. JSON.parse and JSON.stringify really comes in
-handy here.</p>
-<h3 id="app-cache"><a href="#app-cache" class="headerlink" title="App Cache"></a>App Cache</h3><p>Configuring the app cache tells the client to download everything (usually) and
-cache it. When the client opens the app again, instead of fetching it from your
-server, it’ll just load the pages and elements from its cache. The user can
-visit the app’s URL in the browser offline, and it will still load off its
-cache. To set up the app cache, first create a cache.manifest file in your
-apps’s root.</p>
-<pre><code>CACHE
-# v1
-index.html
-
-NETWORK
-jquery.js http://ajax.jquery/jquery.js
-</code></pre><p>This will tell the browser to cache index.html and to get jquery from the
-Internet if possible. The browser will check for every time the cache manifest
-file is changed (e.g. bump up v1 to v2), and re-pull resources if necessary.
-Now we don’t want to cache the manifest file itself since the browser will be
-stuck with an old version of the app for a while, so we can drop an .htaccess
-file to specify the correct content type and tell apache not to cache it.</p>
-<pre><code>AddType text/cache-manifest .manifest
-
-&lt;Files .cache.manifest&gt;
-    ExpiresActive On
-    ExpiresDefault &quot;access&quot;
-&lt;/Files&gt;
-</code></pre><p>Hm, that should be good. If done correctly, most browsers will display a prompt
-whether it should store local data from the app.</p>
-<h2 id="what’s-next"><a href="#what’s-next" class="headerlink" title="What’s Next"></a>What’s Next</h2><ul>
-<li>It’s 5am now, that coffee from noon had its way with me.</li>
-<li>Standard Marketplace hacking (proud of where it’s gotten).</li>
-<li>Some polishing of DrawNothing and Minimalist.</li>
-<li><strong>24h Yahoo Hackathon</strong> next week! Let’s go for a third hackathon finish, yeah?</li>
-<li>Mozilla kayaking day in the bay right afterwards.</li>
-</ul>
-
+  
 </div>
 
 

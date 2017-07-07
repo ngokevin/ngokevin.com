@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Using react-router with redux">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://i.imgur.com/6Jqxo6Kl.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,111 +28,7 @@
     <img src="http://i.imgur.com/6Jqxo6Kl.jpg">
   
 
-  <p>I’m working on submission and reviewer tools for FirefoxOS add-ons, which I’d
-like to shout out is the most exciting thing to hit FirefoxOS yet. It’ll enable
-a customization community as powerful as CyanogenMod yet be much more
-accessible.</p>
-<p>For this project, I wanted to port our Flux framework from
-<a href="http://acdlite.github.io/flummox" target="_blank" rel="external">Flummox</a> to
-<a href="http://rackt.github.io/redux/docs/introduction/index.html" target="_blank" rel="external">Redux</a> while using
-<a href="https://github.com/rackt/react-router/" target="_blank" rel="external">react-router</a>. I always struggle with
-getting react-router to pass Redux-related context to the handler components.
-Having done this twice and running into many pitfalls, I am sharing my
-experiences to prospective struggle-bus riders.</p>
-<hr>
-<p>Note this guide will feature:</p>
-<ul>
-<li>ES6 code</li>
-<li>react@0.13</li>
-<li>react-redux@0.9.0</li>
-<li>react-router@1.0.0-beta1</li>
-<li>redux@1.0.0</li>
-</ul>
-<p>If you are behind on these versions, I recommend upgrading. The Flux community
-is moving very rapidly, so keep up.</p>
-<h3 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h3><p>Have your Redux store created. This is explained in the Redux documentation so
-I won’t go into detail here. But I will note that we are using
-<a href="https://github.com/acdlite" target="_blank" rel="external">acdlite’s</a> <code>redux-react-router</code> library which
-conveniently makes availalbe react-router state inside of our Redux store, and
-features action creators for react-router.</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Provider<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Route<span class="token punctuation">,</span> Router<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>history<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router/lib/BrowserHistory'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>combineReducers<span class="token punctuation">,</span> createStore<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'redux'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>reduxRouteComponent<span class="token punctuation">,</span>
-        routerStateReducer <span class="token keyword">as</span> router<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'redux-react-router'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./components/App'</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">const</span> reducer <span class="token operator">=</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  router<span class="token punctuation">:</span> routerStateReducer<span class="token punctuation">,</span>
-  <span class="token comment" spellcheck="true">// ...other reducers.</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>reducer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>Next, imagine that <code>App</code> is our root-level handler component. We’re going
-to need to wrap it with a Redux Provider such that it has access to the Redux
-store.</p>
-<p>Why do we need to do this? We are using <code>redux-react-router</code> which should
-magically handle passing the Redux store as context into the handler component
-for us, but unfortunately <code>react@0.13</code> does owner-based context which kills
-this feature. <code>react@0.14</code> will do parent-based context so this will work
-in the future without need for wrapping. Owner-based context is also why we
-wrap our component in a function inside the Provider.</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">ReduxApp</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">></span>
-      <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&lt;</span>App <span class="token punctuation">{</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">></span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Now let’s build our Router and start the render:</p>
-<pre class=" language-javascript"><code class="language-javascript">React<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>Router history<span class="token operator">=</span><span class="token punctuation">{</span>history<span class="token punctuation">}</span><span class="token operator">></span>
-  <span class="token operator">&lt;</span>Route component<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">reduxRouteComponent</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>Route name<span class="token operator">=</span><span class="token string">"app"</span> path<span class="token operator">=</span><span class="token string">"/"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>ReduxApp<span class="token punctuation">}</span><span class="token operator">></span>
-      <span class="token comment" spellcheck="true">// ...other routes.</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h3 id="components-app-js"><a href="#components-app-js" class="headerlink" title="components/App.js"></a>components/App.js</h3><p>Our <code>App</code> component should now have access to the Redux store via context.
-Although, it is usually better practice to react-redux’s <code>connect</code> to
-only expose a subset of the store. Let’s see what the <code>App</code> component
-might look like:</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>bindActionCreators<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'redux'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>connect<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token punctuation">{</span>someApiFetch<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../actions/someApi'</span><span class="token punctuation">;</span>
-
-
-@<span class="token function">connect</span><span class="token punctuation">(</span>
-  state <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>user<span class="token punctuation">:</span> state<span class="token punctuation">.</span>user<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  dispatch <span class="token operator">=</span><span class="token operator">></span> <span class="token function">bindActionCreators</span><span class="token punctuation">(</span><span class="token punctuation">{</span>someApiFetch<span class="token punctuation">}</span><span class="token punctuation">,</span> dispatch<span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>loggedIn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">someApiFetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span>p<span class="token operator">></span>Logged <span class="token keyword">in</span> <span class="token keyword">as</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>But that’s out of the scope of this post. You can read more about implementing
-higher-level Redux components at
-<a href="https://github.com/rackt/react-redux" target="_blank" rel="external">react-redux</a>. Hope this routes you
-in the right direction!</p>
-
+  
 </div>
 
 

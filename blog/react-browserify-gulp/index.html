@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Browserify and Gulp Workflow for React">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -19,100 +26,7 @@
 
   
 
-  <p>The JS world moves quickly. New web tools are adopted faster than new
-Spidermans (men?) are produced. One second, people are talking about AngularJS,
-RequireJS, and Grunt. The next, it’s React, Browserify, and Gulp. Who knows, by
-tomorrow we could have some new shiny things called McRib, Modulus, or Chug.
-But the new workflows that come along never fail to keep development
-interesting and never fail to make our lives easier. Kay, it’s time to freshen
-up. Let us answer: what is so streets-ahead about these new web technologies?</p>
-<hr>
-<p>To talk about Browserify and Gulp, we’d need to take a look at their siblings.</p>
-<ul>
-<li>RequireJS is a JS module loader that manages dependencies. Very rough idea
-would be like having Python <code>imports</code> in JS.</li>
-<li>Grunt is a JS task runner. A common use is the automation of builds of
-frontend codebases (i.e., JS minification, bundling, CSS pre-compilation).
-Very rough idea would be to think of it as a JS Makefile.</li>
-</ul>
-<p>Let’s explore what the new kids on the block are kicking around.</p>
-<h2 id="why-react"><a href="#why-react" class="headerlink" title="Why React?"></a>Why React?</h2><p>React is a JS library for building reusuable components.  These components do
-not require you to manually set up linking functions or any data binding. Just
-call <code>render</code> and it will refresh in the DOM. React even diffs refreshes to
-the DOM to minimize unnecessary re-rendering for very performant view
-rendering.</p>
-<p>Note that React is not a full MVC framework. As such, It makes a nice wine
-pairing with other frameworks. I won’t fully dive into React code today, but we
-can get a nice workflow set up specifically for it.</p>
-<h2 id="why-browserify"><a href="#why-browserify" class="headerlink" title="Why Browserify?"></a>Why Browserify?</h2><p>To pull in a third-party dependency in RequireJS, one must venture out into the
-internet and curl/wget/download/whatever the file into their project. Then they
-can <code>require</code>d. Any updates will have to be refetched manually Repeat this
-with multiple dependencies for multiple projects, and it becomes a nuisance.
-Having to optimize RequireJS projects in another step is a rotten cherry on
-top.</p>
-<p>Browserify piggybacks <code>npm</code>. Dependencies with Browserify support such as
-jQuery, Underscore.js, React, or AngularJS can be hosted on <code>npm</code>,
-specified and listed all in <code>package.json</code>, and Browserify will handle the
-bundling of these dependencies with your source code into a single file for
-you! Browserify even creates a dependency tree to figure out which modules
-need and need not to be included in the bundle. Smart lad.</p>
-<h2 id="why-gulp"><a href="#why-gulp" class="headerlink" title="Why Gulp?"></a>Why Gulp?</h2><p>Gulp consist more of code whereas Grunt are structured more towards
-configuration. It can be a matter of preference, but Gulp’s focus on chained
-pipelines and streams make it such that intermediary data or files are not
-needed when handling things such as minification and pre-compilation.</p>
-<p>Grunt is well-fleshed with its thousands plugins from the community. However,
-Gulp is getting there. In the short dip I’ve taken, Gulp had more than all the
-plugins I needed. Either way, you’ll be well supported.</p>
-<p>Here’s my project’s gulpfile. It uses <code>reactify</code> to precompile React JSX
-files into normal JS files which is then pipelined to <code>browserify</code> for
-bundling with dependencies. It compiles Stylus files to CSS. And everything’s
-nicely set up to watch directories and rebuild when needed. I’m pretty giddy.</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> browserify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'browserify'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> del <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'del'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> reactify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'reactify'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'vinyl-source-stream'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> stylus <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-stylus'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> paths <span class="token operator">=</span> <span class="token punctuation">{</span>
-    css<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'src/css/**/*.styl'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    index_js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'./src/js/index.jsx'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'src/js/*.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'clean'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">del</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'build'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> cb<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'css'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'clean'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>css<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">stylus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'./src/css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'js'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'clean'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Browserify/bundle the JS.</span>
-    <span class="token function">browserify</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>index_js<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">transform</span><span class="token punctuation">(</span>reactify<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">bundle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token string">'bundle.js'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'./src/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// Rerun the task when a file changes</span>
-gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'watch'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>css<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'css'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>js<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// The default task (called when you run `gulp` from cli)</span>
-gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'watch'</span><span class="token punctuation">,</span> <span class="token string">'css'</span><span class="token punctuation">,</span> <span class="token string">'js'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>It’s finally nice to get outside. Away from the codebase of work. Into the
-virtual world. Smell the aromas of fresh technologies. I’ve grown two years
-younger, and with an extra kick in my step.</p>
-
+  
 </div>
 
 

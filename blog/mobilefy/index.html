@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="I Think I Just Mobilefied Myself">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://imgur.com/AS71KVP.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,74 +28,7 @@
     <img src="http://imgur.com/AS71KVP.jpg">
   
 
-  <p>Shrink your browser window, I dare you. I spent my last night plastering on some
-good old <strong>responsive web design (RWD)</strong> on top of my big bad blog, ngokevin. It
-was well-timed since I have been recently working on RWD for <a href="http://marketplace.firefox.com" target="_blank" rel="external">Firefox
-Marketplace’s</a> app reviewing tools. Initially,
-I was not sure where to start on converting my px-based blog to be more fluid.
-Really, I was panicking in my seat just simply imagining having to migrate my
-whole site from px to em. But then I went into my programming <a href="http://i.imgur.com/405shFa.jpg" target="_blank" rel="external">Avatar
-State</a>, bending my arsenal of media queries at
-will.</p>
-<hr>
-<p>In my Web Developer State, I yielded RWD. <strong>My RWD process</strong>.</p>
-<ul>
-<li>Take a desktop site that looks like complete bollocks when not 1920x1080.</li>
-<li>Using the browser’s RWD tools, slowly shrink my browser until everything
-goes to aforementioned bollocks.</li>
-<li>Set a breakpoint with the current width of the page as a media query.</li>
-</ul>
-<p>Start off with a shiny new media query with the max-width set to our measured
-breakpoint. Note a couple things. We do not use common device widths as our
-media query breakpoints; we observe and let the design dictate where our mobile
-css is needed. And we do not use px’s in our media queries, rather we convert
-and use em’s since they are smart enough to handle browser zooming.</p>
-<p>First things first. Make sure to have a meta tag telling mobile browsers to
-not lie about their width as do people lie about their age. Otherwise, our
-media queries will be sorrowfully rejected.</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-</code></pre>
-<p>Now we start slapping on some width-wary CSS.</p>
-<pre class=" language-scss"><code class="language-scss"><span class="token atrule"><span class="token rule">@media</span> all <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">61.25</span>em<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* CSS when the window width &lt; 980px. */</span>
-    <span class="token selector">#wrap </span><span class="token punctuation">{</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90%</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Following my process earlier, I noticed I had a fixed width page at 940px. When
-shrinking the browser below that, the content did not reflow. Thus when past
-that 940px point, I tell my container to shrink as the screen shrinks.</p>
-<p>After applying some more fixes until satisfaction, I <strong>iterate and repeat my
-RWD process</strong>. I shrink my browser some more until the content starts
-imploding. The breakpoint this time was 768px, or for my blog, 48em. Time for
-another media query.</p>
-<pre class=" language-scss"><code class="language-scss"><span class="token atrule"><span class="token rule">@media</span> all <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">48</span>em<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-    <span class="token selector">#header </span><span class="token punctuation">{</span>
-        <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">78</span>px<span class="token punctuation">;</span>
-        <span class="token selector">.logos </span><span class="token punctuation">{</span>
-            <span class="token property">position</span><span class="token punctuation">:</span> static<span class="token punctuation">;</span>
-            <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token selector">#navigation </span><span class="token punctuation">{</span>
-            <span class="token property">position</span><span class="token punctuation">:</span> static<span class="token punctuation">;</span>
-            <span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token number">26</span>px<span class="token punctuation">;</span>
-            <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>The navigation was now having a spat with my blog header. Here is another
-snippet that de-inlines my header elements and puts my navigation block on
-another line. The actual CSS does not really matter here, but I am outlining
-the iterative process of finding the doom spot, making an encapsulated media
-query, and then fixing it.</p>
-<p>The fun part about working with responsive web design is that <strong>we do not have
-to worry about breaking anything!</strong> It was already initially unusable like fork
-in soup, and applying CSS that is enclosed within media queries does not affect
-the desktop version. We are free to hack away without worries. Until we reach
-our desired effect, it is just us and the CSS.</p>
-
+  
 </div>
 
 

@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Content Ratings on the Firefox Marketplace (Rated E for Everyone)">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://imgur.com/2yA1a4z.jpg">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,57 +28,7 @@
     <img src="http://imgur.com/2yA1a4z.jpg">
   
 
-  <p>Our little webapp marketplace is growing up so quickly. Over the last past two
-and a half months, <a href="http://github.com/robhudson" target="_blank" rel="external">robhudson</a> and I have been
-working with the <a href="http://www.esrb.org/index-js.jsp" target="_blank" rel="external">ESRB</a> (Entertainment
-Software Rating Board) to integrate their new International Age Rating
-Coalition (IARC) system into the Firefox Marketplace. IARC is a system that
-unifies multiple age rating systems respective to different countries to make
-it simpler for content creators to obtain a content rating for their products.</p>
-<p>For those not familiar with age-based content ratings, they are most popularly
-known for their use in games and movies, such as <em>Rated M for Mature for
-Violence</em> or <em>Suitable for Ages 13 and Up</em>. The Firefox Marketplace has become
-the <strong>first storefront</strong> to implement IARC, and as such it was a bit of a new
-experience for both parties. We both grew up together; we tackle becoming a
-full-fledged store, and they prepare to fry larger fish (i.e. Nintendo or
-Sony).</p>
-<hr>
-<p>For some background, FirefoxOS recently <a href="https://blog.mozilla.org/about_mozilla/2013/10/24/firefox-os-launches-in-brazil-germany-your-name-on-the-mozillians-monument-and-more/" target="_blank" rel="external">launched in Brazil and
-Germany</a>
-in late 2013. Brazil and Germany have strict and legal age rating requirements
-for digitally-distributed games, with laws requiring self-rating through an
-approved age rating system (i.e. <a href="http://culturadigital.br/classind/" target="_blank" rel="external">CLASSIND</a>
-for Brazil or <a href="http://www.usk.de/" target="_blank" rel="external">USK</a> for Germany). Our Marketplace, in order
-to list the games in those regions, had to display content ratings for those
-games. Before implementing IARC, we built a temporary system that allowed our
-app reviewers to manually enter in content ratings for individual games that
-were only applicable to Brazil and Germany. Now with IARC, developers can
-obtain content ratings on their own which are applicable to all regions.</p>
-<p>Developers are led from the Marketplace through an IARC portal where they can
-fill out a yes/no questionnaire that inquires about the content of their app
-(e.g. <em>Does it contain violence?</em>, <em>Does it contain crude humor</em>). Although
-the app is self-rated, IARC will occasionally do spot-checks and manually
-update the rating. Marketplace app reviewers may also spot any inconsistencies
-between the app’s rating and the app’s content.</p>
-<p>Upon filling out the form, developers are redirected back to the Marketplace
-where their content rating will be registered to their app by both Marketplace
-and IARC. If the developer ever released their app on another storefront,
-their rating would conveniently follow that product. When people visit their
-app’s listing page on the Marketplace, they will be able to read all about the
-its content rating.</p>
-<p><img src="http://i.imgur.com/rd9477d.png" alt="App with content ratings"></p>
-<div class="page-caption"><span>
-Minimalist, an app with content ratings on the Firefox Marketplace.
-</span></div>
-
-<p>We organized development in this <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=929812" target="_blank" rel="external">Bugzilla tracking
-bug</a>. Throughout
-development, ESRB has been very responsive with communication, in making sure
-our system was correctly implemented and in ironing out bugs on their side.
-Currently, the IARC supports the ESRB, <a href="http://www.pegi.info/en/index/" target="_blank" rel="external">PEGI</a>,
-CLASSIND, and USK rating systems. <a href="http://en.wikipedia.org/wiki/Video_game_content_rating_system#Rating_systems" target="_blank" rel="external">More will likely
-follow</a>.</p>
-
+  
 </div>
 
 

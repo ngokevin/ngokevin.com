@@ -3,6 +3,13 @@
     <title>Kevin Ngo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="ngokevin.com">
+    <meta name="twitter:creator" content="Kevin Ngo">
+    <meta name="twitter:title" content="Beets - CLI Media Library Management for OCD Geeks">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://beets.radbox.org/beets.png">
     <link rel="stylesheet" href="/css/base.css">
     
      <link rel="stylesheet" href="/css/post.css"> 
@@ -21,135 +28,7 @@
     <img src="http://beets.radbox.org/beets.png">
   
 
-  <p>Ever since my very first iPod back in high school, I had been glued to heavy
-media library manangement systems such as iTunes or Banshee. They let me import
-music to a consolidated library folder, edit ID3 tags and update the file, and
-fetch album art. However, managing it through a GUI very quickly became
-tedious.</p>
-<p>My <a href="http://github.com/ngokevin/mp3-Suite" target="_blank" rel="external">bot</a> that fetched music from
-<a href="reddit.com/r/listentothis">/r/listentothis</a> was grabbing anywhere from 20 to
-30 songs a day on a cron. Since they were being fetched from YouTube via
-youtube-dl, the songs were untagged. After a while, the songs build up, and I
-get hundreds or even thousands of songs that are left sitting in my library
-untagged. I only wanted to tag songs that I liked which entailed sifting
-through them. Ideally, I would want to be able to listen to my music
-library from anywhere (e.g. work) and slowly tag or delete songs remotely.</p>
-<hr>
-<p>Depending on managing my music on my desktop with Banshee was difficult:</p>
-<ul>
-<li>My desktop is usually off so I can’t remote into it to actually manage my library.</li>
-<li>Banshee is difficult to use remotely because it is very resource-intensive</li>
-<li>It being a GUI made it not very efficient actions-per-minute wise</li>
-</ul>
-<p>I depended too much on Banshee, and needed a command-line alternative.  Then it
-happened. I visited a wise elder during my travels along the roads of the
-Internet, and he showed me the ancient ways of manging my music from afar.
-Behold, <a href="http://beets.radbox.org" target="_blank" rel="external">beets</a>, <em>“the media library management system
-for obsessive-compulsive music geeks.  The purpose of beets is to get your
-music collection right once and for all. It catalogs your collection,
-automatically improving its metadata as it goes using the MusicBrainz database.
-(It also downloads cover art for albums it imports.) Then it provides a bouquet
-of tools for manipulating and accessing your music.”</em>
-<br>
-<br></p>
-<p><strong>Setup</strong></p>
-<p>You can install beets through pip</p>
-<pre><code>sudo pip install beets
-</code></pre><p>Create a beets config file in your home directory</p>
-<pre><code>vim ~/.beetsconfig
-</code></pre><p>This contains all the configurations you will need for deciding how you want
-your library to be managed. Here is mine:</p>
-<pre><code>[beets]
-directory: ~/Music
-library: ~/Music/musiclibrary.blb
-import_copy: yes
-import_write: yes
-import_resume: yes
-import_art: yes
-import_log: ~/.beets.log
-colors: yes
-plugins: bpd lastid
-
-[paths]
-default: $albumartist/$albumartist - $title
-compilation: $albumartist/$albumartist - $title
-
-[bpd]
-host: 127.0.0.1
-port: 8080
-password: a
-</code></pre><p>This is just a basic configuration file, and the beets site has pretty good
-<a href="http://readthedocs.org/docs/beets/en/1.0b11/reference/config.html" target="_blank" rel="external">documentation</a>
-on setting it up. Note that there is a difference between your music directory
-and your music database/library. Throwing a file into the directory does not
-throw it into your music database/library. You must import files (more on that
-later) for it to actually be registered in the blob file. Otherwise, it won’t show
-up in queries and such.</p>
-<p><em>import_copy</em> means to physically copy imported media into the library
-directory (it is enabled by default). The BPD plugin allows playing the media
-and the <em>lastid</em> allows tagging via acoustic fingerprinting which means it
-actually analyzes songs themeselves to try to determine correct metadata (more
-on the autotagger later).
-<br>
-<br></p>
-<p><strong>Importing Library</strong></p>
-<p>You can import your library with your library’s existing metadata, or try out
-the autotagger.  The autotagger pits the current metadata (or even uses
-acoustic fingerprinting if the plugin is enabled) against an online music
-database to try to determine canonical metadata. Using the autotagger is a long,
-tedious, and interactive process that will make you quite acquainted with your
-library.</p>
-<p>To import using existing tags, use the -A option. This is the option I used, and
-worked very well. Consider setting import-write to no for the initial import
-since there is no need to re-copy the files onto themselves.</p>
-<pre><code>$ beet import -A /my/huge/mp3/library
-</code></pre><p>To import using the autotagger, simply use import.</p>
-<pre><code>$ beet import /path/to/my/music
-</code></pre><p>You can interrupt an import process and resume it later. If you want to cancel
-a session, just throw the -P option. If you get a weird database lock, just try again.
-It was most likely due to threads colliding.
-<br>
-<br></p>
-<p><strong>Importing Songs</strong></p>
-<p>If you grab more songs, the process is similar. You can run import and it will copy
-it into your music directory if import-write is enabled. What’s nice is it will try
-to fetch album art for you.</p>
-<pre><code>$ beet import ~/some_great_album
-</code></pre><p>If you want to copy from a folder that contains already-imported music, you can
-import incrementally with the -i option to only import new songs.</p>
-<pre><code>beet import -i
-</code></pre><p><br></p>
-<p><strong>Querying Music</strong></p>
-<p>You can run <a href="http://readthedocs.org/docs/beets/en/1.0b11/reference/query.html" target="_blank" rel="external">queries</a>
-on your database. You can run flat queries or field-specific queries. Beets has special syntax
-for queries (field:value for querying, field=value for setting).</p>
-<pre><code>$ beet ls the magnetic fields
-$ beet list artist:dream
-</code></pre><p>You can also get overall library statistics.</p>
-<pre><code>$ beet stats
-</code></pre><p><br>
-<strong>Modifying Tags</strong></p>
-<p>You can again use queries to modify metadata.</p>
-<pre><code>beet modify [-MWay] QUERY FIELD=VALUE
-</code></pre><p>This will change the field to value for every song that matches the query.</p>
-<p>If you change metadata of songs using another method or delete songs without deleting it from the database, you can update the database to reflect these changes with update.</p>
-<pre><code>beet update
-</code></pre><p>-a lot more where that came from-
-Official Documentation:
-<a href="http://readthedocs.org/docs/beets/en/1.0b11/index.html" target="_blank" rel="external">http://readthedocs.org/docs/beets/en/1.0b11/index.html</a>
-<br>
-<br></p>
-<p><strong>Subsonic</strong></p>
-<p>A very nice complement to a library management system is a streaming player via
-web frontend. I used to use <a href="http://www.gnu.org/software/gnump3d/" target="_blank" rel="external">GNUmp3d</a>
-which allowed me to stream music and video, but
-<a href="http://subsonic.org" target="_blank" rel="external">Subsonic</a>, a free web-based media streamer has many
-really cool features including editing tags, multiple users that can see what
-each other is listening to, permissions for different users, and ability to
-download and upload music all via the frontend. I am currently hosting on on my
-webserver.</p>
-<p>With the one-two punch of Beets and Subsonic, managing music has never been easier.</p>
-
+  
 </div>
 
 
